@@ -26,6 +26,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
     List<Widget?> screens = [const OrdersScreen(), const FoodScreen()];
 
     return Scaffold(
+      backgroundColor: const Color(0xFFf4f5f8),
       body: screens[curIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: GestureDetector(

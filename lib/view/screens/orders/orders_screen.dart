@@ -100,7 +100,12 @@ class _OrdersScreenState extends State<OrdersScreen>
             controller: _tabController,
             children: [
               const NoOrders(),
-              OrderItem(onTap: () {}),
+              ListView.builder(
+                  itemCount: 15,
+                  padding: const EdgeInsets.only(top: 10, bottom: 50),
+                  itemBuilder: (_, index) {
+                    return OrderItem(onTap: () {});
+                  }),
               Container(
                 width: 100,
                 color: const Color.fromARGB(255, 114, 156, 31),

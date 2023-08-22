@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/accepted/accept_bottom_sheet.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/list_item/accepted_order_item.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/list_item/ready_order_item.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/list_item/way_order_item.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/no_orders.dart';
-import 'package:vendor_foody/view/screens/orders/widgets/order_item.dart';
-
+import 'package:vendor_foody/view/screens/orders/widgets/ready/ready_bottom_sheet.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/way/way_bottom_sheet.dart';
 import '../../../custom/custom_app_bar.dart';
 import '../../../custom/custom_tab_bar.dart';
 
@@ -19,16 +23,26 @@ class _OrdersScreenState extends State<OrdersScreen>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
+  int index = 0;
+
   final tabs = [
     const Tab(child: Icon(FlutterRemix.fire_fill, size: 22)),
     const Tab(child: Icon(FlutterRemix.check_double_fill, size: 22)),
     const Tab(child: Icon(FlutterRemix.time_fill, size: 22)),
     const Tab(child: Icon(FlutterRemix.takeaway_fill, size: 22)),
   ];
+
+  List<Map<String, String>> appBarTitles = [
+    {"title": "New Order", "subtitle": "30 order"},
+    {"title": "fasdf 2", "subtitle": "order 2"},
+    {"title": "fasdf 2", "subtitle": "order 3"},
+    {"title": "fasdf 3", "subtitle": "order 4"},
+  ];
   @override
   void initState() {
     super.initState();
-    _tabController = _tabController = TabController(length: 4, vsync: this);
+    _tabController =
+        _tabController = TabController(length: tabs.length, vsync: this);
   }
 
   @override
@@ -39,6 +53,8 @@ class _OrdersScreenState extends State<OrdersScreen>
 
   @override
   Widget build(BuildContext context) {
+    final title = appBarTitles[index]['title'];
+    final subtitle = appBarTitles[index]['subtitle'];
     return Column(
       children: [
         CustomAppBar(
@@ -64,21 +80,21 @@ class _OrdersScreenState extends State<OrdersScreen>
                     ),
                   ),
                 ),
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TOTTextAtom.bodyMedium(
-                      'text',
+                      title.toString(),
                       color: Colors.black,
                     ),
                     Row(
                       children: [
                         TOTTextAtom.bodyLarge(
-                          'text222',
+                          subtitle.toString(),
                           color: Colors.black,
                         ),
-                        TOTIconAtom.displayMedium(
+                        const TOTIconAtom.displayMedium(
                           codePoint: 0xe353,
                           color: Colors.black,
                         ),
@@ -92,7 +108,15 @@ class _OrdersScreenState extends State<OrdersScreen>
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: CustomTabBar(tabController: _tabController, tabs: tabs),
+          child: CustomTabBar(
+            tabController: _tabController,
+            tabs: tabs,
+            onPressed: (v) {
+              setState(() {
+                index = v;
+              });
+            },
+          ),
         ),
         Expanded(
           child: TabBarView(
@@ -104,16 +128,39 @@ class _OrdersScreenState extends State<OrdersScreen>
                   itemCount: 15,
                   padding: const EdgeInsets.only(top: 10, bottom: 50),
                   itemBuilder: (_, index) {
-                    return OrderItem(onTap: () {});
+                    return AcceptedOrderItem(onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const AcceptBottomSheet(); // Your custom bottom sheet widget
+                        },
+                      );
+                    });
                   }),
-              Container(
-                width: 100,
-                color: const Color.fromARGB(255, 114, 156, 31),
-              ),
-              Container(
-                width: 100,
-                color: const Color.fromARGB(255, 86, 19, 92),
-              ),
+              ListView.builder(
+                  itemCount: 15,
+                  padding: const EdgeInsets.only(top: 10, bottom: 50),
+                  itemBuilder: (_, index) {
+                    return ReadyOrderItem(onTap: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const ReadyBottomSheet();
+                          });
+                    });
+                  }),
+              ListView.builder(
+                  itemCount: 15,
+                  padding: const EdgeInsets.only(top: 10, bottom: 50),
+                  itemBuilder: (_, index) {
+                    return OnAwayOrderItem(onTap: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (_) {
+                            return const WayBottomSheet();
+                          });
+                    });
+                  }),
             ],
           ),
         ),

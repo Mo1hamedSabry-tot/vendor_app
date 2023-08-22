@@ -8,6 +8,7 @@ import 'package:vendor_foody/view/screens/orders/widgets/list_item/way_order_ite
 import 'package:vendor_foody/view/screens/orders/widgets/no_orders.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/ready/ready_bottom_sheet.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/way/way_bottom_sheet.dart';
+
 import '../../../custom/custom_app_bar.dart';
 import '../../../custom/custom_tab_bar.dart';
 
@@ -34,9 +35,9 @@ class _OrdersScreenState extends State<OrdersScreen>
 
   List<Map<String, String>> appBarTitles = [
     {"title": "New Order", "subtitle": "30 order"},
-    {"title": "fasdf 2", "subtitle": "order 2"},
-    {"title": "fasdf 2", "subtitle": "order 3"},
-    {"title": "fasdf 3", "subtitle": "order 4"},
+    {"title": "accepted Order", "subtitle": "20 order"},
+    {"title": "ready Order", "subtitle": "15"},
+    {"title": "on - a-way", "subtitle": "order 4"},
   ];
   @override
   void initState() {

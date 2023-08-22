@@ -25,22 +25,10 @@ class ReadyBottomSheet extends StatelessWidget {
           const ReadySelectedBtmSheetItem(),
           const SizedBox(height: 16),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.4,
-                height: 50,
-                child: TOTButtonAtom.filledButton(
-                  text: 'Close',
-                  textColor: Colors.white,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  backgroundColor: Colors.red,
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.4,
+                width: MediaQuery.of(context).size.width * 0.8,
                 height: 50,
                 child: TOTButtonAtom.filledButton(
                   text: 'Swip To Way',

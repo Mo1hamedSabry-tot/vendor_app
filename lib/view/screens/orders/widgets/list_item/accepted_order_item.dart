@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 
-class OrderItem extends StatelessWidget {
+class AcceptedOrderItem extends StatelessWidget {
   final VoidCallback onTap;
   //! final ProductModel productModel;
-  const OrderItem({
+  const AcceptedOrderItem({
     super.key,
     required this.onTap,
     //! required this.productModel
@@ -31,7 +31,7 @@ class OrderItem extends StatelessWidget {
                   SizedBox(
                     height: 65,
                     child: TOTAvatarAtom.asset(
-                      'assets/image/noProduct.png',
+                      'assets/image/manager.png',
                     ),
                   ),
                   SizedBox(

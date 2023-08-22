@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/view/screens/food/food_screen.dart';
@@ -24,7 +25,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
     }
 
     List<Widget?> screens = [const OrdersScreen(), const FoodScreen()];
-
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarIconBrightness: Brightness.dark,
+      statusBarColor: Colors.white,
+    ));
     return Scaffold(
       backgroundColor: const Color(0xFFf4f5f8),
       body: screens[curIndex],
@@ -90,14 +94,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                             'assets/image/logo.png',
                             width: 40,
                             height: 40,
-                          )
-                          //  CommonImage(
-                          //   imageUrl: LocalStorage.getShop()?.logoImg,
-                          //   width: 40,
-                          //   height: 40,
-                          //   radius: 20,
-                          // ),
-                          )
+                          ))
                     ],
                   ),
                 ),

@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 class CustomTabBar extends StatelessWidget {
   final TabController? tabController;
   final List<Tab> tabs;
+  final void Function(int)? onPressed;
 
-  const CustomTabBar({Key? key, this.tabController, required this.tabs})
+  const CustomTabBar(
+      {Key? key,
+      this.tabController,
+      required this.tabs,
+      required this.onPressed})
       : super(key: key);
 
   @override
@@ -18,6 +23,7 @@ class CustomTabBar extends StatelessWidget {
         border: Border.all(color: const Color(0xFFDEDFE1)),
       ),
       child: TabBar(
+        onTap: onPressed,
         controller: tabController,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(10),

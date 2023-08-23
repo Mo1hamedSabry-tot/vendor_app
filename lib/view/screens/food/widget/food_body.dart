@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
 
+import 'popular_item.dart';
+
 class FoodBody extends StatelessWidget {
-  const FoodBody({super.key});
+  const FoodBody({super.key, required this.id});
+  final int id;
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Container(
-        color: const Color.fromARGB(255, 105, 12, 23),
-        width: 100,
-        height: 100,
-      ),
+      child: ListView.builder(
+          itemCount: 10,
+          padding: EdgeInsets.zero,
+          itemBuilder: (context, index) {
+            if (id == 0) {
+              return const Align(
+                alignment: Alignment.center,
+                child: PopularItem(),
+              );
+            } else {
+              return null;
+            }
+          }),
     );
   }
 }

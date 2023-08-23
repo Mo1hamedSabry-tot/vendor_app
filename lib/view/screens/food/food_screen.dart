@@ -5,6 +5,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 
 import '../../../custom/custom_app_bar.dart';
+import 'widget/addons_body.dart';
 import 'widget/category_tab_bar_item.dart';
 import 'widget/food_body.dart';
 
@@ -148,10 +149,7 @@ class _FoodScreenState extends State<FoodScreen>
               controller: _tabController,
               children: [
                 FoodBody(id: selectedItemIndex),
-                Container(
-                  height: 100,
-                  color: Colors.amber,
-                )
+                const AdonnsBody(),
               ],
             ),
           ),
@@ -204,11 +202,9 @@ class _Header extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  // TODO: implement maxExtent
   double get maxExtent => 60;
 
   @override
-  // TODO: implement minExtent
   double get minExtent => 60;
 
   @override

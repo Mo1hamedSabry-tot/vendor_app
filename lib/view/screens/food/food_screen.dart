@@ -22,6 +22,7 @@ class _FoodScreenState extends State<FoodScreen>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
   late ScrollController _scrollController;
+  TextEditingController controller = TextEditingController();
 
   int selectedTabIndex = 0;
 
@@ -66,7 +67,7 @@ class _FoodScreenState extends State<FoodScreen>
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(2.0),
                   child: Container(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
@@ -74,34 +75,14 @@ class _FoodScreenState extends State<FoodScreen>
                     ),
                     padding: const EdgeInsets.all(12),
                     child: const Icon(
-                      FlutterRemix.dashboard_3_line,
+                      FlutterRemix.search_2_line,
                       size: 20,
                       color: Colors.black,
                     ),
                   ),
                 ),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TOTTextAtom.bodyMedium(
-                      'title.toString()',
-                      color: Colors.black,
-                    ),
-                    Row(
-                      children: [
-                        TOTTextAtom.bodyLarge(
-                          'subtitle.toString()',
-                          color: Colors.black,
-                        ),
-                        TOTIconAtom.displayMedium(
-                          codePoint: 0xe353,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                  ],
-                )
+                const Spacer(),
+                const TOTIconAtom.displayMedium(codePoint: 0xee3b)
               ],
             ),
           ),

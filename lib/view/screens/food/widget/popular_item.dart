@@ -69,7 +69,7 @@ class PopularItem extends StatelessWidget {
                       text: 'pending',
                       color: Colors.white,
                       colorText: Colors.white),
-                )
+                ),
               ],
             )
           ],

@@ -148,7 +148,7 @@ class _FoodScreenState extends State<FoodScreen>
               physics: const BouncingScrollPhysics(),
               controller: _tabController,
               children: [
-                FoodBody(id: selectedItemIndex),
+                FoodBody(selectedTabIndex: selectedItemIndex),
                 const AdonnsBody(),
               ],
             ),
@@ -188,6 +188,7 @@ class _Header extends SliverPersistentHeaderDelegate {
         indicatorPadding: EdgeInsets.zero,
         onTap: onTap,
         controller: controller,
+        indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.black,

@@ -192,7 +192,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row( 
+                      Row(
                         children: [
                           Text(
                             'text' * 5,
@@ -208,7 +208,17 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                             onChange: (v) {},
                           ),
                         ],
-                      )
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                          width: double.infinity,
+                          child: TOTButtonAtom.filledButton(
+                              text: 'Save',
+                              textColor: Colors.black,
+                              onPressed: () {},
+                              backgroundColor: const Color(0xFF83ea00)))
                     ],
                   ),
                 ),

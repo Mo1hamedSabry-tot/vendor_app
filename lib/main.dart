@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vendor_foody/di_container.dart';
+import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 
 void main() async {
@@ -20,7 +21,10 @@ class MyApp extends StatelessWidget {
           )),
       debugShowCheckedModeBanner: false,
       initialRoute: LayoutScreen.routeName,
-      routes: {LayoutScreen.routeName: (_) => const LayoutScreen()},
+      routes: {
+        LayoutScreen.routeName: (_) => const LayoutScreen(),
+        AddOrder.routName: (_) => const AddOrder()
+      },
     );
   }
 }

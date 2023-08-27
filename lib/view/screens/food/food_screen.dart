@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
@@ -18,6 +16,8 @@ class FoodScreen extends StatefulWidget {
 }
 
 int selectedItemIndex = 0;
+bool selectCategory = false;
+bool unSelectCategory = false;
 
 class _FoodScreenState extends State<FoodScreen>
     with SingleTickerProviderStateMixin {
@@ -26,6 +26,7 @@ class _FoodScreenState extends State<FoodScreen>
   TextEditingController controller = TextEditingController();
 
   int selectedTabIndex = 0;
+  bool isSelcetedCategory = false;
 
   final tabs = [
     const Tab(
@@ -55,6 +56,13 @@ class _FoodScreenState extends State<FoodScreen>
     _scrollController.dispose();
   }
 
+  List<Map<String, dynamic>> categoryTabs = [
+    {"title": "pppppp", "isSelected": selectCategory},
+    {"title": "pppppp", "isSelected": selectCategory},
+    {"title": "pppppp", "isSelected": selectCategory},
+    {"title": "pppppp", "isSelected": selectCategory},
+    {"title": "pppppp", "isSelected": selectCategory},
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -129,12 +137,17 @@ class _FoodScreenState extends State<FoodScreen>
                             padding: EdgeInsets.zero,
                             itemBuilder: (context, index) {
                               return CategoryItem(
-                                //!here
+                                title: categoryTabs[index]['title'],
+                                isSelect: categoryTabs[index]['isSelected'],
                                 onTab: () {
-                                  setState(() {
-                                    log(selectedItemIndex.toString());
-                                    selectedItemIndex = index;
-                                  });
+                                  setState(
+                                    () {
+                                      selectedItemIndex = index;
+                                      // categoryTabs[index]['isSelected'] =
+                                      //     categoryTabs[index]['isSelected'];
+                                      // categoryTabs[index]['isSelected'] = true;
+                                    },
+                                  );
                                 },
                                 id: index,
                               );

@@ -172,23 +172,6 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                           });
                         },
                       ),
-                      DropdownButton(
-                        isExpanded: true,
-                        value: updatedUnitId ?? widget.selectedUnitId,
-                        hint: const Text("Units"),
-                        onTap: () {},
-                        items: List.generate(5, (index) {
-                          return DropdownMenuItem(
-                            value: index,
-                            child: Text("Item $index"),
-                          );
-                        }),
-                        onChanged: (value) {
-                          setState(() {
-                            updatedUnitId = value ?? widget.selectedUnitId;
-                          });
-                        },
-                      ),
                       const SizedBox(
                         height: 10,
                       ),

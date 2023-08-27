@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 class CategoryItem extends StatelessWidget {
   final VoidCallback onTab;
   final int id;
+  final bool isSelect;
+  final String title;
   const CategoryItem({
     super.key,
     required this.onTab,
     required this.id,
+    required this.title,
+    required this.isSelect,
   });
 
   @override
@@ -17,12 +21,11 @@ class CategoryItem extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.green, borderRadius: BorderRadius.circular(10)),
         margin: const EdgeInsets.symmetric(horizontal: 5),
-        // width: 100,
         constraints: const BoxConstraints(maxWidth: 100, minWidth: 50),
         height: 35,
-        child: const Center(
+        child: Center(
           child: Text(
-            'jhgjhgjh',
+            title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),

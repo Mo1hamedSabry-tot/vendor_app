@@ -1,12 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class AcceptedSelectedBtmSheetItem extends StatefulWidget {
-  //! final ProductModel productModel;
+  final ProductModel model;
   const AcceptedSelectedBtmSheetItem({
     super.key,
-    //! required this.productModel
+    required this.model,
   });
 
   @override
@@ -62,15 +62,15 @@ class _AcceptedSelectedBtmSheetItemState
                   const SizedBox(
                     width: 10,
                   ),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TOTTextAtom.bodyLarge('BEE hug'),
-                      SizedBox(
+                      TOTTextAtom.bodyLarge(widget.model.title.substring(0, 7)),
+                      const SizedBox(
                         height: 3,
                       ),
                       TOTTextAtom.bodyLarge(
-                        'delivery __ 1X 18',
+                        widget.model.description.substring(0, 7),
                         color: Colors.grey,
                       ),
                     ],
@@ -78,17 +78,17 @@ class _AcceptedSelectedBtmSheetItemState
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.35,
                   ),
-                  const TOTTextAtom.bodyLarge('18\$'),
+                  TOTTextAtom.bodyLarge('${widget.model.price.toString()}\$'),
                 ],
               ),
               const Divider(
                 color: Color(0xFFf4f5f8),
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TOTTextAtom.bodyLarge('N520'),
-                  TOTTextAtom.bodyLarge('07-02-2026'),
+                  TOTTextAtom.bodyLarge(widget.model.id.toString()),
+                  TOTTextAtom.bodyLarge(widget.model.rating.count.toString()),
                 ],
               )
             ],

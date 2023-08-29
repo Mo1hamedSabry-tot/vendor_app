@@ -11,7 +11,7 @@ class CategoryItem extends StatelessWidget {
     required this.id,
     required this.title,
     required this.isSelect,
-  });
+  }); 
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,9 @@ class CategoryItem extends StatelessWidget {
       onTap: onTab,
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.green, borderRadius: BorderRadius.circular(10)),
+          color: isSelect ? Colors.green : Colors.white,
+          borderRadius: BorderRadius.circular(10),
+        ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         constraints: const BoxConstraints(maxWidth: 100, minWidth: 50),
         height: 35,

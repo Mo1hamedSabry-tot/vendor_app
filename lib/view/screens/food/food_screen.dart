@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
-import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
+import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
 import '../../../custom/custom_app_bar.dart';
 import 'widget/addons_body.dart';
@@ -16,8 +18,6 @@ class FoodScreen extends StatefulWidget {
 }
 
 int selectedItemIndex = 0;
-bool selectCategory = false;
-bool unSelectCategory = false;
 
 class _FoodScreenState extends State<FoodScreen>
     with SingleTickerProviderStateMixin {
@@ -57,117 +57,135 @@ class _FoodScreenState extends State<FoodScreen>
   }
 
   List<Map<String, dynamic>> categoryTabs = [
-    {"title": "pppppp", "isSelected": selectCategory},
-    {"title": "pppppp", "isSelected": selectCategory},
-    {"title": "pppppp", "isSelected": selectCategory},
-    {"title": "pppppp", "isSelected": selectCategory},
-    {"title": "pppppp", "isSelected": selectCategory},
+    {"title": "popular", "isSelected": true},
+    {"title": "iPhones", "isSelected": false},
+    {"title": "food", "isSelected": false},
+    {"title": "mgm", "isSelected": false},
+    {"title": "pppppp", "isSelected": false},
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomAppBar(
-          bottomPadding: 16,
-          child: GestureDetector(
-            onTap: () {},
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xFFf4f5f8),
-                    ),
-                    padding: const EdgeInsets.all(12),
-                    child: const Icon(
-                      FlutterRemix.search_2_line,
-                      size: 20,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                const TOTIconAtom.displayMedium(codePoint: 0xee3b)
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: NestedScrollView(
-            controller: _scrollController,
-            headerSliverBuilder: (
-              BuildContext context,
-              bool innerBoxIsScrolled,
-            ) {
-              return [
-                SliverPersistentHeader(
-                  delegate: _Header(
-                    tabs,
-                    _tabController,
-                    onTap: (value) {
-                      setState(() {
-                        selectedTabIndex = value;
-                      });
-                    },
-                  ),
-                ),
-                if (selectedTabIndex == 0)
-                  SliverAppBar(
-                    collapsedHeight: 0,
-                    expandedHeight: 0,
-                    backgroundColor: Colors.white,
-                    elevation: 0,
-                    pinned: true,
-                    primary: false,
-                    toolbarHeight: 0,
-                    bottom: PreferredSize(
-                      preferredSize: const Size.fromHeight(60),
+    return BlocConsumer<HomeCubit, HomeStatus>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        if (state is GetProductsFromApi) {
+          return Column(
+            children: [
+              CustomAppBar(
+                bottomPadding: 16,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
-                        color: Colors.white,
-                        margin: const EdgeInsets.only(bottom: 5),
-                        padding: EdgeInsets.zero,
-                        height: 40,
-                        child: ListView.builder(
-                            itemCount: 5,
-                            scrollDirection: Axis.horizontal,
-                            padding: EdgeInsets.zero,
-                            itemBuilder: (context, index) {
-                              return CategoryItem(
-                                title: categoryTabs[index]['title'],
-                                isSelect: categoryTabs[index]['isSelected'],
-                                onTab: () {
-                                  setState(
-                                    () {
-                                      selectedItemIndex = index;
-                                      // categoryTabs[index]['isSelected'] =
-                                      //     categoryTabs[index]['isSelected'];
-                                      // categoryTabs[index]['isSelected'] = true;
-                                    },
-                                  );
-                                },
-                                id: index,
-                              );
-                            }),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFFf4f5f8),
+                        ),
+                        padding: const EdgeInsets.all(12),
+                        child: const Icon(
+                          FlutterRemix.search_2_line,
+                          size: 20,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Search',
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: NestedScrollView(
+                  controller: _scrollController,
+                  headerSliverBuilder: (
+                    BuildContext context,
+                    bool innerBoxIsScrolled,
+                  ) {
+                    return [
+                      SliverPersistentHeader(
+                        delegate: _Header(
+                          tabs,
+                          _tabController,
+                          onTap: (value) {
+                            setState(() {
+                              selectedTabIndex = value;
+                            });
+                          },
+                        ),
+                      ),
+                      if (selectedTabIndex == 0)
+                        SliverAppBar(
+                          collapsedHeight: 0,
+                          expandedHeight: 0,
+                          backgroundColor: Colors.white,
+                          elevation: 0,
+                          pinned: true,
+                          primary: false,
+                          toolbarHeight: 0,
+                          bottom: PreferredSize(
+                            preferredSize: const Size.fromHeight(60),
+                            child: Container(
+                              color: Colors.white,
+                              margin: const EdgeInsets.only(bottom: 5),
+                              padding: EdgeInsets.zero,
+                              height: 40,
+                              child: ListView.builder(
+                                  itemCount: 5,
+                                  scrollDirection: Axis.horizontal,
+                                  padding: EdgeInsets.zero,
+                                  itemBuilder: (context, index) {
+                                    return CategoryItem(
+                                      title: categoryTabs[index]['title'],
+                                      isSelect: categoryTabs[index]
+                                          ['isSelected'],
+                                      onTab: () {
+                                        setState(
+                                          () {
+                                            selectedItemIndex = index;
+                                            for (var tab in categoryTabs) {
+                                              tab['isSelected'] = false;
+                                            }
+                                            categoryTabs[index]['isSelected'] =
+                                                true;
+                                          },
+                                        );
+                                      },
+                                      id: index,
+                                    );
+                                  }),
+                            ),
+                          ),
+                        ),
+                    ];
+                  },
+                  body: TabBarView(
+                    physics: const BouncingScrollPhysics(),
+                    controller: _tabController,
+                    children: [
+                      FoodBody(selectedTabIndex: selectedItemIndex),
+                      const AdonnsBody(),
+                    ],
                   ),
-              ];
-            },
-            body: TabBarView(
-              physics: const BouncingScrollPhysics(),
-              controller: _tabController,
-              children: [
-                FoodBody(selectedTabIndex: selectedItemIndex),
-                const AdonnsBody(),
-              ],
-            ),
-          ),
-        ),
-      ],
+                ),
+              ),
+            ],
+          );
+        } else {
+          return const SizedBox();
+        }
+      },
     );
   }
 }

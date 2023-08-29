@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -8,10 +9,10 @@ import 'package:vendor_foody/view/screens/layout/widget/blur_wrap.dart';
 import 'package:vendor_foody/view/screens/layout/widget/bottom_navigator_item.dart';
 import 'package:vendor_foody/view/screens/orders/orders_screen.dart';
 
-import '../food/widget/custom_drop_down_button.dart';
-import '../food/widget/custom_edit_select_item.dart';
-import '../food/widget/custom_text_form.dart';
-import '../food/widget/custom_toggle.dart';
+import '../../../custom/custom_drop_down_button.dart';
+import '../../../custom/custom_edit_select_item.dart';
+import '../../../custom/custom_text_form.dart';
+import '../../../custom/custom_toggle.dart';
 
 class LayoutScreen extends StatefulWidget {
   static const String routeName = 'LayoutScreen';
@@ -26,12 +27,6 @@ int curIndex = 0;
 class _LayoutScreenState extends State<LayoutScreen> {
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> dataList = [
-      {"title": "Title 1", "description": "description 1"},
-      {"title": "Title 2", "description": "description 2"},
-      {"title": "Title 3", "description": "description 3"},
-      {"title": "Title 4", "description": "description 4"},
-    ];
     changeNavi(int index) {
       curIndex = index;
     }
@@ -211,15 +206,20 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                       Stack(
                         children: [
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.17,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 1, vertical: 10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: const TOTImageAtom.network(
-                                    width: 500,
-                                    'https://media.gettyimages.com/id/536065520/photo/al-azhar-mosque-in-cairo.jpg?s=612x612&w=0&k=20&c=yTxOC3_wYFIARNH45jIDh8jf35JhHMEzO0XdIv2P4A8='),
+                            height: MediaQuery.sizeOf(context).height * 0.17,
+                            width: MediaQuery.sizeOf(context).width,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                                errorWidget: (context, url, error) {
+                                  return const SizedBox();
+                                },
+                                imageUrl:
+                                    'https://media.gettyimages.com/id/536065418/photo/al-azhar-mosque-in-cairo.jpg?s=612x612&w=0&k=20&c=jd8GGQtX59poLchSwaVLeKHVfQnOsnBh5UzsciubumQ=',
                               ),
                             ),
                           ),
@@ -268,10 +268,10 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                       ),
                       Row(
                         children: [
-                          Text(
-                            'text' * 5,
+                          const Text(
+                            'Show The Product to The Customer',
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 17, fontWeight: FontWeight.bold),
                           ),
                           const Spacer(),

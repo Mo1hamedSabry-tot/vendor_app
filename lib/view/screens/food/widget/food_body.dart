@@ -1,11 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/view/screens/food/widget/custom_text_form.dart';
+import 'package:vendor_foody/custom/custom_text_form.dart';
+import 'package:vendor_foody/data/models/response/product_model.dart';
+import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
+import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
-import 'custom_drop_down_button.dart';
-import 'custom_edit_select_item.dart';
-import 'custom_toggle.dart';
-import 'popular_item.dart';
+import '../../../../custom/custom_drop_down_button.dart';
+import '../../../../custom/custom_toggle.dart';
+import 'popular_food_item.dart';
 
 class FoodBody extends StatelessWidget {
   const FoodBody({
@@ -22,40 +26,50 @@ class FoodBody extends StatelessWidget {
       {"title": "Title 3", "description": "description 3"},
       {"title": "Title 4", "description": "description 4"},
     ];
-    return Align(
-      alignment: Alignment.center,
-      child: ListView.builder(
-          itemCount: dataList.length,
-          padding: EdgeInsets.zero,
-          itemBuilder: (context, index) {
-            if (selectedTabIndex == 0) {
-              return Align(
-                alignment: Alignment.center,
-                child: InkWell(
-                  onTap: () {
-                    showModalBottomSheet(
-                        context: context,
-                        isDismissible: true,
-                        isScrollControlled: true,
-                        shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(22))),
-                        builder: (_) {
-                          //! TODO update below data to be dynamic
-                          return _FoodBottomSheet(
-                            title: dataList[index]['title'],
-                            description: dataList[index]['description'],
-                            selectedUnitId: 2,
-                          );
-                        });
-                  },
-                  child: const PopularItem(),
-                ),
-              );
-            } else {
-              return const SizedBox();
-            }
-          }),
+    return BlocBuilder<HomeCubit, HomeStatus>(
+      builder: (context, state) {
+        if (state is GetProductsFromApi) {
+          return Align(
+            alignment: Alignment.center,
+            child: ListView.builder(
+                itemCount: state.products.length,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  if (selectedTabIndex == 0) {
+                    return Align(
+                      alignment: Alignment.center,
+                      child: InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              isDismissible: true,
+                              isScrollControlled: true,
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(22))),
+                              builder: (_) {
+                                return _FoodBottomSheet(
+                                  model: state.products[index],
+                                  title: dataList[index]['title'],
+                                  description: dataList[index]['description'],
+                                  selectedUnitId: 2,
+                                );
+                              });
+                        },
+                        child: PopularFoodItem(
+                          model: state.products[index],
+                        ),
+                      ),
+                    );
+                  } else {
+                    return const SizedBox();
+                  }
+                }),
+          );
+        } else {
+          return const SizedBox();
+        }
+      },
     );
   }
 }
@@ -64,11 +78,13 @@ class _FoodBottomSheet extends StatefulWidget {
   final String title;
   final String description;
   final int selectedUnitId;
+  final ProductModel model;
 
   const _FoodBottomSheet({
     required this.title,
     required this.description,
     required this.selectedUnitId,
+    required this.model,
   });
 
   @override
@@ -120,16 +136,21 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                       Stack(
                         children: [
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.17,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 1, vertical: 10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: const TOTImageAtom.network(
-                                    width: 500,
-                                    'https://media.gettyimages.com/id/536065520/photo/al-azhar-mosque-in-cairo.jpg?s=612x612&w=0&k=20&c=yTxOC3_wYFIARNH45jIDh8jf35JhHMEzO0XdIv2P4A8='),
-                              ),
+                            width: MediaQuery.sizeOf(context).width,
+                            height: MediaQuery.sizeOf(context).height * 0.17,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  errorWidget: (context, url, error) {
+                                    return const SizedBox();
+                                  },
+                                  placeholder: (context, url) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  },
+                                  imageUrl: widget.model.image),
                             ),
                           ),
                           Positioned(
@@ -144,31 +165,20 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                         ],
                       ),
                       CustomTextFieldWithLabel(
-                        controller: TextEditingController(text: widget.title),
+                        controller:
+                            TextEditingController(text: widget.model.title),
                         title: 'prduct title',
                       ),
                       CustomTextFieldWithLabel(
-                        controller:
-                            TextEditingController(text: widget.description),
+                        controller: TextEditingController(
+                            text: widget.model.description.substring(0, 20)),
                         title: 'Description',
-                      ),
-                      EditSelectItem(
-                        title: 'Title Product',
-                        value: 'valueee',
-                        onPressed: () {},
-                      ),
-                      EditSelectItem(
-                        title: 'Units',
-                        value: '6',
-                        onPressed: () {},
                       ),
                       CustomDropDownBotton(
                         value: updatedUnitId ?? widget.selectedUnitId,
                         onChanged: (v) {
                           setState(() {
                             updatedUnitId = v as int;
-
-                            /// TODO: Update selected index
                           });
                         },
                       ),
@@ -177,10 +187,10 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                       ),
                       Row(
                         children: [
-                          Text(
-                            'text' * 5,
+                          const Text(
+                            'Show the product to the customer',
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 17, fontWeight: FontWeight.bold),
                           ),
                           const Spacer(),

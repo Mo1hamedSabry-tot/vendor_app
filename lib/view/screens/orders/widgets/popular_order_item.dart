@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 
-class AddonsItem extends StatelessWidget {
+class PopularOrderItem extends StatelessWidget {
   final ProductModel model;
-  const AddonsItem({super.key, required this.model});
+  const PopularOrderItem({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +18,40 @@ class AddonsItem extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-             Row(
+            Row(
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TOTTextAtom.bodyLarge(
-                      model.title.substring(0,7),
+                      model.title.substring(0, 10),
                       color: Colors.black,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.bodyMedium(model.description.substring(0,20)),
-                    SizedBox(
+                    TOTTextAtom.bodyMedium(model.description.substring(0, 20)),
+                    const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.titleLarge('\$ ${model.price.toString()}'),
-                    SizedBox(
+                    TOTTextAtom.titleLarge('\$ ${model.price}'),
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
                 ),
+                const Spacer(),
+                CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    width: 100,
+                    height: 100,
+                    placeholder: (context, url) => const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                    errorWidget: (context, url, error) {
+                      return const SizedBox();
+                    },
+                    imageUrl: model.image)
               ],
             ),
             const Divider(
@@ -65,7 +78,7 @@ class AddonsItem extends StatelessWidget {
                       text: 'pending',
                       color: Colors.white,
                       colorText: Colors.white),
-                )
+                ),
               ],
             )
           ],

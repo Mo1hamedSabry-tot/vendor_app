@@ -1,30 +1,14 @@
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vendor_foody/core/network/remote/dio_helper.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vendor_foody/data/repository/httb/product_repo.dart';
+import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
-import '../../../data/models/response/product_model.dart';
-import '../../../data/repository/products_repo.dart';
+class HomeCubit extends Cubit<HomeStatus> {
+  HomeCubit({required this.repo}) : super(InitAppState());
+  final ProductRepo repo;
+  static HomeCubit get(context) => BlocProvider.of(context);
 
-part 'home_product_cubit.freezed.dart';
-part 'home_product_state.dart';
-
-class HomeProductCubit extends Cubit<HomeProductState> {
-  final ProductsRepo productsRepo;
-  HomeProductCubit(
-    this.productsRepo,
-  ) : super(const HomeProductState.initial());
-
-  fetchProducts(String value) async {
-    final query = {"value": value};
-    ProductModel? result = await productsRepo.getProduct(query);
-  }
-
-  late List<dynamic> products = [];
-  void getProducts() {
-    MyDioHelper().getData(path: 'products', qury: {}).then((value) {
-      products = value.data;
-    }).catchError((e) {
-      throw e;
-    });
+  getProducts() async {
+    final res = await repo.getProduct();
+    emit(GetProductsFromApi(products: res));
   }
 }

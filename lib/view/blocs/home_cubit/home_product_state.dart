@@ -1,6 +1,8 @@
-part of 'home_product_cubit.dart';
+import 'package:vendor_foody/data/models/response/product_model.dart';
 
-@freezed
-class HomeProductState with _$HomeProductState {
-  const factory HomeProductState.initial() = _Initial;
+abstract class HomeStatus {}
+class InitAppState extends HomeStatus {}
+class GetProductsFromApi extends HomeStatus {
+  final List<ProductModel> products;
+  GetProductsFromApi({required this.products});
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class ReadytedBtmSheetItem extends StatelessWidget {
-  const ReadytedBtmSheetItem({super.key});
+  const ReadytedBtmSheetItem({super.key, required this.productModel});
 
-  //! final ProductModel productModel;
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +24,23 @@ class ReadytedBtmSheetItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     height: 65,
-                    child: TOTAvatarAtom.asset(
-                      'assets/image/manager.png',
+                    child: TOTAvatarAtom.network(
+                      productModel.image,
                     ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  const Column(
+                  Column(
                     children: [
-                      TOTTextAtom.bodyLarge('BEE hug'),
-                      SizedBox(
+                      TOTTextAtom.bodyLarge(productModel.title.substring(0, 5)),
+                      const SizedBox(
                         height: 3,
                       ),
-                      TOTTextAtom.bodyLarge('delivery'),
+                      TOTTextAtom.bodyLarge(
+                          productModel.description.substring(0, 7)),
                     ],
                   ),
                   SizedBox(
@@ -58,12 +60,12 @@ class ReadytedBtmSheetItem extends StatelessWidget {
               const Divider(
                 color: Color(0xFFf4f5f8),
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TOTTextAtom.bodyLarge('N520'),
-                  TOTTextAtom.bodyLarge('07-02-2026'),
-                  TOTTextAtom.bodyLarge('18\$'),
+                  TOTTextAtom.bodyLarge(productModel.id.toString()),
+                  TOTTextAtom.bodyLarge(productModel.rating.rate.toString()),
+                  TOTTextAtom.bodyLarge('${productModel.price.toString()}\$'),
                 ],
               )
             ],

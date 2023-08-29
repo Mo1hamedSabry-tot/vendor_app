@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-
+import 'package:vendor_foody/data/models/response/product_model.dart';
 import 'acccept_btm_sheet_item.dart';
 import 'accept_select_btm_sheet_item.dart';
 
 class AcceptBottomSheet extends StatelessWidget {
+  final ProductModel productModel;
   const AcceptBottomSheet({
-    super.key,
+    super.key, required this.productModel,
   });
 
   @override
@@ -19,11 +20,10 @@ class AcceptBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: 
-        [
-          const AcceptedBtmSheetItem(),
+        children: [
+           AcceptedBtmSheetItem(productModel: productModel),
           const SizedBox(height: 16),
-          const AcceptedSelectedBtmSheetItem(),
+           AcceptedSelectedBtmSheetItem(model: productModel),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

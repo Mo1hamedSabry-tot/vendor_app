@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-
+import 'package:vendor_foody/data/models/response/product_model.dart';
 import 'ready_btm_sheet_item.dart';
 import 'ready_select_btm_sheet_item.dart';
 
 class ReadyBottomSheet extends StatelessWidget {
+  final ProductModel model;
   const ReadyBottomSheet({
-    super.key,
+    super.key, required this.model,
   });
 
   @override
@@ -20,9 +21,13 @@ class ReadyBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const ReadytedBtmSheetItem(),
+           ReadytedBtmSheetItem(
+            productModel: model,
+          ),
           const SizedBox(height: 16),
-          const ReadySelectedBtmSheetItem(),
+           ReadySelectedBtmSheetItem(
+            productModel: model,
+          ),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

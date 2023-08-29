@@ -1,8 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/data/models/response/product_model.dart';
 
-class PopularItem extends StatelessWidget {
-  const PopularItem({super.key});
+class PopularFoodItem extends StatelessWidget {
+  final ProductModel model;
+  const PopularFoodItem({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -15,34 +18,40 @@ class PopularItem extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TOTTextAtom.bodyLarge(
-                      'text',
+                      model.title.substring(0, 7),
                       color: Colors.black,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.bodyMedium('text'),
-                    SizedBox(
+                    TOTTextAtom.bodyMedium(model.description.substring(0, 20)),
+                    const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.titleLarge('\$ 2500'),
-                    SizedBox(
+                    TOTTextAtom.titleLarge('\$ ${model.price.toString()}'),
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
                 ),
-                Spacer(),
-                TOTImageAtom.asset(
-                  'assets/image/manager.png',
-                  width: 110,
-                  height: 110,
-                )
+                const Spacer(),
+                CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    width: 100,
+                    height: 100,
+                    placeholder: (context, url) => const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                    errorWidget: (context, url, error) {
+                      return const SizedBox();
+                    },
+                    imageUrl: model.image),
               ],
             ),
             const Divider(

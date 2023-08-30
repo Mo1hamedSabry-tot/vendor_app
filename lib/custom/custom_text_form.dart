@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tot_atomic_design/tot_atomic_design.dart';
 
 class CustomTextFieldWithLabel extends StatefulWidget {
   TextEditingController controller;
@@ -28,9 +27,10 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: TOTTextAtom.bodyMedium(
+          child: Text(
             widget.title,
-            color: Colors.black,
+            style: const TextStyle(
+                color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold),
           ),
         ),
         TextFormField(

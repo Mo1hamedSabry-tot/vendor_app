@@ -7,6 +7,8 @@ import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 import 'package:vendor_foody/view/screens/test.dart';
 
+import 'view/screens/auth/login/login_screen.dart';
+
 void main() async {
   runApp(const MyApp());
 }
@@ -31,11 +33,12 @@ class MyApp extends StatelessWidget {
                   indicatorSize: TabBarIndicatorSize.tab,
                 )),
             debugShowCheckedModeBanner: false,
-            initialRoute: LayoutScreen.routeName,
+            initialRoute: LoginScreen.routeName,
             routes: {
               LayoutScreen.routeName: (_) => const LayoutScreen(),
               AddOrder.routName: (_) => const AddOrder(),
-              TestScreen.routeName: (_) => const TestScreen()
+              TestScreen.routeName: (_) => const TestScreen(),
+              LoginScreen.routeName: (_) => const LoginScreen(),
             },
           );
         },

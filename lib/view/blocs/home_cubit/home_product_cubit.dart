@@ -9,6 +9,6 @@ class HomeCubit extends Cubit<HomeStatus> {
 
   getProducts() async {
     final res = await repo.getProduct();
-    emit(GetProductsFromApi(products: res));
+    emit(GetProductsFromApi(products: res)); 
   }
 }

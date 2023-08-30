@@ -5,7 +5,7 @@ import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class PopularOrderItem extends StatelessWidget {
   final ProductModel model;
-  const PopularOrderItem({super.key, required this.model});
+  const PopularOrderItem({super.key, required this.model,});
 
   @override
   Widget build(BuildContext context) {

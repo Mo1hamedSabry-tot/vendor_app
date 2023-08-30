@@ -60,7 +60,7 @@ class FoodBody extends StatelessWidget {
                           model: state.products[index],
                         ),
                       ),
-                    );
+                    ); 
                   } else {
                     return const SizedBox();
                   }

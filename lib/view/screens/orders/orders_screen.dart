@@ -152,13 +152,13 @@ class _OrdersScreenState extends State<OrdersScreen>
                         padding: const EdgeInsets.only(top: 10, bottom: 50),
                         itemBuilder: (_, index) {
                           return ReadyOrderItem(
-                              productModel: state.products[index + 4],
+                              productModel: state.products[index],
                               onTap: () {
                                 showModalBottomSheet(
                                     context: context,
                                     builder: (BuildContext context) {
                                       return ReadyBottomSheet(
-                                        model: state.products[index + 4],
+                                        model: state.products[index],
                                       );
                                     });
                               });
@@ -168,13 +168,13 @@ class _OrdersScreenState extends State<OrdersScreen>
                         padding: const EdgeInsets.only(top: 10, bottom: 50),
                         itemBuilder: (_, index) {
                           return OnAwayOrderItem(
-                              productModel: state.products[index + 2],
+                              productModel: state.products[index],
                               onTap: () {
                                 showModalBottomSheet(
                                     context: context,
                                     builder: (_) {
                                       return WayBottomSheet(
-                                        productModel: state.products[index + 2],
+                                        productModel: state.products[index],
                                       );
                                     });
                               });

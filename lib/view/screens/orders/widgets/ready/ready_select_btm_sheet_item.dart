@@ -1,3 +1,4 @@
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
@@ -32,7 +33,7 @@ class _ReadySelectedBtmSheetItemState extends State<ReadySelectedBtmSheetItem> {
           height: MediaQuery.of(context).size.height * 0.14,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -43,7 +44,7 @@ class _ReadySelectedBtmSheetItemState extends State<ReadySelectedBtmSheetItem> {
                     child: isSelcted
                         ? TOTIconButtonAtom.displaySmall(
                             codePoint: 0xf635,
-                            iconColor: const Color(0xFF83ea00),
+                            iconColor:  AppColors.greenColor,
                             onPressed: () {
                               changeSelect();
                               setState(() {});
@@ -51,7 +52,7 @@ class _ReadySelectedBtmSheetItemState extends State<ReadySelectedBtmSheetItem> {
                           )
                         : TOTIconButtonAtom.displaySmall(
                             codePoint: 0xf2e6,
-                            iconColor: Colors.black,
+                            iconColor: AppColors.blackColor,
                             onPressed: () {
                               changeSelect();
                               setState(() {});

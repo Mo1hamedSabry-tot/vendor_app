@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/accepted/accept_bottom_sheet.dart';
@@ -60,7 +63,7 @@ class _OrdersScreenState extends State<OrdersScreen>
     return BlocConsumer<HomeCubit, HomeStatus>(
       listener: (context, state) {},
       builder: (context, state) {
-        if (state is GetProductsFromApi) {
+        if (state is GetProductsFromApiState) {
           return Column(
             children: [
               CustomAppBar(
@@ -82,7 +85,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                           child: const Icon(
                             FlutterRemix.dashboard_3_line,
                             size: 20,
-                            color: Colors.black,
+                            color: AppColors.blackColor,
                           ),
                         ),
                       ),
@@ -92,17 +95,17 @@ class _OrdersScreenState extends State<OrdersScreen>
                         children: [
                           TOTTextAtom.bodyMedium(
                             title.toString(),
-                            color: Colors.black,
+                            color: AppColors.blackColor,
                           ),
                           Row(
                             children: [
                               TOTTextAtom.bodyLarge(
                                 subtitle.toString(),
-                                color: Colors.black,
+                                color: AppColors.blackColor,
                               ),
                               const TOTIconAtom.displayMedium(
                                 codePoint: 0xe353,
-                                color: Colors.black,
+                                color: AppColors.blackColor,
                               ),
                             ],
                           ),
@@ -137,46 +140,73 @@ class _OrdersScreenState extends State<OrdersScreen>
                           return AcceptedOrderItem(
                               productModel: state.products[index],
                               onTap: () {
-                                showModalBottomSheet(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AcceptBottomSheet(
-                                      productModel: state.products[index],
-                                    ); // Your custom bottom sheet widget
-                                  },
-                                );
+                                if (state.products.isNotEmpty) {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AcceptBottomSheet(
+                                        productModel: state.products[index],
+                                        onTap: () {
+                                          context
+                                              .read<HomeCubit>()
+                                              .addProductToReady(
+                                                  state.products[index]);
+
+                                          Navigator.pop(context);
+                                        },
+                                      ); // Your custom bottom sheet widget
+                                    },
+                                  );
+                                }
                               });
                         }),
                     ListView.builder(
-                        itemCount: state.products.length,
+                        itemCount: state.readyProducts.length,
                         padding: const EdgeInsets.only(top: 10, bottom: 50),
                         itemBuilder: (_, index) {
                           return ReadyOrderItem(
-                              productModel: state.products[index],
-                              onTap: () {
-                                showModalBottomSheet(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return ReadyBottomSheet(
-                                        model: state.products[index],
-                                      );
-                                    });
-                              });
+                            productModel: state.readyProducts[index],
+                            onTap: () async {
+                              if (state.readyProducts.isNotEmpty) {
+                                log("readyProductsIndex:::readyProducts ${state.readyProducts} ##");
+                                log("readyProductsIndex::: $index ##");
+                                await showModalBottomSheet(
+                                  context: context,
+                                  builder: (BuildContext contextt) {
+                                    return ReadyBottomSheet(
+                                      key: UniqueKey(),
+                                      model: state.readyProducts[index],
+                                      onTap: () async {
+                                        context
+                                            .read<HomeCubit>()
+                                            .addProductToAway(
+                                                state.readyProducts[index]);
+                                        Navigator.of(contextt).pop();
+                                      },
+                                    );
+                                  },
+                                );
+                              }
+                            },
+                          );
                         }),
                     ListView.builder(
-                        itemCount: state.products.length,
+                        itemCount: state.onWayProducts.length,
                         padding: const EdgeInsets.only(top: 10, bottom: 50),
                         itemBuilder: (_, index) {
                           return OnAwayOrderItem(
-                              productModel: state.products[index],
+                              productModel: state.onWayProducts[index],
                               onTap: () {
-                                showModalBottomSheet(
-                                    context: context,
-                                    builder: (_) {
-                                      return WayBottomSheet(
-                                        productModel: state.products[index],
-                                      );
-                                    });
+                                if (state.onWayProducts.isNotEmpty) {
+                                  showModalBottomSheet(
+                                      context: context,
+                                      builder: (_) {
+                                        return WayBottomSheet(
+                                          productModel:
+                                              state.onWayProducts[index],
+                                        );
+                                      });
+                                }
                               });
                         }),
                   ],

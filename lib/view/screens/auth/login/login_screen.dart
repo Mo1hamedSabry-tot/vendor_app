@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 
@@ -11,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+        const SystemUiOverlayStyle(statusBarColor: AppColors.transparent));
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -37,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                 Text(
                   'Foodyman',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.white,
                       fontSize: 25,
                       fontWeight: FontWeight.bold),
                 ),
@@ -61,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                     }).then((value) {});
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF83ea00),
+                backgroundColor:  AppColors.greenColor,
                 fixedSize: Size(
                   MediaQuery.sizeOf(context).width * 0.9,
                   50,
@@ -71,7 +72,7 @@ class LoginScreen extends StatelessWidget {
               child: const Text(
                 'Login',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.blackColor,
                 ),
               ),
             ),
@@ -160,14 +161,14 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                           const Text(
                             'Password',
                             style: TextStyle(
-                                color: Colors.black,
+                                color: AppColors.blackColor,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold),
                           ),
                           const Spacer(),
                           TOTIconButtonAtom.displayMedium(
                             codePoint: isSecure ? 0xe6be : 0xe6bd,
-                            iconColor: Colors.black,
+                            iconColor: AppColors.blackColor,
                             onPressed: () {
                               setState(
                                 () {
@@ -182,11 +183,12 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                     TextFormField(
                       controller: passController,
                       obscureText: isSecure,
-                      cursorColor: Colors.black,
+                      cursorColor: AppColors.blackColor,
                       onChanged: (value) {},
                       decoration: const InputDecoration(
                         border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
+                            borderSide:
+                                BorderSide(color: AppColors.blackColor)),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.grey)),
                       ),
@@ -202,7 +204,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                         context, LayoutScreen.routeName);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF83ea00),
+                    backgroundColor:  AppColors.greenColor,
                     fixedSize: Size(
                       MediaQuery.sizeOf(context).width * 0.9,
                       50,
@@ -212,7 +214,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                   child: const Text(
                     'Login',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: AppColors.blackColor,
                     ),
                   ),
                 ),

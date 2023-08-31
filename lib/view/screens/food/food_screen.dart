@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
@@ -68,7 +69,7 @@ class _FoodScreenState extends State<FoodScreen>
     return BlocConsumer<HomeCubit, HomeStatus>(
       listener: (context, state) {},
       builder: (context, state) {
-        if (state is GetProductsFromApi) {
+        if (state is GetProductsFromApiState) {
           return Column(
             children: [
               CustomAppBar(
@@ -88,7 +89,7 @@ class _FoodScreenState extends State<FoodScreen>
                         child: const Icon(
                           FlutterRemix.search_2_line,
                           size: 20,
-                          color: Colors.black,
+                          color: AppColors.blackColor,
                         ),
                       ),
                     ),
@@ -129,7 +130,7 @@ class _FoodScreenState extends State<FoodScreen>
                         SliverAppBar(
                           collapsedHeight: 0,
                           expandedHeight: 0,
-                          backgroundColor: Colors.white,
+                          backgroundColor: AppColors.white,
                           elevation: 0,
                           pinned: true,
                           primary: false,
@@ -137,7 +138,7 @@ class _FoodScreenState extends State<FoodScreen>
                           bottom: PreferredSize(
                             preferredSize: const Size.fromHeight(60),
                             child: Container(
-                              color: Colors.white,
+                              color: AppColors.white,
                               margin: const EdgeInsets.only(bottom: 5),
                               padding: EdgeInsets.zero,
                               height: 40,
@@ -209,7 +210,7 @@ class _Header extends SliverPersistentHeaderDelegate {
       height: 48,
       width: 55,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: const Color(0xFFDEDFE1)),
       ),
@@ -222,9 +223,9 @@ class _Header extends SliverPersistentHeaderDelegate {
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.black,
+          color: AppColors.blackColor,
         ),
-        labelColor: Colors.white,
+        labelColor: AppColors.white,
         unselectedLabelColor: const Color(0xFF898989),
         unselectedLabelStyle: const TextStyle(fontSize: 14),
         labelStyle: const TextStyle(fontSize: 14),

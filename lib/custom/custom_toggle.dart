@@ -1,3 +1,4 @@
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,7 +39,7 @@ class _CustomToggleState extends State<CustomToggle> {
   Widget build(BuildContext context) {
     return AdvancedSwitch(
       controller: widget.controller,
-      activeColor: const Color(0xFF83ea00),
+      activeColor:  AppColors.greenColor,
       inactiveColor: Colors.red,
       borderRadius: BorderRadius.circular(10),
       width: 70,
@@ -67,7 +68,7 @@ class _CustomToggleState extends State<CustomToggle> {
         margin: const EdgeInsets.all(3),
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 9),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(6),
           boxShadow: const [
             BoxShadow(

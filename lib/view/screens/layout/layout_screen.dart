@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/food/food_screen.dart';
 import 'package:vendor_foody/view/screens/layout/widget/blur_wrap.dart';
@@ -34,7 +35,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
     List<Widget?> screens = [const OrdersScreen(), const FoodScreen()];
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.dark,
-      statusBarColor: Colors.white,
+      statusBarColor: AppColors.white,
     ));
     return Scaffold(
       backgroundColor: const Color(0xFFf4f5f8),
@@ -113,11 +114,11 @@ class _LayoutScreenState extends State<LayoutScreen> {
               height: 56,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFF83ea00),
+                color: AppColors.greenColor,
               ),
               child: TOTIconButtonAtom.displayMedium(
                 codePoint: 0xe047,
-                iconColor: Colors.black,
+                iconColor: AppColors.blackColor,
                 onPressed: () {
                   if (curIndex == 0) {
                     Navigator.pushNamed(context, AddOrder.routName);
@@ -130,7 +131,6 @@ class _LayoutScreenState extends State<LayoutScreen> {
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(22))),
                         builder: (_) {
-                          //! TODO update below data to be dynamic
                           return const _FoodBottomSheet(
                             title: '',
                             description: '',
@@ -188,12 +188,12 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: AppColors.blackColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const TOTTextAtom.bodyMedium(
                     'Add_product',
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -227,7 +227,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                             top: 14,
                             left: 10,
                             child: IconButton(
-                              color: Colors.white,
+                              color: AppColors.white,
                               icon: const Icon(Icons.upload_file),
                               onPressed: () {},
                             ),
@@ -258,8 +258,6 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                         onChanged: (v) {
                           setState(() {
                             updatedUnitId = v as int;
-
-                            /// TODO: Update selected index
                           });
                         },
                       ),
@@ -290,9 +288,9 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                           width: double.infinity,
                           child: TOTButtonAtom.filledButton(
                               text: 'Save',
-                              textColor: Colors.black,
+                              textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor: const Color(0xFF83ea00)))
+                              backgroundColor:  AppColors.greenColor))
                     ],
                   ),
                 ),

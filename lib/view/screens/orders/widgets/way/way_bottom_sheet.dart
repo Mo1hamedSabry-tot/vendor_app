@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 
 import 'way_btm_sheet_item.dart';
@@ -8,7 +9,8 @@ import 'way_select_btm_sheet_item.dart';
 class WayBottomSheet extends StatelessWidget {
   final ProductModel productModel;
   const WayBottomSheet({
-    super.key, required this.productModel,
+    super.key,
+    required this.productModel,
   });
 
   @override
@@ -22,40 +24,25 @@ class WayBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-           WayBtmSheetItem(
+          WayBtmSheetItem(
             productModel: productModel,
           ),
           const SizedBox(height: 16),
-           WaySelectedBtmSheetItem(
+          WaySelectedBtmSheetItem(
             productModel: productModel,
-           ),
+          ),
           const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.4,
-                height: 50,
-                child: TOTButtonAtom.filledButton(
-                  text: 'Close',
-                  textColor: Colors.white,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  backgroundColor: Colors.red,
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.4,
-                height: 50,
-                child: TOTButtonAtom.filledButton(
-                  text: 'Swip To Way',
-                  textColor: Colors.black,
-                  onPressed: () {},
-                  backgroundColor: const Color(0xFF83ea00),
-                ),
-              ),
-            ],
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.4,
+            height: 50,
+            child: TOTButtonAtom.filledButton(
+              text: 'Close',
+              textColor: AppColors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              backgroundColor: Colors.red,
+            ),
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 
 class CategoryItem extends StatelessWidget {
   final VoidCallback onTab;
@@ -11,7 +12,7 @@ class CategoryItem extends StatelessWidget {
     required this.id,
     required this.title,
     required this.isSelect,
-  }); 
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class CategoryItem extends StatelessWidget {
       onTap: onTab,
       child: Container(
         decoration: BoxDecoration(
-          color: isSelect ? Colors.green : Colors.white,
+          color: isSelect ? AppColors.greenColor : AppColors.white,
           borderRadius: BorderRadius.circular(10),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 5),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 
 class EditSelectItem extends StatelessWidget {
   final String title;
@@ -25,7 +26,7 @@ class EditSelectItem extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: TOTTextAtom.bodyMedium(
                       title,
-                      color: Colors.black,
+                      color: AppColors.blackColor,
                     ),
                   ),
                   const SizedBox(
@@ -33,16 +34,16 @@ class EditSelectItem extends StatelessWidget {
                   ),
                   TOTTextAtom.bodyMedium(
                     value,
-                    color: Colors.black,
+                    color: AppColors.blackColor,
                   ),
                 ],
               ),
               const Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(top: 5),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
                 child: TOTIconAtom.displaySmall(
                   codePoint: 0xe097,
-                  color: Colors.black,
+                  color: AppColors.blackColor,
                 ),
               ),
             ],

@@ -34,11 +34,9 @@ class _TestScreenState extends State<TestScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeStatus>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
-        if (state is GetProductsFromApi) {
+        if (state is GetProductsFromApiState) {
           return Scaffold(
             appBar: AppBar(),
             body: ListView.builder(

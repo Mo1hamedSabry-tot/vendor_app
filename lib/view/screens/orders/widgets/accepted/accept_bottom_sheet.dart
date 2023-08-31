@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
+
 import 'acccept_btm_sheet_item.dart';
 import 'accept_select_btm_sheet_item.dart';
 
 class AcceptBottomSheet extends StatelessWidget {
   final ProductModel productModel;
+  final VoidCallback onTap;
   const AcceptBottomSheet({
-    super.key, required this.productModel,
+    super.key,
+    required this.productModel, required this.onTap,
   });
 
   @override
@@ -21,9 +25,9 @@ class AcceptBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-           AcceptedBtmSheetItem(productModel: productModel),
+          AcceptedBtmSheetItem(productModel: productModel),
           const SizedBox(height: 16),
-           AcceptedSelectedBtmSheetItem(model: productModel),
+          AcceptedSelectedBtmSheetItem(model: productModel),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +37,7 @@ class AcceptBottomSheet extends StatelessWidget {
                 height: 50,
                 child: TOTButtonAtom.filledButton(
                   text: 'Close',
-                  textColor: Colors.white,
+                  textColor: AppColors.white,
                   onPressed: () {
                     Navigator.pop(context);
                   },
@@ -45,9 +49,9 @@ class AcceptBottomSheet extends StatelessWidget {
                 height: 50,
                 child: TOTButtonAtom.filledButton(
                   text: 'Swip To Ready',
-                  textColor: Colors.black,
-                  onPressed: () {},
-                  backgroundColor: const Color(0xFF83ea00),
+                  textColor: AppColors.blackColor,
+                  onPressed: onTap,
+                  backgroundColor: AppColors.greenColor,
                 ),
               ),
             ],

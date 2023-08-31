@@ -12,7 +12,7 @@ class AdonnsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeStatus>(
       builder: (context, state) {
-        if (state is GetProductsFromApi) {
+        if (state is GetProductsFromApiState) {
           return ListView.builder(
             itemCount: 10,
             padding: EdgeInsets.zero,

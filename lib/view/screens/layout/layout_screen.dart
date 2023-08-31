@@ -9,6 +9,7 @@ import 'package:vendor_foody/view/screens/food/food_screen.dart';
 import 'package:vendor_foody/view/screens/layout/widget/blur_wrap.dart';
 import 'package:vendor_foody/view/screens/layout/widget/bottom_navigator_item.dart';
 import 'package:vendor_foody/view/screens/orders/orders_screen.dart';
+import 'package:vendor_foody/view/screens/profile/profile_screen.dart';
 
 import '../../../custom/custom_drop_down_button.dart';
 import '../../../custom/custom_edit_select_item.dart';
@@ -98,10 +99,16 @@ class _LayoutScreenState extends State<LayoutScreen> {
                             ),
                             shape: BoxShape.circle,
                           ),
-                          child: const TOTImageAtom.asset(
-                            'assets/image/logo.png',
-                            width: 40,
-                            height: 40,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, ProfileSceen.routeName);
+                            },
+                            child: const TOTImageAtom.asset(
+                              'assets/image/logo.png',
+                              width: 40,
+                              height: 40,
+                            ),
                           ))
                     ],
                   ),
@@ -290,7 +297,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                               text: 'Save',
                               textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor:  AppColors.greenColor))
+                              backgroundColor: AppColors.greenColor))
                     ],
                   ),
                 ),

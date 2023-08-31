@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget {
   final Widget child;
@@ -18,7 +19,7 @@ class CustomAppBar extends StatelessWidget {
       width: double.infinity,
       height: height,
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16),
           bottomRight: Radius.circular(16),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 
 class BottomNavigatorItem extends StatelessWidget {
   final VoidCallback selectItem;
@@ -24,7 +25,7 @@ class BottomNavigatorItem extends StatelessWidget {
       onTap: selectItem,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 700),
-        color: Colors.transparent,
+        color: AppColors.transparent,
         height: 30,
         width: 50,
         child: Column(
@@ -35,20 +36,21 @@ class BottomNavigatorItem extends StatelessWidget {
                   ? Icon(
                       selectIcon,
                       size: 20,
-                      color: Colors.white,
+                      color: AppColors.white,
                     )
                   : Icon(
                       unSelectIcon,
                       size: 20,
-                      color: Colors.white,
+                      color: AppColors.white,
                     ),
             ),
             AnimatedContainer(
               height: 2,
               width: 20,
               decoration: BoxDecoration(
-                color:
-                    index == currentIndex ? Colors.green : Colors.transparent,
+                color: index == currentIndex
+                    ? Colors.green
+                    : AppColors.transparent,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(70),
                   topRight: Radius.circular(70),

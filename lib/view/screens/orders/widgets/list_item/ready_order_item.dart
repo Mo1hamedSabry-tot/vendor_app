@@ -1,3 +1,4 @@
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
@@ -20,7 +21,7 @@ class ReadyOrderItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.14,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -97,11 +98,11 @@ class ReadyOrderItem extends StatelessWidget {
 //                           children: [
 //                             TOTTextAtom.bodyMedium(
 //                               'order.price.toString()',
-//                               color: Colors.black,
+//                               color: AppColors.blackColor,
 //                             ),
 //                             TOTTextAtom.bodyMedium(
 //                               'order.description',
-//                               color: Colors.black,
+//                               color: AppColors.blackColor,
 //                             )
 //                           ],
 //                         ),
@@ -128,7 +129,7 @@ class ReadyOrderItem extends StatelessWidget {
 //                   text: const TextSpan(
 //                     text: 'jkhjkhjkhjkl',
 //                     style: TextStyle(
-//                       color: Colors.black,
+//                       color: AppColors.blackColor,
 //                       fontSize: 14,
 //                       letterSpacing: -0.3,
 //                     ),
@@ -144,7 +145,7 @@ class ReadyOrderItem extends StatelessWidget {
 //                       TextSpan(
 //                         text: 'order.price.toString()',
 //                         style: TextStyle(
-//                           color: Colors.black,
+//                           color: AppColors.blackColor,
 //                           fontSize: 14,
 //                           letterSpacing: -0.3,
 //                         ),
@@ -154,7 +155,7 @@ class ReadyOrderItem extends StatelessWidget {
 //                 ),
 //                 const Text(
 //                   'order.title',
-//                   style: TextStyle(fontSize: 14, color: Colors.black),
+//                   style: TextStyle(fontSize: 14, color: AppColors.blackColor),
 //                 ),
 //               ],
 //             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class AcceptedBtmSheetItem extends StatelessWidget {
@@ -14,11 +15,11 @@ class AcceptedBtmSheetItem extends StatelessWidget {
       child: GestureDetector(
         child: Container(
           padding: const EdgeInsets.all(5),
-          margin: const EdgeInsets.symmetric(horizontal: 00, vertical: 5),
+          margin: const EdgeInsets.symmetric(vertical: 5),
           height: MediaQuery.of(context).size.height * 0.15,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -44,17 +45,17 @@ class AcceptedBtmSheetItem extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
+                    width: MediaQuery.of(context).size.width * 0.35,
                   ),
                   const Padding(
                     padding: EdgeInsets.all(2.0),
                     child: TOTIconAtom.displayMedium(
                       codePoint: 0xee33,
-                      color: Colors.black,
+                      color: AppColors.blackColor,
                     ),
                   ),
                   TOTTextAtom.bodyMedium(productModel.category.substring(0, 3),
-                      color: Colors.black)
+                      color: AppColors.blackColor)
                 ],
               ),
               const Divider(

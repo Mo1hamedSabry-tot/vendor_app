@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
@@ -28,7 +29,7 @@ class FoodBody extends StatelessWidget {
     ];
     return BlocBuilder<HomeCubit, HomeStatus>(
       builder: (context, state) {
-        if (state is GetProductsFromApi) {
+        if (state is GetProductsFromApiState) {
           return Align(
             alignment: Alignment.center,
             child: ListView.builder(
@@ -60,7 +61,7 @@ class FoodBody extends StatelessWidget {
                           model: state.products[index],
                         ),
                       ),
-                    ); 
+                    );
                   } else {
                     return const SizedBox();
                   }
@@ -118,12 +119,12 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: AppColors.blackColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const TOTTextAtom.bodyMedium(
                     'edit_product',
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -157,7 +158,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                             top: 14,
                             left: 10,
                             child: IconButton(
-                              color: Colors.white,
+                              color: AppColors.white,
                               icon: const Icon(Icons.upload_file),
                               onPressed: () {},
                             ),
@@ -209,9 +210,9 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                           width: double.infinity,
                           child: TOTButtonAtom.filledButton(
                               text: 'Save',
-                              textColor: Colors.black,
+                              textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor: const Color(0xFF83ea00)))
+                              backgroundColor: AppColors.greenColor))
                     ],
                   ),
                 ),

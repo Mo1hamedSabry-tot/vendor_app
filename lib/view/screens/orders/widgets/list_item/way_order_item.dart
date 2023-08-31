@@ -1,3 +1,4 @@
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
@@ -20,7 +21,7 @@ class OnAwayOrderItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.14,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

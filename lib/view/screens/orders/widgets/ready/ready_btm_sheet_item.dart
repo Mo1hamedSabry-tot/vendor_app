@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class ReadytedBtmSheetItem extends StatelessWidget {
@@ -18,7 +19,7 @@ class ReadytedBtmSheetItem extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.15,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: AppColors.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -48,13 +49,13 @@ class ReadytedBtmSheetItem extends StatelessWidget {
                   ),
                   const TOTIconAtom.displayMedium(
                     codePoint: 0xee33,
-                    color: Colors.black,
+                    color: AppColors.blackColor,
                   ),
                   const SizedBox(
                     width: 3,
                   ),
                   const TOTTextAtom.bodyMedium('no-transaction',
-                      color: Colors.black)
+                      color: AppColors.blackColor)
                 ],
               ),
               const Divider(

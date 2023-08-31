@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/custom/custom_drop_down_button.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/custom/custom_toggle.dart';
@@ -33,14 +34,14 @@ class _AddOrderState extends State<AddOrder>
     return BlocConsumer<HomeCubit, HomeStatus>(
       listener: (context, state) {},
       builder: (context, state) {
-        if (state is GetProductsFromApi) {
+        if (state is GetProductsFromApiState) {
           return DefaultTabController(
             length: 4,
             initialIndex: 0,
             child: Scaffold(
               appBar: AppBar(
                 automaticallyImplyLeading: false,
-                backgroundColor: Colors.white,
+                backgroundColor: AppColors.white,
                 bottom: PreferredSize(
                     preferredSize: const Size.fromHeight(0),
                     child: Row(
@@ -57,7 +58,7 @@ class _AddOrderState extends State<AddOrder>
                                 hintText: 'Search',
                                 border: InputBorder.none,
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: AppColors.white,
                               ),
                             ),
                           ),
@@ -66,7 +67,7 @@ class _AddOrderState extends State<AddOrder>
                           padding: EdgeInsets.all(8.0),
                           child: Icon(
                             FlutterRemix.equalizer_fill,
-                            color: Colors.black,
+                            color: AppColors.blackColor,
                             size: 20,
                           ),
                         ),
@@ -84,9 +85,9 @@ class _AddOrderState extends State<AddOrder>
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TabBar(
-                      labelColor: Colors.black,
+                      labelColor: AppColors.blackColor,
                       indicator: const BoxDecoration(
-                        color: Color(0xFF83ea00),
+                        color: AppColors.greenColor,
                         borderRadius: BorderRadius.all(
                           Radius.circular(12),
                         ),
@@ -203,12 +204,12 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: AppColors.blackColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const TOTTextAtom.bodyMedium(
                     'edit_product',
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -242,7 +243,7 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                             top: 14,
                             left: 10,
                             child: IconButton(
-                              color: Colors.white,
+                              color: AppColors.white,
                               icon: const Icon(Icons.upload_file),
                               onPressed: () {},
                             ),
@@ -294,9 +295,9 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                           width: double.infinity,
                           child: TOTButtonAtom.filledButton(
                               text: 'Save',
-                              textColor: Colors.black,
+                              textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor: const Color(0xFF83ea00)))
+                              backgroundColor: AppColors.greenColor))
                     ],
                   ),
                 ),

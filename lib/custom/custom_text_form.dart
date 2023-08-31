@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 
 class CustomTextFieldWithLabel extends StatefulWidget {
-  TextEditingController controller;
+  final TextEditingController controller;
   final String title;
-  CustomTextFieldWithLabel({
+  const CustomTextFieldWithLabel({
     super.key,
     required this.controller,
     required this.title,
@@ -30,15 +31,17 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
           child: Text(
             widget.title,
             style: const TextStyle(
-                color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold),
+                color: AppColors.blackColor,
+                fontSize: 12,
+                fontWeight: FontWeight.bold),
           ),
         ),
         TextFormField(
           controller: widget.controller,
-          cursorColor: Colors.black,
+          cursorColor: AppColors.blackColor,
           decoration: const InputDecoration(
             border: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.black)),
+                borderSide: BorderSide(color: AppColors.blackColor)),
             focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey)),
           ),

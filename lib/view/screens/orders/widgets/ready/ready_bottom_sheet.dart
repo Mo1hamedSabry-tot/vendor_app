@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
+
 import 'ready_btm_sheet_item.dart';
 import 'ready_select_btm_sheet_item.dart';
 
 class ReadyBottomSheet extends StatelessWidget {
   final ProductModel model;
+  final VoidCallback onTap;
   const ReadyBottomSheet({
-    super.key, required this.model,
+    super.key,
+    required this.model,
+    required this.onTap,
   });
 
   @override
@@ -21,11 +26,11 @@ class ReadyBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-           ReadytedBtmSheetItem(
+          ReadytedBtmSheetItem(
             productModel: model,
           ),
           const SizedBox(height: 16),
-           ReadySelectedBtmSheetItem(
+          ReadySelectedBtmSheetItem(
             productModel: model,
           ),
           const SizedBox(height: 16),
@@ -37,9 +42,9 @@ class ReadyBottomSheet extends StatelessWidget {
                 height: 50,
                 child: TOTButtonAtom.filledButton(
                   text: 'Swip To Way',
-                  textColor: Colors.black,
-                  onPressed: () {},
-                  backgroundColor: const Color(0xFF83ea00),
+                  textColor: AppColors.blackColor,
+                  onPressed: onTap,
+                  backgroundColor: AppColors.greenColor,
                 ),
               ),
             ],

@@ -1,11 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class PopularOrderItem extends StatelessWidget {
   final ProductModel model;
-  const PopularOrderItem({super.key, required this.model,});
+  const PopularOrderItem({
+    super.key,
+    required this.model,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class PopularOrderItem extends StatelessWidget {
                   children: [
                     TOTTextAtom.bodyLarge(
                       model.title.substring(0, 10),
-                      color: Colors.black,
+                      color: AppColors.blackColor,
                     ),
                     const SizedBox(
                       height: 20,
@@ -64,20 +68,20 @@ class PopularOrderItem extends StatelessWidget {
                 const TOTIconWithTextMolecule(
                     codePoint: 0xee9a,
                     text: 'parameters',
-                    color: Colors.black,
-                    colorText: Colors.black),
+                    color: AppColors.blackColor,
+                    colorText: AppColors.blackColor),
                 const Spacer(),
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xFFf19200)),
+                      color:  AppColors.orangeColor),
                   child: const TOTIconWithTextMolecule(
                       codePoint: 0xe03a,
                       text: 'pending',
-                      color: Colors.white,
-                      colorText: Colors.white),
+                      color: AppColors.white,
+                      colorText: AppColors.white),
                 ),
               ],
             )

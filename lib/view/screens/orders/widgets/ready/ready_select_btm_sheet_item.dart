@@ -30,7 +30,7 @@ class _ReadySelectedBtmSheetItemState extends State<ReadySelectedBtmSheetItem> {
         child: Container(
           padding: const EdgeInsets.all(5),
           margin: const EdgeInsets.symmetric(horizontal: 00, vertical: 5),
-          height: MediaQuery.of(context).size.height * 0.14,
+          height: MediaQuery.of(context).size.height * 0.145,
           width: double.infinity,
           decoration: BoxDecoration(
               color: AppColors.white, borderRadius: BorderRadius.circular(20)),

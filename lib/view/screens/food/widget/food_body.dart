@@ -51,8 +51,9 @@ class FoodBody extends StatelessWidget {
                               builder: (_) {
                                 return _FoodBottomSheet(
                                   model: state.products[index],
-                                  title: dataList[index]['title'],
-                                  description: dataList[index]['description'],
+                                  title: state.products[index].title,
+                                  description:
+                                      state.products[index].description,
                                   selectedUnitId: 2,
                                 );
                               });

@@ -129,9 +129,9 @@ class _AddOrderState extends State<AddOrder>
                                       builder: (_) {
                                         return _OrderPopularBottomSheet(
                                           model: state.products[index],
-                                          title: dataList[index]['title'],
-                                          description: dataList[index]
-                                              ['description'],
+                                          title: state.products[index].title,
+                                          description:
+                                              state.products[index].description,
                                           selectedUnitId: 2,
                                         );
                                       });

@@ -32,7 +32,7 @@ class ProfileItem extends StatelessWidget {
               color: AppColors.blackColor,
             ),
             const SizedBox(
-              width: 15,
+              width: 15, 
             ),
             TOTTextAtom.titleLarge(text),
             const SizedBox(

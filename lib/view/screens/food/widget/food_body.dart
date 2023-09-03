@@ -21,12 +21,6 @@ class FoodBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> dataList = [
-      {"title": "Title 1", "description": "description 1"},
-      {"title": "Title 2", "description": "description 2"},
-      {"title": "Title 3", "description": "description 3"},
-      {"title": "Title 4", "description": "description 4"},
-    ];
     return BlocBuilder<HomeCubit, HomeStatus>(
       builder: (context, state) {
         if (state is GetProductsFromApiState) {

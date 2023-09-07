@@ -25,7 +25,6 @@ class _AddOrderState extends State<AddOrder>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-
     return BlocConsumer<HomeCubit, HomeStatus>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -183,13 +182,10 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
       maxChildSize: 0.90,
       builder: (context, scrollController) {
         return Container(
-          // height: MediaQuery.sizeOf(context).height * 0.9,
-
           decoration: BoxDecoration(
               color: const Color(0xFFefefee),
               borderRadius: BorderRadius.circular(20)),
           child: Column(
-            // mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
@@ -279,13 +275,16 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                             controller: ValueNotifier<bool>(
                               true,
                             ),
-                            onChange: (v) {},
+                            onChange: (v) {
+                              
+                            },
                           ),
                         ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
+                      TOTPopButtonAtom(),
                       SizedBox(
                           width: double.infinity,
                           child: TOTButtonAtom.filledButton(

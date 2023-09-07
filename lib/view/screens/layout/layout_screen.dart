@@ -297,7 +297,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                               text: 'Save',
                               textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor: AppColors.greenColor))
+                              backgroundColor: AppColors.greenColor)),
                     ],
                   ),
                 ),

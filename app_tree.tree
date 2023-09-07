@@ -1,0 +1,81 @@
+├── core
+│  ├── extensions
+│  ├── generated
+│  │  └── l10n
+│  │    ├── ar.arb
+│  │    ├── en.arb
+│  │    └── langs
+│  ├── routes
+│  ├── theme
+│  │  └── app_colors.dart
+│  └── utils
+├── custom
+│  ├── custom_app_bar.dart
+│  ├── custom_drop_down_button.dart
+│  ├── custom_edit_select_item.dart
+│  ├── custom_tab_bar.dart
+│  ├── custom_text_form.dart
+│  └── custom_toggle.dart
+├── data
+│  ├── models
+│  │  ├── request
+│  │  └── response
+│  │    ├── product_model.dart
+│  │    ├── product_model.freezed.dart
+│  │    └── product_model.g.dart
+│  └── repository
+│    └── httb
+│      └── product_repo.dart
+├── main.dart
+└── view
+  ├── blocs
+  │  └── home_cubit
+  │    ├── home_product_cubit.dart
+  │    └── home_product_state.dart
+  └── screens
+    ├── add_order
+    │  ├── add_order.dart
+    │  └── widget
+    │    └── pop_button.dart
+    ├── auth
+    │  └── login
+    │    └── login_screen.dart
+    ├── food
+    │  ├── food_screen.dart
+    │  └── widget
+    │    ├── addons_body.dart
+    │    ├── addons_item.dart
+    │    ├── category_tab_bar_item.dart
+    │    ├── food_body.dart
+    │    └── popular_food_item.dart
+    ├── layout
+    │  ├── layout_screen.dart
+    │  └── widget
+    │    ├── blur_wrap.dart
+    │    └── bottom_navigator_item.dart
+    ├── orders
+    │  ├── orders_screen.dart
+    │  └── widgets
+    │    ├── accepted
+    │    │  ├── acccept_btm_sheet_item.dart
+    │    │  ├── accept_bottom_sheet.dart
+    │    │  └── accept_select_btm_sheet_item.dart
+    │    ├── list_item
+    │    │  ├── accepted_order_item.dart
+    │    │  ├── ready_order_item.dart
+    │    │  └── way_order_item.dart
+    │    ├── no_orders.dart
+    │    ├── popular_order_item.dart
+    │    ├── ready
+    │    │  ├── ready_bottom_sheet.dart
+    │    │  ├── ready_btm_sheet_item.dart
+    │    │  └── ready_select_btm_sheet_item.dart
+    │    └── way
+    │      ├── way_bottom_sheet.dart
+    │      ├── way_btm_sheet_item.dart
+    │      └── way_select_btm_sheet_item.dart
+    ├── profile
+    │  ├── profile_screen.dart
+    │  └── widget
+    │    └── profile_item.dart
+    └── test.dart

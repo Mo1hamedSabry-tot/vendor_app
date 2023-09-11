@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vendor_foody/data/repository/httb/product_repo.dart';
+import 'package:vendor_foody/data/repository/product_repo.dart';
+import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
@@ -10,6 +11,8 @@ import 'package:vendor_foody/view/screens/test.dart';
 import 'view/screens/auth/login/login_screen.dart';
 
 void main() async {
+// await ProductRepo().loginRepo();
+  await DioHelper.init();
   runApp(const MyApp());
 }
 

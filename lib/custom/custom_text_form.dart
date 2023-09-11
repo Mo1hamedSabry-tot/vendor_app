@@ -4,10 +4,11 @@ import 'package:vendor_foody/core/theme/app_colors.dart';
 class CustomTextFieldWithLabel extends StatefulWidget {
   final TextEditingController controller;
   final String title;
+  final String? Function(String?)? validatee;
   const CustomTextFieldWithLabel({
     super.key,
     required this.controller,
-    required this.title,
+    required this.title, this.validatee,
   });
 
   @override
@@ -38,6 +39,7 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
         ),
         TextFormField(
           controller: widget.controller,
+          validator:widget.validatee ,
           cursorColor: AppColors.blackColor,
           decoration: const InputDecoration(
             border: UnderlineInputBorder(

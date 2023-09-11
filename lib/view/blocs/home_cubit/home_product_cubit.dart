@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
-import 'package:vendor_foody/data/repository/httb/product_repo.dart';
+import 'package:vendor_foody/data/repository/product_repo.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
 class HomeCubit extends Cubit<HomeStatus> {

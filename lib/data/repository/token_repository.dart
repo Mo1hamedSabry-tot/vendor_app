@@ -1,10 +1,10 @@
 import 'dart:developer';
-
+import 'package:vendor_foody/core/utils/cache_helper.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';
 
 class TokenRepository {
-  String? token = "";
+  String token = "";
   Future<String> getToken({
     required String username,
     required String password,
@@ -16,13 +16,13 @@ class TokenRepository {
         "grant_type": "password"
       }).then((value) => {
             token = (value.data['access_token']),
+            CacheHelper.set('token', token),
             log("Status Code tttttoken ::: ${value.statusCode}-----"),
-            log("TToken is ::: ${token.toString()}-----"),
+            log("TToken is ::: ${CacheHelper.get('token')}-----"),
           });
     } catch (e) {
-      log("${e.toString()}TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTToken");
+      log(e.toString());
     }
-    log("tttttt ken ${token.toString()}-----");
-    return token!;
+    return token;
   }
 }

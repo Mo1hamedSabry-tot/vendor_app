@@ -63,7 +63,7 @@ dependencies:
   charts_flutter_new:
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
-  shared_preferences: ^2.0.17
+  shared_preferences: ^2.2.1
   firebase_messaging: ^14.2.3
   google_maps_flutter: ^2.2.3
   proste_indexed_stack: ^0.2.4

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/custom/custom_toast.dart';
-import 'package:vendor_foody/data/repository/login_repo.dart';
+import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
-
-import '../../../../data/repository/token_repository.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = 'login';
@@ -99,7 +98,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
   double initialChildSize = 0.60;
   late TextEditingController userNameController;
   late TextEditingController passController;
-  GlobalKey<FormState> formKey = GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   void initState() {
@@ -131,148 +130,177 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
           decoration: BoxDecoration(
               color: const Color(0xFFefefee),
               borderRadius: BorderRadius.circular(20)),
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
-            controller: scrollController,
-            child: Form(
-              key: formKey,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                          icon: const Icon(Icons.arrow_back),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          }),
-                      const Spacer(),
-                      const Text(
-                        'login',
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                      const Spacer(),
-                    ],
-                  ),
-                  CustomTextFieldWithLabel(
-                    controller: userNameController,
-                    title: 'User Name',
-                    validatee: (v) {
-                      if (v!.isEmpty) {
-                        return 'Please enter user name';
-                      }
-                      return null;
-                    },
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            const Text(
-                              'Password',
-                              style: TextStyle(
-                                  color: AppColors.blackColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const Spacer(),
-                            TOTIconButtonAtom.displayMedium(
-                              codePoint: isSecure ? 0xe6be : 0xe6bd,
-                              iconColor: AppColors.blackColor,
+          child: BlocConsumer<LoginBloc, LoginState>(
+            listener: (context, state) {
+              state.maybeWhen(
+                loginSuccess: (model) async {
+                  Navigator.pushNamed(context, LayoutScreen.routeName);
+                  await showToast(
+                    message: 'successful',
+                  );
+                },
+                loginError: () async {
+                  await showToast(
+                    message: 'not found',
+                  );
+                },
+                orElse: () {},
+              );
+            },
+            builder: (context, state) {
+              return SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  controller: scrollController,
+                  child: Form(
+                    key: formKey,
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          IconButton(
+                              icon: const Icon(Icons.arrow_back),
                               onPressed: () {
-                                setState(
-                                  () {
-                                    isSecure = !isSecure;
-                                  },
-                                );
-                              },
-                            ),
-                          ],
-                        ),
+                                Navigator.pop(context);
+                              }),
+                          const Spacer(),
+                          const Text(
+                            'login',
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
+                          const Spacer(),
+                        ],
                       ),
-                      TextFormField(
-                        controller: passController,
-                        validator: (v) {
+                      CustomTextFieldWithLabel(
+                        controller: userNameController,
+                        title: 'User Name',
+                        validatee: (v) {
                           if (v!.isEmpty) {
-                            return 'Please enter pass';
+                            return 'Please enter user name';
                           }
                           return null;
                         },
-                        obscureText: isSecure,
-                        cursorColor: AppColors.blackColor,
-                        onChanged: (value) {},
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: AppColors.blackColor)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey)),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                const Text(
+                                  'Password',
+                                  style: TextStyle(
+                                      color: AppColors.blackColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                const Spacer(),
+                                TOTIconButtonAtom.displayMedium(
+                                  codePoint: isSecure ? 0xe6be : 0xe6bd,
+                                  iconColor: AppColors.blackColor,
+                                  onPressed: () {
+                                    setState(
+                                      () {
+                                        isSecure = !isSecure;
+                                      },
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          TextFormField(
+                            controller: passController,
+                            validator: (v) {
+                              if (v!.isEmpty) {
+                                return 'Please enter pass';
+                              }
+                              return null;
+                            },
+                            obscureText: isSecure,
+                            cursorColor: AppColors.blackColor,
+                            onChanged: (value) {},
+                            decoration: const InputDecoration(
+                              border: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: AppColors.blackColor)),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey)),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.07,
+                      ),
+                      ElevatedButton(
+                        onPressed: _onPressedMethod,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.greenColor,
+                          fixedSize: Size(
+                            MediaQuery.sizeOf(context).width * 0.9,
+                            50,
+                          ),
+                          // Set the background color here
+                        ),
+                        child: state.maybeWhen(
+                          orElse: () {
+                            return const Text(
+                              'Login',
+                              style: TextStyle(
+                                color: AppColors.blackColor,
+                              ),
+                            );
+                          },
+                          loadInProgress: () {
+                            return const CircularProgressIndicator(
+                              color: AppColors.blackColor,
+                            );
+                          },
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: MediaQuery.sizeOf(context).height * 0.07,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      _onPressedMethod();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.greenColor,
-                      fixedSize: Size(
-                        MediaQuery.sizeOf(context).width * 0.9,
-                        50,
+                      SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.03,
                       ),
-                      // Set the background color here
-                    ),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(
-                        color: AppColors.blackColor,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.sizeOf(context).height * 0.03,
-                  ),
-                  const Text(
-                    'demo_login_passoerd',
-                    style: TextStyle(color: Colors.grey),
-                  )
-                ],
-              ),
-            ),
+                      const Text(
+                        'demo_login_passoerd',
+                        style: TextStyle(color: Colors.grey),
+                      )
+                    ]),
+                  ));
+            },
           ),
         );
       },
     );
   }
 
-  _onPressedMethod() {
+  void _onPressedMethod() {
     if (formKey.currentState!.validate()) {
-      LoginRepository()
-          .getData(
-              username: userNameController.text,
-              password: passController.text,
-              rememberMe: false)
-          .then((value) async {
-        if (value.succeeded == true) {
-          TokenRepository().getToken(
-              username: userNameController.text, password: passController.text);
-          Navigator.pushReplacementNamed(context, LayoutScreen.routeName);
-          await showToast(
-            message: 'successful',
+      context.read<LoginBloc>().add(
+            LoginEvent.clicklogin(
+                username: userNameController.text,
+                password: passController.text),
           );
-        } else {
-          await showToast(
-            message: 'Login failed',
-          );
-        }
-      });
+      // LoginRepository()
+      //     .getData(
+      //         username: userNameController.text,
+      //         password: passController.text,
+      //         rememberMe: false)
+      //     .then((value) async {
+      //   if (value.succeeded == true) {
+      //     TokenRepository().getToken(
+      //         username: userNameController.text, password: passController.text);
+      //     Navigator.pushReplacementNamed(context, LayoutScreen.routeName);
+      //     await showToast(
+      //       message: 'successful',
+      //     );
+      //   } else {
+      //     await showToast(
+      //       message: 'Login failed',
+      //     );
+      //   }
+      // });
     }
   }
 }

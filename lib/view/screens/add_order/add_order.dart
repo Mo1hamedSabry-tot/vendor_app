@@ -275,16 +275,13 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                             controller: ValueNotifier<bool>(
                               true,
                             ),
-                            onChange: (v) {
-                              
-                            },
+                            onChange: (v) {},
                           ),
-                        ],
+                        ], 
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      TOTPopButtonAtom(),
                       SizedBox(
                           width: double.infinity,
                           child: TOTButtonAtom.filledButton(

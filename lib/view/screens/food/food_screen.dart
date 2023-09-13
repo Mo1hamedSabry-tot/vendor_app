@@ -22,12 +22,13 @@ int selectedItemIndex = 0;
 
 class _FoodScreenState extends State<FoodScreen>
     with SingleTickerProviderStateMixin {
-  TabController? _tabController;
+  late TabController _tabController;
   late ScrollController _scrollController;
   TextEditingController controller = TextEditingController();
 
   int selectedTabIndex = 0;
   bool isSelcetedCategory = false;
+  bool loading = false;
 
   final tabs = [
     const Tab(
@@ -48,12 +49,20 @@ class _FoodScreenState extends State<FoodScreen>
     _scrollController = ScrollController();
     _tabController =
         _tabController = TabController(length: tabs.length, vsync: this);
+
+    _tabController.addListener(() {
+      setState(() {
+        loading = true;
+        selectedTabIndex = _tabController.index;
+        loading = false;
+      });
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _tabController?.dispose();
+    _tabController.dispose();
     _scrollController.dispose();
   }
 
@@ -121,12 +130,14 @@ class _FoodScreenState extends State<FoodScreen>
                           _tabController,
                           onTap: (value) {
                             setState(() {
+                              loading = true;
                               selectedTabIndex = value;
+                              loading = false;
                             });
                           },
                         ),
                       ),
-                      if (selectedTabIndex == 0)
+                      if (!loading && selectedTabIndex == 0)
                         SliverAppBar(
                           collapsedHeight: 0,
                           expandedHeight: 0,
@@ -172,7 +183,7 @@ class _FoodScreenState extends State<FoodScreen>
                     ];
                   },
                   body: TabBarView(
-                    physics: const BouncingScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     controller: _tabController,
                     children: [
                       FoodBody(selectedTabIndex: selectedItemIndex),
@@ -218,6 +229,8 @@ class _Header extends SliverPersistentHeaderDelegate {
         padding: EdgeInsets.zero,
         labelPadding: EdgeInsets.zero,
         indicatorPadding: EdgeInsets.zero,
+        // physics: const NeverScrollableScrollPhysics(),
+
         onTap: onTap,
         controller: controller,
         indicatorSize: TabBarIndicatorSize.tab,

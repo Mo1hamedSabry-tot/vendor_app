@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/accepted/accept_bottom_sheet.dart';
@@ -151,7 +152,10 @@ class _OrdersScreenState extends State<OrdersScreen>
                                               .read<HomeCubit>()
                                               .addProductToReady(
                                                   state.products[index]);
-
+                                          ShowSnackbar.showCheckTopSnackBar(
+                                              context,
+                                              text: 'Swiped to Ready Order',
+                                              type: SnackBarType.success);
                                           Navigator.pop(context);
                                         },
                                       ); // Your custom bottom sheet widget
@@ -181,6 +185,10 @@ class _OrdersScreenState extends State<OrdersScreen>
                                             .read<HomeCubit>()
                                             .addProductToAway(
                                                 state.readyProducts[index]);
+                                        ShowSnackbar.showCheckTopSnackBar(
+                                            context,
+                                            text: 'Swiped To On-a-way',
+                                            type: SnackBarType.success);
                                         Navigator.of(contextt).pop();
                                       },
                                     );

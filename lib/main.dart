@@ -14,7 +14,6 @@ import 'core/utils/cache_helper.dart';
 import 'view/screens/auth/login/login_screen.dart';
 
 void main() async {
-// await ProductRepo().loginRepo();
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   await DioHelper.init();

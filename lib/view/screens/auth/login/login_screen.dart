@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
-import 'package:vendor_foody/custom/custom_toast.dart';
 import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 
@@ -135,14 +135,12 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
               state.maybeWhen(
                 loginSuccess: (model) async {
                   Navigator.pushNamed(context, LayoutScreen.routeName);
-                  await showToast(
-                    message: 'successful',
-                  );
+                  ShowSnackbar.showCheckTopSnackBar(context,
+                      text: 'Login Success', type: SnackBarType.success);
                 },
                 loginError: () async {
-                  await showToast(
-                    message: 'not found',
-                  );
+                  ShowSnackbar.showCheckTopSnackBar(context,
+                      text: 'not Found', type: SnackBarType.error);
                 },
                 orElse: () {},
               );

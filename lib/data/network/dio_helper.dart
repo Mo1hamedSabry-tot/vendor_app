@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:vendor_foody/data/network/app_inceptors.dart';
 
 import 'end_points.dart';
 
@@ -21,6 +23,10 @@ class DioHelper {
         },
       ),
     );
+    dio.interceptors.add(AppInterceptors());
+    if (kDebugMode) {
+      dio.interceptors.add(LogInterceptor());
+    }
   }
 
   //This Function to call API and get Some Data based on url(End Points) and Headers needed in API to get the Specific Data.
@@ -52,16 +58,16 @@ class DioHelper {
     String? token,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    bool? isTokenCall,
+    bool? isTokenCall =  false,
   }) async {
-    final isToken = isTokenCall ?? false;
+    
     try {
       dio.options.headers = {
         'Authorization': 'Bearer ${token ?? ''}',
       };
       final Response response = await dio.post(
         options: Options(
-          contentType: isToken
+          contentType: isTokenCall!
               ? Headers.formUrlEncodedContentType
               : Headers.jsonContentType,
         ),

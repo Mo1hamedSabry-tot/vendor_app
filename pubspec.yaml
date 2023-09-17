@@ -92,7 +92,7 @@ dev_dependencies:
 
 dependency_overrides:
   intl:
-  
+  json_annotation:
 
 # The following section is specific to Flutter packages.
 flutter:

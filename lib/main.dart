@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
+import 'package:vendor_foody/data/repository/add_product_repo.dart';
 import 'package:vendor_foody/data/repository/login_repo.dart';
 import 'package:vendor_foody/data/repository/product_repo.dart';
+import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
@@ -22,7 +24,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -32,6 +33,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
             create: (context) => LoginBloc(repository: LoginRepository())),
+        BlocProvider(
+            create: (context) => AddProductBloc(repository: AddProductRepository())),
       ],
       child: const App(),
     );

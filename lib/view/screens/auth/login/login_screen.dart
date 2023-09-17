@@ -136,7 +136,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                 loginSuccess: (model) async {
                   Navigator.pushNamed(context, LayoutScreen.routeName);
                   ShowSnackbar.showCheckTopSnackBar(context,
-                      text: 'Login Success', type: SnackBarType.success);
+                      text: 'you are welcome', type: SnackBarType.success);
                 },
                 loginError: () async {
                   ShowSnackbar.showCheckTopSnackBar(context,

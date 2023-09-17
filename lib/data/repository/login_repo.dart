@@ -10,21 +10,21 @@ class LoginRepository {
     required String password,
     required bool rememberMe,
   }) async {
-    late LoginModel loginModel;
+    late LoginModel data;
     try {
       await DioHelper.postData(url: loginEndPoint, isTokenCall: false, data: {
         "userName": username,
         "password": password,
         "rememberMe": rememberMe,
       }).then((value) => {
-            loginModel = LoginModel.fromJson(value.data),
+            data = LoginModel.fromJson(value.data),
             log("Status Code ::: ${value.statusCode}-----"),
-            log("data is ::: ${loginModel.toString()}-----"),
+            log("data is ::: ${data.toString()}-----"),
           });
     } catch (e) {
       log(e.toString());
     }
 
-    return loginModel;
+    return data;
   }
 }

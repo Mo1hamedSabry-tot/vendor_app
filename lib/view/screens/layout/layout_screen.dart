@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/food/food_screen.dart';
 import 'package:vendor_foody/view/screens/layout/widget/blur_wrap.dart';
@@ -11,8 +14,6 @@ import 'package:vendor_foody/view/screens/layout/widget/bottom_navigator_item.da
 import 'package:vendor_foody/view/screens/orders/orders_screen.dart';
 import 'package:vendor_foody/view/screens/profile/profile_screen.dart';
 
-import '../../../custom/custom_drop_down_button.dart';
-import '../../../custom/custom_edit_select_item.dart';
 import '../../../custom/custom_text_form.dart';
 import '../../../custom/custom_toggle.dart';
 
@@ -172,8 +173,13 @@ class _FoodBottomSheet extends StatefulWidget {
 
 class _FoodBottomSheetState extends State<_FoodBottomSheet> {
   int? updatedUnitId;
+  GlobalKey<FormState> keyForm = GlobalKey();
   @override
   Widget build(BuildContext context) {
+    TextEditingController titleController =
+        TextEditingController(text: widget.title);
+    TextEditingController codeController =
+        TextEditingController(text: widget.description);
     return DraggableScrollableSheet(
       expand: false,
       initialChildSize: 0.90,
@@ -208,97 +214,148 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(16),
                   // controller: scrollController,
-                  child: Column(
-                    children: [
-                      Stack(
-                        children: [
-                          SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.17,
-                            width: MediaQuery.sizeOf(context).width,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                placeholder: (context, url) => const Center(
-                                  child: CircularProgressIndicator(),
+                  child: Form(
+                    key: keyForm,
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.sizeOf(context).height * 0.17,
+                              width: MediaQuery.sizeOf(context).width,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) => const Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                  errorWidget: (context, url, error) {
+                                    return const SizedBox();
+                                  },
+                                  imageUrl:
+                                      'https://media.gettyimages.com/id/536065418/photo/al-azhar-mosque-in-cairo.jpg?s=612x612&w=0&k=20&c=jd8GGQtX59poLchSwaVLeKHVfQnOsnBh5UzsciubumQ=',
                                 ),
-                                errorWidget: (context, url, error) {
-                                  return const SizedBox();
-                                },
-                                imageUrl:
-                                    'https://media.gettyimages.com/id/536065418/photo/al-azhar-mosque-in-cairo.jpg?s=612x612&w=0&k=20&c=jd8GGQtX59poLchSwaVLeKHVfQnOsnBh5UzsciubumQ=',
                               ),
                             ),
-                          ),
-                          Positioned(
-                            top: 14,
-                            left: 10,
-                            child: IconButton(
-                              color: AppColors.white,
-                              icon: const Icon(Icons.upload_file),
-                              onPressed: () {},
+                            Positioned(
+                              top: 14,
+                              left: 10,
+                              child: IconButton(
+                                color: AppColors.white,
+                                icon: const Icon(Icons.upload_file),
+                                onPressed: () {},
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      CustomTextFieldWithLabel(
-                        controller: TextEditingController(text: widget.title),
-                        title: 'prduct title',
-                      ),
-                      CustomTextFieldWithLabel(
-                        controller:
-                            TextEditingController(text: widget.description),
-                        title: 'Description',
-                      ),
-                      EditSelectItem(
-                        title: 'Title Product',
-                        value: 'valueee',
-                        onPressed: () {},
-                      ),
-                      EditSelectItem(
-                        title: 'Units',
-                        value: '6',
-                        onPressed: () {},
-                      ),
-                      CustomDropDownBotton(
-                        value: updatedUnitId ?? widget.selectedUnitId,
-                        onChanged: (v) {
-                          setState(() {
-                            updatedUnitId = v as int;
-                          });
-                        },
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const Text(
-                            'Show The Product to The Customer',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold),
-                          ),
-                          const Spacer(),
-                          CustomToggle(
-                            controller: ValueNotifier<bool>(
-                              true,
+                          ],
+                        ),
+                        CustomTextFieldWithLabel(
+                          validatee: (v) {
+                            if (v!.isEmpty) {
+                              return 'Title is required';
+                            }
+                            return null;
+                          },
+                          controller: titleController,
+                          title: 'prduct title',
+                        ),
+                        CustomTextFieldWithLabel(
+                          controller: codeController,
+                          validatee: (v) {
+                            if (v!.isEmpty) {
+                              return 'Code is required';
+                            }
+                            return null;
+                          },
+                          title: 'Code',
+                        ),
+                        // EditSelectItem(
+                        //   title: 'Title Product',
+                        //   value: 'valueee',
+                        //   onPressed: () {},
+                        // ),
+                        // EditSelectItem(
+                        //   title: 'Units',
+                        //   value: '6',
+                        //   onPressed: () {},
+                        // ),
+                        // CustomDropDownBotton(
+                        //   value: updatedUnitId ?? widget.selectedUnitId,
+                        //   onChanged: (v) {
+                        //     setState(() {
+                        //       updatedUnitId = v as int;
+                        //     });
+                        //   },
+                        // ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const Text(
+                              'Show The Product to The Customer',
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
                             ),
-                            onChange: (v) {},
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                          width: double.infinity,
-                          child: TOTButtonAtom.filledButton(
-                              text: 'Save',
-                              textColor: AppColors.blackColor,
-                              onPressed: () {},
-                              backgroundColor: AppColors.greenColor)),
-                    ],
+                            const Spacer(),
+                            CustomToggle(
+                              controller: ValueNotifier<bool>(
+                                true,
+                              ),
+                              onChange: (v) {},
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                            width: double.infinity,
+                            child:
+                                BlocConsumer<AddProductBloc, AddProductState>(
+                              listener: (context, state) {
+                                state.maybeWhen(
+                                  orElse: () {},
+                                  addSuccess: (v) {
+                                    ShowSnackbar.showCheckTopSnackBar(context,
+                                        text: 'added',
+                                        type: SnackBarType.success);
+                                    Navigator.pop(context);
+                                  },
+                                  addError: () {
+                                    ShowSnackbar.showCheckTopSnackBar(context,
+                                        text: 'try again',
+                                        type: SnackBarType.error);
+                                  },
+                                );
+                              },
+                              builder: (context, state) {
+                                state.maybeWhen(
+                                    orElse: () {},
+                                    loadInProgress: () {
+                                      const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    });
+                                return TOTButtonAtom.filledButton(
+                                    text: 'Save',
+                                    textColor: AppColors.blackColor,
+                                    onPressed: () {
+                                      if (keyForm.currentState!.validate()) {
+                                        context.read<AddProductBloc>().add(
+                                            AddProductEvent.addProduct(
+                                                name: titleController.text,
+                                                code: codeController.text,
+                                                catalogId:
+                                                    "f5790b39-4fc8-4aad-8318-259d28595f05"));
+                                      }
+                                    },
+                                    backgroundColor: AppColors.greenColor);
+                              },
+                            )),
+                      ],
+                    ),
                   ),
                 ),
               )

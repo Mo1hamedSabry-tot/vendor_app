@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/view/blocs/get_catalog/get_catalog_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
@@ -160,19 +161,38 @@ class _FoodScreenState extends State<FoodScreen>
                                           return SizedBox(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
-                                                0.15,
+                                                0.05,
                                           );
                                         },
                                         itemCount: 10,
                                         scrollDirection: Axis.horizontal,
                                         padding: EdgeInsets.zero,
                                         itemBuilder: (context, index) {
-                                          return const Center(
-                                            child: CircularProgressIndicator(
-                                              color: AppColors.blackColor,
+                                          return Center(
+                                            child: SizedBox(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.25,
+                                              height: 50.0,
+                                              child: Shimmer.fromColors(
+                                                baseColor: Colors.grey.shade100,
+                                                highlightColor:
+                                                    Colors.grey.shade200,
+                                                child: Container(
+                                                  margin: const EdgeInsets
+                                                      .symmetric(horizontal: 5),
+                                                  decoration: BoxDecoration(
+                                                    color: AppColors.greyColor,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           );
-                                        });
+                                        },
+                                        );
                                   }, loadSuccess: (v) {
                                     return ListView.builder(
                                         itemCount: v.results?.length,

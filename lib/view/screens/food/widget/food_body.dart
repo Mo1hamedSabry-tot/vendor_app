@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
-import 'package:vendor_foody/data/models/response/tot_products/tot_product_model.dart';
+import 'package:vendor_foody/data/models/response/tot_product_model.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 
 import '../../../../custom/custom_drop_down_button.dart';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/view/blocs/get_catalog/get_catalog_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
@@ -19,6 +20,7 @@ class FoodScreen extends StatefulWidget {
 }
 
 int selectedItemIndex = 0;
+bool isSelected = false;
 
 class _FoodScreenState extends State<FoodScreen>
     with SingleTickerProviderStateMixin {
@@ -46,6 +48,7 @@ class _FoodScreenState extends State<FoodScreen>
   @override
   void initState() {
     super.initState();
+
     _scrollController = ScrollController();
     _tabController =
         _tabController = TabController(length: tabs.length, vsync: this);
@@ -66,13 +69,6 @@ class _FoodScreenState extends State<FoodScreen>
     _scrollController.dispose();
   }
 
-  List<Map<String, dynamic>> categoryTabs = [
-    {"title": "popular", "isSelected": true},
-    {"title": "iPhones", "isSelected": false},
-    {"title": "food", "isSelected": false},
-    {"title": "mgm", "isSelected": false},
-    {"title": "pppppp", "isSelected": false},
-  ];
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeStatus>(
@@ -153,30 +149,58 @@ class _FoodScreenState extends State<FoodScreen>
                               margin: const EdgeInsets.only(bottom: 5),
                               padding: EdgeInsets.zero,
                               height: 40,
-                              child: ListView.builder(
-                                  itemCount: 5,
-                                  scrollDirection: Axis.horizontal,
-                                  padding: EdgeInsets.zero,
-                                  itemBuilder: (context, index) {
-                                    return CategoryItem(
-                                      title: categoryTabs[index]['title'],
-                                      isSelect: categoryTabs[index]
-                                          ['isSelected'],
-                                      onTab: () {
-                                        setState(
-                                          () {
-                                            selectedItemIndex = index;
-                                            for (var tab in categoryTabs) {
-                                              tab['isSelected'] = false;
-                                            }
-                                            categoryTabs[index]['isSelected'] =
-                                                true;
-                                          },
-                                        );
-                                      },
-                                      id: index,
-                                    );
-                                  }),
+                              child:
+                                  BlocBuilder<GetCatalogBloc, GetCatalogState>(
+                                builder: (context, state) {
+                                  return state.maybeWhen(orElse: () {
+                                    return const SizedBox();
+                                  }, loadInProgress: () {
+                                    return ListView.separated(
+                                        separatorBuilder: (context, index) {
+                                          return SizedBox(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.15,
+                                          );
+                                        },
+                                        itemCount: 10,
+                                        scrollDirection: Axis.horizontal,
+                                        padding: EdgeInsets.zero,
+                                        itemBuilder: (context, index) {
+                                          return const Center(
+                                            child: CircularProgressIndicator(
+                                              color: AppColors.blackColor,
+                                            ),
+                                          );
+                                        });
+                                  }, loadSuccess: (v) {
+                                    return ListView.builder(
+                                        itemCount: v.results?.length,
+                                        scrollDirection: Axis.horizontal,
+                                        padding: EdgeInsets.zero,
+                                        itemBuilder: (context, index) {
+                                          return CategoryItem(
+                                            title: v.results![index].name ?? "",
+                                            isSelect:
+                                                v.results![index].isSelected,
+                                            onTab: () {
+                                              setState(
+                                                () {
+                                                  selectedItemIndex = index;
+                                                  for (var tab in v.results!) {
+                                                    tab.isSelected = false;
+                                                  }
+                                                  v.results![index].isSelected =
+                                                      true;
+                                                },
+                                              );
+                                            },
+                                            id: index,
+                                          );
+                                        });
+                                  });
+                                },
+                              ),
                             ),
                           ),
                         ),

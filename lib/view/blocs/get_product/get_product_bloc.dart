@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vendor_foody/data/models/response/tot_products/tot_product_model.dart';
+import 'package:vendor_foody/data/models/response/tot_product_model.dart';
 import 'package:vendor_foody/data/repository/get_product_repo.dart';
 
 part 'get_product_bloc.freezed.dart';

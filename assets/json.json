@@ -1,227 +1,6 @@
 {
-  "productType": "string",
-  "code": "string",
-  "manufacturerPartNumber": "string",
-  "gtin": "string",
-  "name": "string",
-  "catalogId": "string",
-  "categoryId": "string",
-  "outline": "string",
-  "path": "string",
-  "titularItemId": "string",
-  "mainProductId": "string",
-  "isActive": true,
-  "isBuyable": true,
-  "trackInventory": true,
-  "indexingDate": "2023-09-17T08:35:28.436Z",
-  "maxQuantity": 0,
-  "minQuantity": 0,
-  "startDate": "2023-09-17T08:35:28.436Z",
-  "endDate": "2023-09-17T08:35:28.436Z",
-  "packageType": "string",
-  "weightUnit": "string",
-  "weight": 0,
-  "measureUnit": "string",
-  "height": 0,
-  "length": 0,
-  "width": 0,
-  "enableReview": true,
-  "maxNumberOfDownload": 0,
-  "downloadExpiration": "2023-09-17T08:35:28.436Z",
-  "downloadType": "string",
-  "hasUserAgreement": true,
-  "shippingType": "string",
-  "taxType": "string",
-  "vendor": "string",
-  "priority": 0,
-  "outerId": "string",
-  "properties": [
-    {
-      "isReadOnly": true,
-      "isManageable": true,
-      "isNew": true,
-      "catalogId": "string",
-      "categoryId": "string",
-      "name": "string",
-      "required": true,
-      "dictionary": true,
-      "multivalue": true,
-      "multilanguage": true,
-      "hidden": true,
-      "valueType": "ShortText",
-      "type": "Product",
-      "outerId": "string",
-      "ownerName": "string",
-      "displayOrder": 0,
-      "values": [
-        {
-          "propertyName": "string",
-          "propertyId": "string",
-          "languageCode": "string",
-          "alias": "string",
-          "valueType": "ShortText",
-          "valueId": "string",
-          "value": {},
-          "propertyMultivalue": true,
-          "outerId": "string",
-          "isInherited": true,
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
-          "createdBy": "string",
-          "modifiedBy": "string",
-          "id": "string"
-        }
-      ],
-      "attributes": [
-        {
-          "propertyId": "string",
-          "value": "string",
-          "name": "string",
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
-          "createdBy": "string",
-          "modifiedBy": "string",
-          "id": "string"
-        }
-      ],
-      "displayNames": [
-        {
-          "name": "string",
-          "languageCode": "string"
-        }
-      ],
-      "validationRules": [
-        {
-          "isUnique": true,
-          "charCountMin": 0,
-          "charCountMax": 0,
-          "regExp": "string",
-          "propertyId": "string",
-          "id": "string"
-        }
-      ],
-      "validationRule": {
-        "isUnique": true,
-        "charCountMin": 0,
-        "charCountMax": 0,
-        "regExp": "string",
-        "propertyId": "string",
-        "id": "string"
-      },
-      "isInherited": true,
-      "createdDate": "2023-09-17T08:35:28.436Z",
-      "modifiedDate": "2023-09-17T08:35:28.436Z",
-      "createdBy": "string",
-      "modifiedBy": "string",
-      "id": "string"
-    }
-  ],
-  "excludedProperties": [
-    {
-      "name": "string",
-      "isInherited": true
-    }
-  ],
-  "imgSrc": "string",
-  "images": [
-    {
-      "binaryData": "string",
-      "altText": "string",
-      "relativeUrl": "string",
-      "url": "string",
-      "description": "string",
-      "sortOrder": 0,
-      "typeId": "string",
-      "group": "string",
-      "name": "string",
-      "outerId": "string",
-      "languageCode": "string",
-      "isInherited": true,
-      "seoObjectType": "string",
-      "seoInfos": [
-        {
-          "name": "string",
-          "semanticUrl": "string",
-          "pageTitle": "string",
-          "metaDescription": "string",
-          "imageAltDescription": "string",
-          "metaKeywords": "string",
-          "storeId": "string",
-          "objectId": "string",
-          "objectType": "string",
-          "isActive": true,
-          "languageCode": "string",
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
-          "createdBy": "string",
-          "modifiedBy": "string",
-          "id": "string"
-        }
-      ],
-      "createdDate": "2023-09-17T08:35:28.436Z",
-      "modifiedDate": "2023-09-17T08:35:28.436Z",
-      "createdBy": "string",
-      "modifiedBy": "string",
-      "id": "string"
-    }
-  ],
-  "assets": [
-    {
-      "mimeType": "string",
-      "size": 0,
-      "readableSize": "string",
-      "binaryData": "string",
-      "relativeUrl": "string",
-      "url": "string",
-      "description": "string",
-      "sortOrder": 0,
-      "typeId": "string",
-      "group": "string",
-      "name": "string",
-      "outerId": "string",
-      "languageCode": "string",
-      "isInherited": true,
-      "seoObjectType": "string",
-      "seoInfos": [
-        {
-          "name": "string",
-          "semanticUrl": "string",
-          "pageTitle": "string",
-          "metaDescription": "string",
-          "imageAltDescription": "string",
-          "metaKeywords": "string",
-          "storeId": "string",
-          "objectId": "string",
-          "objectType": "string",
-          "isActive": true,
-          "languageCode": "string",
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
-          "createdBy": "string",
-          "modifiedBy": "string",
-          "id": "string"
-        }
-      ],
-      "createdDate": "2023-09-17T08:35:28.436Z",
-      "modifiedDate": "2023-09-17T08:35:28.436Z",
-      "createdBy": "string",
-      "modifiedBy": "string",
-      "id": "string"
-    }
-  ],
-  "links": [
-    {
-      "entryId": "string",
-      "listEntryId": "string",
-      "listEntryType": "string",
-      "priority": 0,
-      "catalogId": "string",
-      "categoryId": "string",
-      "targetId": "string",
-      "name": "string"
-    }
-  ],
-  "variations": [
+  "totalCount": 0,
+  "items": [
     {
       "productType": "string",
       "code": "string",
@@ -237,11 +16,11 @@
       "isActive": true,
       "isBuyable": true,
       "trackInventory": true,
-      "indexingDate": "2023-09-17T08:35:28.436Z",
+      "indexingDate": "2023-09-18T07:45:28.918Z",
       "maxQuantity": 0,
       "minQuantity": 0,
-      "startDate": "2023-09-17T08:35:28.436Z",
-      "endDate": "2023-09-17T08:35:28.436Z",
+      "startDate": "2023-09-18T07:45:28.918Z",
+      "endDate": "2023-09-18T07:45:28.918Z",
       "packageType": "string",
       "weightUnit": "string",
       "weight": 0,
@@ -251,7 +30,7 @@
       "width": 0,
       "enableReview": true,
       "maxNumberOfDownload": 0,
-      "downloadExpiration": "2023-09-17T08:35:28.436Z",
+      "downloadExpiration": "2023-09-18T07:45:28.918Z",
       "downloadType": "string",
       "hasUserAgreement": true,
       "shippingType": "string",
@@ -289,8 +68,8 @@
               "propertyMultivalue": true,
               "outerId": "string",
               "isInherited": true,
-              "createdDate": "2023-09-17T08:35:28.436Z",
-              "modifiedDate": "2023-09-17T08:35:28.436Z",
+              "createdDate": "2023-09-18T07:45:28.918Z",
+              "modifiedDate": "2023-09-18T07:45:28.918Z",
               "createdBy": "string",
               "modifiedBy": "string",
               "id": "string"
@@ -301,8 +80,8 @@
               "propertyId": "string",
               "value": "string",
               "name": "string",
-              "createdDate": "2023-09-17T08:35:28.436Z",
-              "modifiedDate": "2023-09-17T08:35:28.436Z",
+              "createdDate": "2023-09-18T07:45:28.918Z",
+              "modifiedDate": "2023-09-18T07:45:28.918Z",
               "createdBy": "string",
               "modifiedBy": "string",
               "id": "string"
@@ -333,8 +112,8 @@
             "id": "string"
           },
           "isInherited": true,
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
+          "createdDate": "2023-09-18T07:45:28.918Z",
+          "modifiedDate": "2023-09-18T07:45:28.918Z",
           "createdBy": "string",
           "modifiedBy": "string",
           "id": "string"
@@ -375,15 +154,15 @@
               "objectType": "string",
               "isActive": true,
               "languageCode": "string",
-              "createdDate": "2023-09-17T08:35:28.436Z",
-              "modifiedDate": "2023-09-17T08:35:28.436Z",
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
               "createdBy": "string",
               "modifiedBy": "string",
               "id": "string"
             }
           ],
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
+          "createdDate": "2023-09-18T07:45:28.919Z",
+          "modifiedDate": "2023-09-18T07:45:28.919Z",
           "createdBy": "string",
           "modifiedBy": "string",
           "id": "string"
@@ -419,15 +198,15 @@
               "objectType": "string",
               "isActive": true,
               "languageCode": "string",
-              "createdDate": "2023-09-17T08:35:28.436Z",
-              "modifiedDate": "2023-09-17T08:35:28.436Z",
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
               "createdBy": "string",
               "modifiedBy": "string",
               "id": "string"
             }
           ],
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
+          "createdDate": "2023-09-18T07:45:28.919Z",
+          "modifiedDate": "2023-09-18T07:45:28.919Z",
           "createdBy": "string",
           "modifiedBy": "string",
           "id": "string"
@@ -446,7 +225,426 @@
         }
       ],
       "variations": [
-        "string"
+        {
+          "productType": "string",
+          "code": "string",
+          "manufacturerPartNumber": "string",
+          "gtin": "string",
+          "name": "string",
+          "catalogId": "string",
+          "categoryId": "string",
+          "outline": "string",
+          "path": "string",
+          "titularItemId": "string",
+          "mainProductId": "string",
+          "isActive": true,
+          "isBuyable": true,
+          "trackInventory": true,
+          "indexingDate": "2023-09-18T07:45:28.919Z",
+          "maxQuantity": 0,
+          "minQuantity": 0,
+          "startDate": "2023-09-18T07:45:28.919Z",
+          "endDate": "2023-09-18T07:45:28.919Z",
+          "packageType": "string",
+          "weightUnit": "string",
+          "weight": 0,
+          "measureUnit": "string",
+          "height": 0,
+          "length": 0,
+          "width": 0,
+          "enableReview": true,
+          "maxNumberOfDownload": 0,
+          "downloadExpiration": "2023-09-18T07:45:28.919Z",
+          "downloadType": "string",
+          "hasUserAgreement": true,
+          "shippingType": "string",
+          "taxType": "string",
+          "vendor": "string",
+          "priority": 0,
+          "outerId": "string",
+          "properties": [
+            {
+              "isReadOnly": true,
+              "isManageable": true,
+              "isNew": true,
+              "catalogId": "string",
+              "categoryId": "string",
+              "name": "string",
+              "required": true,
+              "dictionary": true,
+              "multivalue": true,
+              "multilanguage": true,
+              "hidden": true,
+              "valueType": "ShortText",
+              "type": "Product",
+              "outerId": "string",
+              "ownerName": "string",
+              "displayOrder": 0,
+              "values": [
+                {
+                  "propertyName": "string",
+                  "propertyId": "string",
+                  "languageCode": "string",
+                  "alias": "string",
+                  "valueType": "ShortText",
+                  "valueId": "string",
+                  "value": {},
+                  "propertyMultivalue": true,
+                  "outerId": "string",
+                  "isInherited": true,
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
+                  "createdBy": "string",
+                  "modifiedBy": "string",
+                  "id": "string"
+                }
+              ],
+              "attributes": [
+                {
+                  "propertyId": "string",
+                  "value": "string",
+                  "name": "string",
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
+                  "createdBy": "string",
+                  "modifiedBy": "string",
+                  "id": "string"
+                }
+              ],
+              "displayNames": [
+                {
+                  "name": "string",
+                  "languageCode": "string"
+                }
+              ],
+              "validationRules": [
+                {
+                  "isUnique": true,
+                  "charCountMin": 0,
+                  "charCountMax": 0,
+                  "regExp": "string",
+                  "propertyId": "string",
+                  "id": "string"
+                }
+              ],
+              "validationRule": {
+                "isUnique": true,
+                "charCountMin": 0,
+                "charCountMax": 0,
+                "regExp": "string",
+                "propertyId": "string",
+                "id": "string"
+              },
+              "isInherited": true,
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
+              "createdBy": "string",
+              "modifiedBy": "string",
+              "id": "string"
+            }
+          ],
+          "excludedProperties": [
+            {
+              "name": "string",
+              "isInherited": true
+            }
+          ],
+          "imgSrc": "string",
+          "images": [
+            {
+              "binaryData": "string",
+              "altText": "string",
+              "relativeUrl": "string",
+              "url": "string",
+              "description": "string",
+              "sortOrder": 0,
+              "typeId": "string",
+              "group": "string",
+              "name": "string",
+              "outerId": "string",
+              "languageCode": "string",
+              "isInherited": true,
+              "seoObjectType": "string",
+              "seoInfos": [
+                {
+                  "name": "string",
+                  "semanticUrl": "string",
+                  "pageTitle": "string",
+                  "metaDescription": "string",
+                  "imageAltDescription": "string",
+                  "metaKeywords": "string",
+                  "storeId": "string",
+                  "objectId": "string",
+                  "objectType": "string",
+                  "isActive": true,
+                  "languageCode": "string",
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
+                  "createdBy": "string",
+                  "modifiedBy": "string",
+                  "id": "string"
+                }
+              ],
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
+              "createdBy": "string",
+              "modifiedBy": "string",
+              "id": "string"
+            }
+          ],
+          "assets": [
+            {
+              "mimeType": "string",
+              "size": 0,
+              "readableSize": "string",
+              "binaryData": "string",
+              "relativeUrl": "string",
+              "url": "string",
+              "description": "string",
+              "sortOrder": 0,
+              "typeId": "string",
+              "group": "string",
+              "name": "string",
+              "outerId": "string",
+              "languageCode": "string",
+              "isInherited": true,
+              "seoObjectType": "string",
+              "seoInfos": [
+                {
+                  "name": "string",
+                  "semanticUrl": "string",
+                  "pageTitle": "string",
+                  "metaDescription": "string",
+                  "imageAltDescription": "string",
+                  "metaKeywords": "string",
+                  "storeId": "string",
+                  "objectId": "string",
+                  "objectType": "string",
+                  "isActive": true,
+                  "languageCode": "string",
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
+                  "createdBy": "string",
+                  "modifiedBy": "string",
+                  "id": "string"
+                }
+              ],
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
+              "createdBy": "string",
+              "modifiedBy": "string",
+              "id": "string"
+            }
+          ],
+          "links": [
+            {
+              "entryId": "string",
+              "listEntryId": "string",
+              "listEntryType": "string",
+              "priority": 0,
+              "catalogId": "string",
+              "categoryId": "string",
+              "targetId": "string",
+              "name": "string"
+            }
+          ],
+          "variations": [
+            "string"
+          ],
+          "seoObjectType": "string",
+          "seoInfos": [
+            {
+              "name": "string",
+              "semanticUrl": "string",
+              "pageTitle": "string",
+              "metaDescription": "string",
+              "imageAltDescription": "string",
+              "metaKeywords": "string",
+              "storeId": "string",
+              "objectId": "string",
+              "objectType": "string",
+              "isActive": true,
+              "languageCode": "string",
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
+              "createdBy": "string",
+              "modifiedBy": "string",
+              "id": "string"
+            }
+          ],
+          "reviews": [
+            {
+              "content": "string",
+              "reviewType": "string",
+              "languageCode": "string",
+              "isInherited": true,
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
+              "createdBy": "string",
+              "modifiedBy": "string",
+              "id": "string"
+            }
+          ],
+          "associations": [
+            {
+              "type": "string",
+              "priority": 0,
+              "quantity": 0,
+              "itemId": "string",
+              "associatedObjectId": "string",
+              "associatedObjectType": "string",
+              "outerId": "string",
+              "associatedObjectName": "string",
+              "associatedObjectImg": "string",
+              "tags": [
+                "string"
+              ],
+              "imgSrc": "string",
+              "images": [
+                {
+                  "binaryData": "string",
+                  "altText": "string",
+                  "relativeUrl": "string",
+                  "url": "string",
+                  "description": "string",
+                  "sortOrder": 0,
+                  "typeId": "string",
+                  "group": "string",
+                  "name": "string",
+                  "outerId": "string",
+                  "languageCode": "string",
+                  "isInherited": true,
+                  "seoObjectType": "string",
+                  "seoInfos": [
+                    {
+                      "name": "string",
+                      "semanticUrl": "string",
+                      "pageTitle": "string",
+                      "metaDescription": "string",
+                      "imageAltDescription": "string",
+                      "metaKeywords": "string",
+                      "storeId": "string",
+                      "objectId": "string",
+                      "objectType": "string",
+                      "isActive": true,
+                      "languageCode": "string",
+                      "createdDate": "2023-09-18T07:45:28.919Z",
+                      "modifiedDate": "2023-09-18T07:45:28.919Z",
+                      "createdBy": "string",
+                      "modifiedBy": "string",
+                      "id": "string"
+                    }
+                  ],
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
+                  "createdBy": "string",
+                  "modifiedBy": "string",
+                  "id": "string"
+                }
+              ],
+              "id": "string"
+            }
+          ],
+          "referencedAssociations": [
+            {
+              "type": "string",
+              "priority": 0,
+              "quantity": 0,
+              "itemId": "string",
+              "associatedObjectId": "string",
+              "associatedObjectType": "string",
+              "outerId": "string",
+              "associatedObjectName": "string",
+              "associatedObjectImg": "string",
+              "tags": [
+                "string"
+              ],
+              "imgSrc": "string",
+              "images": [
+                {
+                  "binaryData": "string",
+                  "altText": "string",
+                  "relativeUrl": "string",
+                  "url": "string",
+                  "description": "string",
+                  "sortOrder": 0,
+                  "typeId": "string",
+                  "group": "string",
+                  "name": "string",
+                  "outerId": "string",
+                  "languageCode": "string",
+                  "isInherited": true,
+                  "seoObjectType": "string",
+                  "seoInfos": [
+                    {
+                      "name": "string",
+                      "semanticUrl": "string",
+                      "pageTitle": "string",
+                      "metaDescription": "string",
+                      "imageAltDescription": "string",
+                      "metaKeywords": "string",
+                      "storeId": "string",
+                      "objectId": "string",
+                      "objectType": "string",
+                      "isActive": true,
+                      "languageCode": "string",
+                      "createdDate": "2023-09-18T07:45:28.919Z",
+                      "modifiedDate": "2023-09-18T07:45:28.919Z",
+                      "createdBy": "string",
+                      "modifiedBy": "string",
+                      "id": "string"
+                    }
+                  ],
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
+                  "createdBy": "string",
+                  "modifiedBy": "string",
+                  "id": "string"
+                }
+              ],
+              "id": "string"
+            }
+          ],
+          "outlines": [
+            {
+              "items": [
+                {
+                  "id": "string",
+                  "seoObjectType": "string",
+                  "seoInfos": [
+                    {
+                      "name": "string",
+                      "semanticUrl": "string",
+                      "pageTitle": "string",
+                      "metaDescription": "string",
+                      "imageAltDescription": "string",
+                      "metaKeywords": "string",
+                      "storeId": "string",
+                      "objectId": "string",
+                      "objectType": "string",
+                      "isActive": true,
+                      "languageCode": "string",
+                      "createdDate": "2023-09-18T07:45:28.919Z",
+                      "modifiedDate": "2023-09-18T07:45:28.919Z",
+                      "createdBy": "string",
+                      "modifiedBy": "string",
+                      "id": "string"
+                    }
+                  ],
+                  "name": "string",
+                  "hasVirtualParent": true
+                }
+              ]
+            }
+          ],
+          "isInherited": true,
+          "parentCategoryIsActive": true,
+          "createdDate": "2023-09-18T07:45:28.919Z",
+          "modifiedDate": "2023-09-18T07:45:28.919Z",
+          "createdBy": "string",
+          "modifiedBy": "string",
+          "id": "string"
+        }
       ],
       "seoObjectType": "string",
       "seoInfos": [
@@ -462,8 +660,8 @@
           "objectType": "string",
           "isActive": true,
           "languageCode": "string",
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
+          "createdDate": "2023-09-18T07:45:28.919Z",
+          "modifiedDate": "2023-09-18T07:45:28.919Z",
           "createdBy": "string",
           "modifiedBy": "string",
           "id": "string"
@@ -475,8 +673,8 @@
           "reviewType": "string",
           "languageCode": "string",
           "isInherited": true,
-          "createdDate": "2023-09-17T08:35:28.436Z",
-          "modifiedDate": "2023-09-17T08:35:28.436Z",
+          "createdDate": "2023-09-18T07:45:28.919Z",
+          "modifiedDate": "2023-09-18T07:45:28.919Z",
           "createdBy": "string",
           "modifiedBy": "string",
           "id": "string"
@@ -525,15 +723,15 @@
                   "objectType": "string",
                   "isActive": true,
                   "languageCode": "string",
-                  "createdDate": "2023-09-17T08:35:28.436Z",
-                  "modifiedDate": "2023-09-17T08:35:28.436Z",
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
                   "createdBy": "string",
                   "modifiedBy": "string",
                   "id": "string"
                 }
               ],
-              "createdDate": "2023-09-17T08:35:28.436Z",
-              "modifiedDate": "2023-09-17T08:35:28.436Z",
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
               "createdBy": "string",
               "modifiedBy": "string",
               "id": "string"
@@ -585,15 +783,15 @@
                   "objectType": "string",
                   "isActive": true,
                   "languageCode": "string",
-                  "createdDate": "2023-09-17T08:35:28.436Z",
-                  "modifiedDate": "2023-09-17T08:35:28.436Z",
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
                   "createdBy": "string",
                   "modifiedBy": "string",
                   "id": "string"
                 }
               ],
-              "createdDate": "2023-09-17T08:35:28.436Z",
-              "modifiedDate": "2023-09-17T08:35:28.436Z",
+              "createdDate": "2023-09-18T07:45:28.919Z",
+              "modifiedDate": "2023-09-18T07:45:28.919Z",
               "createdBy": "string",
               "modifiedBy": "string",
               "id": "string"
@@ -621,8 +819,8 @@
                   "objectType": "string",
                   "isActive": true,
                   "languageCode": "string",
-                  "createdDate": "2023-09-17T08:35:28.436Z",
-                  "modifiedDate": "2023-09-17T08:35:28.437Z",
+                  "createdDate": "2023-09-18T07:45:28.919Z",
+                  "modifiedDate": "2023-09-18T07:45:28.919Z",
                   "createdBy": "string",
                   "modifiedBy": "string",
                   "id": "string"
@@ -636,204 +834,40 @@
       ],
       "isInherited": true,
       "parentCategoryIsActive": true,
-      "createdDate": "2023-09-17T08:35:28.437Z",
-      "modifiedDate": "2023-09-17T08:35:28.437Z",
+      "createdDate": "2023-09-18T07:45:28.919Z",
+      "modifiedDate": "2023-09-18T07:45:28.919Z",
       "createdBy": "string",
       "modifiedBy": "string",
       "id": "string"
     }
   ],
-  "seoObjectType": "string",
-  "seoInfos": [
+  "aggregations": [
     {
-      "name": "string",
-      "semanticUrl": "string",
-      "pageTitle": "string",
-      "metaDescription": "string",
-      "imageAltDescription": "string",
-      "metaKeywords": "string",
-      "storeId": "string",
-      "objectId": "string",
-      "objectType": "string",
-      "isActive": true,
-      "languageCode": "string",
-      "createdDate": "2023-09-17T08:35:28.437Z",
-      "modifiedDate": "2023-09-17T08:35:28.437Z",
-      "createdBy": "string",
-      "modifiedBy": "string",
-      "id": "string"
-    }
-  ],
-  "reviews": [
-    {
-      "content": "string",
-      "reviewType": "string",
-      "languageCode": "string",
-      "isInherited": true,
-      "createdDate": "2023-09-17T08:35:28.437Z",
-      "modifiedDate": "2023-09-17T08:35:28.437Z",
-      "createdBy": "string",
-      "modifiedBy": "string",
-      "id": "string"
-    }
-  ],
-  "associations": [
-    {
-      "type": "string",
-      "priority": 0,
-      "quantity": 0,
-      "itemId": "string",
-      "associatedObjectId": "string",
-      "associatedObjectType": "string",
-      "outerId": "string",
-      "associatedObjectName": "string",
-      "associatedObjectImg": "string",
-      "tags": [
-        "string"
-      ],
-      "imgSrc": "string",
-      "images": [
+      "aggregationType": "string",
+      "field": "string",
+      "labels": [
         {
-          "binaryData": "string",
-          "altText": "string",
-          "relativeUrl": "string",
-          "url": "string",
-          "description": "string",
-          "sortOrder": 0,
-          "typeId": "string",
-          "group": "string",
-          "name": "string",
-          "outerId": "string",
-          "languageCode": "string",
-          "isInherited": true,
-          "seoObjectType": "string",
-          "seoInfos": [
-            {
-              "name": "string",
-              "semanticUrl": "string",
-              "pageTitle": "string",
-              "metaDescription": "string",
-              "imageAltDescription": "string",
-              "metaKeywords": "string",
-              "storeId": "string",
-              "objectId": "string",
-              "objectType": "string",
-              "isActive": true,
-              "languageCode": "string",
-              "createdDate": "2023-09-17T08:35:28.437Z",
-              "modifiedDate": "2023-09-17T08:35:28.437Z",
-              "createdBy": "string",
-              "modifiedBy": "string",
-              "id": "string"
-            }
-          ],
-          "createdDate": "2023-09-17T08:35:28.437Z",
-          "modifiedDate": "2023-09-17T08:35:28.437Z",
-          "createdBy": "string",
-          "modifiedBy": "string",
-          "id": "string"
+          "language": "string",
+          "label": "string"
         }
       ],
-      "id": "string"
-    }
-  ],
-  "referencedAssociations": [
-    {
-      "type": "string",
-      "priority": 0,
-      "quantity": 0,
-      "itemId": "string",
-      "associatedObjectId": "string",
-      "associatedObjectType": "string",
-      "outerId": "string",
-      "associatedObjectName": "string",
-      "associatedObjectImg": "string",
-      "tags": [
-        "string"
-      ],
-      "imgSrc": "string",
-      "images": [
-        {
-          "binaryData": "string",
-          "altText": "string",
-          "relativeUrl": "string",
-          "url": "string",
-          "description": "string",
-          "sortOrder": 0,
-          "typeId": "string",
-          "group": "string",
-          "name": "string",
-          "outerId": "string",
-          "languageCode": "string",
-          "isInherited": true,
-          "seoObjectType": "string",
-          "seoInfos": [
-            {
-              "name": "string",
-              "semanticUrl": "string",
-              "pageTitle": "string",
-              "metaDescription": "string",
-              "imageAltDescription": "string",
-              "metaKeywords": "string",
-              "storeId": "string",
-              "objectId": "string",
-              "objectType": "string",
-              "isActive": true,
-              "languageCode": "string",
-              "createdDate": "2023-09-17T08:35:28.437Z",
-              "modifiedDate": "2023-09-17T08:35:28.437Z",
-              "createdBy": "string",
-              "modifiedBy": "string",
-              "id": "string"
-            }
-          ],
-          "createdDate": "2023-09-17T08:35:28.437Z",
-          "modifiedDate": "2023-09-17T08:35:28.437Z",
-          "createdBy": "string",
-          "modifiedBy": "string",
-          "id": "string"
-        }
-      ],
-      "id": "string"
-    }
-  ],
-  "outlines": [
-    {
       "items": [
         {
-          "id": "string",
-          "seoObjectType": "string",
-          "seoInfos": [
+          "value": {},
+          "count": 0,
+          "isApplied": true,
+          "labels": [
             {
-              "name": "string",
-              "semanticUrl": "string",
-              "pageTitle": "string",
-              "metaDescription": "string",
-              "imageAltDescription": "string",
-              "metaKeywords": "string",
-              "storeId": "string",
-              "objectId": "string",
-              "objectType": "string",
-              "isActive": true,
-              "languageCode": "string",
-              "createdDate": "2023-09-17T08:35:28.437Z",
-              "modifiedDate": "2023-09-17T08:35:28.437Z",
-              "createdBy": "string",
-              "modifiedBy": "string",
-              "id": "string"
+              "language": "string",
+              "label": "string"
             }
           ],
-          "name": "string",
-          "hasVirtualParent": true
+          "requestedLowerBound": "string",
+          "requestedUpperBound": "string",
+          "includeLower": true,
+          "includeUpper": true
         }
       ]
     }
-  ],
-  "isInherited": true,
-  "parentCategoryIsActive": true,
-  "createdDate": "2023-09-17T08:35:28.437Z",
-  "modifiedDate": "2023-09-17T08:35:28.437Z",
-  "createdBy": "string",
-  "modifiedBy": "string",
-  "id": "string"
+  ]
 }

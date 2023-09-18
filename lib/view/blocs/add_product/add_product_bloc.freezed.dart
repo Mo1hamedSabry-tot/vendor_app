@@ -15,6 +15,250 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+mixin _$AddProductEvent {
+  String get name => throw _privateConstructorUsedError;
+  String get code => throw _privateConstructorUsedError;
+  String get catalogId => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name, String code, String catalogId)
+        addProduct,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String code, String catalogId)? addProduct,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String code, String catalogId)? addProduct,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddProduct value) addProduct,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddProduct value)? addProduct,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddProduct value)? addProduct,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AddProductEventCopyWith<AddProductEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AddProductEventCopyWith<$Res> {
+  factory $AddProductEventCopyWith(
+          AddProductEvent value, $Res Function(AddProductEvent) then) =
+      _$AddProductEventCopyWithImpl<$Res, AddProductEvent>;
+  @useResult
+  $Res call({String name, String code, String catalogId});
+}
+
+/// @nodoc
+class _$AddProductEventCopyWithImpl<$Res, $Val extends AddProductEvent>
+    implements $AddProductEventCopyWith<$Res> {
+  _$AddProductEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? code = null,
+    Object? catalogId = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      catalogId: null == catalogId
+          ? _value.catalogId
+          : catalogId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_AddProductCopyWith<$Res>
+    implements $AddProductEventCopyWith<$Res> {
+  factory _$$_AddProductCopyWith(
+          _$_AddProduct value, $Res Function(_$_AddProduct) then) =
+      __$$_AddProductCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String code, String catalogId});
+}
+
+/// @nodoc
+class __$$_AddProductCopyWithImpl<$Res>
+    extends _$AddProductEventCopyWithImpl<$Res, _$_AddProduct>
+    implements _$$_AddProductCopyWith<$Res> {
+  __$$_AddProductCopyWithImpl(
+      _$_AddProduct _value, $Res Function(_$_AddProduct) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? code = null,
+    Object? catalogId = null,
+  }) {
+    return _then(_$_AddProduct(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      catalogId: null == catalogId
+          ? _value.catalogId
+          : catalogId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddProduct implements _AddProduct {
+  const _$_AddProduct(
+      {required this.name, required this.code, required this.catalogId});
+
+  @override
+  final String name;
+  @override
+  final String code;
+  @override
+  final String catalogId;
+
+  @override
+  String toString() {
+    return 'AddProductEvent.addProduct(name: $name, code: $code, catalogId: $catalogId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddProduct &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.catalogId, catalogId) ||
+                other.catalogId == catalogId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, code, catalogId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AddProductCopyWith<_$_AddProduct> get copyWith =>
+      __$$_AddProductCopyWithImpl<_$_AddProduct>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name, String code, String catalogId)
+        addProduct,
+  }) {
+    return addProduct(name, code, catalogId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String code, String catalogId)? addProduct,
+  }) {
+    return addProduct?.call(name, code, catalogId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String code, String catalogId)? addProduct,
+    required TResult orElse(),
+  }) {
+    if (addProduct != null) {
+      return addProduct(name, code, catalogId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AddProduct value) addProduct,
+  }) {
+    return addProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AddProduct value)? addProduct,
+  }) {
+    return addProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AddProduct value)? addProduct,
+    required TResult orElse(),
+  }) {
+    if (addProduct != null) {
+      return addProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddProduct implements AddProductEvent {
+  const factory _AddProduct(
+      {required final String name,
+      required final String code,
+      required final String catalogId}) = _$_AddProduct;
+
+  @override
+  String get name;
+  @override
+  String get code;
+  @override
+  String get catalogId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AddProductCopyWith<_$_AddProduct> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AddProductState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -582,248 +826,4 @@ class _$_AddProductError implements _AddProductError {
 
 abstract class _AddProductError implements AddProductState {
   const factory _AddProductError() = _$_AddProductError;
-}
-
-/// @nodoc
-mixin _$AddProductEvent {
-  String get name => throw _privateConstructorUsedError;
-  String get code => throw _privateConstructorUsedError;
-  String get catalogId => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String code, String catalogId)
-        addProduct,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String code, String catalogId)? addProduct,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String code, String catalogId)? addProduct,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AddProduct value) addProduct,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AddProduct value)? addProduct,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AddProduct value)? addProduct,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AddProductEventCopyWith<AddProductEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AddProductEventCopyWith<$Res> {
-  factory $AddProductEventCopyWith(
-          AddProductEvent value, $Res Function(AddProductEvent) then) =
-      _$AddProductEventCopyWithImpl<$Res, AddProductEvent>;
-  @useResult
-  $Res call({String name, String code, String catalogId});
-}
-
-/// @nodoc
-class _$AddProductEventCopyWithImpl<$Res, $Val extends AddProductEvent>
-    implements $AddProductEventCopyWith<$Res> {
-  _$AddProductEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? code = null,
-    Object? catalogId = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      catalogId: null == catalogId
-          ? _value.catalogId
-          : catalogId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_AddProductCopyWith<$Res>
-    implements $AddProductEventCopyWith<$Res> {
-  factory _$$_AddProductCopyWith(
-          _$_AddProduct value, $Res Function(_$_AddProduct) then) =
-      __$$_AddProductCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, String code, String catalogId});
-}
-
-/// @nodoc
-class __$$_AddProductCopyWithImpl<$Res>
-    extends _$AddProductEventCopyWithImpl<$Res, _$_AddProduct>
-    implements _$$_AddProductCopyWith<$Res> {
-  __$$_AddProductCopyWithImpl(
-      _$_AddProduct _value, $Res Function(_$_AddProduct) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? code = null,
-    Object? catalogId = null,
-  }) {
-    return _then(_$_AddProduct(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String,
-      catalogId: null == catalogId
-          ? _value.catalogId
-          : catalogId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_AddProduct implements _AddProduct {
-  const _$_AddProduct(
-      {required this.name, required this.code, required this.catalogId});
-
-  @override
-  final String name;
-  @override
-  final String code;
-  @override
-  final String catalogId;
-
-  @override
-  String toString() {
-    return 'AddProductEvent.addProduct(name: $name, code: $code, catalogId: $catalogId)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AddProduct &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.catalogId, catalogId) ||
-                other.catalogId == catalogId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, code, catalogId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_AddProductCopyWith<_$_AddProduct> get copyWith =>
-      __$$_AddProductCopyWithImpl<_$_AddProduct>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String code, String catalogId)
-        addProduct,
-  }) {
-    return addProduct(name, code, catalogId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String code, String catalogId)? addProduct,
-  }) {
-    return addProduct?.call(name, code, catalogId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String code, String catalogId)? addProduct,
-    required TResult orElse(),
-  }) {
-    if (addProduct != null) {
-      return addProduct(name, code, catalogId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AddProduct value) addProduct,
-  }) {
-    return addProduct(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AddProduct value)? addProduct,
-  }) {
-    return addProduct?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AddProduct value)? addProduct,
-    required TResult orElse(),
-  }) {
-    if (addProduct != null) {
-      return addProduct(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AddProduct implements AddProductEvent {
-  const factory _AddProduct(
-      {required final String name,
-      required final String code,
-      required final String catalogId}) = _$_AddProduct;
-
-  @override
-  String get name;
-  @override
-  String get code;
-  @override
-  String get catalogId;
-  @override
-  @JsonKey(ignore: true)
-  _$$_AddProductCopyWith<_$_AddProduct> get copyWith =>
-      throw _privateConstructorUsedError;
 }

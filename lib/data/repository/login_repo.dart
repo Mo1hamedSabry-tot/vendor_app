@@ -12,7 +12,7 @@ class LoginRepository {
   }) async {
     late LoginModel data;
     try {
-      await DioHelper.postData(url: loginEndPoint, isTokenCall: false, data: {
+      await DioHelper.postData(url: loginEndPoint, headerOption: false, data: {
         "userName": username,
         "password": password,
         "rememberMe": rememberMe,

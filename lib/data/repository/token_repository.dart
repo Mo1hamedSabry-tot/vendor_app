@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:vendor_foody/core/utils/cache_helper.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';
@@ -10,7 +11,7 @@ class TokenRepository {
     required String password,
   }) async {
     try {
-      await DioHelper.postData(url: tokenEndPoint, isTokenCall: true, data: {
+      await DioHelper.postData(url: tokenEndPoint, headerOption: true, data: {
         "username": username,
         "password": password,
         "grant_type": "password"

@@ -58,16 +58,15 @@ class DioHelper {
     String? token,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    bool? isTokenCall =  false,
+    bool? headerOption = false,
   }) async {
-    
     try {
       dio.options.headers = {
         'Authorization': 'Bearer ${token ?? ''}',
       };
       final Response response = await dio.post(
         options: Options(
-          contentType: isTokenCall!
+          contentType: headerOption!
               ? Headers.formUrlEncodedContentType
               : Headers.jsonContentType,
         ),

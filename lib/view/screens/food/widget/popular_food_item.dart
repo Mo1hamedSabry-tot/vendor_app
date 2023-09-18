@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/data/models/response/product_model.dart';
+import 'package:vendor_foody/data/models/response/tot_products/tot_product_model.dart';
 
 class PopularFoodItem extends StatelessWidget {
-  final ProductModel model;
+  final TOTProduct model;
   const PopularFoodItem({super.key, required this.model});
 
   @override
@@ -25,17 +25,18 @@ class PopularFoodItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TOTTextAtom.bodyLarge(
-                      model.title.substring(0, 7),
+                      model.name,
                       color: AppColors.blackColor,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.bodyMedium(model.description.substring(0, 20)),
+                    TOTTextAtom.bodyMedium(
+                        model.seoObjectType!.substring(0, 10)),
                     const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.titleLarge('\$ ${model.price.toString()}'),
+                    TOTTextAtom.titleLarge('\$ ${model.priority.toString()}'),
                     const SizedBox(
                       height: 20,
                     ),
@@ -52,7 +53,8 @@ class PopularFoodItem extends StatelessWidget {
                     errorWidget: (context, url, error) {
                       return const SizedBox();
                     },
-                    imageUrl: model.image),
+                    imageUrl: model.imgSrc ??
+                        'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg'),
               ],
             ),
             const Divider(
@@ -73,7 +75,7 @@ class PopularFoodItem extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color:  AppColors.orangeColor),
+                      color: AppColors.orangeColor),
                   child: const TOTIconWithTextMolecule(
                       codePoint: 0xe03a,
                       text: 'pending',

@@ -4,9 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
-import 'package:vendor_foody/data/models/response/product_model.dart';
-import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
-import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
+import 'package:vendor_foody/data/models/response/tot_products/tot_product_model.dart';
+import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 
 import '../../../../custom/custom_drop_down_button.dart';
 import '../../../../custom/custom_toggle.dart';
@@ -21,13 +20,19 @@ class FoodBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeStatus>(
+    return BlocBuilder<GetProductBloc, GetProductState>(
       builder: (context, state) {
-        if (state is GetProductsFromApiState) {
+        return state.maybeWhen(orElse: () {
+          return const SizedBox();
+        }, loadInProgress: () {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }, loadSuccess: (product) {
           return Align(
             alignment: Alignment.center,
             child: ListView.builder(
-                itemCount: state.products.length,
+                itemCount: product.items?.length,
                 padding: EdgeInsets.zero,
                 itemBuilder: (context, index) {
                   if (selectedTabIndex == 0) {
@@ -44,16 +49,15 @@ class FoodBody extends StatelessWidget {
                                       top: Radius.circular(22))),
                               builder: (_) {
                                 return _FoodBottomSheet(
-                                  model: state.products[index],
-                                  title: state.products[index].title,
-                                  description:
-                                      state.products[index].description,
+                                  model: product.items![index],
+                                  title: product.items![index].name,
+                                  description: product.items![index].name,
                                   selectedUnitId: 2,
                                 );
                               });
                         },
                         child: PopularFoodItem(
-                          model: state.products[index],
+                          model: product.items![index],
                         ),
                       ),
                     );
@@ -62,9 +66,7 @@ class FoodBody extends StatelessWidget {
                   }
                 }),
           );
-        } else {
-          return const SizedBox();
-        }
+        });
       },
     );
   }
@@ -74,7 +76,7 @@ class _FoodBottomSheet extends StatefulWidget {
   final String title;
   final String description;
   final int selectedUnitId;
-  final ProductModel model;
+  final TOTProduct model;
 
   const _FoodBottomSheet({
     required this.title,
@@ -137,16 +139,17 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  errorWidget: (context, url, error) {
-                                    return const SizedBox();
-                                  },
-                                  placeholder: (context, url) {
-                                    return const Center(
-                                      child: CircularProgressIndicator(),
-                                    );
-                                  },
-                                  imageUrl: widget.model.image),
+                                fit: BoxFit.cover,
+                                errorWidget: (context, url, error) {
+                                  return const SizedBox();
+                                },
+                                placeholder: (context, url) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                },
+                                imageUrl: widget.model.imgSrc ?? "",
+                              ),
                             ),
                           ),
                           Positioned(
@@ -162,12 +165,13 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                       ),
                       CustomTextFieldWithLabel(
                         controller:
-                            TextEditingController(text: widget.model.title),
+                            TextEditingController(text: widget.model.name),
                         title: 'prduct title',
                       ),
                       CustomTextFieldWithLabel(
                         controller: TextEditingController(
-                            text: widget.model.description.substring(0, 20)),
+                          text: widget.model.name,
+                        ),
                         title: 'Description',
                       ),
                       CustomDropDownBotton(

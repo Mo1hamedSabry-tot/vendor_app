@@ -6,6 +6,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/data/repository/get_product_repo.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/food/food_screen.dart';
@@ -82,6 +83,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
                         selectItem: () {
                           changeNavi(1);
                           setState(() {});
+                          // context
+                          //     .read<GetProductBloc>()
+                          //     .add(const GetProductEvent.getProduct());
                         }, // () => event.selectIndex(1),
                         index: 1,
                         currentIndex: curIndex, // state.selectedIndex,
@@ -341,8 +345,10 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                 return TOTButtonAtom.filledButton(
                                     text: 'Save',
                                     textColor: AppColors.blackColor,
-                                    onPressed: () {
+                                    onPressed: () async {
                                       if (keyForm.currentState!.validate()) {
+                                        GetProductsRepository()
+                                            .getProductsData();
                                         context.read<AddProductBloc>().add(
                                             AddProductEvent.addProduct(
                                                 name: titleController.text,

@@ -18,8 +18,6 @@ class LoginRepository {
         "rememberMe": rememberMe,
       }).then((value) => {
             data = LoginModel.fromJson(value.data),
-            log("Status Code ::: ${value.statusCode}-----"),
-            log("data is ::: ${data.toString()}-----"),
           });
     } catch (e) {
       log(e.toString());

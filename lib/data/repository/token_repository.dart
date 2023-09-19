@@ -11,7 +11,7 @@ class TokenRepository {
     required String password,
   }) async {
     try {
-      await DioHelper.postData(url: tokenEndPoint, headerOption: true, data: {
+    await DioHelper.postData(url: tokenEndPoint, headerOption: true, data: {
         "username": username,
         "password": password,
         "grant_type": "password"

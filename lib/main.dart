@@ -7,6 +7,7 @@ import 'package:vendor_foody/data/repository/get_product_repo.dart';
 import 'package:vendor_foody/data/repository/login_repo.dart';
 import 'package:vendor_foody/data/repository/product_repo.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_catalog/get_catalog_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
@@ -42,10 +43,12 @@ class MyApp extends StatelessWidget {
             create: (context) =>
                 AddProductBloc(repository: AddProductRepository())),
         BlocProvider(
-          create: (context) =>
-              GetProductBloc(repository: GetProductsRepository())
-                ..add(const GetProductEvent.getProduct()),
+          create: (context) => GetProductBloc(repository: ProductsRepository())
+            ..add(const GetProductEvent.getProduct()),
         ),
+        BlocProvider(
+            create: (context) =>
+                EditProductBloc(productsRepo: ProductsRepository())),
         BlocProvider(
           create: (context) =>
               GetCatalogBloc(repository: GetCatalogsRepository())

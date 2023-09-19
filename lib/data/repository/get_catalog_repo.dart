@@ -22,8 +22,6 @@ class GetCatalogsRepository {
           }).then((value) {
         data = CatalogResponseModel.fromJson(value.data);
         data?.results![0].isSelected = true;
-        log("Status Code ::: ${value.statusCode}-----");
-        log("cccccccccccccccccc is ::: ${data.toString()}-----");
       });
     } catch (e) {
       log('catchhhhhhhhhhhhhh ${e.toString()}');

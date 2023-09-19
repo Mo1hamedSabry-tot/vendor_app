@@ -5,6 +5,9 @@ const loginEndPoint = 'api/platform/security/login';
 const logoutEndPoint = 'api/platform/security/logout';
 
 const tokenEndPoint = 'connect/token';
+const addProductEndPoint = 'api/catalog/products';
+const getProductEndPoint = 'api/catalog/search/products';
+const getCatologsEndPoint = 'api/catalog/catalogs/search';
 
 // const registerEndPoint = 'auth/signup';
 

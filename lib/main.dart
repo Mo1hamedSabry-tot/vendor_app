@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
+import 'package:vendor_foody/data/repository/add_product_repo.dart';
+import 'package:vendor_foody/data/repository/get_catalog_repo.dart';
+import 'package:vendor_foody/data/repository/get_product_repo.dart';
 import 'package:vendor_foody/data/repository/login_repo.dart';
 import 'package:vendor_foody/data/repository/product_repo.dart';
+import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/get_catalog/get_catalog_bloc.dart';
+import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
@@ -14,16 +21,15 @@ import 'core/utils/cache_helper.dart';
 import 'view/screens/auth/login/login_screen.dart';
 
 void main() async {
-// await ProductRepo().loginRepo();
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   await DioHelper.init();
+  await GetCatalogsRepository().getCatalog();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -33,6 +39,21 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
             create: (context) => LoginBloc(repository: LoginRepository())),
+        BlocProvider(
+            create: (context) =>
+                AddProductBloc(repository: AddProductRepository())),
+        BlocProvider(
+          create: (context) => GetProductBloc(repository: ProductsRepository())
+            ..add(const GetProductEvent.getProduct()),
+        ),
+        BlocProvider(
+            create: (context) =>
+                EditProductBloc(productsRepo: ProductsRepository())),
+        BlocProvider(
+          create: (context) =>
+              GetCatalogBloc(repository: GetCatalogsRepository())
+                ..add(const GetCatalogEvent.getCatalog()),
+        ),
       ],
       child: const App(),
     );

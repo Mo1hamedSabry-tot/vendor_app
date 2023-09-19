@@ -6,8 +6,8 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
-import 'package:vendor_foody/data/repository/get_product_repo.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/food/food_screen.dart';
 import 'package:vendor_foody/view/screens/layout/widget/blur_wrap.dart';
@@ -145,7 +145,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                         builder: (_) {
                           return const _FoodBottomSheet(
                             title: '',
-                            description: '',
+                            code: '',
                             selectedUnitId: 2,
                           );
                         });
@@ -162,12 +162,12 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
 class _FoodBottomSheet extends StatefulWidget {
   final String title;
-  final String description;
+  final String code;
   final int selectedUnitId;
 
   const _FoodBottomSheet({
     required this.title,
-    required this.description,
+    required this.code,
     required this.selectedUnitId,
   });
 
@@ -183,7 +183,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
     TextEditingController titleController =
         TextEditingController(text: widget.title);
     TextEditingController codeController =
-        TextEditingController(text: widget.description);
+        TextEditingController(text: widget.code);
     return DraggableScrollableSheet(
       expand: false,
       initialChildSize: 0.90,
@@ -326,6 +326,8 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                         text: 'added',
                                         type: SnackBarType.success);
                                     Navigator.pop(context);
+                                    context.read<GetProductBloc>().add(
+                                        const GetProductEvent.getProduct());
                                   },
                                   addError: () {
                                     ShowSnackbar.showCheckTopSnackBar(context,
@@ -347,8 +349,6 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                     textColor: AppColors.blackColor,
                                     onPressed: () async {
                                       if (keyForm.currentState!.validate()) {
-                                        GetProductsRepository()
-                                            .getProductsData();
                                         context.read<AddProductBloc>().add(
                                             AddProductEvent.addProduct(
                                                 name: titleController.text,

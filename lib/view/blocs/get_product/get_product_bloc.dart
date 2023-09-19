@@ -8,13 +8,14 @@ part 'get_product_event.dart';
 part 'get_product_state.dart';
 
 class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
-  final GetProductsRepository repository;
+  final ProductsRepository repository;
   GetProductBloc({required this.repository})
       : super(const GetProductState.initial()) {
     on<GetProductEvent>((event, emit) async {
-    await  event.map(getProduct: (v) async {
+      await event.map(getProduct: (v) async {
         emit(const _LoadInProgress());
-        final TOTProductsModel data = await repository.getProductsData();
+        final TOTProductsModel data =
+            await repository.getProductsFromDatabsae();
         emit(_LoadSuccess(data));
       });
     });

@@ -1,14 +1,17 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/data/models/response/tot_product_model.dart';
+import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 
-import '../../../../custom/custom_drop_down_button.dart';
 import '../../../../custom/custom_toggle.dart';
 import 'popular_food_item.dart';
 
@@ -51,23 +54,6 @@ class FoodBody extends StatelessWidget {
                 ),
               );
             },
-            // (context, index) {
-            //   return Center(
-            //     child: SizedBox(
-            //       width: MediaQuery.sizeOf(context).width * 0.9,
-            //       height: MediaQuery.sizeOf(context).height * 0.3,
-            //       child: Shimmer.fromColors(
-            //         baseColor: Colors.red,
-            //         highlightColor: Colors.grey.shade200,
-            //         child: Container(
-            //           margin: const EdgeInsets.all(20),
-            //           decoration: BoxDecoration(
-            //               borderRadius: BorderRadius.circular(30)),
-            //         ),
-            //       ),
-            //     ),
-            //   );
-            // },
             itemCount: 10,
           );
         }, loadSuccess: (product) {
@@ -93,7 +79,7 @@ class FoodBody extends StatelessWidget {
                                 return _FoodBottomSheet(
                                   model: product.items![index],
                                   title: product.items![index].name,
-                                  description: product.items![index].name,
+                                  code: product.items![index].name,
                                   selectedUnitId: 2,
                                 );
                               });
@@ -116,13 +102,13 @@ class FoodBody extends StatelessWidget {
 
 class _FoodBottomSheet extends StatefulWidget {
   final String title;
-  final String description;
+  final String code;
   final int selectedUnitId;
   final TOTProduct model;
 
   const _FoodBottomSheet({
     required this.title,
-    required this.description,
+    required this.code,
     required this.selectedUnitId,
     required this.model,
   });
@@ -132,7 +118,10 @@ class _FoodBottomSheet extends StatefulWidget {
 }
 
 class _FoodBottomSheetState extends State<_FoodBottomSheet> {
+  TextEditingController titleController = TextEditingController();
+  TextEditingController codeController = TextEditingController();
   int? updatedUnitId;
+  GlobalKey<FormState> globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -171,90 +160,151 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(16),
                   // controller: scrollController,
-                  child: Column(
-                    children: [
-                      Stack(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.sizeOf(context).width,
-                            height: MediaQuery.sizeOf(context).height * 0.17,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: CachedNetworkImage(
-                                fit: BoxFit.cover,
-                                errorWidget: (context, url, error) {
-                                  return const SizedBox();
-                                },
-                                placeholder: (context, url) {
+                  child: Form(
+                    key: globalKey,
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.sizeOf(context).width,
+                              height: MediaQuery.sizeOf(context).height * 0.17,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.cover,
+                                  errorWidget: (context, url, error) {
+                                    return const SizedBox();
+                                  },
+                                  placeholder: (context, url) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  },
+                                  imageUrl: widget.model.imgSrc ??
+                                      "https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg",
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 14,
+                              left: 10,
+                              child: IconButton(
+                                color: AppColors.blackColor,
+                                icon: const Icon(Icons.upload_file),
+                                onPressed: () {},
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        CustomTextFieldWithLabel(
+                          validatee: (v) {
+                            if (v!.isEmpty) {
+                              return 'Title is required';
+                            }
+                            return null;
+                          },
+                          controller: titleController,
+                          title: 'product title',
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        CustomTextFieldWithLabel(
+                          validatee: (v) {
+                            if (v!.isEmpty) {
+                              return 'Title is required';
+                            }
+                            return null;
+                          },
+                          controller: codeController,
+                          title: 'code',
+                        ),
+                        // CustomDropDownBotton(
+                        //   value: updatedUnitId ?? widget.selectedUnitId,
+                        //   onChanged: (v) {
+                        //     setState(() {
+                        //       updatedUnitId = v as int;
+                        //     });
+                        //   },
+                        // ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const Text(
+                              'Show the product to the customer',
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                            const Spacer(),
+                            CustomToggle(
+                              controller: ValueNotifier<bool>(
+                                true,
+                              ),
+                              onChange: (v) {},
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        BlocConsumer<EditProductBloc, EditProductState>(
+                          listener: (context, state) {
+                            state.maybeWhen(
+                              orElse: () {},
+                              editSuccess: (v) {
+                                ShowSnackbar.showCheckTopSnackBar(context,
+                                    text: 'edit success',
+                                    type: SnackBarType.success);
+                                Navigator.pop(context);
+                                context
+                                    .read<GetProductBloc>()
+                                    .add(const GetProductEvent.getProduct());
+                              },
+                              editFailure: (v) {
+                                ShowSnackbar.showCheckTopSnackBar(context,
+                                    text: 'try again',
+                                    type: SnackBarType.error);
+                              },
+                            );
+                          },
+                          builder: (context, state) {
+                            state.maybeWhen(
+                                orElse: () {},
+                                loadInProgress: () {
                                   return const Center(
                                     child: CircularProgressIndicator(),
                                   );
-                                },
-                                imageUrl: widget.model.imgSrc ?? "",
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 14,
-                            left: 10,
-                            child: IconButton(
-                              color: AppColors.white,
-                              icon: const Icon(Icons.upload_file),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                      CustomTextFieldWithLabel(
-                        controller:
-                            TextEditingController(text: widget.model.name),
-                        title: 'prduct title',
-                      ),
-                      CustomTextFieldWithLabel(
-                        controller: TextEditingController(
-                          text: widget.model.name,
-                        ),
-                        title: 'Description',
-                      ),
-                      CustomDropDownBotton(
-                        value: updatedUnitId ?? widget.selectedUnitId,
-                        onChanged: (v) {
-                          setState(() {
-                            updatedUnitId = v as int;
-                          });
-                        },
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          const Text(
-                            'Show the product to the customer',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold),
-                          ),
-                          const Spacer(),
-                          CustomToggle(
-                            controller: ValueNotifier<bool>(
-                              true,
-                            ),
-                            onChange: (v) {},
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                          width: double.infinity,
-                          child: TOTButtonAtom.filledButton(
-                              text: 'Save',
-                              textColor: AppColors.blackColor,
-                              onPressed: () {},
-                              backgroundColor: AppColors.greenColor))
-                    ],
+                                });
+                            return SizedBox(
+                                width: double.infinity,
+                                child: TOTButtonAtom.filledButton(
+                                    text: 'Save Edit',
+                                    textColor: AppColors.blackColor,
+                                    onPressed: () {
+                                      if (globalKey.currentState!.validate()) {
+                                        log("id producttttttt *************::::: ${widget.model.id.toString()}");
+                                        log("id producttttttt ::::: ${widget.model.toString()}");
+                                        context.read<EditProductBloc>().add(
+                                            EditProductEvent.editProduct(
+                                                name: titleController.text,
+                                                code: codeController.text,
+                                                productId: widget.model.id,
+                                                catalogId:
+                                                    "f5790b39-4fc8-4aad-8318-259d28595f05"));
+                                      }
+                                    },
+                                    backgroundColor: AppColors.greenColor));
+                          },
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )

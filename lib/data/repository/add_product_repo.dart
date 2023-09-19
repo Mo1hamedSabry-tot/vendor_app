@@ -14,7 +14,7 @@ class AddProductRepository {
     String image =
         "http://20.163.148.155:8080/assets/catalog/f5790/PJV-27970586/Images/1.png",
   }) async {
-   late AddProductResponseModel model;
+    late AddProductResponseModel model;
     try {
       await DioHelper.postData(
           token: CacheHelper.get('token'),
@@ -27,8 +27,6 @@ class AddProductRepository {
           }).then((value) {
         model = AddProductResponseModel.fromJson(value.data);
         if (value.statusCode == 200) {
-          log("Status Code ::: ${value.statusCode}-----");
-          log("data is in  ::: ${model.toString()}-----");
           AddProductBloc.issucceeded = true;
         } else {
           AddProductBloc.issucceeded = false;

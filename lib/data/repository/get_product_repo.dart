@@ -16,16 +16,14 @@ class ProductsRepository {
           data: {
             "skip": 0,
             "take": 300,
-          }).then((value) => {
-            dataModel = TOTProductsModel.fromJson(value.data),
-            // log("Status Code ::: ${value.statusCode}-----"),
-            // log("total product ::::::###### is ::: ${dataModel?.totalCount.toString()}-----"),
-          });
+          }).then((value) {
+        dataModel = TOTProductsModel.fromJson(value.data);
+        // log("Status Code ::: ${value.statusCode}-----"),
+        // log("total product ::::::###### is ::: ${dataModel?.totalCount.toString()}-----"),
+      });
     } catch (e) {
-      log('ggggggggggggggg ${e.toString()}');
+      log('cccccccathhhh ${e.toString()}');
     }
-
-    log(dataModel.toString());
     return dataModel!;
   }
 

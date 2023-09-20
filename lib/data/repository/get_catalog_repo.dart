@@ -27,7 +27,6 @@ class GetCatalogsRepository {
       log('catchhhhhhhhhhhhhh ${e.toString()}');
     }
 
-    log(data.toString());
     return data!;
   }
 }

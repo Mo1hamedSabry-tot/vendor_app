@@ -282,25 +282,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                 password: passController.text),
           );
       context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
-      // LoginRepository()
-      //     .getData(
-      //         username: userNameController.text,
-      //         password: passController.text,
-      //         rememberMe: false)
-      //     .then((value) async {
-      //   if (value.succeeded == true) {
-      //     TokenRepository().getToken(
-      //         username: userNameController.text, password: passController.text);
-      //     Navigator.pushReplacementNamed(context, LayoutScreen.routeName);
-      //     await showToast(
-      //       message: 'successful',
-      //     );
-      //   } else {
-      //     await showToast(
-      //       message: 'Login failed',
-      //     );
-      //   }
-      // });
+
     }
   }
 }

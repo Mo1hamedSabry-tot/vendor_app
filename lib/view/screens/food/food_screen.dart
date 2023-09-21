@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/view/blocs/get_catalog/get_catalog_bloc.dart';
+import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
@@ -150,67 +150,65 @@ class _FoodScreenState extends State<FoodScreen>
                               margin: const EdgeInsets.only(bottom: 5),
                               padding: EdgeInsets.zero,
                               height: 40,
-                              child:
-                                  BlocBuilder<GetCatalogBloc, GetCatalogState>(
+                              child: BlocBuilder<CategoryBloc, CategoryState>(
                                 builder: (context, state) {
                                   return state.maybeWhen(orElse: () {
                                     return const SizedBox();
                                   }, loadInProgress: () {
                                     return ListView.separated(
-                                        separatorBuilder: (context, index) {
-                                          return SizedBox(
+                                      separatorBuilder: (context, index) {
+                                        return SizedBox(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.05,
+                                        );
+                                      },
+                                      itemCount: 10,
+                                      scrollDirection: Axis.horizontal,
+                                      padding: EdgeInsets.zero,
+                                      itemBuilder: (context, index) {
+                                        return Center(
+                                          child: SizedBox(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
-                                                0.05,
-                                          );
-                                        },
-                                        itemCount: 10,
-                                        scrollDirection: Axis.horizontal,
-                                        padding: EdgeInsets.zero,
-                                        itemBuilder: (context, index) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.25,
-                                              height: 50.0,
-                                              child: Shimmer.fromColors(
-                                                baseColor: Colors.grey.shade100,
-                                                highlightColor:
-                                                    Colors.grey.shade200,
-                                                child: Container(
-                                                  margin: const EdgeInsets
-                                                      .symmetric(horizontal: 5),
-                                                  decoration: BoxDecoration(
-                                                    color: AppColors.greyColor,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
+                                                0.25,
+                                            height: 50.0,
+                                            child: Shimmer.fromColors(
+                                              baseColor: Colors.grey.shade100,
+                                              highlightColor:
+                                                  Colors.grey.shade200,
+                                              child: Container(
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 5),
+                                                decoration: BoxDecoration(
+                                                  color: AppColors.greyColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
                                                 ),
                                               ),
                                             ),
-                                          );
-                                        },
+                                          ),
                                         );
+                                      },
+                                    );
                                   }, loadSuccess: (v) {
                                     return ListView.builder(
-                                        itemCount: v.results?.length,
+                                        itemCount: v.items.length,
                                         scrollDirection: Axis.horizontal,
                                         padding: EdgeInsets.zero,
                                         itemBuilder: (context, index) {
                                           return CategoryItem(
-                                            title: v.results![index].name ?? "",
-                                            isSelect:
-                                                v.results![index].isSelected,
+                                            title: v.items[index].name,
+                                            isSelect: v.items[index].isSelected,
                                             onTab: () {
                                               setState(
                                                 () {
                                                   selectedItemIndex = index;
-                                                  for (var tab in v.results!) {
-                                                    tab.isSelected = false;
+                                                  for (var tab in v.items) {
+                                                    tab.isSelected == false;
                                                   }
-                                                  v.results![index].isSelected =
+                                                  v.items[index].isSelected ==
                                                       true;
                                                 },
                                               );

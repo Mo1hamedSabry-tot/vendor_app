@@ -197,7 +197,7 @@ Map<String, dynamic> _$$_CustomerOrderResultToJson(
     };
 
 _$_LineItem _$$_LineItemFromJson(Map<String, dynamic> json) => _$_LineItem(
-      priceId: json['priceId'],
+      priceId: json['priceId'] as String?,
       currency: json['currency'] as String?,
       price: (json['price'] as num?)?.toDouble(),
       priceWithTax: (json['priceWithTax'] as num?)?.toDouble(),
@@ -224,7 +224,7 @@ _$_LineItem _$$_LineItemFromJson(Map<String, dynamic> json) => _$_LineItem(
       categoryId: json['categoryId'],
       name: json['name'] as String?,
       comment: json['comment'],
-      status: json['status'],
+      status: json['status'] as String?,
       imageUrl: json['imageUrl'],
       isGift: json['isGift'] as bool?,
       shippingMethodCode: json['shippingMethodCode'],
@@ -252,6 +252,7 @@ _$_LineItem _$$_LineItemFromJson(Map<String, dynamic> json) => _$_LineItem(
       createdBy: json['createdBy'] as String?,
       modifiedBy: json['modifiedBy'] as String?,
       id: json['id'] as String?,
+      isSlected: json['isSlected'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_LineItemToJson(_$_LineItem instance) =>
@@ -310,4 +311,5 @@ Map<String, dynamic> _$$_LineItemToJson(_$_LineItem instance) =>
       'createdBy': instance.createdBy,
       'modifiedBy': instance.modifiedBy,
       'id': instance.id,
+      'isSlected': instance.isSlected,
     };

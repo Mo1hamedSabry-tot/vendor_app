@@ -2073,7 +2073,7 @@ LineItem _$LineItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LineItem {
-  dynamic get priceId => throw _privateConstructorUsedError;
+  String? get priceId => throw _privateConstructorUsedError;
   String? get currency => throw _privateConstructorUsedError;
   double? get price => throw _privateConstructorUsedError;
   double? get priceWithTax => throw _privateConstructorUsedError;
@@ -2099,7 +2099,7 @@ mixin _$LineItem {
   dynamic get categoryId => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   dynamic get comment => throw _privateConstructorUsedError;
-  dynamic get status => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
   dynamic get imageUrl => throw _privateConstructorUsedError;
   bool? get isGift => throw _privateConstructorUsedError;
   dynamic get shippingMethodCode => throw _privateConstructorUsedError;
@@ -2127,6 +2127,7 @@ mixin _$LineItem {
   String? get createdBy => throw _privateConstructorUsedError;
   String? get modifiedBy => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  bool get isSlected => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2140,7 +2141,7 @@ abstract class $LineItemCopyWith<$Res> {
       _$LineItemCopyWithImpl<$Res, LineItem>;
   @useResult
   $Res call(
-      {dynamic priceId,
+      {String? priceId,
       String? currency,
       double? price,
       double? priceWithTax,
@@ -2166,7 +2167,7 @@ abstract class $LineItemCopyWith<$Res> {
       dynamic categoryId,
       String? name,
       dynamic comment,
-      dynamic status,
+      String? status,
       dynamic imageUrl,
       bool? isGift,
       dynamic shippingMethodCode,
@@ -2193,7 +2194,8 @@ abstract class $LineItemCopyWith<$Res> {
       String? modifiedDate,
       String? createdBy,
       String? modifiedBy,
-      String? id});
+      String? id,
+      bool isSlected});
 }
 
 /// @nodoc
@@ -2263,12 +2265,13 @@ class _$LineItemCopyWithImpl<$Res, $Val extends LineItem>
     Object? createdBy = freezed,
     Object? modifiedBy = freezed,
     Object? id = freezed,
+    Object? isSlected = null,
   }) {
     return _then(_value.copyWith(
       priceId: freezed == priceId
           ? _value.priceId
           : priceId // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       currency: freezed == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
@@ -2372,7 +2375,7 @@ class _$LineItemCopyWithImpl<$Res, $Val extends LineItem>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -2481,6 +2484,10 @@ class _$LineItemCopyWithImpl<$Res, $Val extends LineItem>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSlected: null == isSlected
+          ? _value.isSlected
+          : isSlected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -2493,7 +2500,7 @@ abstract class _$$_LineItemCopyWith<$Res> implements $LineItemCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {dynamic priceId,
+      {String? priceId,
       String? currency,
       double? price,
       double? priceWithTax,
@@ -2519,7 +2526,7 @@ abstract class _$$_LineItemCopyWith<$Res> implements $LineItemCopyWith<$Res> {
       dynamic categoryId,
       String? name,
       dynamic comment,
-      dynamic status,
+      String? status,
       dynamic imageUrl,
       bool? isGift,
       dynamic shippingMethodCode,
@@ -2546,7 +2553,8 @@ abstract class _$$_LineItemCopyWith<$Res> implements $LineItemCopyWith<$Res> {
       String? modifiedDate,
       String? createdBy,
       String? modifiedBy,
-      String? id});
+      String? id,
+      bool isSlected});
 }
 
 /// @nodoc
@@ -2614,12 +2622,13 @@ class __$$_LineItemCopyWithImpl<$Res>
     Object? createdBy = freezed,
     Object? modifiedBy = freezed,
     Object? id = freezed,
+    Object? isSlected = null,
   }) {
     return _then(_$_LineItem(
       priceId: freezed == priceId
           ? _value.priceId
           : priceId // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       currency: freezed == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
@@ -2723,7 +2732,7 @@ class __$$_LineItemCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -2832,6 +2841,10 @@ class __$$_LineItemCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSlected: null == isSlected
+          ? _value.isSlected
+          : isSlected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2893,7 +2906,8 @@ class _$_LineItem implements _LineItem {
       this.modifiedDate,
       this.createdBy,
       this.modifiedBy,
-      this.id})
+      this.id,
+      this.isSlected = false})
       : _feeDetails = feeDetails,
         _dynamicProperties = dynamicProperties,
         _discounts = discounts,
@@ -2903,7 +2917,7 @@ class _$_LineItem implements _LineItem {
       _$$_LineItemFromJson(json);
 
   @override
-  final dynamic priceId;
+  final String? priceId;
   @override
   final String? currency;
   @override
@@ -2955,7 +2969,7 @@ class _$_LineItem implements _LineItem {
   @override
   final dynamic comment;
   @override
-  final dynamic status;
+  final String? status;
   @override
   final dynamic imageUrl;
   @override
@@ -3043,10 +3057,13 @@ class _$_LineItem implements _LineItem {
   final String? modifiedBy;
   @override
   final String? id;
+  @override
+  @JsonKey()
+  final bool isSlected;
 
   @override
   String toString() {
-    return 'LineItem(priceId: $priceId, currency: $currency, price: $price, priceWithTax: $priceWithTax, placedPrice: $placedPrice, placedPriceWithTax: $placedPriceWithTax, extendedPrice: $extendedPrice, extendedPriceWithTax: $extendedPriceWithTax, discountAmount: $discountAmount, discountAmountWithTax: $discountAmountWithTax, discountTotal: $discountTotal, discountTotalWithTax: $discountTotalWithTax, fee: $fee, feeWithTax: $feeWithTax, taxType: $taxType, taxTotal: $taxTotal, taxPercentRate: $taxPercentRate, reserveQuantity: $reserveQuantity, quantity: $quantity, productId: $productId, sku: $sku, productType: $productType, catalogId: $catalogId, categoryId: $categoryId, name: $name, comment: $comment, status: $status, imageUrl: $imageUrl, isGift: $isGift, shippingMethodCode: $shippingMethodCode, fulfillmentLocationCode: $fulfillmentLocationCode, fulfillmentCenterId: $fulfillmentCenterId, fulfillmentCenterName: $fulfillmentCenterName, outerId: $outerId, feeDetails: $feeDetails, vendorId: $vendorId, weightUnit: $weightUnit, weight: $weight, measureUnit: $measureUnit, height: $height, length: $length, width: $width, isCancelled: $isCancelled, cancelledDate: $cancelledDate, cancelReason: $cancelReason, objectType: $objectType, dynamicProperties: $dynamicProperties, discounts: $discounts, taxDetails: $taxDetails, createdDate: $createdDate, modifiedDate: $modifiedDate, createdBy: $createdBy, modifiedBy: $modifiedBy, id: $id)';
+    return 'LineItem(priceId: $priceId, currency: $currency, price: $price, priceWithTax: $priceWithTax, placedPrice: $placedPrice, placedPriceWithTax: $placedPriceWithTax, extendedPrice: $extendedPrice, extendedPriceWithTax: $extendedPriceWithTax, discountAmount: $discountAmount, discountAmountWithTax: $discountAmountWithTax, discountTotal: $discountTotal, discountTotalWithTax: $discountTotalWithTax, fee: $fee, feeWithTax: $feeWithTax, taxType: $taxType, taxTotal: $taxTotal, taxPercentRate: $taxPercentRate, reserveQuantity: $reserveQuantity, quantity: $quantity, productId: $productId, sku: $sku, productType: $productType, catalogId: $catalogId, categoryId: $categoryId, name: $name, comment: $comment, status: $status, imageUrl: $imageUrl, isGift: $isGift, shippingMethodCode: $shippingMethodCode, fulfillmentLocationCode: $fulfillmentLocationCode, fulfillmentCenterId: $fulfillmentCenterId, fulfillmentCenterName: $fulfillmentCenterName, outerId: $outerId, feeDetails: $feeDetails, vendorId: $vendorId, weightUnit: $weightUnit, weight: $weight, measureUnit: $measureUnit, height: $height, length: $length, width: $width, isCancelled: $isCancelled, cancelledDate: $cancelledDate, cancelReason: $cancelReason, objectType: $objectType, dynamicProperties: $dynamicProperties, discounts: $discounts, taxDetails: $taxDetails, createdDate: $createdDate, modifiedDate: $modifiedDate, createdBy: $createdBy, modifiedBy: $modifiedBy, id: $id, isSlected: $isSlected)';
   }
 
   @override
@@ -3054,7 +3071,7 @@ class _$_LineItem implements _LineItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LineItem &&
-            const DeepCollectionEquality().equals(other.priceId, priceId) &&
+            (identical(other.priceId, priceId) || other.priceId == priceId) &&
             (identical(other.currency, currency) ||
                 other.currency == currency) &&
             (identical(other.price, price) || other.price == price) &&
@@ -3099,7 +3116,7 @@ class _$_LineItem implements _LineItem {
                 .equals(other.categoryId, categoryId) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other.comment, comment) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
+            (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             (identical(other.isGift, isGift) || other.isGift == isGift) &&
             const DeepCollectionEquality()
@@ -3144,14 +3161,16 @@ class _$_LineItem implements _LineItem {
                 other.createdBy == createdBy) &&
             (identical(other.modifiedBy, modifiedBy) ||
                 other.modifiedBy == modifiedBy) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.isSlected, isSlected) ||
+                other.isSlected == isSlected));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(priceId),
+        priceId,
         currency,
         price,
         priceWithTax,
@@ -3177,7 +3196,7 @@ class _$_LineItem implements _LineItem {
         const DeepCollectionEquality().hash(categoryId),
         name,
         const DeepCollectionEquality().hash(comment),
-        const DeepCollectionEquality().hash(status),
+        status,
         const DeepCollectionEquality().hash(imageUrl),
         isGift,
         const DeepCollectionEquality().hash(shippingMethodCode),
@@ -3204,7 +3223,8 @@ class _$_LineItem implements _LineItem {
         modifiedDate,
         createdBy,
         modifiedBy,
-        id
+        id,
+        isSlected
       ]);
 
   @JsonKey(ignore: true)
@@ -3223,7 +3243,7 @@ class _$_LineItem implements _LineItem {
 
 abstract class _LineItem implements LineItem {
   const factory _LineItem(
-      {final dynamic priceId,
+      {final String? priceId,
       final String? currency,
       final double? price,
       final double? priceWithTax,
@@ -3249,7 +3269,7 @@ abstract class _LineItem implements LineItem {
       final dynamic categoryId,
       final String? name,
       final dynamic comment,
-      final dynamic status,
+      final String? status,
       final dynamic imageUrl,
       final bool? isGift,
       final dynamic shippingMethodCode,
@@ -3276,12 +3296,13 @@ abstract class _LineItem implements LineItem {
       final String? modifiedDate,
       final String? createdBy,
       final String? modifiedBy,
-      final String? id}) = _$_LineItem;
+      final String? id,
+      final bool isSlected}) = _$_LineItem;
 
   factory _LineItem.fromJson(Map<String, dynamic> json) = _$_LineItem.fromJson;
 
   @override
-  dynamic get priceId;
+  String? get priceId;
   @override
   String? get currency;
   @override
@@ -3333,7 +3354,7 @@ abstract class _LineItem implements LineItem {
   @override
   dynamic get comment;
   @override
-  dynamic get status;
+  String? get status;
   @override
   dynamic get imageUrl;
   @override
@@ -3388,6 +3409,8 @@ abstract class _LineItem implements LineItem {
   String? get modifiedBy;
   @override
   String? get id;
+  @override
+  bool get isSlected;
   @override
   @JsonKey(ignore: true)
   _$$_LineItemCopyWith<_$_LineItem> get copyWith =>

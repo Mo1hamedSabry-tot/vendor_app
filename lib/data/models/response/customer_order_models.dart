@@ -105,7 +105,7 @@ class CustomerOrderResult with _$CustomerOrderResult {
 @freezed
 class LineItem with _$LineItem {
  const factory LineItem({
-    dynamic priceId,
+    String? priceId,
     String? currency,
     double? price,
     double? priceWithTax,
@@ -131,7 +131,7 @@ class LineItem with _$LineItem {
     dynamic categoryId,
     String? name,
     dynamic comment,
-    dynamic status,
+    String? status,
     dynamic imageUrl,
     bool? isGift,
     dynamic shippingMethodCode,
@@ -159,6 +159,7 @@ class LineItem with _$LineItem {
     String? createdBy,
     String? modifiedBy,
     String? id,
+    @Default(false) bool isSlected,
   }) = _LineItem;
 
   factory LineItem.fromJson(Map<String, dynamic> json) =>

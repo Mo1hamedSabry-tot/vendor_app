@@ -5,7 +5,7 @@ import 'package:vendor_foody/data/models/response/customer_order_models.dart';
 
 class NewOrderItem extends StatelessWidget {
   final VoidCallback onTap;
-  final LineItem orderModel;
+  final CustomerOrderResult orderModel;
   const NewOrderItem(
       {super.key, required this.onTap, required this.orderModel});
 
@@ -27,11 +27,11 @@ class NewOrderItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 65,
                     child: TOTAvatarAtom.network(
-                      orderModel.imageUrl ??
-                          'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
+                      // "orderModel.imageUrl ??"
+                      'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
                     ),
                   ),
                   const SizedBox(
@@ -39,7 +39,8 @@ class NewOrderItem extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      TOTTextAtom.bodyLarge(orderModel.name!),
+                      TOTTextAtom.bodyLarge(
+                          orderModel.customerName ?? 'not found'),
                       const SizedBox(
                         height: 3,
                       ),
@@ -57,8 +58,8 @@ class NewOrderItem extends StatelessWidget {
                 children: [
                   TOTTextAtom.bodyLarge(
                       orderModel.id.toString().substring(0, 7)),
-                  TOTTextAtom.bodyLarge(orderModel.quantity.toString()),
-                  TOTTextAtom.bodyLarge('${orderModel.price.toString()}\$'),
+                  TOTTextAtom.bodyLarge(orderModel.status.toString()),
+                  TOTTextAtom.bodyLarge('${orderModel.sum.toString()}\$'),
                 ],
               )
             ],

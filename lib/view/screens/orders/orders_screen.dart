@@ -6,6 +6,7 @@ import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/list_item/new_order_item.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/new/new_bottom_sheet.dart';
 
 import '../../../custom/custom_app_bar.dart';
 import '../../../custom/custom_tab_bar.dart';
@@ -123,55 +124,79 @@ class _OrdersScreenState extends State<OrdersScreen>
             children: [
               //! here
               BlocConsumer<OrderBloc, OrderState>(
-                listener: (context, state) {},
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    orElse: () {
-                      return const SizedBox();
-                    },
-                    loadInProgress: () {
-                      return ListView.separated(
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            height: MediaQuery.sizeOf(context).height * 0.05,
-                          );
-                        },
-                        itemBuilder: (context, index) {
-                          return Center(
-                            child: SizedBox(
-                              width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: MediaQuery.sizeOf(context).height * 0.25,
-                              child: Shimmer.fromColors(
-                                baseColor: Colors.grey.shade100,
-                                highlightColor: Colors.grey.shade300,
-                                child: Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.greyColor,
-                                    borderRadius: BorderRadius.circular(10),
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () {
+                        return const SizedBox();
+                      },
+                      loadInProgress: () {
+                        return ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              height: MediaQuery.sizeOf(context).height * 0.05,
+                            );
+                          },
+                          itemBuilder: (context, index) {
+                            return Center(
+                              child: SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.9,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.25,
+                                child: Shimmer.fromColors(
+                                  baseColor: Colors.grey.shade100,
+                                  highlightColor: Colors.grey.shade300,
+                                  child: Container(
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 5),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greyColor,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                        itemCount: 10,
-                      );
-                    },
-                    suuccessGetOrder: (orders) {
-                      return ListView.builder(
-                          itemCount: orders.results![0].items!.length,
+                            );
+                          },
+                          itemCount: 10,
+                        );
+                      },
+                      suuccessGetOrder: (orders) {
+                        return ListView.builder(
+                          itemCount: orders.results!.length,
                           padding: const EdgeInsets.only(top: 10, bottom: 50),
                           itemBuilder: (_, index) {
                             return NewOrderItem(
-                                onTap: () {},
-                                orderModel: orders.results![0].items![index]);
-                          });
-                    },
-                  );
-                },
-              ),
+                                orderModel: orders.results![index],
+                                onTap: () {
+                                  if (orders.results!.isNotEmpty) {
+                                    showModalBottomSheet(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return NewOrderBottomSheet(
+                                            listOfItems:
+                                                orders.results![index].items!,
+                                            onTap: () {
+                                              // context
+                                              //     .read<HomeCubit>()
+                                              //     .addProductToReady(
+                                              //         state.products[index]);
+                                              // ShowSnackbar.showCheckTopSnackBar(
+                                              //     context,
+                                              //     text: 'Swiped to Ready Order',
+                                              //     type: SnackBarType.success);
+                                              // Navigator.pop(context);
+                                            },
+                                          ); // Your custom bottom sheet widget
+                                        });
+                                  }
+                                });
+                          },
+                        );
+                      },
+                    );
+                  }),
+
               Container(
                 height: 100,
                 width: 100,

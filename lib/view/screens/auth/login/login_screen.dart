@@ -6,6 +6,7 @@ import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
+import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -280,25 +281,8 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                 username: userNameController.text,
                 password: passController.text),
           );
-      // LoginRepository()
-      //     .getData(
-      //         username: userNameController.text,
-      //         password: passController.text,
-      //         rememberMe: false)
-      //     .then((value) async {
-      //   if (value.succeeded == true) {
-      //     TokenRepository().getToken(
-      //         username: userNameController.text, password: passController.text);
-      //     Navigator.pushReplacementNamed(context, LayoutScreen.routeName);
-      //     await showToast(
-      //       message: 'successful',
-      //     );
-      //   } else {
-      //     await showToast(
-      //       message: 'Login failed',
-      //     );
-      //   }
-      // });
+      context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
+
     }
   }
 }

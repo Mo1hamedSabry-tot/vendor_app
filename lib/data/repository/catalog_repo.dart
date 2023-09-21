@@ -2,33 +2,28 @@ import 'dart:developer';
 
 import 'package:vendor_foody/core/utils/cache_helper.dart';
 import 'package:vendor_foody/data/models/response/category_model.dart';
-import 'package:vendor_foody/data/models/response/get_catalog_model.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';
 
-class GetCatalogsRepository {
-  Future<CatalogResponseModel> getCatalog() async {
-    CatalogResponseModel? data;
+class GetCategoryRepository {
+  Future<CategoryModel> getCategory() async {
+    CategoryModel? data;
     try {
       await DioHelper.postData(
-          url: getCatologsEndPoint,
+          url: getCategoryEndPoint,
           token: CacheHelper.get('token'),
           data: {
-            "searchInVariations": true,
-            "responseGroup": "none",
-            "searchPhrase": "",
-            "sort": "name=asc",
+            "catalogId": "f5790b39-4fc8-4aad-8318-259d28595f05",
             "skip": 0,
             "take": 100
           }).then((value) {
-        data = CatalogResponseModel.fromJson(value.data);
-        data?.results![0].isSelected = true;
+        data = CategoryModel.fromJson(value.data);
+        data?.items[0].isSelected == true;
       });
     } catch (e) {
       log('catchhhhhhhhhhhhhh ${e.toString()}');
     }
-
+    log(data.toString());
     return data!;
   }
 }
-

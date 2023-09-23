@@ -18,11 +18,9 @@ class ProductsRepository {
             "take": 300,
           }).then((value) {
         dataModel = TOTProductsModel.fromJson(value.data);
-        // log("Status Code ::: ${value.statusCode}-----"),
-        // log("total product ::::::###### is ::: ${dataModel?.totalCount.toString()}-----"),
       });
     } catch (e) {
-      log('cccccccathhhh ${e.toString()}');
+      log('***cccccccathhhh in ProductsRepository*** ${e.toString()}');
     }
     return dataModel!;
   }

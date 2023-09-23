@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:vendor_foody/core/utils/cache_helper.dart';
-import 'package:vendor_foody/data/models/response/category_model.dart';
 import 'package:vendor_foody/data/models/response/get_catalog_model.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';

@@ -244,11 +244,11 @@ mixin _$TOTProduct {
   String? get endDate => throw _privateConstructorUsedError;
   String? get packageType => throw _privateConstructorUsedError;
   String? get weightUnit => throw _privateConstructorUsedError;
-  int? get weight => throw _privateConstructorUsedError;
+  double? get weight => throw _privateConstructorUsedError;
   String? get measureUnit => throw _privateConstructorUsedError;
   int? get height => throw _privateConstructorUsedError;
   int? get length => throw _privateConstructorUsedError;
-  int? get width => throw _privateConstructorUsedError;
+  double? get width => throw _privateConstructorUsedError;
   bool? get enableReview => throw _privateConstructorUsedError;
   int? get maxNumberOfDownload => throw _privateConstructorUsedError;
   String? get downloadExpiration => throw _privateConstructorUsedError;
@@ -315,11 +315,11 @@ abstract class $TOTProductCopyWith<$Res> {
       String? endDate,
       String? packageType,
       String? weightUnit,
-      int? weight,
+      double? weight,
       String? measureUnit,
       int? height,
       int? length,
-      int? width,
+      double? width,
       bool? enableReview,
       int? maxNumberOfDownload,
       String? downloadExpiration,
@@ -508,7 +508,7 @@ class _$TOTProductCopyWithImpl<$Res, $Val extends TOTProduct>
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       measureUnit: freezed == measureUnit
           ? _value.measureUnit
           : measureUnit // ignore: cast_nullable_to_non_nullable
@@ -524,7 +524,7 @@ class _$TOTProductCopyWithImpl<$Res, $Val extends TOTProduct>
       width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       enableReview: freezed == enableReview
           ? _value.enableReview
           : enableReview // ignore: cast_nullable_to_non_nullable
@@ -675,11 +675,11 @@ abstract class _$$_TOTProductCopyWith<$Res>
       String? endDate,
       String? packageType,
       String? weightUnit,
-      int? weight,
+      double? weight,
       String? measureUnit,
       int? height,
       int? length,
-      int? width,
+      double? width,
       bool? enableReview,
       int? maxNumberOfDownload,
       String? downloadExpiration,
@@ -866,7 +866,7 @@ class __$$_TOTProductCopyWithImpl<$Res>
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       measureUnit: freezed == measureUnit
           ? _value.measureUnit
           : measureUnit // ignore: cast_nullable_to_non_nullable
@@ -882,7 +882,7 @@ class __$$_TOTProductCopyWithImpl<$Res>
       width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       enableReview: freezed == enableReview
           ? _value.enableReview
           : enableReview // ignore: cast_nullable_to_non_nullable
@@ -1119,7 +1119,7 @@ class _$_TOTProduct implements _TOTProduct {
   @override
   final String? weightUnit;
   @override
-  final int? weight;
+  final double? weight;
   @override
   final String? measureUnit;
   @override
@@ -1127,7 +1127,7 @@ class _$_TOTProduct implements _TOTProduct {
   @override
   final int? length;
   @override
-  final int? width;
+  final double? width;
   @override
   final bool? enableReview;
   @override
@@ -1469,11 +1469,11 @@ abstract class _TOTProduct implements TOTProduct {
       final String? endDate,
       final String? packageType,
       final String? weightUnit,
-      final int? weight,
+      final double? weight,
       final String? measureUnit,
       final int? height,
       final int? length,
-      final int? width,
+      final double? width,
       final bool? enableReview,
       final int? maxNumberOfDownload,
       final String? downloadExpiration,
@@ -1550,7 +1550,7 @@ abstract class _TOTProduct implements TOTProduct {
   @override
   String? get weightUnit;
   @override
-  int? get weight;
+  double? get weight;
   @override
   String? get measureUnit;
   @override
@@ -1558,7 +1558,7 @@ abstract class _TOTProduct implements TOTProduct {
   @override
   int? get length;
   @override
-  int? get width;
+  double? get width;
   @override
   bool? get enableReview;
   @override

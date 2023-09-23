@@ -448,33 +448,33 @@ abstract class _LoadSuccess implements CategoryState {
 mixin _$CategoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCatalog,
+    required TResult Function() getCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCatalog,
+    TResult? Function()? getCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCatalog,
+    TResult Function()? getCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetCategory value) getCatalog,
+    required TResult Function(_GetCategory value) getCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCategory value)? getCatalog,
+    TResult? Function(_GetCategory value)? getCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCategory value)? getCatalog,
+    TResult Function(_GetCategory value)? getCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -521,7 +521,7 @@ class _$_GetCategory implements _GetCategory {
 
   @override
   String toString() {
-    return 'CategoryEvent.getCatalog()';
+    return 'CategoryEvent.getCategory()';
   }
 
   @override
@@ -536,27 +536,27 @@ class _$_GetCategory implements _GetCategory {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCatalog,
+    required TResult Function() getCategory,
   }) {
-    return getCatalog();
+    return getCategory();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCatalog,
+    TResult? Function()? getCategory,
   }) {
-    return getCatalog?.call();
+    return getCategory?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCatalog,
+    TResult Function()? getCategory,
     required TResult orElse(),
   }) {
-    if (getCatalog != null) {
-      return getCatalog();
+    if (getCategory != null) {
+      return getCategory();
     }
     return orElse();
   }
@@ -564,27 +564,27 @@ class _$_GetCategory implements _GetCategory {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_GetCategory value) getCatalog,
+    required TResult Function(_GetCategory value) getCategory,
   }) {
-    return getCatalog(this);
+    return getCategory(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetCategory value)? getCatalog,
+    TResult? Function(_GetCategory value)? getCategory,
   }) {
-    return getCatalog?.call(this);
+    return getCategory?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetCategory value)? getCatalog,
+    TResult Function(_GetCategory value)? getCategory,
     required TResult orElse(),
   }) {
-    if (getCatalog != null) {
-      return getCatalog(this);
+    if (getCategory != null) {
+      return getCategory(this);
     }
     return orElse();
   }

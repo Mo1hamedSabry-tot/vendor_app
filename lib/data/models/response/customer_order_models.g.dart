@@ -46,6 +46,9 @@ _$_CustomerOrderResult _$$_CustomerOrderResultFromJson(
       items: (json['items'] as List<dynamic>?)
           ?.map((e) => LineItem.fromJson(e as Map<String, dynamic>))
           .toList(),
+      modalItems: (json['modalItems'] as List<dynamic>?)
+          ?.map((e) => OrderItemRequest.fromJson(e as Map<String, dynamic>))
+          .toList(),
       shipments: json['shipments'] as List<dynamic>?,
       feeDetails: json['feeDetails'] as List<dynamic>?,
       discounts: json['discounts'] as List<dynamic>?,
@@ -135,6 +138,7 @@ Map<String, dynamic> _$$_CustomerOrderResultToJson(
       'addresses': instance.addresses,
       'inPayments': instance.inPayments,
       'items': instance.items,
+      'modalItems': instance.modalItems,
       'shipments': instance.shipments,
       'feeDetails': instance.feeDetails,
       'discounts': instance.discounts,
@@ -311,5 +315,27 @@ Map<String, dynamic> _$$_LineItemToJson(_$_LineItem instance) =>
       'createdBy': instance.createdBy,
       'modifiedBy': instance.modifiedBy,
       'id': instance.id,
+      'isSlected': instance.isSlected,
+    };
+
+_$_OrderItemRequest _$$_OrderItemRequestFromJson(Map<String, dynamic> json) =>
+    _$_OrderItemRequest(
+      status: json['status'] as String,
+      catalogId: json['catalogId'] as String,
+      currency: json['currency'] as String,
+      name: json['name'] as String,
+      sku: json['sku'] as String,
+      productId: json['productId'] as String,
+      isSlected: json['isSlected'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$$_OrderItemRequestToJson(_$_OrderItemRequest instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'catalogId': instance.catalogId,
+      'currency': instance.currency,
+      'name': instance.name,
+      'sku': instance.sku,
+      'productId': instance.productId,
       'isSlected': instance.isSlected,
     };

@@ -7,4 +7,7 @@ class OrderState with _$OrderState {
   const factory OrderState.suuccessGetOrder({required CustomerOrderResponse orders}) =
       _SuuccessGetOrder;
   const factory OrderState.errorGetOrder()=_ErrorGetOrder;
+   const factory OrderState.suuccessUpdateOrder({required int statusCode}) =
+      _SuuccessUpdateOrder;
+      const factory OrderState.errorUpdateOrder()=_ErrorUpdateOrder;
 }

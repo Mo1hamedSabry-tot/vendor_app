@@ -27,7 +27,6 @@ void main() async {
   await CacheHelper.init();
   await DioHelper.init();
   await OrderRepository().getOrder();
-  await GetCategoryRepository().getCategory();
   runApp(const MyApp());
 }
 

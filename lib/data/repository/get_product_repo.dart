@@ -11,7 +11,7 @@ class ProductsRepository {
     TOTProductsModel? dataModel;
     try {
       await DioHelper.postData(
-          url: getProductEndPoint,
+          url: Endpoint.getProductEndPoint,
           token: CacheHelper.get('token'),
           data: {
             "skip": 0,
@@ -36,7 +36,7 @@ class ProductsRepository {
 
     try {
       await DioHelper.postData(
-          url: addProductEndPoint,
+          url: Endpoint.addProductEndPoint,
           token: CacheHelper.get('token'),
           data: {
             "code": code,

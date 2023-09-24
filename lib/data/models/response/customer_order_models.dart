@@ -1,12 +1,11 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'customer_order_models.freezed.dart';
 part 'customer_order_models.g.dart';
 
-@freezed
+@unfreezed
 class CustomerOrderResponse with _$CustomerOrderResponse {
- const factory CustomerOrderResponse({
+  factory CustomerOrderResponse({
     int? totalCount,
     List<CustomerOrderResult>? results,
   }) = _CustomerOrderResponse;
@@ -15,9 +14,9 @@ class CustomerOrderResponse with _$CustomerOrderResponse {
       _$CustomerOrderResponseFromJson(json);
 }
 
-@freezed
+@unfreezed
 class CustomerOrderResult with _$CustomerOrderResult {
- const factory CustomerOrderResult({
+  factory CustomerOrderResult({
     String? rowVersion,
     String? customerId,
     String? customerName,
@@ -37,6 +36,7 @@ class CustomerOrderResult with _$CustomerOrderResult {
     List<dynamic>? addresses,
     List<dynamic>? inPayments,
     List<LineItem>? items,
+    List<OrderItemRequest>? modalItems,
     List<dynamic>? shipments,
     List<dynamic>? feeDetails,
     List<dynamic>? discounts,
@@ -102,9 +102,9 @@ class CustomerOrderResult with _$CustomerOrderResult {
       _$CustomerOrderResultFromJson(json);
 }
 
-@freezed
+@unfreezed
 class LineItem with _$LineItem {
- const factory LineItem({
+  factory LineItem({
     String? priceId,
     String? currency,
     double? price,
@@ -166,9 +166,6 @@ class LineItem with _$LineItem {
       _$LineItemFromJson(json);
 }
 
-
-
-
 // import 'package:freezed_annotation/freezed_annotation.dart';
 
 // part 'customer_order_models.freezed.dart';
@@ -221,3 +218,19 @@ class LineItem with _$LineItem {
 //   factory ItemModel.fromJson(Map<String, dynamic> json) =>
 //       _$ItemModelFromJson(json);
 // }
+
+@unfreezed
+class OrderItemRequest with _$OrderItemRequest {
+  factory OrderItemRequest({
+    @JsonKey(name: 'status') required String status,
+    @JsonKey(name: 'catalogId') required String catalogId,
+    @JsonKey(name: 'currency') required String currency,
+    @JsonKey(name: 'name') required String name,
+    @JsonKey(name: 'sku') required String sku,
+    @JsonKey(name: 'productId') required String productId,
+    @Default(false) bool isSlected,
+  }) = _OrderItemRequest;
+
+  factory OrderItemRequest.fromJson(Map<String, dynamic> json) =>
+      _$OrderItemRequestFromJson(json);
+}

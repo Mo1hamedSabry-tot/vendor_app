@@ -13,7 +13,7 @@ class DioHelper {
     dio = Dio(
       BaseOptions(
         //Here the URL of API.
-        baseUrl: baseUrl,
+        baseUrl: Endpoint.baseUrl,
 
         //   receiveDataWhenStatusError: true,
         //Here we Put The Headers Needed in The API.

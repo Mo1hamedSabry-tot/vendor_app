@@ -10,7 +10,7 @@ class GetCatalogsRepository {
     CatalogResponseModel? data;
     try {
       await DioHelper.postData(
-          url: getCatologsEndPoint,
+          url: Endpoint.getCatologsEndPoint,
           token: CacheHelper.get('token'),
           data: {
             "searchInVariations": true,

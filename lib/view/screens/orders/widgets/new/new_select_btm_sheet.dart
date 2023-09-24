@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/customer_order_models.dart';
+import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 
 class NewSelectBottomSheetItem extends StatefulWidget {
   final LineItem itemModel;
@@ -21,6 +23,21 @@ class _NewSelectBottomSheetItemState extends State<NewSelectBottomSheetItem> {
   _updateSelected() {
     setState(() {
       isSelected = !isSelected;
+
+      if (isSelected) {
+        OrderItemRequest request = OrderItemRequest(
+          status: "Accepted",
+          catalogId: widget.itemModel.catalogId ?? "",
+          currency: widget.itemModel.currency ?? "EGP",
+          name: widget.itemModel.name ?? "",
+          sku: widget.itemModel.sku ?? "",
+          productId: widget.itemModel.productId ?? "",
+        );
+        context.read<OrderBloc>().add(
+              OrderEvent.updateSelectedItem(request),
+            );
+      }
+      // widget.itemModel.isSlected = isSelected;
     });
   }
 

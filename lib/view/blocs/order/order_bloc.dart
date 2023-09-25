@@ -13,7 +13,8 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   OrderBloc({required this.orderRep}) : super(const OrderState.initial()) {
     List<OrderItemRequest> selectedItems = [];
     on<OrderEvent>((event, emit) async {
-      await event.map(getNewOrder: (event) async {
+      await event.map(
+        getNewOrder: (event) async {
         emit(const _LoadInProgress());
         final CustomerOrderResponse data = await orderRep.getNewOrder();
 
@@ -27,28 +28,43 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
           data.results = filteredItems;
         }
         emit(_SuuccessGetOrder(orders: data)); //data
-      }, updateSelectedItem: (event) {
+      },
+      
+       updateSelectedItem: (event) {
         selectedItems.add(event.item);
-      }, updateOrderToAccept: (event) async {
+      }, 
+      
+      updateOrderToAccept: (event) async {
         emit(const _LoadInProgress());
         final int stateCode = await orderRep.updateOrderToAccepted(
           selectedItems,
           event.order,
         );
         emit(_SuuccessUpdateOrder(statusCode: stateCode));
-      }, updateOrderToReady: (v) async {
+      }, 
+      
+      updateOrderToReady: (v) async {
         emit(const _LoadInProgress());
         final int stateCode = await orderRep.updateOrderToReady(
           selectedItems,
           v.order,
         );
         emit(_SuuccessUpdateOrder(statusCode: stateCode));
-      }, getAcceptedOedre: (v) async {
+      }, 
+      
+      getAcceptedOedre: (v) async {
         emit(const _LoadInProgress());
         final CustomerOrderResponse response =
             await orderRep.getAcceptedOrder();
         emit(_SuuccessGetAceptedOrder(orders: response));
-      });
+      },
+      getReadyOedre: (value)async {
+         emit(const _LoadInProgress());
+        final CustomerOrderResponse response =
+            await orderRep.getReadyOrder();
+        emit(_SuuccessGetReadyOrder(orders: response));
+      },
+      );
     });
   }
 }

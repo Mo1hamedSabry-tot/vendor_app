@@ -26,7 +26,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   await DioHelper.init();
-  await OrderRepository().getOrder();
+  await OrderRepository().getNewOrder();
+  await OrderRepository().getAcceptedOrder();
   runApp(const MyApp());
 }
 

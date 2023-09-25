@@ -20,21 +20,27 @@ mixin _$OrderEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getNewOrder,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
-    required TResult Function(CustomerOrderResult order) updateOrder,
+    required TResult Function(CustomerOrderResult order) updateOrderToAccept,
+    required TResult Function(CustomerOrderResult order) updateOrderToReady,
+    required TResult Function(CustomerOrderResponse? response) getAcceptedOedre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getNewOrder,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
-    TResult? Function(CustomerOrderResult order)? updateOrder,
+    TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult? Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult? Function(CustomerOrderResponse? response)? getAcceptedOedre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getNewOrder,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
-    TResult Function(CustomerOrderResult order)? updateOrder,
+    TResult Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult Function(CustomerOrderResponse? response)? getAcceptedOedre,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +48,27 @@ mixin _$OrderEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_getNewOrder value) getNewOrder,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrder value) updateOrder,
+    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_getNewOrder value)? getNewOrder,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrder value)? updateOrder,
+    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getNewOrder value)? getNewOrder,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrder value)? updateOrder,
+    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +138,9 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   TResult when<TResult extends Object?>({
     required TResult Function() getNewOrder,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
-    required TResult Function(CustomerOrderResult order) updateOrder,
+    required TResult Function(CustomerOrderResult order) updateOrderToAccept,
+    required TResult Function(CustomerOrderResult order) updateOrderToReady,
+    required TResult Function(CustomerOrderResponse? response) getAcceptedOedre,
   }) {
     return getNewOrder();
   }
@@ -136,7 +150,9 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getNewOrder,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
-    TResult? Function(CustomerOrderResult order)? updateOrder,
+    TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult? Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult? Function(CustomerOrderResponse? response)? getAcceptedOedre,
   }) {
     return getNewOrder?.call();
   }
@@ -146,7 +162,9 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getNewOrder,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
-    TResult Function(CustomerOrderResult order)? updateOrder,
+    TResult Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult Function(CustomerOrderResponse? response)? getAcceptedOedre,
     required TResult orElse(),
   }) {
     if (getNewOrder != null) {
@@ -160,7 +178,9 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   TResult map<TResult extends Object?>({
     required TResult Function(_getNewOrder value) getNewOrder,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrder value) updateOrder,
+    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
   }) {
     return getNewOrder(this);
   }
@@ -170,7 +190,9 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_getNewOrder value)? getNewOrder,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrder value)? updateOrder,
+    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
   }) {
     return getNewOrder?.call(this);
   }
@@ -180,7 +202,9 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getNewOrder value)? getNewOrder,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrder value)? updateOrder,
+    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     required TResult orElse(),
   }) {
     if (getNewOrder != null) {
@@ -281,7 +305,9 @@ class _$_UpdateSelectedItem
   TResult when<TResult extends Object?>({
     required TResult Function() getNewOrder,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
-    required TResult Function(CustomerOrderResult order) updateOrder,
+    required TResult Function(CustomerOrderResult order) updateOrderToAccept,
+    required TResult Function(CustomerOrderResult order) updateOrderToReady,
+    required TResult Function(CustomerOrderResponse? response) getAcceptedOedre,
   }) {
     return updateSelectedItem(item);
   }
@@ -291,7 +317,9 @@ class _$_UpdateSelectedItem
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getNewOrder,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
-    TResult? Function(CustomerOrderResult order)? updateOrder,
+    TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult? Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult? Function(CustomerOrderResponse? response)? getAcceptedOedre,
   }) {
     return updateSelectedItem?.call(item);
   }
@@ -301,7 +329,9 @@ class _$_UpdateSelectedItem
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getNewOrder,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
-    TResult Function(CustomerOrderResult order)? updateOrder,
+    TResult Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult Function(CustomerOrderResponse? response)? getAcceptedOedre,
     required TResult orElse(),
   }) {
     if (updateSelectedItem != null) {
@@ -315,7 +345,9 @@ class _$_UpdateSelectedItem
   TResult map<TResult extends Object?>({
     required TResult Function(_getNewOrder value) getNewOrder,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrder value) updateOrder,
+    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
   }) {
     return updateSelectedItem(this);
   }
@@ -325,7 +357,9 @@ class _$_UpdateSelectedItem
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_getNewOrder value)? getNewOrder,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrder value)? updateOrder,
+    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
   }) {
     return updateSelectedItem?.call(this);
   }
@@ -335,7 +369,9 @@ class _$_UpdateSelectedItem
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getNewOrder value)? getNewOrder,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrder value)? updateOrder,
+    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     required TResult orElse(),
   }) {
     if (updateSelectedItem != null) {
@@ -356,10 +392,10 @@ abstract class _UpdateSelectedItem implements OrderEvent {
 }
 
 /// @nodoc
-abstract class _$$_updateOrderCopyWith<$Res> {
-  factory _$$_updateOrderCopyWith(
-          _$_updateOrder value, $Res Function(_$_updateOrder) then) =
-      __$$_updateOrderCopyWithImpl<$Res>;
+abstract class _$$_updateOrderToAcceptCopyWith<$Res> {
+  factory _$$_updateOrderToAcceptCopyWith(_$_updateOrderToAccept value,
+          $Res Function(_$_updateOrderToAccept) then) =
+      __$$_updateOrderToAcceptCopyWithImpl<$Res>;
   @useResult
   $Res call({CustomerOrderResult order});
 
@@ -367,11 +403,11 @@ abstract class _$$_updateOrderCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_updateOrderCopyWithImpl<$Res>
-    extends _$OrderEventCopyWithImpl<$Res, _$_updateOrder>
-    implements _$$_updateOrderCopyWith<$Res> {
-  __$$_updateOrderCopyWithImpl(
-      _$_updateOrder _value, $Res Function(_$_updateOrder) _then)
+class __$$_updateOrderToAcceptCopyWithImpl<$Res>
+    extends _$OrderEventCopyWithImpl<$Res, _$_updateOrderToAccept>
+    implements _$$_updateOrderToAcceptCopyWith<$Res> {
+  __$$_updateOrderToAcceptCopyWithImpl(_$_updateOrderToAccept _value,
+      $Res Function(_$_updateOrderToAccept) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -379,7 +415,7 @@ class __$$_updateOrderCopyWithImpl<$Res>
   $Res call({
     Object? order = null,
   }) {
-    return _then(_$_updateOrder(
+    return _then(_$_updateOrderToAccept(
       order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -398,22 +434,24 @@ class __$$_updateOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
-  const _$_updateOrder({required this.order});
+class _$_updateOrderToAccept
+    with DiagnosticableTreeMixin
+    implements _updateOrderToAccept {
+  const _$_updateOrderToAccept({required this.order});
 
   @override
   final CustomerOrderResult order;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'OrderEvent.updateOrder(order: $order)';
+    return 'OrderEvent.updateOrderToAccept(order: $order)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'OrderEvent.updateOrder'))
+      ..add(DiagnosticsProperty('type', 'OrderEvent.updateOrderToAccept'))
       ..add(DiagnosticsProperty('order', order));
   }
 
@@ -421,7 +459,7 @@ class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_updateOrder &&
+            other is _$_updateOrderToAccept &&
             (identical(other.order, order) || other.order == order));
   }
 
@@ -431,17 +469,20 @@ class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_updateOrderCopyWith<_$_updateOrder> get copyWith =>
-      __$$_updateOrderCopyWithImpl<_$_updateOrder>(this, _$identity);
+  _$$_updateOrderToAcceptCopyWith<_$_updateOrderToAccept> get copyWith =>
+      __$$_updateOrderToAcceptCopyWithImpl<_$_updateOrderToAccept>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getNewOrder,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
-    required TResult Function(CustomerOrderResult order) updateOrder,
+    required TResult Function(CustomerOrderResult order) updateOrderToAccept,
+    required TResult Function(CustomerOrderResult order) updateOrderToReady,
+    required TResult Function(CustomerOrderResponse? response) getAcceptedOedre,
   }) {
-    return updateOrder(order);
+    return updateOrderToAccept(order);
   }
 
   @override
@@ -449,9 +490,11 @@ class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getNewOrder,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
-    TResult? Function(CustomerOrderResult order)? updateOrder,
+    TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult? Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult? Function(CustomerOrderResponse? response)? getAcceptedOedre,
   }) {
-    return updateOrder?.call(order);
+    return updateOrderToAccept?.call(order);
   }
 
   @override
@@ -459,11 +502,13 @@ class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getNewOrder,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
-    TResult Function(CustomerOrderResult order)? updateOrder,
+    TResult Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult Function(CustomerOrderResponse? response)? getAcceptedOedre,
     required TResult orElse(),
   }) {
-    if (updateOrder != null) {
-      return updateOrder(order);
+    if (updateOrderToAccept != null) {
+      return updateOrderToAccept(order);
     }
     return orElse();
   }
@@ -473,9 +518,11 @@ class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
   TResult map<TResult extends Object?>({
     required TResult Function(_getNewOrder value) getNewOrder,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrder value) updateOrder,
+    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
   }) {
-    return updateOrder(this);
+    return updateOrderToAccept(this);
   }
 
   @override
@@ -483,9 +530,11 @@ class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_getNewOrder value)? getNewOrder,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrder value)? updateOrder,
+    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
   }) {
-    return updateOrder?.call(this);
+    return updateOrderToAccept?.call(this);
   }
 
   @override
@@ -493,23 +542,375 @@ class _$_updateOrder with DiagnosticableTreeMixin implements _updateOrder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getNewOrder value)? getNewOrder,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrder value)? updateOrder,
+    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     required TResult orElse(),
   }) {
-    if (updateOrder != null) {
-      return updateOrder(this);
+    if (updateOrderToAccept != null) {
+      return updateOrderToAccept(this);
     }
     return orElse();
   }
 }
 
-abstract class _updateOrder implements OrderEvent {
-  const factory _updateOrder({required final CustomerOrderResult order}) =
-      _$_updateOrder;
+abstract class _updateOrderToAccept implements OrderEvent {
+  const factory _updateOrderToAccept(
+      {required final CustomerOrderResult order}) = _$_updateOrderToAccept;
 
   CustomerOrderResult get order;
   @JsonKey(ignore: true)
-  _$$_updateOrderCopyWith<_$_updateOrder> get copyWith =>
+  _$$_updateOrderToAcceptCopyWith<_$_updateOrderToAccept> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_updateOrderToReadyCopyWith<$Res> {
+  factory _$$_updateOrderToReadyCopyWith(_$_updateOrderToReady value,
+          $Res Function(_$_updateOrderToReady) then) =
+      __$$_updateOrderToReadyCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CustomerOrderResult order});
+
+  $CustomerOrderResultCopyWith<$Res> get order;
+}
+
+/// @nodoc
+class __$$_updateOrderToReadyCopyWithImpl<$Res>
+    extends _$OrderEventCopyWithImpl<$Res, _$_updateOrderToReady>
+    implements _$$_updateOrderToReadyCopyWith<$Res> {
+  __$$_updateOrderToReadyCopyWithImpl(
+      _$_updateOrderToReady _value, $Res Function(_$_updateOrderToReady) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? order = null,
+  }) {
+    return _then(_$_updateOrderToReady(
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as CustomerOrderResult,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerOrderResultCopyWith<$Res> get order {
+    return $CustomerOrderResultCopyWith<$Res>(_value.order, (value) {
+      return _then(_value.copyWith(order: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_updateOrderToReady
+    with DiagnosticableTreeMixin
+    implements _updateOrderToReady {
+  const _$_updateOrderToReady({required this.order});
+
+  @override
+  final CustomerOrderResult order;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderEvent.updateOrderToReady(order: $order)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OrderEvent.updateOrderToReady'))
+      ..add(DiagnosticsProperty('order', order));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_updateOrderToReady &&
+            (identical(other.order, order) || other.order == order));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, order);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_updateOrderToReadyCopyWith<_$_updateOrderToReady> get copyWith =>
+      __$$_updateOrderToReadyCopyWithImpl<_$_updateOrderToReady>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getNewOrder,
+    required TResult Function(OrderItemRequest item) updateSelectedItem,
+    required TResult Function(CustomerOrderResult order) updateOrderToAccept,
+    required TResult Function(CustomerOrderResult order) updateOrderToReady,
+    required TResult Function(CustomerOrderResponse? response) getAcceptedOedre,
+  }) {
+    return updateOrderToReady(order);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getNewOrder,
+    TResult? Function(OrderItemRequest item)? updateSelectedItem,
+    TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult? Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult? Function(CustomerOrderResponse? response)? getAcceptedOedre,
+  }) {
+    return updateOrderToReady?.call(order);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getNewOrder,
+    TResult Function(OrderItemRequest item)? updateSelectedItem,
+    TResult Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult Function(CustomerOrderResponse? response)? getAcceptedOedre,
+    required TResult orElse(),
+  }) {
+    if (updateOrderToReady != null) {
+      return updateOrderToReady(order);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
+    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
+  }) {
+    return updateOrderToReady(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
+    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
+  }) {
+    return updateOrderToReady?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
+    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
+    required TResult orElse(),
+  }) {
+    if (updateOrderToReady != null) {
+      return updateOrderToReady(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _updateOrderToReady implements OrderEvent {
+  const factory _updateOrderToReady(
+      {required final CustomerOrderResult order}) = _$_updateOrderToReady;
+
+  CustomerOrderResult get order;
+  @JsonKey(ignore: true)
+  _$$_updateOrderToReadyCopyWith<_$_updateOrderToReady> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetAcceptedOedreCopyWith<$Res> {
+  factory _$$_GetAcceptedOedreCopyWith(
+          _$_GetAcceptedOedre value, $Res Function(_$_GetAcceptedOedre) then) =
+      __$$_GetAcceptedOedreCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CustomerOrderResponse? response});
+
+  $CustomerOrderResponseCopyWith<$Res>? get response;
+}
+
+/// @nodoc
+class __$$_GetAcceptedOedreCopyWithImpl<$Res>
+    extends _$OrderEventCopyWithImpl<$Res, _$_GetAcceptedOedre>
+    implements _$$_GetAcceptedOedreCopyWith<$Res> {
+  __$$_GetAcceptedOedreCopyWithImpl(
+      _$_GetAcceptedOedre _value, $Res Function(_$_GetAcceptedOedre) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = freezed,
+  }) {
+    return _then(_$_GetAcceptedOedre(
+      response: freezed == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as CustomerOrderResponse?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerOrderResponseCopyWith<$Res>? get response {
+    if (_value.response == null) {
+      return null;
+    }
+
+    return $CustomerOrderResponseCopyWith<$Res>(_value.response!, (value) {
+      return _then(_value.copyWith(response: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_GetAcceptedOedre
+    with DiagnosticableTreeMixin
+    implements _GetAcceptedOedre {
+  const _$_GetAcceptedOedre({this.response});
+
+  @override
+  final CustomerOrderResponse? response;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderEvent.getAcceptedOedre(response: $response)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OrderEvent.getAcceptedOedre'))
+      ..add(DiagnosticsProperty('response', response));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAcceptedOedre &&
+            (identical(other.response, response) ||
+                other.response == response));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, response);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAcceptedOedreCopyWith<_$_GetAcceptedOedre> get copyWith =>
+      __$$_GetAcceptedOedreCopyWithImpl<_$_GetAcceptedOedre>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getNewOrder,
+    required TResult Function(OrderItemRequest item) updateSelectedItem,
+    required TResult Function(CustomerOrderResult order) updateOrderToAccept,
+    required TResult Function(CustomerOrderResult order) updateOrderToReady,
+    required TResult Function(CustomerOrderResponse? response) getAcceptedOedre,
+  }) {
+    return getAcceptedOedre(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getNewOrder,
+    TResult? Function(OrderItemRequest item)? updateSelectedItem,
+    TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult? Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult? Function(CustomerOrderResponse? response)? getAcceptedOedre,
+  }) {
+    return getAcceptedOedre?.call(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getNewOrder,
+    TResult Function(OrderItemRequest item)? updateSelectedItem,
+    TResult Function(CustomerOrderResult order)? updateOrderToAccept,
+    TResult Function(CustomerOrderResult order)? updateOrderToReady,
+    TResult Function(CustomerOrderResponse? response)? getAcceptedOedre,
+    required TResult orElse(),
+  }) {
+    if (getAcceptedOedre != null) {
+      return getAcceptedOedre(response);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
+    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
+  }) {
+    return getAcceptedOedre(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
+    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
+  }) {
+    return getAcceptedOedre?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
+    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
+    required TResult orElse(),
+  }) {
+    if (getAcceptedOedre != null) {
+      return getAcceptedOedre(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAcceptedOedre implements OrderEvent {
+  const factory _GetAcceptedOedre({final CustomerOrderResponse? response}) =
+      _$_GetAcceptedOedre;
+
+  CustomerOrderResponse? get response;
+  @JsonKey(ignore: true)
+  _$$_GetAcceptedOedreCopyWith<_$_GetAcceptedOedre> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -523,6 +924,9 @@ mixin _$OrderState {
     required TResult Function() errorGetOrder,
     required TResult Function(int statusCode) suuccessUpdateOrder,
     required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -533,6 +937,8 @@ mixin _$OrderState {
     TResult? Function()? errorGetOrder,
     TResult? Function(int statusCode)? suuccessUpdateOrder,
     TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -543,6 +949,8 @@ mixin _$OrderState {
     TResult Function()? errorGetOrder,
     TResult Function(int statusCode)? suuccessUpdateOrder,
     TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -554,6 +962,10 @@ mixin _$OrderState {
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
     required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
     required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -564,6 +976,8 @@ mixin _$OrderState {
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
     TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -574,6 +988,8 @@ mixin _$OrderState {
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
     TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -646,6 +1062,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function() errorGetOrder,
     required TResult Function(int statusCode) suuccessUpdateOrder,
     required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
   }) {
     return initial();
   }
@@ -659,6 +1078,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? errorGetOrder,
     TResult? Function(int statusCode)? suuccessUpdateOrder,
     TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
   }) {
     return initial?.call();
   }
@@ -672,6 +1093,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? errorGetOrder,
     TResult Function(int statusCode)? suuccessUpdateOrder,
     TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -689,6 +1112,10 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
     required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
     required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
   }) {
     return initial(this);
   }
@@ -702,6 +1129,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
     TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
   }) {
     return initial?.call(this);
   }
@@ -715,6 +1144,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
     TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -780,6 +1211,9 @@ class _$_LoadInProgress
     required TResult Function() errorGetOrder,
     required TResult Function(int statusCode) suuccessUpdateOrder,
     required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
   }) {
     return loadInProgress();
   }
@@ -793,6 +1227,8 @@ class _$_LoadInProgress
     TResult? Function()? errorGetOrder,
     TResult? Function(int statusCode)? suuccessUpdateOrder,
     TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
   }) {
     return loadInProgress?.call();
   }
@@ -806,6 +1242,8 @@ class _$_LoadInProgress
     TResult Function()? errorGetOrder,
     TResult Function(int statusCode)? suuccessUpdateOrder,
     TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -823,6 +1261,10 @@ class _$_LoadInProgress
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
     required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
     required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
   }) {
     return loadInProgress(this);
   }
@@ -836,6 +1278,8 @@ class _$_LoadInProgress
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
     TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
   }) {
     return loadInProgress?.call(this);
   }
@@ -849,6 +1293,8 @@ class _$_LoadInProgress
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
     TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -952,6 +1398,9 @@ class _$_SuuccessGetOrder
     required TResult Function() errorGetOrder,
     required TResult Function(int statusCode) suuccessUpdateOrder,
     required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
   }) {
     return suuccessGetOrder(orders);
   }
@@ -965,6 +1414,8 @@ class _$_SuuccessGetOrder
     TResult? Function()? errorGetOrder,
     TResult? Function(int statusCode)? suuccessUpdateOrder,
     TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
   }) {
     return suuccessGetOrder?.call(orders);
   }
@@ -978,6 +1429,8 @@ class _$_SuuccessGetOrder
     TResult Function()? errorGetOrder,
     TResult Function(int statusCode)? suuccessUpdateOrder,
     TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (suuccessGetOrder != null) {
@@ -995,6 +1448,10 @@ class _$_SuuccessGetOrder
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
     required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
     required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
   }) {
     return suuccessGetOrder(this);
   }
@@ -1008,6 +1465,8 @@ class _$_SuuccessGetOrder
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
     TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
   }) {
     return suuccessGetOrder?.call(this);
   }
@@ -1021,6 +1480,8 @@ class _$_SuuccessGetOrder
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
     TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (suuccessGetOrder != null) {
@@ -1090,6 +1551,9 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     required TResult Function() errorGetOrder,
     required TResult Function(int statusCode) suuccessUpdateOrder,
     required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
   }) {
     return errorGetOrder();
   }
@@ -1103,6 +1567,8 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult? Function()? errorGetOrder,
     TResult? Function(int statusCode)? suuccessUpdateOrder,
     TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
   }) {
     return errorGetOrder?.call();
   }
@@ -1116,6 +1582,8 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult Function()? errorGetOrder,
     TResult Function(int statusCode)? suuccessUpdateOrder,
     TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (errorGetOrder != null) {
@@ -1133,6 +1601,10 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
     required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
     required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
   }) {
     return errorGetOrder(this);
   }
@@ -1146,6 +1618,8 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
     TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
   }) {
     return errorGetOrder?.call(this);
   }
@@ -1159,6 +1633,8 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
     TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (errorGetOrder != null) {
@@ -1254,6 +1730,9 @@ class _$_SuuccessUpdateOrder
     required TResult Function() errorGetOrder,
     required TResult Function(int statusCode) suuccessUpdateOrder,
     required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
   }) {
     return suuccessUpdateOrder(statusCode);
   }
@@ -1267,6 +1746,8 @@ class _$_SuuccessUpdateOrder
     TResult? Function()? errorGetOrder,
     TResult? Function(int statusCode)? suuccessUpdateOrder,
     TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
   }) {
     return suuccessUpdateOrder?.call(statusCode);
   }
@@ -1280,6 +1761,8 @@ class _$_SuuccessUpdateOrder
     TResult Function()? errorGetOrder,
     TResult Function(int statusCode)? suuccessUpdateOrder,
     TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (suuccessUpdateOrder != null) {
@@ -1297,6 +1780,10 @@ class _$_SuuccessUpdateOrder
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
     required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
     required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
   }) {
     return suuccessUpdateOrder(this);
   }
@@ -1310,6 +1797,8 @@ class _$_SuuccessUpdateOrder
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
     TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
   }) {
     return suuccessUpdateOrder?.call(this);
   }
@@ -1323,6 +1812,8 @@ class _$_SuuccessUpdateOrder
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
     TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (suuccessUpdateOrder != null) {
@@ -1394,6 +1885,9 @@ class _$_ErrorUpdateOrder
     required TResult Function() errorGetOrder,
     required TResult Function(int statusCode) suuccessUpdateOrder,
     required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
   }) {
     return errorUpdateOrder();
   }
@@ -1407,6 +1901,8 @@ class _$_ErrorUpdateOrder
     TResult? Function()? errorGetOrder,
     TResult? Function(int statusCode)? suuccessUpdateOrder,
     TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
   }) {
     return errorUpdateOrder?.call();
   }
@@ -1420,6 +1916,8 @@ class _$_ErrorUpdateOrder
     TResult Function()? errorGetOrder,
     TResult Function(int statusCode)? suuccessUpdateOrder,
     TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (errorUpdateOrder != null) {
@@ -1437,6 +1935,10 @@ class _$_ErrorUpdateOrder
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
     required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
     required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
   }) {
     return errorUpdateOrder(this);
   }
@@ -1450,6 +1952,8 @@ class _$_ErrorUpdateOrder
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
     TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
   }) {
     return errorUpdateOrder?.call(this);
   }
@@ -1463,6 +1967,8 @@ class _$_ErrorUpdateOrder
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
     TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
     TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     required TResult orElse(),
   }) {
     if (errorUpdateOrder != null) {
@@ -1474,4 +1980,350 @@ class _$_ErrorUpdateOrder
 
 abstract class _ErrorUpdateOrder implements OrderState {
   const factory _ErrorUpdateOrder() = _$_ErrorUpdateOrder;
+}
+
+/// @nodoc
+abstract class _$$_SuuccessGetAceptedOrderCopyWith<$Res> {
+  factory _$$_SuuccessGetAceptedOrderCopyWith(_$_SuuccessGetAceptedOrder value,
+          $Res Function(_$_SuuccessGetAceptedOrder) then) =
+      __$$_SuuccessGetAceptedOrderCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CustomerOrderResponse orders});
+
+  $CustomerOrderResponseCopyWith<$Res> get orders;
+}
+
+/// @nodoc
+class __$$_SuuccessGetAceptedOrderCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$_SuuccessGetAceptedOrder>
+    implements _$$_SuuccessGetAceptedOrderCopyWith<$Res> {
+  __$$_SuuccessGetAceptedOrderCopyWithImpl(_$_SuuccessGetAceptedOrder _value,
+      $Res Function(_$_SuuccessGetAceptedOrder) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? orders = null,
+  }) {
+    return _then(_$_SuuccessGetAceptedOrder(
+      orders: null == orders
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as CustomerOrderResponse,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerOrderResponseCopyWith<$Res> get orders {
+    return $CustomerOrderResponseCopyWith<$Res>(_value.orders, (value) {
+      return _then(_value.copyWith(orders: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SuuccessGetAceptedOrder
+    with DiagnosticableTreeMixin
+    implements _SuuccessGetAceptedOrder {
+  const _$_SuuccessGetAceptedOrder({required this.orders});
+
+  @override
+  final CustomerOrderResponse orders;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderState.suuccessGetAcceptedOrder(orders: $orders)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OrderState.suuccessGetAcceptedOrder'))
+      ..add(DiagnosticsProperty('orders', orders));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SuuccessGetAceptedOrder &&
+            (identical(other.orders, orders) || other.orders == orders));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, orders);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SuuccessGetAceptedOrderCopyWith<_$_SuuccessGetAceptedOrder>
+      get copyWith =>
+          __$$_SuuccessGetAceptedOrderCopyWithImpl<_$_SuuccessGetAceptedOrder>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
+    required TResult Function() errorGetOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrder,
+    required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
+  }) {
+    return suuccessGetAcceptedOrder(orders);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult? Function()? errorGetOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrder,
+    TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
+  }) {
+    return suuccessGetAcceptedOrder?.call(orders);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult Function()? errorGetOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrder,
+    TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
+    required TResult orElse(),
+  }) {
+    if (suuccessGetAcceptedOrder != null) {
+      return suuccessGetAcceptedOrder(orders);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
+    required TResult Function(_ErrorGetOrder value) errorGetOrder,
+    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
+    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
+  }) {
+    return suuccessGetAcceptedOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult? Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
+    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+  }) {
+    return suuccessGetAcceptedOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
+    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    required TResult orElse(),
+  }) {
+    if (suuccessGetAcceptedOrder != null) {
+      return suuccessGetAcceptedOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuuccessGetAceptedOrder implements OrderState {
+  const factory _SuuccessGetAceptedOrder(
+          {required final CustomerOrderResponse orders}) =
+      _$_SuuccessGetAceptedOrder;
+
+  CustomerOrderResponse get orders;
+  @JsonKey(ignore: true)
+  _$$_SuuccessGetAceptedOrderCopyWith<_$_SuuccessGetAceptedOrder>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ErrorGetAcceptedOrderCopyWith<$Res> {
+  factory _$$_ErrorGetAcceptedOrderCopyWith(_$_ErrorGetAcceptedOrder value,
+          $Res Function(_$_ErrorGetAcceptedOrder) then) =
+      __$$_ErrorGetAcceptedOrderCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ErrorGetAcceptedOrderCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$_ErrorGetAcceptedOrder>
+    implements _$$_ErrorGetAcceptedOrderCopyWith<$Res> {
+  __$$_ErrorGetAcceptedOrderCopyWithImpl(_$_ErrorGetAcceptedOrder _value,
+      $Res Function(_$_ErrorGetAcceptedOrder) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ErrorGetAcceptedOrder
+    with DiagnosticableTreeMixin
+    implements _ErrorGetAcceptedOrder {
+  const _$_ErrorGetAcceptedOrder();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderState.errorGetAcceptedOrder()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'OrderState.errorGetAcceptedOrder'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ErrorGetAcceptedOrder);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
+    required TResult Function() errorGetOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrder,
+    required TResult Function() errorUpdateOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
+  }) {
+    return errorGetAcceptedOrder();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult? Function()? errorGetOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrder,
+    TResult? Function()? errorUpdateOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
+  }) {
+    return errorGetAcceptedOrder?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult Function()? errorGetOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrder,
+    TResult Function()? errorUpdateOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
+    required TResult orElse(),
+  }) {
+    if (errorGetAcceptedOrder != null) {
+      return errorGetAcceptedOrder();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
+    required TResult Function(_ErrorGetOrder value) errorGetOrder,
+    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
+    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
+  }) {
+    return errorGetAcceptedOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult? Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
+    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+  }) {
+    return errorGetAcceptedOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
+    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    required TResult orElse(),
+  }) {
+    if (errorGetAcceptedOrder != null) {
+      return errorGetAcceptedOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ErrorGetAcceptedOrder implements OrderState {
+  const factory _ErrorGetAcceptedOrder() = _$_ErrorGetAcceptedOrder;
 }

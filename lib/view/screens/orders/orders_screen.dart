@@ -6,8 +6,11 @@ import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/accepted/accept_bottom_sheet.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/list_item/accepted_order_item.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/list_item/new_order_item.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/new/new_bottom_sheet.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/no_orders.dart';
 
 import '../../../custom/custom_app_bar.dart';
 import '../../../custom/custom_tab_bar.dart';
@@ -114,6 +117,13 @@ class _OrdersScreenState extends State<OrdersScreen>
             onPressed: (v) {
               setState(() {
                 index = v;
+                if (v == 0) {
+                  context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
+                } else if (v == 1) {
+                  context
+                      .read<OrderBloc>()
+                      .add(const OrderEvent.getAcceptedOedre());
+                }
               });
             },
           ),
@@ -123,15 +133,13 @@ class _OrdersScreenState extends State<OrdersScreen>
             physics: const BouncingScrollPhysics(),
             controller: _tabController,
             children: [
-              //! here
               BlocConsumer<OrderBloc, OrderState>(listener: (context, state) {
                 state.maybeWhen(
                   orElse: () {},
                   suuccessUpdateOrder: (v) {
                     context.read<OrderBloc>().add(
-                                                  const OrderEvent
-                                                      .getNewOrder(),
-                                                );
+                          const OrderEvent.getNewOrder(),
+                        );
                     Navigator.pop(context);
                     ShowSnackbar.showCheckTopSnackBar(context,
                         text: 'Update order', type: SnackBarType.success);
@@ -177,6 +185,9 @@ class _OrdersScreenState extends State<OrdersScreen>
                     );
                   },
                   suuccessGetOrder: (orders) {
+                    if (orders.results!.isEmpty) {
+                      return const NoOrders();
+                    }
                     return ListView.builder(
                       itemCount: orders.results!.length,
                       padding: const EdgeInsets.only(top: 10, bottom: 50),
@@ -192,78 +203,13 @@ class _OrdersScreenState extends State<OrdersScreen>
                                       return NewOrderBottomSheet(
                                           listOfItems: order.items!,
                                           onTap: () {
-                                            // id: "a42ef03c-e9a3-44bb-990a-288b55700a0f",
-                                            // currency: "EGP",
-                                            // customerId:
-                                            //     "47d5902b-ff2b-491f-8b46-68700716cbc4",
-                                            // storeId: "alkhbaz",
-
                                             context.read<OrderBloc>().add(
-                                                  OrderEvent.updateOrder(
-                                                      order: order),
+                                                  OrderEvent
+                                                      .updateOrderToAccept(
+                                                    order: order,
+                                                  ),
                                                 );
-                                            
-                                            // for (int i = 0;
-                                            //     i <
-                                            //         orders.results![index]
-                                            //             .items!.length;
-                                            //     i++,) {
-                                            //   if (orders.results![index]
-                                            //       .items![i].isSlected) {
-                                            //     log('99999999 ${orders.results![index].items![i].isSlected.toString()}');
-                                            //     context.read<OrderBloc>().add(
-                                            //         OrderEvent.updateOrder(
-                                            //             id: orders
-                                            //                 .results![index]
-                                            //                 .items![i]
-                                            //                 .id!,
-                                            //             currency: orders
-                                            //                 .results![index]
-                                            //                 .items![i]
-                                            //                 .currency!,
-                                            //             customerId: orders
-                                            //                 .results![index]
-                                            //                 .customerId!,
-                                            //             storeId: orders
-                                            //                 .results![index]
-                                            //                 .storeId!,
-                                            //             status: 'myaccept',
-                                            //             catalogId: orders
-                                            //                 .results![index]
-                                            //                 .items![i]
-                                            //                 .catalogId!,
-                                            //             currencyItem: orders
-                                            //                 .results![index]
-                                            //                 .items![i]
-                                            //                 .currency!,
-                                            //             name: orders
-                                            //                 .results![index]
-                                            //                 .items![i]
-                                            //                 .name!,
-                                            //             sku: orders
-                                            //                 .results![index]
-                                            //                 .items![i]
-                                            //                 .sku!,
-                                            //             productId: orders
-                                            //                 .results![index]
-                                            //                 .items![i]
-                                            //                 .productId!));
-                                            //   } else {
-                                            //     log("6666666666 ${orders.results![index].items![i].isSlected}");
-                                            //   }
-                                          }
-
-                                          // context
-                                          //     .read<HomeCubit>()
-                                          //     .addProductToReady(
-                                          //         state.products[index]);
-                                          // ShowSnackbar.showCheckTopSnackBar(
-                                          //     context,
-                                          //     text: 'Swiped to Ready Order',
-                                          //     type: SnackBarType.success);
-                                          // Navigator.pop(context);
-                                          // },
-                                          ); // Your custom bottom sheet widget
+                                          }); // Your custom bottom sheet widget
                                     });
                               }
                             });
@@ -272,106 +218,79 @@ class _OrdersScreenState extends State<OrdersScreen>
                   },
                 );
               }),
-
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.red,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.green,
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.yellow,
-              ),
-
-              // ListView.builder(
-              //     itemCount: state.products.length,
-              //     padding: const EdgeInsets.only(top: 10, bottom: 50),
-              //     itemBuilder: (_, index) {
-              //       return AcceptedOrderItem(
-              //           productModel: state.products[index],
-              //           onTap: () {
-              //             if (state.products.isNotEmpty) {
-              //               showModalBottomSheet(
-              //                 context: context,
-              //                 builder: (BuildContext context) {
-              //                   return AcceptBottomSheet(
-              //                     productModel: state.products[index],
-              //                     onTap: () {
-              //                       context
-              //                           .read<HomeCubit>()
-              //                           .addProductToReady(
-              //                               state.products[index]);
-              //                       ShowSnackbar.showCheckTopSnackBar(
-              //                           context,
-              //                           text: 'Swiped to Ready Order',
-              //                           type: SnackBarType.success);
-              //                       Navigator.pop(context);
-              //                     },
-              //                   ); // Your custom bottom sheet widget
-              //                 },
-              //               );
-              //             }
-              //           });
-              //     }),
-              // ListView.builder(
-              //     itemCount: state.readyProducts.length,
-              //     padding: const EdgeInsets.only(top: 10, bottom: 50),
-              //     itemBuilder: (_, index) {
-              //       return ReadyOrderItem(
-              //         productModel: state.readyProducts[index],
-              //         onTap: () async {
-              //           if (state.readyProducts.isNotEmpty) {
-              //             log("readyProductsIndex:::readyProducts ${state.readyProducts} ##");
-              //             log("readyProductsIndex::: $index ##");
-              //             await showModalBottomSheet(
-              //               context: context,
-              //               builder: (BuildContext contextt) {
-              //                 return ReadyBottomSheet(
-              //                   key: UniqueKey(),
-              //                   model: state.readyProducts[index],
-              //                   onTap: () async {
-              //                     context
-              //                         .read<HomeCubit>()
-              //                         .addProductToAway(
-              //                             state.readyProducts[index]);
-              //                     ShowSnackbar.showCheckTopSnackBar(
-              //                         context,
-              //                         text: 'Swiped To On-a-way',
-              //                         type: SnackBarType.success);
-              //                     Navigator.of(contextt).pop();
-              //                   },
-              //                 );
-              //               },
-              //             );
-              //           }
-              //         },
-              //       );
-              //     }),
-              // ListView.builder(
-              //     itemCount: state.onWayProducts.length,
-              //     padding: const EdgeInsets.only(top: 10, bottom: 50),
-              //     itemBuilder: (_, index) {
-              //       return OnAwayOrderItem(
-              //           productModel: state.onWayProducts[index],
-              //           onTap: () {
-              //             if (state.onWayProducts.isNotEmpty) {
-              //               showModalBottomSheet(
-              //                   context: context,
-              //                   builder: (_) {
-              //                     return WayBottomSheet(
-              //                       productModel:
-              //                           state.onWayProducts[index],
-              //                     );
-              //                   });
-              //             }
-              //           });
-              //     }),
+              BlocConsumer<OrderBloc, OrderState>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () {
+                        return const SizedBox();
+                      },
+                      loadInProgress: () {
+                        return ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              height: MediaQuery.sizeOf(context).height * 0.05,
+                            );
+                          },
+                          itemBuilder: (context, index) {
+                            return Center(
+                              child: SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.9,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.25,
+                                child: Shimmer.fromColors(
+                                  baseColor: Colors.grey.shade100,
+                                  highlightColor: Colors.grey.shade300,
+                                  child: Container(
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 5),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greyColor,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          itemCount: 10,
+                        );
+                      },
+                      suuccessGetAcceptedOrder: (orders) {
+                        if (orders.results!.isEmpty) {
+                          return const NoOrders();
+                        }
+                        return ListView.builder(
+                          itemCount: orders.results!.length,
+                          padding: const EdgeInsets.only(top: 10, bottom: 50),
+                          itemBuilder: (_, index) {
+                            return AcceptedOrderItem(
+                                orderModel: orders.results![index],
+                                onTap: () {
+                                  if (orders.results!.isNotEmpty) {
+                                    showModalBottomSheet(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          final order = orders.results![index];
+                                          return AcceptedOrderBottomSheet(
+                                              listOfItems: order.items!,
+                                              onTap: () {
+                                                // context.read<OrderBloc>().add(
+                                                //         OrderEvent
+                                                //             .updateOrderToReady(
+                                                //       order: order,
+                                                //     ));
+                                              }); // Your custom bottom sheet widget
+                                        });
+                                  }
+                                });
+                          },
+                        );
+                      },
+                    );
+                  }),
+              const NoOrders(),
+              const NoOrders()
             ],
           ),
         ),

@@ -13,41 +13,42 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   OrderBloc({required this.orderRep}) : super(const OrderState.initial()) {
     List<OrderItemRequest> selectedItems = [];
     on<OrderEvent>((event, emit) async {
-      await event.map(
-        getNewOrder: (event) async {
-          emit(const _LoadInProgress());
-          final CustomerOrderResponse data = await orderRep.getOrder();
-          // for (int i = 0; i < data.results!.length; i++) {
-          //   for (int j = 0; j < data.results![i].items!.length; j++) {
-          //     if (data.results![i].items![j].status == 'New') {
-          //       newItem.add(data.results![i].items![j]);
-          //     }
-          //   }
-          // }
-          List<CustomerOrderResult> filteredItems = [];
-          for (final CustomerOrderResult model in data.results ?? []) {
-            final cond = model.items?.any(
-                    (element) => element.status?.toLowerCase() == "new") ??
-                false;
+      await event.map(getNewOrder: (event) async {
+        emit(const _LoadInProgress());
+        final CustomerOrderResponse data = await orderRep.getNewOrder();
 
-            cond ? filteredItems.add(model) : null;
-            data.results = filteredItems;
-          }
-          emit(_SuuccessGetOrder(orders: data)); //data
-        },
-        updateSelectedItem: (event) {
-          selectedItems.add(event.item);
-        },
-        updateOrder: (event) async {
-          emit(const _LoadInProgress());
-          final int stateCode = await orderRep.updateOrder(
-            selectedItems,
-            event.order,
+        List<CustomerOrderResult> filteredItems = [];
+        for (final CustomerOrderResult model in data.results ?? []) {
+          final cond = model.items
+                  ?.any((element) => element.status?.toLowerCase() == "new") ??
+              false;
 
-          );
-          emit(_SuuccessUpdateOrder(statusCode: stateCode));
-        },
-      );
+          cond ? filteredItems.add(model) : null;
+          data.results = filteredItems;
+        }
+        emit(_SuuccessGetOrder(orders: data)); //data
+      }, updateSelectedItem: (event) {
+        selectedItems.add(event.item);
+      }, updateOrderToAccept: (event) async {
+        emit(const _LoadInProgress());
+        final int stateCode = await orderRep.updateOrderToAccepted(
+          selectedItems,
+          event.order,
+        );
+        emit(_SuuccessUpdateOrder(statusCode: stateCode));
+      }, updateOrderToReady: (v) async {
+        emit(const _LoadInProgress());
+        final int stateCode = await orderRep.updateOrderToReady(
+          selectedItems,
+          v.order,
+        );
+        emit(_SuuccessUpdateOrder(statusCode: stateCode));
+      }, getAcceptedOedre: (v) async {
+        emit(const _LoadInProgress());
+        final CustomerOrderResponse response =
+            await orderRep.getAcceptedOrder();
+        emit(_SuuccessGetAceptedOrder(orders: response));
+      });
     });
   }
 }

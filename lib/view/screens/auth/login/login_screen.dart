@@ -282,7 +282,6 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                 password: passController.text),
           );
       context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
-
     }
   }
 }

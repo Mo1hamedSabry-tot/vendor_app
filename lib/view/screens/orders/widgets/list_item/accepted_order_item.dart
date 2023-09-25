@@ -1,13 +1,13 @@
-import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/data/models/response/product_model.dart';
+import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/data/models/response/customer_order_models.dart';
 
 class AcceptedOrderItem extends StatelessWidget {
   final VoidCallback onTap;
-  final ProductModel productModel;
+  final CustomerOrderResult orderModel;
   const AcceptedOrderItem(
-      {super.key, required this.onTap, required this.productModel});
+      {super.key, required this.onTap, required this.orderModel});
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,11 @@ class AcceptedOrderItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 65,
                     child: TOTAvatarAtom.network(
-                      productModel.image,
+                      // "orderModel.imageUrl ??"
+                      'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg',
                     ),
                   ),
                   const SizedBox(
@@ -39,12 +40,12 @@ class AcceptedOrderItem extends StatelessWidget {
                   Column(
                     children: [
                       TOTTextAtom.bodyLarge(
-                          productModel.title.substring(0, 15)),
+                          orderModel.customerName ?? 'not found'),
                       const SizedBox(
                         height: 3,
                       ),
                       TOTTextAtom.bodyLarge(
-                          productModel.description.substring(0, 7)),
+                          orderModel.objectType!.substring(0, 7)),
                     ],
                   )
                 ],
@@ -55,9 +56,10 @@ class AcceptedOrderItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TOTTextAtom.bodyLarge(productModel.id.toString()),
-                  TOTTextAtom.bodyLarge(productModel.rating.rate.toString()),
-                  TOTTextAtom.bodyLarge('${productModel.price.toString()}\$'),
+                  TOTTextAtom.bodyLarge(
+                      orderModel.id.toString().substring(0, 7)),
+                  TOTTextAtom.bodyLarge(orderModel.status.toString()),
+                  TOTTextAtom.bodyLarge('${orderModel.sum.toString()}\$'),
                 ],
               )
             ],

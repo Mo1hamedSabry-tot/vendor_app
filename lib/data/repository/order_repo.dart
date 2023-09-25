@@ -29,7 +29,7 @@ class OrderRepository {
       final String token = CacheHelper.get('token') ?? "";
       await DioHelper.postData(
         url: Endpoint.getOrderEndPoint,
-        data: {"status": "Accepted", "skip": 0, "take": 20},
+        data: {"status": "Accepted", "skip": 0, "take": 200},
         token: token,
       ).then((value) {
         orders = CustomerOrderResponse.fromJson(value.data);
@@ -40,6 +40,25 @@ class OrderRepository {
       log('getAcceptedOrder cccccccathhhh ${e.toString()}');
     }
     log("::::::::::::::: ${orders.toString()} :::::::::::::::");
+    return orders!;
+  }
+  Future<CustomerOrderResponse> getReadyOrder() async {
+    CustomerOrderResponse? orders;
+    try {
+      final String token = CacheHelper.get('token') ?? "";
+      await DioHelper.postData(
+        url: Endpoint.getOrderEndPoint,
+        data: {"status": "Ready", "skip": 0, "take": 200},
+        token: token,
+      ).then((value) {
+        orders = CustomerOrderResponse.fromJson(value.data);
+        log('getAcceptedOrder 777777777777777${value.statusCode.toString()}');
+        log('token : $token');
+      });
+    } catch (e) {
+      log('getReadyOrder cccccccathhhh ${e.toString()}');
+    }
+    log("::::::::::::::: in getReadyOrder ${orders.toString()} :::::::::::::::");
     return orders!;
   }
 
@@ -82,7 +101,7 @@ class OrderRepository {
         url: Endpoint.updateOrderEndPoint,
         token: CacheHelper.get('token'),
         data: {
-          "status": 'Accepted',
+          "status": 'Ready',
           "customerName": order.customerName,
           "id": order.id, //"a42ef03c-e9a3-44bb-990a-288b55700a0f",
           "currency": order.currency, //"EGP",

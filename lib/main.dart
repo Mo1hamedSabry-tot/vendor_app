@@ -28,6 +28,7 @@ void main() async {
   await DioHelper.init();
   await OrderRepository().getNewOrder();
   await OrderRepository().getAcceptedOrder();
+  await OrderRepository().getReadyOrder();
   runApp(const MyApp());
 }
 

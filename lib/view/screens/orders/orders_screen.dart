@@ -56,171 +56,213 @@ class _OrdersScreenState extends State<OrdersScreen>
   @override
   Widget build(BuildContext context) {
     final title = appBarTitles[index]['title'];
-    final subtitle = appBarTitles[index]['subtitle'];
+    String? subtitle = 'Loading...';
 
-    return Column(
-      children: [
-        CustomAppBar(
-          bottomPadding: 16,
-          child: GestureDetector(
-            onTap: () {},
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xFFf4f5f8),
-                    ),
-                    padding: const EdgeInsets.all(12),
-                    child: const Icon(
-                      FlutterRemix.dashboard_3_line,
-                      size: 20,
-                      color: AppColors.blackColor,
-                    ),
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
+    return BlocConsumer<OrderBloc, OrderState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          orElse: () {},
+          loadInProgress: () {
+            subtitle = 'Loading ...';
+          },
+          suuccessGetOrder: (orders) {
+            subtitle = '${orders.totalCount.toString()} order';
+          },
+          suuccessGetAcceptedOrder: (orders) {
+            subtitle = '${orders.totalCount.toString()} order';
+          },
+          suuccessGetreadyOrder: (orders) {
+            subtitle = '${orders.totalCount.toString()} order';
+          },
+        );
+      },
+      builder: (context, state) {
+        return Column(
+          children: [
+            CustomAppBar(
+              bottomPadding: 16,
+              child: GestureDetector(
+                onTap: () {},
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    TOTTextAtom.bodyMedium(
-                      title.toString(),
-                      color: AppColors.blackColor,
-                    ),
-                    Row(
-                      children: [
-                        TOTTextAtom.bodyLarge(
-                          subtitle.toString(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFFf4f5f8),
+                        ),
+                        padding: const EdgeInsets.all(12),
+                        child: const Icon(
+                          FlutterRemix.dashboard_3_line,
+                          size: 20,
                           color: AppColors.blackColor,
                         ),
-                        const TOTIconAtom.displayMedium(
-                          codePoint: 0xe353,
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TOTTextAtom.bodyMedium(
+                          title.toString(),
                           color: AppColors.blackColor,
+                        ),
+                        Row(
+                          children: [
+                            TOTTextAtom.bodyLarge(
+                              subtitle.toString(),
+                              color: AppColors.blackColor,
+                            ),
+                            const TOTIconAtom.displayMedium(
+                              codePoint: 0xe353,
+                              color: AppColors.blackColor,
+                            ),
+                          ],
                         ),
                       ],
-                    ),
+                    )
                   ],
-                )
-              ],
+                ),
+              ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: CustomTabBar(
-            tabController: _tabController,
-            tabs: tabs,
-            onPressed: (v) {
-              setState(() {
-                index = v;
-                if (v == 0) {
-                  context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
-                } else if (v == 1) {
-                  context
-                      .read<OrderBloc>()
-                      .add(const OrderEvent.getAcceptedOedre());
-                }
-              });
-            },
-          ),
-        ),
-        Expanded(
-          child: TabBarView(
-            physics: const BouncingScrollPhysics(),
-            controller: _tabController,
-            children: [
-              BlocConsumer<OrderBloc, OrderState>(listener: (context, state) {
-                state.maybeWhen(
-                  orElse: () {},
-                  suuccessUpdateOrder: (v) {
-                    context.read<OrderBloc>().add(
-                          const OrderEvent.getNewOrder(),
-                        );
-                    Navigator.pop(context);
-                    ShowSnackbar.showCheckTopSnackBar(context,
-                        text: 'Update order', type: SnackBarType.success);
-                  },
-                  errorUpdateOrder: () {
-                    ShowSnackbar.showCheckTopSnackBar(context,
-                        text: 'not update order', type: SnackBarType.error);
-                  },
-                );
-              }, builder: (context, state) {
-                return state.maybeWhen(
-                  orElse: () {
-                    return const SizedBox();
-                  },
-                  loadInProgress: () {
-                    return ListView.separated(
-                      separatorBuilder: (context, index) {
-                        return SizedBox(
-                          height: MediaQuery.sizeOf(context).height * 0.05,
-                        );
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: CustomTabBar(
+                tabController: _tabController,
+                tabs: tabs,
+                onPressed: (v) {
+                  setState(() {
+                    index = v;
+                    if (v == 0) {
+                      context
+                          .read<OrderBloc>()
+                          .add(const OrderEvent.getNewOrder());
+                    } else if (v == 1) {
+                      context
+                          .read<OrderBloc>()
+                          .add(const OrderEvent.getAcceptedOedre());
+                    } else if (v == 2) {
+                      context
+                          .read<OrderBloc>()
+                          .add(const OrderEvent.getReadyOedre());
+                    }
+                  });
+                },
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                physics: const BouncingScrollPhysics(),
+                controller: _tabController,
+                children: [
+                  BlocConsumer<OrderBloc, OrderState>(
+                      listener: (context, state) {
+                    state.maybeWhen(
+                      orElse: () {},
+                      suuccessUpdateOrder: (v) {
+                        context.read<OrderBloc>().add(
+                              const OrderEvent.getNewOrder(),
+                            );
+                        Navigator.pop(context);
+                        ShowSnackbar.showCheckTopSnackBar(context,
+                            text: 'Update order', type: SnackBarType.success);
                       },
-                      itemBuilder: (context, index) {
-                        return Center(
-                          child: SizedBox(
-                            width: MediaQuery.sizeOf(context).width * 0.9,
-                            height: MediaQuery.sizeOf(context).height * 0.25,
-                            child: Shimmer.fromColors(
-                              baseColor: Colors.grey.shade100,
-                              highlightColor: Colors.grey.shade300,
-                              child: Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 5),
-                                decoration: BoxDecoration(
-                                  color: AppColors.greyColor,
-                                  borderRadius: BorderRadius.circular(10),
+                      errorUpdateOrder: () {
+                        ShowSnackbar.showCheckTopSnackBar(context,
+                            text: 'not update order', type: SnackBarType.error);
+                      },
+                    );
+                  }, builder: (context, state) {
+                    return state.maybeWhen(
+                      orElse: () {
+                        return const SizedBox();
+                      },
+                      loadInProgress: () {
+                        return ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              height: MediaQuery.sizeOf(context).height * 0.05,
+                            );
+                          },
+                          itemBuilder: (context, index) {
+                            return Center(
+                              child: SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.9,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.25,
+                                child: Shimmer.fromColors(
+                                  baseColor: Colors.grey.shade100,
+                                  highlightColor: Colors.grey.shade300,
+                                  child: Container(
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 5),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greyColor,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
+                            );
+                          },
+                          itemCount: 10,
                         );
                       },
-                      itemCount: 10,
-                    );
-                  },
-                  suuccessGetOrder: (orders) {
-                    if (orders.results!.isEmpty) {
-                      return const NoOrders();
-                    }
-                    return ListView.builder(
-                      itemCount: orders.results!.length,
-                      padding: const EdgeInsets.only(top: 10, bottom: 50),
-                      itemBuilder: (_, index) {
-                        return NewOrderItem(
-                            orderModel: orders.results![index],
-                            onTap: () {
-                              if (orders.results!.isNotEmpty) {
-                                showModalBottomSheet(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      final order = orders.results![index];
-                                      return NewOrderBottomSheet(
-                                          listOfItems: order.items!,
-                                          onTap: () {
-                                            context.read<OrderBloc>().add(
-                                                  OrderEvent
-                                                      .updateOrderToAccept(
-                                                    order: order,
-                                                  ),
-                                                );
-                                          }); // Your custom bottom sheet widget
-                                    });
-                              }
-                            });
+                      suuccessGetOrder: (orders) {
+                        if (orders.results!.isEmpty) {
+                          return const NoOrders();
+                        }
+                        return ListView.builder(
+                          itemCount: orders.results!.length,
+                          padding: const EdgeInsets.only(top: 10, bottom: 50),
+                          itemBuilder: (_, index) {
+                            return NewOrderItem(
+                                orderModel: orders.results![index],
+                                onTap: () {
+                                  if (orders.results!.isNotEmpty) {
+                                    showModalBottomSheet(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          final order = orders.results![index];
+                                          return NewOrderBottomSheet(
+                                              listOfItems: order.items!,
+                                              onTap: () {
+                                                context.read<OrderBloc>().add(
+                                                      OrderEvent
+                                                          .updateOrderToAccept(
+                                                        order: order,
+                                                      ),
+                                                    );
+                                              }); // Your custom bottom sheet widget
+                                        });
+                                  }
+                                });
+                          },
+                        );
                       },
                     );
-                  },
-                );
-              }),
-              BlocConsumer<OrderBloc, OrderState>(
-                  listener: (context, state) {},
-                  builder: (context, state) {
+                  }),
+                  BlocConsumer<OrderBloc, OrderState>(
+                      listener: (context, state) {
+                    //     state.maybeWhen(
+                    //   orElse: () {},
+                    //   suuccessUpdateOrder: (v) {
+                    //     context.read<OrderBloc>().add(
+                    //           const OrderEvent.getNewOrder(),
+                    //         );
+                    //     Navigator.pop(context);
+                    //     ShowSnackbar.showCheckTopSnackBar(context,
+                    //         text: 'Update order', type: SnackBarType.success);
+                    //   },
+                    //   errorUpdateOrder: () {
+                    //     ShowSnackbar.showCheckTopSnackBar(context,
+                    //         text: 'not update order', type: SnackBarType.error);
+                    //   },
+                    // );
+                  }, builder: (context, state) {
                     return state.maybeWhen(
                       orElse: () {
                         return const SizedBox();
@@ -275,11 +317,11 @@ class _OrdersScreenState extends State<OrdersScreen>
                                           return AcceptedOrderBottomSheet(
                                               listOfItems: order.items!,
                                               onTap: () {
-                                                // context.read<OrderBloc>().add(
-                                                //         OrderEvent
-                                                //             .updateOrderToReady(
-                                                //       order: order,
-                                                //     ));
+                                                context.read<OrderBloc>().add(
+                                                        OrderEvent
+                                                            .updateOrderToReady(
+                                                      order: order,
+                                                    ));
                                               }); // Your custom bottom sheet widget
                                         });
                                   }
@@ -289,12 +331,90 @@ class _OrdersScreenState extends State<OrdersScreen>
                       },
                     );
                   }),
-              const NoOrders(),
-              const NoOrders()
-            ],
-          ),
-        ),
-      ],
+                  BlocConsumer<OrderBloc, OrderState>(
+                      listener: (context, state) {},
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                          orElse: () {
+                            return const SizedBox();
+                          },
+                          loadInProgress: () {
+                            return ListView.separated(
+                              separatorBuilder: (context, index) {
+                                return SizedBox(
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.05,
+                                );
+                              },
+                              itemBuilder: (context, index) {
+                                return Center(
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.9,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.25,
+                                    child: Shimmer.fromColors(
+                                      baseColor: Colors.grey.shade100,
+                                      highlightColor: Colors.grey.shade300,
+                                      child: Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 5),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.greyColor,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                              itemCount: 10,
+                            );
+                          },
+                          suuccessGetreadyOrder: (orders) {
+                            if (orders.results!.isEmpty) {
+                              return const NoOrders();
+                            }
+                            return ListView.builder(
+                              itemCount: orders.results!.length,
+                              padding:
+                                  const EdgeInsets.only(top: 10, bottom: 50),
+                              itemBuilder: (_, index) {
+                                return AcceptedOrderItem(
+                                    orderModel: orders.results![index],
+                                    onTap: () {
+                                      if (orders.results!.isNotEmpty) {
+                                        showModalBottomSheet(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              final order =
+                                                  orders.results![index];
+                                              return AcceptedOrderBottomSheet(
+                                                  listOfItems: order.items!,
+                                                  onTap: () {
+                                                    context
+                                                        .read<OrderBloc>()
+                                                        .add(OrderEvent
+                                                            .updateOrderToReady(
+                                                          order: order,
+                                                        ));
+                                                  }); // Your custom bottom sheet widget
+                                            });
+                                      }
+                                    });
+                              },
+                            );
+                          },
+                        );
+                      }),
+                  const NoOrders()
+                ],
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

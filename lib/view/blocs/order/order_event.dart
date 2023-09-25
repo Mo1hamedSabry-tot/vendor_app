@@ -13,4 +13,6 @@ class OrderEvent with _$OrderEvent {
   }) = _updateOrderToReady;
   const factory OrderEvent.getAcceptedOedre({CustomerOrderResponse? response}) =
       _GetAcceptedOedre;
+  const factory OrderEvent.getReadyOedre({CustomerOrderResponse? response}) =
+      _GetReadyOedre;
 }

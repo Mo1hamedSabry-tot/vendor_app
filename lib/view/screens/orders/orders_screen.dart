@@ -63,10 +63,10 @@ class _OrdersScreenState extends State<OrdersScreen>
         state.maybeWhen(
           orElse: () {},
           loadInProgress: () {
-            subtitle = 'Loading ...';
+            subtitle = 'Loading ...'; 
           },
           suuccessGetOrder: (orders) {
-            subtitle = '${orders.totalCount.toString()} order';
+            subtitle = '${orders.results!.length} order';
           },
           suuccessGetAcceptedOrder: (orders) {
             subtitle = '${orders.totalCount.toString()} order';

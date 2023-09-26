@@ -9,6 +9,7 @@ import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/data/models/response/list_entires_product_model.dart';
+import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 
@@ -292,18 +293,23 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                     textColor: AppColors.blackColor,
                                     onPressed: () {
                                       if (globalKey.currentState!.validate()) {
-                                        log("id producttttttt *************::::: ${widget.model.id.toString()}");
-                                        log("id producttttttt ::::: ${widget.model.toString()}");
+                                        log("categoreyId in id****::::: ${context.read<AddProductBloc>().categoreyId!}");
+                                        log("catalogId in id****::::: ${context.read<AddProductBloc>().catalogId!}");
+                                        log("product id in id****::::: ${widget.model.id.toString()}");
                                         context.read<EditProductBloc>().add(
                                             EditProductEvent.editProduct(
-                                                categoryId: widget.model.id
-                                                    .toString(), //! here
+                                                categoryId: context
+                                                    .read<AddProductBloc>()
+                                                    .categoreyId!, 
+                                                catalogId: context
+                                                    .read<AddProductBloc>()
+                                                    .catalogId!,
                                                 name: titleController.text,
                                                 code: codeController.text,
                                                 productId:
-                                                    widget.model.id.toString(),
-                                                catalogId:
-                                                    "f5790b39-4fc8-4aad-8318-259d28595f05"));
+                                                    widget.model.id!,
+                                                    
+                                                    ));
                                       }
                                     },
                                     backgroundColor: AppColors.greenColor));

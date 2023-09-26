@@ -216,28 +216,51 @@ CategoryItem _$CategoryItemFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CategoryItem {
   String get catalogId => throw _privateConstructorUsedError;
+  set catalogId(String value) => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
+  set code(String value) => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
   String get outline => throw _privateConstructorUsedError;
+  set outline(String value) => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
+  set path(String value) => throw _privateConstructorUsedError;
   bool get isVirtual => throw _privateConstructorUsedError;
+  set isVirtual(bool value) => throw _privateConstructorUsedError;
   int get level => throw _privateConstructorUsedError;
+  set level(int value) => throw _privateConstructorUsedError;
   int get priority => throw _privateConstructorUsedError;
+  set priority(int value) => throw _privateConstructorUsedError;
   bool get isActive => throw _privateConstructorUsedError;
+  set isActive(bool value) => throw _privateConstructorUsedError;
   List<dynamic> get links => throw _privateConstructorUsedError;
+  set links(List<dynamic> value) => throw _privateConstructorUsedError;
   String get seoObjectType => throw _privateConstructorUsedError;
+  set seoObjectType(String value) => throw _privateConstructorUsedError;
   List<SeoInfo> get seoInfos => throw _privateConstructorUsedError;
+  set seoInfos(List<SeoInfo> value) => throw _privateConstructorUsedError;
   List<dynamic> get descriptions => throw _privateConstructorUsedError;
+  set descriptions(List<dynamic> value) => throw _privateConstructorUsedError;
   List<dynamic> get images => throw _privateConstructorUsedError;
+  set images(List<dynamic> value) => throw _privateConstructorUsedError;
   List<Outline> get outlines => throw _privateConstructorUsedError;
+  set outlines(List<Outline> value) => throw _privateConstructorUsedError;
   bool get isInherited => throw _privateConstructorUsedError;
+  set isInherited(bool value) => throw _privateConstructorUsedError;
   bool get parentIsActive => throw _privateConstructorUsedError;
+  set parentIsActive(bool value) => throw _privateConstructorUsedError;
   DateTime get createdDate => throw _privateConstructorUsedError;
+  set createdDate(DateTime value) => throw _privateConstructorUsedError;
   DateTime get modifiedDate => throw _privateConstructorUsedError;
+  set modifiedDate(DateTime value) => throw _privateConstructorUsedError;
   String get createdBy => throw _privateConstructorUsedError;
+  set createdBy(String value) => throw _privateConstructorUsedError;
   String get modifiedBy => throw _privateConstructorUsedError;
+  set modifiedBy(String value) => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
+  set id(String value) => throw _privateConstructorUsedError;
   bool get isSelected => throw _privateConstructorUsedError;
+  set isSelected(bool value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -518,7 +541,7 @@ class __$$_CategoryItemCopyWithImpl<$Res>
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
       links: null == links
-          ? _value._links
+          ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
       seoObjectType: null == seoObjectType
@@ -526,19 +549,19 @@ class __$$_CategoryItemCopyWithImpl<$Res>
           : seoObjectType // ignore: cast_nullable_to_non_nullable
               as String,
       seoInfos: null == seoInfos
-          ? _value._seoInfos
+          ? _value.seoInfos
           : seoInfos // ignore: cast_nullable_to_non_nullable
               as List<SeoInfo>,
       descriptions: null == descriptions
-          ? _value._descriptions
+          ? _value.descriptions
           : descriptions // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
       images: null == images
-          ? _value._images
+          ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
       outlines: null == outlines
-          ? _value._outlines
+          ? _value.outlines
           : outlines // ignore: cast_nullable_to_non_nullable
               as List<Outline>,
       isInherited: null == isInherited
@@ -580,7 +603,7 @@ class __$$_CategoryItemCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CategoryItem implements _CategoryItem {
-  const _$_CategoryItem(
+  _$_CategoryItem(
       {required this.catalogId,
       required this.code,
       required this.name,
@@ -590,12 +613,12 @@ class _$_CategoryItem implements _CategoryItem {
       required this.level,
       required this.priority,
       required this.isActive,
-      required final List<dynamic> links,
+      required this.links,
       required this.seoObjectType,
-      required final List<SeoInfo> seoInfos,
-      required final List<dynamic> descriptions,
-      required final List<dynamic> images,
-      required final List<Outline> outlines,
+      required this.seoInfos,
+      required this.descriptions,
+      required this.images,
+      required this.outlines,
       required this.isInherited,
       required this.parentIsActive,
       required this.createdDate,
@@ -603,170 +626,63 @@ class _$_CategoryItem implements _CategoryItem {
       required this.createdBy,
       required this.modifiedBy,
       required this.id,
-      this.isSelected = false})
-      : _links = links,
-        _seoInfos = seoInfos,
-        _descriptions = descriptions,
-        _images = images,
-        _outlines = outlines;
+      this.isSelected = false});
 
   factory _$_CategoryItem.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryItemFromJson(json);
 
   @override
-  final String catalogId;
+  String catalogId;
   @override
-  final String code;
+  String code;
   @override
-  final String name;
+  String name;
   @override
-  final String outline;
+  String outline;
   @override
-  final String path;
+  String path;
   @override
-  final bool isVirtual;
+  bool isVirtual;
   @override
-  final int level;
+  int level;
   @override
-  final int priority;
+  int priority;
   @override
-  final bool isActive;
-  final List<dynamic> _links;
+  bool isActive;
   @override
-  List<dynamic> get links {
-    if (_links is EqualUnmodifiableListView) return _links;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_links);
-  }
-
+  List<dynamic> links;
   @override
-  final String seoObjectType;
-  final List<SeoInfo> _seoInfos;
+  String seoObjectType;
   @override
-  List<SeoInfo> get seoInfos {
-    if (_seoInfos is EqualUnmodifiableListView) return _seoInfos;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_seoInfos);
-  }
-
-  final List<dynamic> _descriptions;
+  List<SeoInfo> seoInfos;
   @override
-  List<dynamic> get descriptions {
-    if (_descriptions is EqualUnmodifiableListView) return _descriptions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_descriptions);
-  }
-
-  final List<dynamic> _images;
+  List<dynamic> descriptions;
   @override
-  List<dynamic> get images {
-    if (_images is EqualUnmodifiableListView) return _images;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_images);
-  }
-
-  final List<Outline> _outlines;
+  List<dynamic> images;
   @override
-  List<Outline> get outlines {
-    if (_outlines is EqualUnmodifiableListView) return _outlines;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_outlines);
-  }
-
+  List<Outline> outlines;
   @override
-  final bool isInherited;
+  bool isInherited;
   @override
-  final bool parentIsActive;
+  bool parentIsActive;
   @override
-  final DateTime createdDate;
+  DateTime createdDate;
   @override
-  final DateTime modifiedDate;
+  DateTime modifiedDate;
   @override
-  final String createdBy;
+  String createdBy;
   @override
-  final String modifiedBy;
+  String modifiedBy;
   @override
-  final String id;
+  String id;
   @override
   @JsonKey()
-  final bool isSelected;
+  bool isSelected;
 
   @override
   String toString() {
     return 'CategoryItem(catalogId: $catalogId, code: $code, name: $name, outline: $outline, path: $path, isVirtual: $isVirtual, level: $level, priority: $priority, isActive: $isActive, links: $links, seoObjectType: $seoObjectType, seoInfos: $seoInfos, descriptions: $descriptions, images: $images, outlines: $outlines, isInherited: $isInherited, parentIsActive: $parentIsActive, createdDate: $createdDate, modifiedDate: $modifiedDate, createdBy: $createdBy, modifiedBy: $modifiedBy, id: $id, isSelected: $isSelected)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_CategoryItem &&
-            (identical(other.catalogId, catalogId) ||
-                other.catalogId == catalogId) &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.outline, outline) || other.outline == outline) &&
-            (identical(other.path, path) || other.path == path) &&
-            (identical(other.isVirtual, isVirtual) ||
-                other.isVirtual == isVirtual) &&
-            (identical(other.level, level) || other.level == level) &&
-            (identical(other.priority, priority) ||
-                other.priority == priority) &&
-            (identical(other.isActive, isActive) ||
-                other.isActive == isActive) &&
-            const DeepCollectionEquality().equals(other._links, _links) &&
-            (identical(other.seoObjectType, seoObjectType) ||
-                other.seoObjectType == seoObjectType) &&
-            const DeepCollectionEquality().equals(other._seoInfos, _seoInfos) &&
-            const DeepCollectionEquality()
-                .equals(other._descriptions, _descriptions) &&
-            const DeepCollectionEquality().equals(other._images, _images) &&
-            const DeepCollectionEquality().equals(other._outlines, _outlines) &&
-            (identical(other.isInherited, isInherited) ||
-                other.isInherited == isInherited) &&
-            (identical(other.parentIsActive, parentIsActive) ||
-                other.parentIsActive == parentIsActive) &&
-            (identical(other.createdDate, createdDate) ||
-                other.createdDate == createdDate) &&
-            (identical(other.modifiedDate, modifiedDate) ||
-                other.modifiedDate == modifiedDate) &&
-            (identical(other.createdBy, createdBy) ||
-                other.createdBy == createdBy) &&
-            (identical(other.modifiedBy, modifiedBy) ||
-                other.modifiedBy == modifiedBy) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.isSelected, isSelected) ||
-                other.isSelected == isSelected));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        catalogId,
-        code,
-        name,
-        outline,
-        path,
-        isVirtual,
-        level,
-        priority,
-        isActive,
-        const DeepCollectionEquality().hash(_links),
-        seoObjectType,
-        const DeepCollectionEquality().hash(_seoInfos),
-        const DeepCollectionEquality().hash(_descriptions),
-        const DeepCollectionEquality().hash(_images),
-        const DeepCollectionEquality().hash(_outlines),
-        isInherited,
-        parentIsActive,
-        createdDate,
-        modifiedDate,
-        createdBy,
-        modifiedBy,
-        id,
-        isSelected
-      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -783,80 +699,103 @@ class _$_CategoryItem implements _CategoryItem {
 }
 
 abstract class _CategoryItem implements CategoryItem {
-  const factory _CategoryItem(
-      {required final String catalogId,
-      required final String code,
-      required final String name,
-      required final String outline,
-      required final String path,
-      required final bool isVirtual,
-      required final int level,
-      required final int priority,
-      required final bool isActive,
-      required final List<dynamic> links,
-      required final String seoObjectType,
-      required final List<SeoInfo> seoInfos,
-      required final List<dynamic> descriptions,
-      required final List<dynamic> images,
-      required final List<Outline> outlines,
-      required final bool isInherited,
-      required final bool parentIsActive,
-      required final DateTime createdDate,
-      required final DateTime modifiedDate,
-      required final String createdBy,
-      required final String modifiedBy,
-      required final String id,
-      final bool isSelected}) = _$_CategoryItem;
+  factory _CategoryItem(
+      {required String catalogId,
+      required String code,
+      required String name,
+      required String outline,
+      required String path,
+      required bool isVirtual,
+      required int level,
+      required int priority,
+      required bool isActive,
+      required List<dynamic> links,
+      required String seoObjectType,
+      required List<SeoInfo> seoInfos,
+      required List<dynamic> descriptions,
+      required List<dynamic> images,
+      required List<Outline> outlines,
+      required bool isInherited,
+      required bool parentIsActive,
+      required DateTime createdDate,
+      required DateTime modifiedDate,
+      required String createdBy,
+      required String modifiedBy,
+      required String id,
+      bool isSelected}) = _$_CategoryItem;
 
   factory _CategoryItem.fromJson(Map<String, dynamic> json) =
       _$_CategoryItem.fromJson;
 
   @override
   String get catalogId;
+  set catalogId(String value);
   @override
   String get code;
+  set code(String value);
   @override
   String get name;
+  set name(String value);
   @override
   String get outline;
+  set outline(String value);
   @override
   String get path;
+  set path(String value);
   @override
   bool get isVirtual;
+  set isVirtual(bool value);
   @override
   int get level;
+  set level(int value);
   @override
   int get priority;
+  set priority(int value);
   @override
   bool get isActive;
+  set isActive(bool value);
   @override
   List<dynamic> get links;
+  set links(List<dynamic> value);
   @override
   String get seoObjectType;
+  set seoObjectType(String value);
   @override
   List<SeoInfo> get seoInfos;
+  set seoInfos(List<SeoInfo> value);
   @override
   List<dynamic> get descriptions;
+  set descriptions(List<dynamic> value);
   @override
   List<dynamic> get images;
+  set images(List<dynamic> value);
   @override
   List<Outline> get outlines;
+  set outlines(List<Outline> value);
   @override
   bool get isInherited;
+  set isInherited(bool value);
   @override
   bool get parentIsActive;
+  set parentIsActive(bool value);
   @override
   DateTime get createdDate;
+  set createdDate(DateTime value);
   @override
   DateTime get modifiedDate;
+  set modifiedDate(DateTime value);
   @override
   String get createdBy;
+  set createdBy(String value);
   @override
   String get modifiedBy;
+  set modifiedBy(String value);
   @override
   String get id;
+  set id(String value);
   @override
   bool get isSelected;
+  set isSelected(bool value);
   @override
   @JsonKey(ignore: true)
   _$$_CategoryItemCopyWith<_$_CategoryItem> get copyWith =>

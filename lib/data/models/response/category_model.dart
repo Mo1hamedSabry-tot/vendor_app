@@ -15,9 +15,9 @@ class CategoryModel with _$CategoryModel {
       _$CategoryModelFromJson(json);
 }
 
-@freezed
+@unfreezed
 class CategoryItem with _$CategoryItem {
- const factory CategoryItem({
+  factory CategoryItem({
     required String catalogId,
     required String code,
     required String name,

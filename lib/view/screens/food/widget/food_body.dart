@@ -8,7 +8,7 @@ import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
-import 'package:vendor_foody/data/models/response/tot_product_model.dart';
+import 'package:vendor_foody/data/models/response/list_entires_product_model.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 
@@ -60,38 +60,37 @@ class FoodBody extends StatelessWidget {
           return Align(
             alignment: Alignment.center,
             child: ListView.builder(
-                itemCount: product.items?.length,
+                itemCount: product.results!.length,
                 padding: EdgeInsets.zero,
                 itemBuilder: (context, index) {
-                  if (selectedTabIndex == 0) {
-                    return Align(
-                      alignment: Alignment.center,
-                      child: InkWell(
-                        onTap: () {
-                          showModalBottomSheet(
-                              context: context,
-                              isDismissible: true,
-                              isScrollControlled: true,
-                              shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                      top: Radius.circular(22))),
-                              builder: (_) {
-                                return _FoodBottomSheet(
-                                  model: product.items![index],
-                                  title: product.items![index].name,
-                                  code: product.items![index].name,
-                                  selectedUnitId: 2,
-                                );
-                              });
-                        },
-                        child: PopularFoodItem(
-                          model: product.items![index],
-                        ),
+                  return Align(
+                    alignment: Alignment.center,
+                    child: InkWell(
+                      onTap: () {
+                        log("name of index: ${product.results![index].name.toString()}");
+                        showModalBottomSheet(
+                            context: context,
+                            isDismissible: true,
+                            isScrollControlled: true,
+                            shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(22))),
+                            builder: (_) {
+                              return _FoodBottomSheet(
+                                categoryId:
+                                    '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
+                                model: product.results![index],
+                                title: product.results![index].name!,
+                                code: product.results![index].code!,
+                                selectedUnitId: 2,
+                              );
+                            });
+                      },
+                      child: PopularFoodItem(
+                        model: product.results![index],
                       ),
-                    );
-                  } else {
-                    return const SizedBox();
-                  }
+                    ),
+                  );
                 }),
           );
         });
@@ -103,14 +102,16 @@ class FoodBody extends StatelessWidget {
 class _FoodBottomSheet extends StatefulWidget {
   final String title;
   final String code;
+  final String categoryId;
   final int selectedUnitId;
-  final TOTProduct model;
+  final Result model;
 
   const _FoodBottomSheet({
     required this.title,
     required this.code,
     required this.selectedUnitId,
     required this.model,
+    required this.categoryId,
   });
 
   @override
@@ -181,7 +182,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                       child: CircularProgressIndicator(),
                                     );
                                   },
-                                  imageUrl: widget.model.imgSrc ??
+                                  imageUrl: widget.model.imageUrl ??
                                       "https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg",
                                 ),
                               ),
@@ -276,12 +277,14 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                           },
                           builder: (context, state) {
                             state.maybeWhen(
-                                orElse: () {},
-                                loadInProgress: () {
-                                  return const Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                });
+                              orElse: () {},
+                              loadInProgress: () {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              },
+                            );
+
                             return SizedBox(
                                 width: double.infinity,
                                 child: TOTButtonAtom.filledButton(
@@ -293,9 +296,12 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                         log("id producttttttt ::::: ${widget.model.toString()}");
                                         context.read<EditProductBloc>().add(
                                             EditProductEvent.editProduct(
+                                                categoryId: widget.model.id
+                                                    .toString(), //! here
                                                 name: titleController.text,
                                                 code: codeController.text,
-                                                productId: widget.model.id,
+                                                productId:
+                                                    widget.model.id.toString(),
                                                 catalogId:
                                                     "f5790b39-4fc8-4aad-8318-259d28595f05"));
                                       }

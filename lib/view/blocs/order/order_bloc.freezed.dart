@@ -1139,8 +1139,10 @@ mixin _$OrderState {
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -1155,8 +1157,10 @@ mixin _$OrderState {
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1169,8 +1173,10 @@ mixin _$OrderState {
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1184,8 +1190,14 @@ mixin _$OrderState {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -1201,8 +1213,13 @@ mixin _$OrderState {
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1215,8 +1232,13 @@ mixin _$OrderState {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1291,8 +1313,10 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -1310,8 +1334,10 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1327,8 +1353,10 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1348,8 +1376,14 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -1368,8 +1402,13 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1385,8 +1424,13 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1454,8 +1498,10 @@ class _$_LoadInProgress
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -1473,8 +1519,10 @@ class _$_LoadInProgress
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1490,8 +1538,10 @@ class _$_LoadInProgress
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1511,8 +1561,14 @@ class _$_LoadInProgress
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -1531,8 +1587,13 @@ class _$_LoadInProgress
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1548,8 +1609,13 @@ class _$_LoadInProgress
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1655,8 +1721,10 @@ class _$_SuuccessGetOrder
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -1674,8 +1742,10 @@ class _$_SuuccessGetOrder
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1691,8 +1761,10 @@ class _$_SuuccessGetOrder
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1712,8 +1784,14 @@ class _$_SuuccessGetOrder
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -1732,8 +1810,13 @@ class _$_SuuccessGetOrder
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1749,8 +1832,13 @@ class _$_SuuccessGetOrder
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1822,8 +1910,10 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -1841,8 +1931,10 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1858,8 +1950,10 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -1879,8 +1973,14 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -1899,8 +1999,13 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1916,8 +2021,13 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -1936,20 +2046,22 @@ abstract class _ErrorGetOrder implements OrderState {
 }
 
 /// @nodoc
-abstract class _$$_SuuccessUpdateOrderCopyWith<$Res> {
-  factory _$$_SuuccessUpdateOrderCopyWith(_$_SuuccessUpdateOrder value,
-          $Res Function(_$_SuuccessUpdateOrder) then) =
-      __$$_SuuccessUpdateOrderCopyWithImpl<$Res>;
+abstract class _$$_SuuccessUpdateOrderToAcceptedCopyWith<$Res> {
+  factory _$$_SuuccessUpdateOrderToAcceptedCopyWith(
+          _$_SuuccessUpdateOrderToAccepted value,
+          $Res Function(_$_SuuccessUpdateOrderToAccepted) then) =
+      __$$_SuuccessUpdateOrderToAcceptedCopyWithImpl<$Res>;
   @useResult
   $Res call({int statusCode});
 }
 
 /// @nodoc
-class __$$_SuuccessUpdateOrderCopyWithImpl<$Res>
-    extends _$OrderStateCopyWithImpl<$Res, _$_SuuccessUpdateOrder>
-    implements _$$_SuuccessUpdateOrderCopyWith<$Res> {
-  __$$_SuuccessUpdateOrderCopyWithImpl(_$_SuuccessUpdateOrder _value,
-      $Res Function(_$_SuuccessUpdateOrder) _then)
+class __$$_SuuccessUpdateOrderToAcceptedCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$_SuuccessUpdateOrderToAccepted>
+    implements _$$_SuuccessUpdateOrderToAcceptedCopyWith<$Res> {
+  __$$_SuuccessUpdateOrderToAcceptedCopyWithImpl(
+      _$_SuuccessUpdateOrderToAccepted _value,
+      $Res Function(_$_SuuccessUpdateOrderToAccepted) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1957,7 +2069,7 @@ class __$$_SuuccessUpdateOrderCopyWithImpl<$Res>
   $Res call({
     Object? statusCode = null,
   }) {
-    return _then(_$_SuuccessUpdateOrder(
+    return _then(_$_SuuccessUpdateOrderToAccepted(
       statusCode: null == statusCode
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
@@ -1968,24 +2080,25 @@ class __$$_SuuccessUpdateOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SuuccessUpdateOrder
+class _$_SuuccessUpdateOrderToAccepted
     with DiagnosticableTreeMixin
-    implements _SuuccessUpdateOrder {
-  const _$_SuuccessUpdateOrder({required this.statusCode});
+    implements _SuuccessUpdateOrderToAccepted {
+  const _$_SuuccessUpdateOrderToAccepted({required this.statusCode});
 
   @override
   final int statusCode;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'OrderState.suuccessUpdateOrder(statusCode: $statusCode)';
+    return 'OrderState.suuccessUpdateOrderToAccepted(statusCode: $statusCode)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'OrderState.suuccessUpdateOrder'))
+      ..add(DiagnosticsProperty(
+          'type', 'OrderState.suuccessUpdateOrderToAccepted'))
       ..add(DiagnosticsProperty('statusCode', statusCode));
   }
 
@@ -1993,7 +2106,7 @@ class _$_SuuccessUpdateOrder
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SuuccessUpdateOrder &&
+            other is _$_SuuccessUpdateOrderToAccepted &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode));
   }
@@ -2004,9 +2117,9 @@ class _$_SuuccessUpdateOrder
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuuccessUpdateOrderCopyWith<_$_SuuccessUpdateOrder> get copyWith =>
-      __$$_SuuccessUpdateOrderCopyWithImpl<_$_SuuccessUpdateOrder>(
-          this, _$identity);
+  _$$_SuuccessUpdateOrderToAcceptedCopyWith<_$_SuuccessUpdateOrderToAccepted>
+      get copyWith => __$$_SuuccessUpdateOrderToAcceptedCopyWithImpl<
+          _$_SuuccessUpdateOrderToAccepted>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2015,8 +2128,10 @@ class _$_SuuccessUpdateOrder
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -2024,7 +2139,7 @@ class _$_SuuccessUpdateOrder
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
   }) {
-    return suuccessUpdateOrder(statusCode);
+    return suuccessUpdateOrderToAccepted(statusCode);
   }
 
   @override
@@ -2034,14 +2149,16 @@ class _$_SuuccessUpdateOrder
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
   }) {
-    return suuccessUpdateOrder?.call(statusCode);
+    return suuccessUpdateOrderToAccepted?.call(statusCode);
   }
 
   @override
@@ -2051,16 +2168,18 @@ class _$_SuuccessUpdateOrder
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
     required TResult orElse(),
   }) {
-    if (suuccessUpdateOrder != null) {
-      return suuccessUpdateOrder(statusCode);
+    if (suuccessUpdateOrderToAccepted != null) {
+      return suuccessUpdateOrderToAccepted(statusCode);
     }
     return orElse();
   }
@@ -2072,8 +2191,14 @@ class _$_SuuccessUpdateOrder
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -2082,7 +2207,7 @@ class _$_SuuccessUpdateOrder
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
   }) {
-    return suuccessUpdateOrder(this);
+    return suuccessUpdateOrderToAccepted(this);
   }
 
   @override
@@ -2092,14 +2217,19 @@ class _$_SuuccessUpdateOrder
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
   }) {
-    return suuccessUpdateOrder?.call(this);
+    return suuccessUpdateOrderToAccepted?.call(this);
   }
 
   @override
@@ -2109,69 +2239,78 @@ class _$_SuuccessUpdateOrder
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
     required TResult orElse(),
   }) {
-    if (suuccessUpdateOrder != null) {
-      return suuccessUpdateOrder(this);
+    if (suuccessUpdateOrderToAccepted != null) {
+      return suuccessUpdateOrderToAccepted(this);
     }
     return orElse();
   }
 }
 
-abstract class _SuuccessUpdateOrder implements OrderState {
-  const factory _SuuccessUpdateOrder({required final int statusCode}) =
-      _$_SuuccessUpdateOrder;
+abstract class _SuuccessUpdateOrderToAccepted implements OrderState {
+  const factory _SuuccessUpdateOrderToAccepted(
+      {required final int statusCode}) = _$_SuuccessUpdateOrderToAccepted;
 
   int get statusCode;
   @JsonKey(ignore: true)
-  _$$_SuuccessUpdateOrderCopyWith<_$_SuuccessUpdateOrder> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_SuuccessUpdateOrderToAcceptedCopyWith<_$_SuuccessUpdateOrderToAccepted>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ErrorUpdateOrderCopyWith<$Res> {
-  factory _$$_ErrorUpdateOrderCopyWith(
-          _$_ErrorUpdateOrder value, $Res Function(_$_ErrorUpdateOrder) then) =
-      __$$_ErrorUpdateOrderCopyWithImpl<$Res>;
+abstract class _$$_ErrorUpdateOrderToAcceptedCopyWith<$Res> {
+  factory _$$_ErrorUpdateOrderToAcceptedCopyWith(
+          _$_ErrorUpdateOrderToAccepted value,
+          $Res Function(_$_ErrorUpdateOrderToAccepted) then) =
+      __$$_ErrorUpdateOrderToAcceptedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ErrorUpdateOrderCopyWithImpl<$Res>
-    extends _$OrderStateCopyWithImpl<$Res, _$_ErrorUpdateOrder>
-    implements _$$_ErrorUpdateOrderCopyWith<$Res> {
-  __$$_ErrorUpdateOrderCopyWithImpl(
-      _$_ErrorUpdateOrder _value, $Res Function(_$_ErrorUpdateOrder) _then)
+class __$$_ErrorUpdateOrderToAcceptedCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$_ErrorUpdateOrderToAccepted>
+    implements _$$_ErrorUpdateOrderToAcceptedCopyWith<$Res> {
+  __$$_ErrorUpdateOrderToAcceptedCopyWithImpl(
+      _$_ErrorUpdateOrderToAccepted _value,
+      $Res Function(_$_ErrorUpdateOrderToAccepted) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ErrorUpdateOrder
+class _$_ErrorUpdateOrderToAccepted
     with DiagnosticableTreeMixin
-    implements _ErrorUpdateOrder {
-  const _$_ErrorUpdateOrder();
+    implements _ErrorUpdateOrderToAccepted {
+  const _$_ErrorUpdateOrderToAccepted();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'OrderState.errorUpdateOrder()';
+    return 'OrderState.errorUpdateOrderToAccepted()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'OrderState.errorUpdateOrder'));
+    properties.add(
+        DiagnosticsProperty('type', 'OrderState.errorUpdateOrderToAccepted'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ErrorUpdateOrder);
+        (other.runtimeType == runtimeType &&
+            other is _$_ErrorUpdateOrderToAccepted);
   }
 
   @override
@@ -2184,8 +2323,10 @@ class _$_ErrorUpdateOrder
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -2193,7 +2334,7 @@ class _$_ErrorUpdateOrder
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
   }) {
-    return errorUpdateOrder();
+    return errorUpdateOrderToAccepted();
   }
 
   @override
@@ -2203,14 +2344,16 @@ class _$_ErrorUpdateOrder
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
   }) {
-    return errorUpdateOrder?.call();
+    return errorUpdateOrderToAccepted?.call();
   }
 
   @override
@@ -2220,16 +2363,18 @@ class _$_ErrorUpdateOrder
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
     required TResult orElse(),
   }) {
-    if (errorUpdateOrder != null) {
-      return errorUpdateOrder();
+    if (errorUpdateOrderToAccepted != null) {
+      return errorUpdateOrderToAccepted();
     }
     return orElse();
   }
@@ -2241,8 +2386,14 @@ class _$_ErrorUpdateOrder
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -2251,7 +2402,7 @@ class _$_ErrorUpdateOrder
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
   }) {
-    return errorUpdateOrder(this);
+    return errorUpdateOrderToAccepted(this);
   }
 
   @override
@@ -2261,14 +2412,19 @@ class _$_ErrorUpdateOrder
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
   }) {
-    return errorUpdateOrder?.call(this);
+    return errorUpdateOrderToAccepted?.call(this);
   }
 
   @override
@@ -2278,23 +2434,439 @@ class _$_ErrorUpdateOrder
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
     required TResult orElse(),
   }) {
-    if (errorUpdateOrder != null) {
-      return errorUpdateOrder(this);
+    if (errorUpdateOrderToAccepted != null) {
+      return errorUpdateOrderToAccepted(this);
     }
     return orElse();
   }
 }
 
-abstract class _ErrorUpdateOrder implements OrderState {
-  const factory _ErrorUpdateOrder() = _$_ErrorUpdateOrder;
+abstract class _ErrorUpdateOrderToAccepted implements OrderState {
+  const factory _ErrorUpdateOrderToAccepted() = _$_ErrorUpdateOrderToAccepted;
+}
+
+/// @nodoc
+abstract class _$$_SuuccessUpdateOrderToReadyCopyWith<$Res> {
+  factory _$$_SuuccessUpdateOrderToReadyCopyWith(
+          _$_SuuccessUpdateOrderToReady value,
+          $Res Function(_$_SuuccessUpdateOrderToReady) then) =
+      __$$_SuuccessUpdateOrderToReadyCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int statusCode});
+}
+
+/// @nodoc
+class __$$_SuuccessUpdateOrderToReadyCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$_SuuccessUpdateOrderToReady>
+    implements _$$_SuuccessUpdateOrderToReadyCopyWith<$Res> {
+  __$$_SuuccessUpdateOrderToReadyCopyWithImpl(
+      _$_SuuccessUpdateOrderToReady _value,
+      $Res Function(_$_SuuccessUpdateOrderToReady) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? statusCode = null,
+  }) {
+    return _then(_$_SuuccessUpdateOrderToReady(
+      statusCode: null == statusCode
+          ? _value.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SuuccessUpdateOrderToReady
+    with DiagnosticableTreeMixin
+    implements _SuuccessUpdateOrderToReady {
+  const _$_SuuccessUpdateOrderToReady({required this.statusCode});
+
+  @override
+  final int statusCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderState.suuccessUpdateOrderToReady(statusCode: $statusCode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'OrderState.suuccessUpdateOrderToReady'))
+      ..add(DiagnosticsProperty('statusCode', statusCode));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SuuccessUpdateOrderToReady &&
+            (identical(other.statusCode, statusCode) ||
+                other.statusCode == statusCode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, statusCode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SuuccessUpdateOrderToReadyCopyWith<_$_SuuccessUpdateOrderToReady>
+      get copyWith => __$$_SuuccessUpdateOrderToReadyCopyWithImpl<
+          _$_SuuccessUpdateOrderToReady>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
+    required TResult Function() errorGetOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetreadyOrder,
+    required TResult Function() errorGetReadyOrder,
+  }) {
+    return suuccessUpdateOrderToReady(statusCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult? Function()? errorGetOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
+    TResult? Function()? errorGetReadyOrder,
+  }) {
+    return suuccessUpdateOrderToReady?.call(statusCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult Function()? errorGetOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
+    TResult Function()? errorGetReadyOrder,
+    required TResult orElse(),
+  }) {
+    if (suuccessUpdateOrderToReady != null) {
+      return suuccessUpdateOrderToReady(statusCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
+    required TResult Function(_ErrorGetOrder value) errorGetOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
+    required TResult Function(_SuuccessGetReadyOrder value)
+        suuccessGetreadyOrder,
+    required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+  }) {
+    return suuccessUpdateOrderToReady(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult? Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
+    TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+  }) {
+    return suuccessUpdateOrderToReady?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
+    TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    required TResult orElse(),
+  }) {
+    if (suuccessUpdateOrderToReady != null) {
+      return suuccessUpdateOrderToReady(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuuccessUpdateOrderToReady implements OrderState {
+  const factory _SuuccessUpdateOrderToReady({required final int statusCode}) =
+      _$_SuuccessUpdateOrderToReady;
+
+  int get statusCode;
+  @JsonKey(ignore: true)
+  _$$_SuuccessUpdateOrderToReadyCopyWith<_$_SuuccessUpdateOrderToReady>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ErrorUpdateOrderToReadyCopyWith<$Res> {
+  factory _$$_ErrorUpdateOrderToReadyCopyWith(_$_ErrorUpdateOrderToReady value,
+          $Res Function(_$_ErrorUpdateOrderToReady) then) =
+      __$$_ErrorUpdateOrderToReadyCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ErrorUpdateOrderToReadyCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$_ErrorUpdateOrderToReady>
+    implements _$$_ErrorUpdateOrderToReadyCopyWith<$Res> {
+  __$$_ErrorUpdateOrderToReadyCopyWithImpl(_$_ErrorUpdateOrderToReady _value,
+      $Res Function(_$_ErrorUpdateOrderToReady) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ErrorUpdateOrderToReady
+    with DiagnosticableTreeMixin
+    implements _ErrorUpdateOrderToReady {
+  const _$_ErrorUpdateOrderToReady();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderState.errorUpdateOrderToReady()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'OrderState.errorUpdateOrderToReady'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ErrorUpdateOrderToReady);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
+    required TResult Function() errorGetOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetreadyOrder,
+    required TResult Function() errorGetReadyOrder,
+  }) {
+    return errorUpdateOrderToReady();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult? Function()? errorGetOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
+    TResult? Function()? errorGetReadyOrder,
+  }) {
+    return errorUpdateOrderToReady?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult Function()? errorGetOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
+    TResult Function()? errorGetReadyOrder,
+    required TResult orElse(),
+  }) {
+    if (errorUpdateOrderToReady != null) {
+      return errorUpdateOrderToReady();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
+    required TResult Function(_ErrorGetOrder value) errorGetOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
+    required TResult Function(_SuuccessGetReadyOrder value)
+        suuccessGetreadyOrder,
+    required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+  }) {
+    return errorUpdateOrderToReady(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult? Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
+    TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+  }) {
+    return errorUpdateOrderToReady?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
+    TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    required TResult orElse(),
+  }) {
+    if (errorUpdateOrderToReady != null) {
+      return errorUpdateOrderToReady(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ErrorUpdateOrderToReady implements OrderState {
+  const factory _ErrorUpdateOrderToReady() = _$_ErrorUpdateOrderToReady;
 }
 
 /// @nodoc
@@ -2387,8 +2959,10 @@ class _$_SuuccessGetAceptedOrder
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -2406,8 +2980,10 @@ class _$_SuuccessGetAceptedOrder
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2423,8 +2999,10 @@ class _$_SuuccessGetAceptedOrder
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2444,8 +3022,14 @@ class _$_SuuccessGetAceptedOrder
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -2464,8 +3048,13 @@ class _$_SuuccessGetAceptedOrder
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -2481,8 +3070,13 @@ class _$_SuuccessGetAceptedOrder
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -2558,8 +3152,10 @@ class _$_ErrorGetAcceptedOrder
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -2577,8 +3173,10 @@ class _$_ErrorGetAcceptedOrder
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2594,8 +3192,10 @@ class _$_ErrorGetAcceptedOrder
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2615,8 +3215,14 @@ class _$_ErrorGetAcceptedOrder
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -2635,8 +3241,13 @@ class _$_ErrorGetAcceptedOrder
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -2652,8 +3263,13 @@ class _$_ErrorGetAcceptedOrder
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -2760,8 +3376,10 @@ class _$_SuuccessGetReadyOrder
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -2779,8 +3397,10 @@ class _$_SuuccessGetReadyOrder
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2796,8 +3416,10 @@ class _$_SuuccessGetReadyOrder
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2817,8 +3439,14 @@ class _$_SuuccessGetReadyOrder
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -2837,8 +3465,13 @@ class _$_SuuccessGetReadyOrder
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -2854,8 +3487,13 @@ class _$_SuuccessGetReadyOrder
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -2930,8 +3568,10 @@ class _$_ErrorGetReadyOrder
     required TResult Function() loadInProgress,
     required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
     required TResult Function() errorGetOrder,
-    required TResult Function(int statusCode) suuccessUpdateOrder,
-    required TResult Function() errorUpdateOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetAcceptedOrder,
     required TResult Function() errorGetAcceptedOrder,
@@ -2949,8 +3589,10 @@ class _$_ErrorGetReadyOrder
     TResult? Function()? loadInProgress,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult? Function()? errorGetOrder,
-    TResult? Function(int statusCode)? suuccessUpdateOrder,
-    TResult? Function()? errorUpdateOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2966,8 +3608,10 @@ class _$_ErrorGetReadyOrder
     TResult Function()? loadInProgress,
     TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
     TResult Function()? errorGetOrder,
-    TResult Function(int statusCode)? suuccessUpdateOrder,
-    TResult Function()? errorUpdateOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
     TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
@@ -2987,8 +3631,14 @@ class _$_ErrorGetReadyOrder
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
     required TResult Function(_ErrorGetOrder value) errorGetOrder,
-    required TResult Function(_SuuccessUpdateOrder value) suuccessUpdateOrder,
-    required TResult Function(_ErrorUpdateOrder value) errorUpdateOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
     required TResult Function(_SuuccessGetAceptedOrder value)
         suuccessGetAcceptedOrder,
     required TResult Function(_ErrorGetAcceptedOrder value)
@@ -3007,8 +3657,13 @@ class _$_ErrorGetReadyOrder
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult? Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult? Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult? Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
@@ -3024,8 +3679,13 @@ class _$_ErrorGetReadyOrder
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
     TResult Function(_ErrorGetOrder value)? errorGetOrder,
-    TResult Function(_SuuccessUpdateOrder value)? suuccessUpdateOrder,
-    TResult Function(_ErrorUpdateOrder value)? errorUpdateOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
     TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,

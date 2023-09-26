@@ -348,12 +348,15 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                     text: 'Save',
                                     textColor: AppColors.blackColor,
                                     onPressed: () async {
+                                      final read =
+                                          context.read<AddProductBloc>();
                                       if (keyForm.currentState!.validate()) {
-                                        context.read<AddProductBloc>().add(
-                                            AddProductEvent.addProduct(
-                                                name: titleController.text,
-                                                code: codeController.text,
-                                                catalogId:
+                                        read.add(AddProductEvent.addProduct(
+                                            name: titleController.text,
+                                            code: codeController.text,
+                                            categoryId: read.categoreyId ?? "",
+                                            catalogId: read.catalogId ??
+                                              
                                                     "f5790b39-4fc8-4aad-8318-259d28595f05"));
                                       }
                                     },

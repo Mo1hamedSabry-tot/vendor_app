@@ -17,7 +17,7 @@ class EditProductBloc extends Bloc<EditProductEvent, EditProductState> {
         editProduct: (v) async {
           emit(const _LoadInProgress());
           final TOTProduct? product = await productsRepo.editProductById(
-              productId: v.productId, code: v.code, name: v.name);
+              productId: v.productId, code: v.code, name: v.name, categoryId:v.categoryId);
           isSuccess
               ? emit(_EditProductState(product!))
               : emit(_EditFailure(product!));

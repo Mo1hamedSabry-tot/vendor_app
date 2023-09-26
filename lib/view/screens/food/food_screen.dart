@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
+import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
@@ -192,24 +196,42 @@ class _FoodScreenState extends State<FoodScreen>
                                         );
                                       },
                                     );
-                                  }, loadSuccess: (v) {
+                                  }, loadSuccess: (event) {
                                     return ListView.builder(
-                                        itemCount: v.items.length,
+                                        itemCount: event.items.length,
                                         scrollDirection: Axis.horizontal,
                                         padding: EdgeInsets.zero,
                                         itemBuilder: (context, index) {
                                           return CategoryItem(
-                                            title: v.items[index].name,
-                                            isSelect: v.items[index].isSelected,
+                                            title: event.items[index].name,
+                                            isSelect:
+                                                event.items[index].isSelected,
                                             onTab: () {
+                                              context
+                                                  .read<GetProductBloc>()
+                                                  .add(GetProductEvent
+                                                      .getProduct(
+                                                          categoryId: event
+                                                              .items[index]
+                                                              .id));
+                                              log(' ****** catalog id :: ${event.items[index].catalogId}');
+                                              log(' ****** category id :: ${event.items[index].id}');
+                                              context
+                                                      .read<AddProductBloc>()
+                                                      .catalogId =
+                                                  event.items[index].catalogId;
+                                              context
+                                                      .read<AddProductBloc>()
+                                                      .categoreyId =
+                                                  event.items[index].id;
                                               setState(
                                                 () {
                                                   selectedItemIndex = index;
-                                                  for (var tab in v.items) {
-                                                    tab.isSelected == false;
+                                                  for (var tab in event.items) {
+                                                    tab.isSelected = false;
                                                   }
-                                                  v.items[index].isSelected ==
-                                                      true;
+                                                  event.items[index]
+                                                      .isSelected = true;
                                                 },
                                               );
                                             },

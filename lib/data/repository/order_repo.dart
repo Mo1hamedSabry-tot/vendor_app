@@ -39,7 +39,6 @@ class OrderRepository {
     } catch (e) {
       log('getAcceptedOrder cccccccathhhh ${e.toString()}');
     }
-    log("::::::::::::::: ${orders.toString()} :::::::::::::::");
     return orders!;
   }
   Future<CustomerOrderResponse> getReadyOrder() async {
@@ -58,7 +57,6 @@ class OrderRepository {
     } catch (e) {
       log('getReadyOrder cccccccathhhh ${e.toString()}');
     }
-    log("::::::::::::::: in getReadyOrder ${orders.toString()} :::::::::::::::");
     return orders!;
   }
 

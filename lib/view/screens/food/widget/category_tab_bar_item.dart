@@ -24,6 +24,7 @@ class CategoryItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         constraints: const BoxConstraints(maxWidth: 100, minWidth: 50),
         height: 35,
         child: Center(

@@ -7,6 +7,7 @@ class EditProductEvent with _$EditProductEvent {
     required String code,
     required String productId,
     required String catalogId,
+    required String categoryId,
   }) =
       _EditProduct;
 }

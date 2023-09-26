@@ -4,6 +4,7 @@ import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
+import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 
@@ -192,7 +193,9 @@ class _FoodScreenState extends State<FoodScreen>
                                         );
                                       },
                                     );
-                                  }, loadSuccess: (v) {
+                                  },
+                                  loadSuccess: (v) {
+                                
                                     return ListView.builder(
                                         itemCount: v.items.length,
                                         scrollDirection: Axis.horizontal,
@@ -202,13 +205,21 @@ class _FoodScreenState extends State<FoodScreen>
                                             title: v.items[index].name,
                                             isSelect: v.items[index].isSelected,
                                             onTab: () {
+                                              context
+                                                  .read<GetProductBloc>()
+                                                  .add(GetProductEvent
+                                                      .getProduct(
+                                                          categoryId: v
+                                                              .items[index]
+                                                              .id));
+
                                               setState(
                                                 () {
                                                   selectedItemIndex = index;
                                                   for (var tab in v.items) {
-                                                    tab.isSelected == false;
+                                                    tab.isSelected = false;
                                                   }
-                                                  v.items[index].isSelected ==
+                                                  v.items[index].isSelected =
                                                       true;
                                                 },
                                               );

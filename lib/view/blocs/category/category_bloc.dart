@@ -10,11 +10,13 @@ part 'category_bloc.freezed.dart';
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   final GetCategoryRepository repository;
 
-  CategoryBloc({required this.repository}) : super(const CategoryState.initial()) {
+  CategoryBloc({required this.repository})
+      : super(const CategoryState.initial()) {
     on<CategoryEvent>((event, emit) async {
-      await event.map(getCategory:  (v) async {
+      await event.map(getCategory: (v) async {
         emit(const _LoadInProgress());
         final CategoryModel data = await repository.getCategory();
+        data.items[0].isSelected = true;
         emit(_LoadSuccess(data));
       });
     });

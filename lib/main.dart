@@ -26,9 +26,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   await DioHelper.init();
-  await OrderRepository().getNewOrder();
-  await OrderRepository().getAcceptedOrder();
-  await OrderRepository().getReadyOrder();
+  // await OrderRepository().getNewOrder();
+  // await OrderRepository().getAcceptedOrder();
+  // await OrderRepository().getReadyOrder();
+  // await ProductsRepository()
+  //     .getProductsFromDatabsae()
+  //     .then((value) => log("getProductsFromDatabsae Success"));
   runApp(const MyApp());
 }
 
@@ -44,7 +47,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => LoginBloc(repository: LoginRepository())),
         BlocProvider(
-            create: (context) => OrderBloc(orderRep: OrderRepository())),
+            create: (context) => OrderBloc(
+                orderRep: OrderRepository()
+                  ..getAcceptedOrder()
+                  ..getNewOrder()
+                  ..getReadyOrder())),
         BlocProvider(
             create: (context) =>
                 AddProductBloc(repository: AddProductRepository())),

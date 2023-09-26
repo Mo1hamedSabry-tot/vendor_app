@@ -18,16 +18,16 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         emit(const _LoadInProgress());
         final CustomerOrderResponse data = await orderRep.getNewOrder();
 
-        List<CustomerOrderResult> filteredItems = [];
-        for (final CustomerOrderResult model in data.results ?? []) {
-          final cond = model.items
-                  ?.any((element) => element.status?.toLowerCase() == "new") ??
-              false;
+        // List<CustomerOrderResult> filteredItems = [];
+        // for (final CustomerOrderResult model in data.results ?? []) {
+        //   final cond = model.items?
+        //           .any((element) => element.status?.toLowerCase() == "new") ??
+        //       false;
 
-          cond ? filteredItems.add(model) : null;
-          data.results = filteredItems;
-        }
+          // cond ? filteredItems.add(model) : null;
+          // data.results = filteredItems;
         emit(_SuuccessGetOrder(orders: data)); //data
+        
       },
       
        updateSelectedItem: (event) {
@@ -40,7 +40,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
           selectedItems,
           event.order,
         );
-        emit(_SuuccessUpdateOrder(statusCode: stateCode));
+        emit(_SuuccessUpdateOrderToAccepted(statusCode: stateCode));
       }, 
       
       updateOrderToReady: (v) async {
@@ -49,7 +49,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
           selectedItems,
           v.order,
         );
-        emit(_SuuccessUpdateOrder(statusCode: stateCode));
+        emit(_SuuccessUpdateOrderToReady(statusCode: stateCode));
       }, 
       
       getAcceptedOedre: (v) async {

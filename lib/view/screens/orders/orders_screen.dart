@@ -53,11 +53,10 @@ class _OrdersScreenState extends State<OrdersScreen>
     _tabController?.dispose();
   }
 
+  String? subtitle = 'Loading...';
   @override
   Widget build(BuildContext context) {
     final title = appBarTitles[index]['title'];
-    String? subtitle = 'Loading...';
-
     return BlocConsumer<OrderBloc, OrderState>(
       listener: (context, state) {
         state.maybeWhen(
@@ -66,7 +65,7 @@ class _OrdersScreenState extends State<OrdersScreen>
             subtitle = 'Loading ...';
           },
           suuccessGetOrder: (orders) {
-            subtitle = '${orders.totalCount.toString()} order';
+            subtitle = '${orders.results!.length} order';
           },
           suuccessGetAcceptedOrder: (orders) {
             subtitle = '${orders.totalCount.toString()} order';
@@ -162,7 +161,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                       listener: (context, state) {
                     state.maybeWhen(
                       orElse: () {},
-                      suuccessUpdateOrder: (v) {
+                      suuccessUpdateOrderToAccepted: (v) {
                         context.read<OrderBloc>().add(
                               const OrderEvent.getNewOrder(),
                             );
@@ -170,7 +169,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                         ShowSnackbar.showCheckTopSnackBar(context,
                             text: 'Update order', type: SnackBarType.success);
                       },
-                      errorUpdateOrder: () {
+                      errorUpdateOrderToAccepted: () {
                         ShowSnackbar.showCheckTopSnackBar(context,
                             text: 'not update order', type: SnackBarType.error);
                       },
@@ -247,21 +246,22 @@ class _OrdersScreenState extends State<OrdersScreen>
                   }),
                   BlocConsumer<OrderBloc, OrderState>(
                       listener: (context, state) {
-                    //     state.maybeWhen(
-                    //   orElse: () {},
-                    //   suuccessUpdateOrder: (v) {
-                    //     context.read<OrderBloc>().add(
-                    //           const OrderEvent.getNewOrder(),
-                    //         );
-                    //     Navigator.pop(context);
-                    //     ShowSnackbar.showCheckTopSnackBar(context,
-                    //         text: 'Update order', type: SnackBarType.success);
-                    //   },
-                    //   errorUpdateOrder: () {
-                    //     ShowSnackbar.showCheckTopSnackBar(context,
-                    //         text: 'not update order', type: SnackBarType.error);
-                    //   },
-                    // );
+                    state.maybeWhen(
+                      orElse: () {},
+                      suuccessUpdateOrderToReady: (v) {
+                        context.read<OrderBloc>().add(
+                              const OrderEvent.getAcceptedOedre(),
+                            );
+                        Navigator.pop(context);
+                        ShowSnackbar.showCheckTopSnackBar(context,
+                            text: 'Update order to Ready',
+                            type: SnackBarType.success);
+                      },
+                      errorUpdateOrderToReady: () {
+                        ShowSnackbar.showCheckTopSnackBar(context,
+                            text: 'not update order', type: SnackBarType.error);
+                      },
+                    );
                   }, builder: (context, state) {
                     return state.maybeWhen(
                       orElse: () {

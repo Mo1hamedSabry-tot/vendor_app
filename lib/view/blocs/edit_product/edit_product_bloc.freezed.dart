@@ -20,24 +20,25 @@ mixin _$EditProductEvent {
   String get code => throw _privateConstructorUsedError;
   String get productId => throw _privateConstructorUsedError;
   String get catalogId => throw _privateConstructorUsedError;
+  String get categoryId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String code, String productId, String catalogId)
+    required TResult Function(String name, String code, String productId,
+            String catalogId, String categoryId)
         editProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String name, String code, String productId, String catalogId)?
+    TResult? Function(String name, String code, String productId,
+            String catalogId, String categoryId)?
         editProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String name, String code, String productId, String catalogId)?
+    TResult Function(String name, String code, String productId,
+            String catalogId, String categoryId)?
         editProduct,
     required TResult orElse(),
   }) =>
@@ -70,7 +71,12 @@ abstract class $EditProductEventCopyWith<$Res> {
           EditProductEvent value, $Res Function(EditProductEvent) then) =
       _$EditProductEventCopyWithImpl<$Res, EditProductEvent>;
   @useResult
-  $Res call({String name, String code, String productId, String catalogId});
+  $Res call(
+      {String name,
+      String code,
+      String productId,
+      String catalogId,
+      String categoryId});
 }
 
 /// @nodoc
@@ -90,6 +96,7 @@ class _$EditProductEventCopyWithImpl<$Res, $Val extends EditProductEvent>
     Object? code = null,
     Object? productId = null,
     Object? catalogId = null,
+    Object? categoryId = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -108,6 +115,10 @@ class _$EditProductEventCopyWithImpl<$Res, $Val extends EditProductEvent>
           ? _value.catalogId
           : catalogId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -120,7 +131,12 @@ abstract class _$$_EditProductCopyWith<$Res>
       __$$_EditProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String code, String productId, String catalogId});
+  $Res call(
+      {String name,
+      String code,
+      String productId,
+      String catalogId,
+      String categoryId});
 }
 
 /// @nodoc
@@ -138,6 +154,7 @@ class __$$_EditProductCopyWithImpl<$Res>
     Object? code = null,
     Object? productId = null,
     Object? catalogId = null,
+    Object? categoryId = null,
   }) {
     return _then(_$_EditProduct(
       name: null == name
@@ -156,6 +173,10 @@ class __$$_EditProductCopyWithImpl<$Res>
           ? _value.catalogId
           : catalogId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -167,7 +188,8 @@ class _$_EditProduct implements _EditProduct {
       {required this.name,
       required this.code,
       required this.productId,
-      required this.catalogId});
+      required this.catalogId,
+      required this.categoryId});
 
   @override
   final String name;
@@ -177,10 +199,12 @@ class _$_EditProduct implements _EditProduct {
   final String productId;
   @override
   final String catalogId;
+  @override
+  final String categoryId;
 
   @override
   String toString() {
-    return 'EditProductEvent.editProduct(name: $name, code: $code, productId: $productId, catalogId: $catalogId)';
+    return 'EditProductEvent.editProduct(name: $name, code: $code, productId: $productId, catalogId: $catalogId, categoryId: $categoryId)';
   }
 
   @override
@@ -193,12 +217,14 @@ class _$_EditProduct implements _EditProduct {
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.catalogId, catalogId) ||
-                other.catalogId == catalogId));
+                other.catalogId == catalogId) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, code, productId, catalogId);
+      Object.hash(runtimeType, name, code, productId, catalogId, categoryId);
 
   @JsonKey(ignore: true)
   @override
@@ -209,33 +235,33 @@ class _$_EditProduct implements _EditProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String code, String productId, String catalogId)
+    required TResult Function(String name, String code, String productId,
+            String catalogId, String categoryId)
         editProduct,
   }) {
-    return editProduct(name, code, productId, catalogId);
+    return editProduct(name, code, productId, catalogId, categoryId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String name, String code, String productId, String catalogId)?
+    TResult? Function(String name, String code, String productId,
+            String catalogId, String categoryId)?
         editProduct,
   }) {
-    return editProduct?.call(name, code, productId, catalogId);
+    return editProduct?.call(name, code, productId, catalogId, categoryId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String name, String code, String productId, String catalogId)?
+    TResult Function(String name, String code, String productId,
+            String catalogId, String categoryId)?
         editProduct,
     required TResult orElse(),
   }) {
     if (editProduct != null) {
-      return editProduct(name, code, productId, catalogId);
+      return editProduct(name, code, productId, catalogId, categoryId);
     }
     return orElse();
   }
@@ -274,7 +300,8 @@ abstract class _EditProduct implements EditProductEvent {
       {required final String name,
       required final String code,
       required final String productId,
-      required final String catalogId}) = _$_EditProduct;
+      required final String catalogId,
+      required final String categoryId}) = _$_EditProduct;
 
   @override
   String get name;
@@ -284,6 +311,8 @@ abstract class _EditProduct implements EditProductEvent {
   String get productId;
   @override
   String get catalogId;
+  @override
+  String get categoryId;
   @override
   @JsonKey(ignore: true)
   _$$_EditProductCopyWith<_$_EditProduct> get copyWith =>

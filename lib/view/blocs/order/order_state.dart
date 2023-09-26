@@ -9,9 +9,13 @@ class OrderState with _$OrderState {
   const factory OrderState.errorGetOrder()=_ErrorGetOrder;
 
 
-   const factory OrderState.suuccessUpdateOrder({required int statusCode}) =
-      _SuuccessUpdateOrder;
-      const factory OrderState.errorUpdateOrder()=_ErrorUpdateOrder;
+   const factory OrderState.suuccessUpdateOrderToAccepted({required int statusCode}) =
+      _SuuccessUpdateOrderToAccepted;
+      const factory OrderState.errorUpdateOrderToAccepted()=_ErrorUpdateOrderToAccepted;
+
+   const factory OrderState.suuccessUpdateOrderToReady({required int statusCode}) =
+      _SuuccessUpdateOrderToReady;
+      const factory OrderState.errorUpdateOrderToReady()=_ErrorUpdateOrderToReady;
 
       
       const factory OrderState.suuccessGetAcceptedOrder({required CustomerOrderResponse orders}) =

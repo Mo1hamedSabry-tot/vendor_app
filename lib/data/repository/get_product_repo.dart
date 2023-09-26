@@ -6,18 +6,24 @@ import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 
+import '../models/response/list_entires_product_model.dart';
+
 class ProductsRepository {
-  Future<TOTProductsModel> getProductsFromDatabsae() async {
-    TOTProductsModel? dataModel;
+  Future<ListEntriesProducts> getProductsFromDatabsae(
+      {String? categoryId}) async {
+    ListEntriesProducts? dataModel;
     try {
       await DioHelper.postData(
-          url: Endpoint.getProductEndPoint,
+          url: Endpoint.listEntriesEndPoint,
           token: CacheHelper.get('token'),
           data: {
             "skip": 0,
+            "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
+            "categoryId": categoryId,
             "take": 300,
           }).then((value) {
-        dataModel = TOTProductsModel.fromJson(value.data);
+        log("categoryId: $categoryId ---------- ${value.data}");
+        dataModel = ListEntriesProducts.fromJson(value.data);
       });
     } catch (e) {
       log('***cccccccathhhh in ProductsRepository*** ${e.toString()}');
@@ -29,6 +35,7 @@ class ProductsRepository {
     required String productId,
     required String code,
     required String name,
+    required String categoryId,
     String image =
         "http://20.163.148.155:8080/assets/catalog/f5790/PJV-27970586/Images/1.png",
   }) async {
@@ -42,6 +49,7 @@ class ProductsRepository {
             "code": code,
             "name": name,
             "catalogId": "f5790b39-4fc8-4aad-8318-259d28595f05",
+            "categoryId": categoryId,
             "id": productId,
             "imgSrc": image,
           }).then((value) {

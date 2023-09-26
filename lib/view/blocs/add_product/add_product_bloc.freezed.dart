@@ -19,20 +19,26 @@ mixin _$AddProductEvent {
   String get name => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
   String get catalogId => throw _privateConstructorUsedError;
+  String get categoryId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String code, String catalogId)
+    required TResult Function(
+            String name, String code, String catalogId, String categoryId)
         addProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String code, String catalogId)? addProduct,
+    TResult? Function(
+            String name, String code, String catalogId, String categoryId)?
+        addProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String code, String catalogId)? addProduct,
+    TResult Function(
+            String name, String code, String catalogId, String categoryId)?
+        addProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,7 +70,7 @@ abstract class $AddProductEventCopyWith<$Res> {
           AddProductEvent value, $Res Function(AddProductEvent) then) =
       _$AddProductEventCopyWithImpl<$Res, AddProductEvent>;
   @useResult
-  $Res call({String name, String code, String catalogId});
+  $Res call({String name, String code, String catalogId, String categoryId});
 }
 
 /// @nodoc
@@ -83,6 +89,7 @@ class _$AddProductEventCopyWithImpl<$Res, $Val extends AddProductEvent>
     Object? name = null,
     Object? code = null,
     Object? catalogId = null,
+    Object? categoryId = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -97,6 +104,10 @@ class _$AddProductEventCopyWithImpl<$Res, $Val extends AddProductEvent>
           ? _value.catalogId
           : catalogId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -109,7 +120,7 @@ abstract class _$$_AddProductCopyWith<$Res>
       __$$_AddProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String code, String catalogId});
+  $Res call({String name, String code, String catalogId, String categoryId});
 }
 
 /// @nodoc
@@ -126,6 +137,7 @@ class __$$_AddProductCopyWithImpl<$Res>
     Object? name = null,
     Object? code = null,
     Object? catalogId = null,
+    Object? categoryId = null,
   }) {
     return _then(_$_AddProduct(
       name: null == name
@@ -140,6 +152,10 @@ class __$$_AddProductCopyWithImpl<$Res>
           ? _value.catalogId
           : catalogId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -148,7 +164,10 @@ class __$$_AddProductCopyWithImpl<$Res>
 
 class _$_AddProduct implements _AddProduct {
   const _$_AddProduct(
-      {required this.name, required this.code, required this.catalogId});
+      {required this.name,
+      required this.code,
+      required this.catalogId,
+      required this.categoryId});
 
   @override
   final String name;
@@ -156,10 +175,12 @@ class _$_AddProduct implements _AddProduct {
   final String code;
   @override
   final String catalogId;
+  @override
+  final String categoryId;
 
   @override
   String toString() {
-    return 'AddProductEvent.addProduct(name: $name, code: $code, catalogId: $catalogId)';
+    return 'AddProductEvent.addProduct(name: $name, code: $code, catalogId: $catalogId, categoryId: $categoryId)';
   }
 
   @override
@@ -170,11 +191,14 @@ class _$_AddProduct implements _AddProduct {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.catalogId, catalogId) ||
-                other.catalogId == catalogId));
+                other.catalogId == catalogId) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, code, catalogId);
+  int get hashCode =>
+      Object.hash(runtimeType, name, code, catalogId, categoryId);
 
   @JsonKey(ignore: true)
   @override
@@ -185,28 +209,33 @@ class _$_AddProduct implements _AddProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String code, String catalogId)
+    required TResult Function(
+            String name, String code, String catalogId, String categoryId)
         addProduct,
   }) {
-    return addProduct(name, code, catalogId);
+    return addProduct(name, code, catalogId, categoryId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String code, String catalogId)? addProduct,
+    TResult? Function(
+            String name, String code, String catalogId, String categoryId)?
+        addProduct,
   }) {
-    return addProduct?.call(name, code, catalogId);
+    return addProduct?.call(name, code, catalogId, categoryId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String code, String catalogId)? addProduct,
+    TResult Function(
+            String name, String code, String catalogId, String categoryId)?
+        addProduct,
     required TResult orElse(),
   }) {
     if (addProduct != null) {
-      return addProduct(name, code, catalogId);
+      return addProduct(name, code, catalogId, categoryId);
     }
     return orElse();
   }
@@ -244,7 +273,8 @@ abstract class _AddProduct implements AddProductEvent {
   const factory _AddProduct(
       {required final String name,
       required final String code,
-      required final String catalogId}) = _$_AddProduct;
+      required final String catalogId,
+      required final String categoryId}) = _$_AddProduct;
 
   @override
   String get name;
@@ -252,6 +282,8 @@ abstract class _AddProduct implements AddProductEvent {
   String get code;
   @override
   String get catalogId;
+  @override
+  String get categoryId;
   @override
   @JsonKey(ignore: true)
   _$$_AddProductCopyWith<_$_AddProduct> get copyWith =>

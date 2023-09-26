@@ -36,6 +36,7 @@ class ProductsRepository {
     required String code,
     required String name,
     required String categoryId,
+    required String catalogId,
     String image =
         "http://20.163.148.155:8080/assets/catalog/f5790/PJV-27970586/Images/1.png",
   }) async {
@@ -48,7 +49,7 @@ class ProductsRepository {
           data: {
             "code": code,
             "name": name,
-            "catalogId": "f5790b39-4fc8-4aad-8318-259d28595f05",
+            "catalogId":catalogId,
             "categoryId": categoryId,
             "id": productId,
             "imgSrc": image,

@@ -252,8 +252,13 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                             );
                           },
                           loadInProgress: () {
-                            return const CircularProgressIndicator(
-                              color: AppColors.blackColor,
+                            return const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                color: AppColors.white,
+                                strokeWidth: 3,
+                              ),
                             );
                           },
                         ),

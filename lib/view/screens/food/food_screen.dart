@@ -216,7 +216,8 @@ class _FoodScreenState extends State<FoodScreen>
                                                               .id));
                                               log(' ****** catalog id :: ${event.items[index].catalogId}');
                                               log(' ****** category id :: ${event.items[index].id}');
-                                              context
+                                              if(context.mounted) {
+                                                context
                                                       .read<AddProductBloc>()
                                                       .catalogId =
                                                   event.items[index].catalogId;
@@ -224,6 +225,7 @@ class _FoodScreenState extends State<FoodScreen>
                                                       .read<AddProductBloc>()
                                                       .categoreyId =
                                                   event.items[index].id;
+                                              }
                                               setState(
                                                 () {
                                                   selectedItemIndex = index;

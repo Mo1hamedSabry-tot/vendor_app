@@ -11,6 +11,7 @@ import 'package:vendor_foody/view/screens/orders/widgets/list_item/accepted_orde
 import 'package:vendor_foody/view/screens/orders/widgets/list_item/new_order_item.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/new/new_bottom_sheet.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/no_orders.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/ready/ready_bottom_sheet.dart';
 
 import '../../../custom/custom_app_bar.dart';
 import '../../../custom/custom_tab_bar.dart';
@@ -43,8 +44,10 @@ class _OrdersScreenState extends State<OrdersScreen>
   @override
   void initState() {
     super.initState();
-    _tabController =
-        _tabController = TabController(length: tabs.length, vsync: this);
+    _tabController = _tabController = TabController(
+      length: tabs.length,
+      vsync: this,
+    );
   }
 
   @override
@@ -62,7 +65,7 @@ class _OrdersScreenState extends State<OrdersScreen>
         state.maybeWhen(
           orElse: () {},
           loadInProgress: () {
-            subtitle = 'Loading ...'; 
+            subtitle = 'Loading ...';
           },
           suuccessGetOrder: (orders) {
             subtitle = '${orders.results!.length} order';
@@ -138,7 +141,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                     if (v == 0) {
                       context
                           .read<OrderBloc>()
-                          .add(const OrderEvent.getNewOrder());
+                          .add(const OrderEvent.getNewOrderEvent());
                     } else if (v == 1) {
                       context
                           .read<OrderBloc>()
@@ -163,7 +166,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                       orElse: () {},
                       suuccessUpdateOrderToAccepted: (v) {
                         context.read<OrderBloc>().add(
-                              const OrderEvent.getNewOrder(),
+                              const OrderEvent.getNewOrderEvent(),
                             );
                         Navigator.pop(context);
                         ShowSnackbar.showCheckTopSnackBar(context,
@@ -390,15 +393,10 @@ class _OrdersScreenState extends State<OrdersScreen>
                                             builder: (BuildContext context) {
                                               final order =
                                                   orders.results![index];
-                                              return AcceptedOrderBottomSheet(
+                                              return ReadyOrderBottomSheet(
                                                   listOfItems: order.items!,
                                                   onTap: () {
-                                                    context
-                                                        .read<OrderBloc>()
-                                                        .add(OrderEvent
-                                                            .updateOrderToReady(
-                                                          order: order,
-                                                        ));
+                                                    Navigator.pop(context);
                                                   }); // Your custom bottom sheet widget
                                             });
                                       }

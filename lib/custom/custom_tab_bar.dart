@@ -34,6 +34,7 @@ class CustomTabBar extends StatelessWidget {
         unselectedLabelColor: const Color(0xFF232B2F),
         unselectedLabelStyle: const TextStyle(fontSize: 14),
         labelStyle: const TextStyle(fontSize: 14),
+        
         tabs: tabs,
       ),
     );

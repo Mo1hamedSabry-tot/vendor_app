@@ -18,7 +18,7 @@ class AddProductRepository {
     late AddProductResponseModel model;
     try {
       await DioHelper.postData(
-          token: CacheHelper.get('token'),
+          token: CacheHelper.get('access_token'),
           url:Endpoint.addProductEndPoint ,
           data: {
             "code": code,

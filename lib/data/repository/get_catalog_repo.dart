@@ -11,7 +11,7 @@ class GetCatalogsRepository {
     try {
       await DioHelper.postData(
           url: Endpoint.getCatologsEndPoint,
-          token: CacheHelper.get('token'),
+          token: CacheHelper.get('access_token'),
           data: {
             "searchInVariations": true,
             "responseGroup": "none",

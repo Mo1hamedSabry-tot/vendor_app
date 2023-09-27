@@ -140,7 +140,8 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                 },
                 loginError: () async {
                   ShowSnackbar.showCheckTopSnackBar(context,
-                      text: 'not Found', type: SnackBarType.error);
+                      text: 'Please, enter valid user data!',
+                      type: SnackBarType.error);
                 },
                 orElse: () {},
               );

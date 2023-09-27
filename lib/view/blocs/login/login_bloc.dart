@@ -33,10 +33,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               CacheHelper.set('access_token', token);
               final accessToken = CacheHelper.get('access_token');
               log("Access token::: $accessToken ***********");
-              data.succeeded
-                  ? {emit(LoginState.loginSuccess(data))}
-                  : emit(const LoginState.loginError());
             }
+            data.succeeded
+                ? {emit(LoginState.loginSuccess(data))}
+                : emit(const LoginState.loginError());
           },
         );
       },

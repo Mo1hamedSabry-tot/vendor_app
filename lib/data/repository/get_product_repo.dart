@@ -15,11 +15,11 @@ class ProductsRepository {
     try {
       await DioHelper.postData(
           url: Endpoint.listEntriesEndPoint,
-          token: CacheHelper.get('token'),
+          token: CacheHelper.get('access_token'),
           data: {
             "skip": 0,
             "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
-            "categoryId": categoryId,
+            "categoryId": categoryId ?? "5bd41b52-d041-4f82-95e3-f29cf1dfe2d1",
             "take": 300,
           }).then((value) {
         log("categoryId: $categoryId ---------- ${value.data}");
@@ -45,11 +45,11 @@ class ProductsRepository {
     try {
       await DioHelper.postData(
           url: Endpoint.addProductEndPoint,
-          token: CacheHelper.get('token'),
+          token: CacheHelper.get('access_token'),
           data: {
             "code": code,
             "name": name,
-            "catalogId":catalogId,
+            "catalogId": catalogId,
             "categoryId": categoryId,
             "id": productId,
             "imgSrc": image,

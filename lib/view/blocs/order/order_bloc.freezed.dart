@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$OrderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getNewOrder,
+    required TResult Function() getNewOrderEvent,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
     required TResult Function(CustomerOrderResult order) updateOrderToAccept,
     required TResult Function(CustomerOrderResult order) updateOrderToReady,
@@ -28,7 +28,7 @@ mixin _$OrderEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getNewOrder,
+    TResult? Function()? getNewOrderEvent,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
     TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult? Function(CustomerOrderResult order)? updateOrderToReady,
@@ -38,7 +38,7 @@ mixin _$OrderEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getNewOrder,
+    TResult Function()? getNewOrderEvent,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
     TResult Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult Function(CustomerOrderResult order)? updateOrderToReady,
@@ -49,30 +49,30 @@ mixin _$OrderEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_GetNewOrderEvent value) getNewOrderEvent,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
-    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_UpdateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_UpdateOrderToReady value) updateOrderToReady,
     required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
     required TResult Function(_GetReadyOedre value) getReadyOedre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult? Function(_GetReadyOedre value)? getReadyOedre,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult Function(_GetReadyOedre value)? getReadyOedre,
     required TResult orElse(),
@@ -99,41 +99,43 @@ class _$OrderEventCopyWithImpl<$Res, $Val extends OrderEvent>
 }
 
 /// @nodoc
-abstract class _$$_getNewOrderCopyWith<$Res> {
-  factory _$$_getNewOrderCopyWith(
-          _$_getNewOrder value, $Res Function(_$_getNewOrder) then) =
-      __$$_getNewOrderCopyWithImpl<$Res>;
+abstract class _$$_GetNewOrderEventCopyWith<$Res> {
+  factory _$$_GetNewOrderEventCopyWith(
+          _$_GetNewOrderEvent value, $Res Function(_$_GetNewOrderEvent) then) =
+      __$$_GetNewOrderEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_getNewOrderCopyWithImpl<$Res>
-    extends _$OrderEventCopyWithImpl<$Res, _$_getNewOrder>
-    implements _$$_getNewOrderCopyWith<$Res> {
-  __$$_getNewOrderCopyWithImpl(
-      _$_getNewOrder _value, $Res Function(_$_getNewOrder) _then)
+class __$$_GetNewOrderEventCopyWithImpl<$Res>
+    extends _$OrderEventCopyWithImpl<$Res, _$_GetNewOrderEvent>
+    implements _$$_GetNewOrderEventCopyWith<$Res> {
+  __$$_GetNewOrderEventCopyWithImpl(
+      _$_GetNewOrderEvent _value, $Res Function(_$_GetNewOrderEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
-  const _$_getNewOrder();
+class _$_GetNewOrderEvent
+    with DiagnosticableTreeMixin
+    implements _GetNewOrderEvent {
+  const _$_GetNewOrderEvent();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'OrderEvent.getNewOrder()';
+    return 'OrderEvent.getNewOrderEvent()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'OrderEvent.getNewOrder'));
+    properties.add(DiagnosticsProperty('type', 'OrderEvent.getNewOrderEvent'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getNewOrder);
+        (other.runtimeType == runtimeType && other is _$_GetNewOrderEvent);
   }
 
   @override
@@ -142,33 +144,33 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getNewOrder,
+    required TResult Function() getNewOrderEvent,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
     required TResult Function(CustomerOrderResult order) updateOrderToAccept,
     required TResult Function(CustomerOrderResult order) updateOrderToReady,
     required TResult Function(CustomerOrderResponse? response) getAcceptedOedre,
     required TResult Function(CustomerOrderResponse? response) getReadyOedre,
   }) {
-    return getNewOrder();
+    return getNewOrderEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getNewOrder,
+    TResult? Function()? getNewOrderEvent,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
     TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult? Function(CustomerOrderResult order)? updateOrderToReady,
     TResult? Function(CustomerOrderResponse? response)? getAcceptedOedre,
     TResult? Function(CustomerOrderResponse? response)? getReadyOedre,
   }) {
-    return getNewOrder?.call();
+    return getNewOrderEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getNewOrder,
+    TResult Function()? getNewOrderEvent,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
     TResult Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult Function(CustomerOrderResult order)? updateOrderToReady,
@@ -176,8 +178,8 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
     TResult Function(CustomerOrderResponse? response)? getReadyOedre,
     required TResult orElse(),
   }) {
-    if (getNewOrder != null) {
-      return getNewOrder();
+    if (getNewOrderEvent != null) {
+      return getNewOrderEvent();
     }
     return orElse();
   }
@@ -185,49 +187,49 @@ class _$_getNewOrder with DiagnosticableTreeMixin implements _getNewOrder {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_GetNewOrderEvent value) getNewOrderEvent,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
-    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_UpdateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_UpdateOrderToReady value) updateOrderToReady,
     required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
     required TResult Function(_GetReadyOedre value) getReadyOedre,
   }) {
-    return getNewOrder(this);
+    return getNewOrderEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult? Function(_GetReadyOedre value)? getReadyOedre,
   }) {
-    return getNewOrder?.call(this);
+    return getNewOrderEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult Function(_GetReadyOedre value)? getReadyOedre,
     required TResult orElse(),
   }) {
-    if (getNewOrder != null) {
-      return getNewOrder(this);
+    if (getNewOrderEvent != null) {
+      return getNewOrderEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class _getNewOrder implements OrderEvent {
-  const factory _getNewOrder() = _$_getNewOrder;
+abstract class _GetNewOrderEvent implements OrderEvent {
+  const factory _GetNewOrderEvent() = _$_GetNewOrderEvent;
 }
 
 /// @nodoc
@@ -315,7 +317,7 @@ class _$_UpdateSelectedItem
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getNewOrder,
+    required TResult Function() getNewOrderEvent,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
     required TResult Function(CustomerOrderResult order) updateOrderToAccept,
     required TResult Function(CustomerOrderResult order) updateOrderToReady,
@@ -328,7 +330,7 @@ class _$_UpdateSelectedItem
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getNewOrder,
+    TResult? Function()? getNewOrderEvent,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
     TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult? Function(CustomerOrderResult order)? updateOrderToReady,
@@ -341,7 +343,7 @@ class _$_UpdateSelectedItem
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getNewOrder,
+    TResult Function()? getNewOrderEvent,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
     TResult Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult Function(CustomerOrderResult order)? updateOrderToReady,
@@ -358,10 +360,10 @@ class _$_UpdateSelectedItem
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_GetNewOrderEvent value) getNewOrderEvent,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
-    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_UpdateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_UpdateOrderToReady value) updateOrderToReady,
     required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
     required TResult Function(_GetReadyOedre value) getReadyOedre,
   }) {
@@ -371,10 +373,10 @@ class _$_UpdateSelectedItem
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult? Function(_GetReadyOedre value)? getReadyOedre,
   }) {
@@ -384,10 +386,10 @@ class _$_UpdateSelectedItem
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult Function(_GetReadyOedre value)? getReadyOedre,
     required TResult orElse(),
@@ -410,10 +412,10 @@ abstract class _UpdateSelectedItem implements OrderEvent {
 }
 
 /// @nodoc
-abstract class _$$_updateOrderToAcceptCopyWith<$Res> {
-  factory _$$_updateOrderToAcceptCopyWith(_$_updateOrderToAccept value,
-          $Res Function(_$_updateOrderToAccept) then) =
-      __$$_updateOrderToAcceptCopyWithImpl<$Res>;
+abstract class _$$_UpdateOrderToAcceptCopyWith<$Res> {
+  factory _$$_UpdateOrderToAcceptCopyWith(_$_UpdateOrderToAccept value,
+          $Res Function(_$_UpdateOrderToAccept) then) =
+      __$$_UpdateOrderToAcceptCopyWithImpl<$Res>;
   @useResult
   $Res call({CustomerOrderResult order});
 
@@ -421,11 +423,11 @@ abstract class _$$_updateOrderToAcceptCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_updateOrderToAcceptCopyWithImpl<$Res>
-    extends _$OrderEventCopyWithImpl<$Res, _$_updateOrderToAccept>
-    implements _$$_updateOrderToAcceptCopyWith<$Res> {
-  __$$_updateOrderToAcceptCopyWithImpl(_$_updateOrderToAccept _value,
-      $Res Function(_$_updateOrderToAccept) _then)
+class __$$_UpdateOrderToAcceptCopyWithImpl<$Res>
+    extends _$OrderEventCopyWithImpl<$Res, _$_UpdateOrderToAccept>
+    implements _$$_UpdateOrderToAcceptCopyWith<$Res> {
+  __$$_UpdateOrderToAcceptCopyWithImpl(_$_UpdateOrderToAccept _value,
+      $Res Function(_$_UpdateOrderToAccept) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -433,7 +435,7 @@ class __$$_updateOrderToAcceptCopyWithImpl<$Res>
   $Res call({
     Object? order = null,
   }) {
-    return _then(_$_updateOrderToAccept(
+    return _then(_$_UpdateOrderToAccept(
       order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -452,10 +454,10 @@ class __$$_updateOrderToAcceptCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_updateOrderToAccept
+class _$_UpdateOrderToAccept
     with DiagnosticableTreeMixin
-    implements _updateOrderToAccept {
-  const _$_updateOrderToAccept({required this.order});
+    implements _UpdateOrderToAccept {
+  const _$_UpdateOrderToAccept({required this.order});
 
   @override
   final CustomerOrderResult order;
@@ -477,7 +479,7 @@ class _$_updateOrderToAccept
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_updateOrderToAccept &&
+            other is _$_UpdateOrderToAccept &&
             (identical(other.order, order) || other.order == order));
   }
 
@@ -487,14 +489,14 @@ class _$_updateOrderToAccept
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_updateOrderToAcceptCopyWith<_$_updateOrderToAccept> get copyWith =>
-      __$$_updateOrderToAcceptCopyWithImpl<_$_updateOrderToAccept>(
+  _$$_UpdateOrderToAcceptCopyWith<_$_UpdateOrderToAccept> get copyWith =>
+      __$$_UpdateOrderToAcceptCopyWithImpl<_$_UpdateOrderToAccept>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getNewOrder,
+    required TResult Function() getNewOrderEvent,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
     required TResult Function(CustomerOrderResult order) updateOrderToAccept,
     required TResult Function(CustomerOrderResult order) updateOrderToReady,
@@ -507,7 +509,7 @@ class _$_updateOrderToAccept
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getNewOrder,
+    TResult? Function()? getNewOrderEvent,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
     TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult? Function(CustomerOrderResult order)? updateOrderToReady,
@@ -520,7 +522,7 @@ class _$_updateOrderToAccept
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getNewOrder,
+    TResult Function()? getNewOrderEvent,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
     TResult Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult Function(CustomerOrderResult order)? updateOrderToReady,
@@ -537,10 +539,10 @@ class _$_updateOrderToAccept
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_GetNewOrderEvent value) getNewOrderEvent,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
-    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_UpdateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_UpdateOrderToReady value) updateOrderToReady,
     required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
     required TResult Function(_GetReadyOedre value) getReadyOedre,
   }) {
@@ -550,10 +552,10 @@ class _$_updateOrderToAccept
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult? Function(_GetReadyOedre value)? getReadyOedre,
   }) {
@@ -563,10 +565,10 @@ class _$_updateOrderToAccept
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult Function(_GetReadyOedre value)? getReadyOedre,
     required TResult orElse(),
@@ -578,21 +580,21 @@ class _$_updateOrderToAccept
   }
 }
 
-abstract class _updateOrderToAccept implements OrderEvent {
-  const factory _updateOrderToAccept(
-      {required final CustomerOrderResult order}) = _$_updateOrderToAccept;
+abstract class _UpdateOrderToAccept implements OrderEvent {
+  const factory _UpdateOrderToAccept(
+      {required final CustomerOrderResult order}) = _$_UpdateOrderToAccept;
 
   CustomerOrderResult get order;
   @JsonKey(ignore: true)
-  _$$_updateOrderToAcceptCopyWith<_$_updateOrderToAccept> get copyWith =>
+  _$$_UpdateOrderToAcceptCopyWith<_$_UpdateOrderToAccept> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_updateOrderToReadyCopyWith<$Res> {
-  factory _$$_updateOrderToReadyCopyWith(_$_updateOrderToReady value,
-          $Res Function(_$_updateOrderToReady) then) =
-      __$$_updateOrderToReadyCopyWithImpl<$Res>;
+abstract class _$$_UpdateOrderToReadyCopyWith<$Res> {
+  factory _$$_UpdateOrderToReadyCopyWith(_$_UpdateOrderToReady value,
+          $Res Function(_$_UpdateOrderToReady) then) =
+      __$$_UpdateOrderToReadyCopyWithImpl<$Res>;
   @useResult
   $Res call({CustomerOrderResult order});
 
@@ -600,11 +602,11 @@ abstract class _$$_updateOrderToReadyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_updateOrderToReadyCopyWithImpl<$Res>
-    extends _$OrderEventCopyWithImpl<$Res, _$_updateOrderToReady>
-    implements _$$_updateOrderToReadyCopyWith<$Res> {
-  __$$_updateOrderToReadyCopyWithImpl(
-      _$_updateOrderToReady _value, $Res Function(_$_updateOrderToReady) _then)
+class __$$_UpdateOrderToReadyCopyWithImpl<$Res>
+    extends _$OrderEventCopyWithImpl<$Res, _$_UpdateOrderToReady>
+    implements _$$_UpdateOrderToReadyCopyWith<$Res> {
+  __$$_UpdateOrderToReadyCopyWithImpl(
+      _$_UpdateOrderToReady _value, $Res Function(_$_UpdateOrderToReady) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -612,7 +614,7 @@ class __$$_updateOrderToReadyCopyWithImpl<$Res>
   $Res call({
     Object? order = null,
   }) {
-    return _then(_$_updateOrderToReady(
+    return _then(_$_UpdateOrderToReady(
       order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -631,10 +633,10 @@ class __$$_updateOrderToReadyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_updateOrderToReady
+class _$_UpdateOrderToReady
     with DiagnosticableTreeMixin
-    implements _updateOrderToReady {
-  const _$_updateOrderToReady({required this.order});
+    implements _UpdateOrderToReady {
+  const _$_UpdateOrderToReady({required this.order});
 
   @override
   final CustomerOrderResult order;
@@ -656,7 +658,7 @@ class _$_updateOrderToReady
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_updateOrderToReady &&
+            other is _$_UpdateOrderToReady &&
             (identical(other.order, order) || other.order == order));
   }
 
@@ -666,14 +668,14 @@ class _$_updateOrderToReady
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_updateOrderToReadyCopyWith<_$_updateOrderToReady> get copyWith =>
-      __$$_updateOrderToReadyCopyWithImpl<_$_updateOrderToReady>(
+  _$$_UpdateOrderToReadyCopyWith<_$_UpdateOrderToReady> get copyWith =>
+      __$$_UpdateOrderToReadyCopyWithImpl<_$_UpdateOrderToReady>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getNewOrder,
+    required TResult Function() getNewOrderEvent,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
     required TResult Function(CustomerOrderResult order) updateOrderToAccept,
     required TResult Function(CustomerOrderResult order) updateOrderToReady,
@@ -686,7 +688,7 @@ class _$_updateOrderToReady
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getNewOrder,
+    TResult? Function()? getNewOrderEvent,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
     TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult? Function(CustomerOrderResult order)? updateOrderToReady,
@@ -699,7 +701,7 @@ class _$_updateOrderToReady
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getNewOrder,
+    TResult Function()? getNewOrderEvent,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
     TResult Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult Function(CustomerOrderResult order)? updateOrderToReady,
@@ -716,10 +718,10 @@ class _$_updateOrderToReady
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_GetNewOrderEvent value) getNewOrderEvent,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
-    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_UpdateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_UpdateOrderToReady value) updateOrderToReady,
     required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
     required TResult Function(_GetReadyOedre value) getReadyOedre,
   }) {
@@ -729,10 +731,10 @@ class _$_updateOrderToReady
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult? Function(_GetReadyOedre value)? getReadyOedre,
   }) {
@@ -742,10 +744,10 @@ class _$_updateOrderToReady
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult Function(_GetReadyOedre value)? getReadyOedre,
     required TResult orElse(),
@@ -757,13 +759,13 @@ class _$_updateOrderToReady
   }
 }
 
-abstract class _updateOrderToReady implements OrderEvent {
-  const factory _updateOrderToReady(
-      {required final CustomerOrderResult order}) = _$_updateOrderToReady;
+abstract class _UpdateOrderToReady implements OrderEvent {
+  const factory _UpdateOrderToReady(
+      {required final CustomerOrderResult order}) = _$_UpdateOrderToReady;
 
   CustomerOrderResult get order;
   @JsonKey(ignore: true)
-  _$$_updateOrderToReadyCopyWith<_$_updateOrderToReady> get copyWith =>
+  _$$_UpdateOrderToReadyCopyWith<_$_UpdateOrderToReady> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -856,7 +858,7 @@ class _$_GetAcceptedOedre
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getNewOrder,
+    required TResult Function() getNewOrderEvent,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
     required TResult Function(CustomerOrderResult order) updateOrderToAccept,
     required TResult Function(CustomerOrderResult order) updateOrderToReady,
@@ -869,7 +871,7 @@ class _$_GetAcceptedOedre
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getNewOrder,
+    TResult? Function()? getNewOrderEvent,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
     TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult? Function(CustomerOrderResult order)? updateOrderToReady,
@@ -882,7 +884,7 @@ class _$_GetAcceptedOedre
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getNewOrder,
+    TResult Function()? getNewOrderEvent,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
     TResult Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult Function(CustomerOrderResult order)? updateOrderToReady,
@@ -899,10 +901,10 @@ class _$_GetAcceptedOedre
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_GetNewOrderEvent value) getNewOrderEvent,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
-    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_UpdateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_UpdateOrderToReady value) updateOrderToReady,
     required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
     required TResult Function(_GetReadyOedre value) getReadyOedre,
   }) {
@@ -912,10 +914,10 @@ class _$_GetAcceptedOedre
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult? Function(_GetReadyOedre value)? getReadyOedre,
   }) {
@@ -925,10 +927,10 @@ class _$_GetAcceptedOedre
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult Function(_GetReadyOedre value)? getReadyOedre,
     required TResult orElse(),
@@ -1037,7 +1039,7 @@ class _$_GetReadyOedre with DiagnosticableTreeMixin implements _GetReadyOedre {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getNewOrder,
+    required TResult Function() getNewOrderEvent,
     required TResult Function(OrderItemRequest item) updateSelectedItem,
     required TResult Function(CustomerOrderResult order) updateOrderToAccept,
     required TResult Function(CustomerOrderResult order) updateOrderToReady,
@@ -1050,7 +1052,7 @@ class _$_GetReadyOedre with DiagnosticableTreeMixin implements _GetReadyOedre {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getNewOrder,
+    TResult? Function()? getNewOrderEvent,
     TResult? Function(OrderItemRequest item)? updateSelectedItem,
     TResult? Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult? Function(CustomerOrderResult order)? updateOrderToReady,
@@ -1063,7 +1065,7 @@ class _$_GetReadyOedre with DiagnosticableTreeMixin implements _GetReadyOedre {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getNewOrder,
+    TResult Function()? getNewOrderEvent,
     TResult Function(OrderItemRequest item)? updateSelectedItem,
     TResult Function(CustomerOrderResult order)? updateOrderToAccept,
     TResult Function(CustomerOrderResult order)? updateOrderToReady,
@@ -1080,10 +1082,10 @@ class _$_GetReadyOedre with DiagnosticableTreeMixin implements _GetReadyOedre {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getNewOrder value) getNewOrder,
+    required TResult Function(_GetNewOrderEvent value) getNewOrderEvent,
     required TResult Function(_UpdateSelectedItem value) updateSelectedItem,
-    required TResult Function(_updateOrderToAccept value) updateOrderToAccept,
-    required TResult Function(_updateOrderToReady value) updateOrderToReady,
+    required TResult Function(_UpdateOrderToAccept value) updateOrderToAccept,
+    required TResult Function(_UpdateOrderToReady value) updateOrderToReady,
     required TResult Function(_GetAcceptedOedre value) getAcceptedOedre,
     required TResult Function(_GetReadyOedre value) getReadyOedre,
   }) {
@@ -1093,10 +1095,10 @@ class _$_GetReadyOedre with DiagnosticableTreeMixin implements _GetReadyOedre {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getNewOrder value)? getNewOrder,
+    TResult? Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult? Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult? Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult? Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult? Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult? Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult? Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult? Function(_GetReadyOedre value)? getReadyOedre,
   }) {
@@ -1106,10 +1108,10 @@ class _$_GetReadyOedre with DiagnosticableTreeMixin implements _GetReadyOedre {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getNewOrder value)? getNewOrder,
+    TResult Function(_GetNewOrderEvent value)? getNewOrderEvent,
     TResult Function(_UpdateSelectedItem value)? updateSelectedItem,
-    TResult Function(_updateOrderToAccept value)? updateOrderToAccept,
-    TResult Function(_updateOrderToReady value)? updateOrderToReady,
+    TResult Function(_UpdateOrderToAccept value)? updateOrderToAccept,
+    TResult Function(_UpdateOrderToReady value)? updateOrderToReady,
     TResult Function(_GetAcceptedOedre value)? getAcceptedOedre,
     TResult Function(_GetReadyOedre value)? getReadyOedre,
     required TResult orElse(),

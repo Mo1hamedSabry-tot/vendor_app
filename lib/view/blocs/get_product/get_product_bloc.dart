@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vendor_foody/data/models/response/list_entires_product_model.dart';
@@ -12,12 +14,16 @@ class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
   GetProductBloc({required this.repository})
       : super(const GetProductState.initial()) {
     on<GetProductEvent>((event, emit) async {
-      await event.map(getProduct: (v) async {
-        emit(const _LoadInProgress());
-        final ListEntriesProducts data = await repository
-            .getProductsFromDatabsae(categoryId: v.categoryId ?? "");
-        emit(_LoadSuccess(data));
-      });
+      await event.map(
+        getProduct: (v) async {
+          emit(const _LoadInProgress());
+          final ListEntriesProducts data = await repository
+              .getProductsFromDatabsae(categoryId: v.categoryId);
+
+          log("check firs item of data: ${data.results!.first.id}");
+          emit(_LoadSuccess(data));
+        },
+      );
     });
   }
 }

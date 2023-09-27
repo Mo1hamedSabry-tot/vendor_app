@@ -7,6 +7,7 @@ import 'package:vendor_foody/data/repository/get_product_repo.dart';
 import 'package:vendor_foody/data/repository/login_repo.dart';
 import 'package:vendor_foody/data/repository/order_repo.dart';
 import 'package:vendor_foody/data/repository/product_repo.dart';
+import 'package:vendor_foody/data/repository/token_repository.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
@@ -26,12 +27,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   await DioHelper.init();
-  // await OrderRepository().getNewOrder();
-  // await OrderRepository().getAcceptedOrder();
-  // await OrderRepository().getReadyOrder();
-  // await ProductsRepository()
-  //     .getProductsFromDatabsae()
-  //     .then((value) => log("getProductsFromDatabsae Success"));
+
+  Bloc.observer = MyBlocObserver();
+
   runApp(const MyApp());
 }
 
@@ -45,31 +43,41 @@ class MyApp extends StatelessWidget {
           create: (context) => HomeCubit(repo: ProductRepo())..getProducts(),
         ),
         BlocProvider(
-            create: (context) => LoginBloc(repository: LoginRepository())),
+            create: (context) => LoginBloc(
+                repository: LoginRepository(),
+                tokenRepository: TokenRepository())),
+        BlocProvider(create: (context) => OrderBloc(orderRep: OrderRepository())
+
+            // ..add(
+            //   const OrderEvent.getAcceptedOedre(),
+            // )
+            // ..add(
+            //   const OrderEvent.getReadyOedre(),
+            // ),
+            ),
         BlocProvider(
-            create: (context) => OrderBloc(
-                orderRep: OrderRepository()
-                  ..getAcceptedOrder()
-                  ..getNewOrder()
-                  ..getReadyOrder())),
-        BlocProvider(
-            create: (context) =>
-                AddProductBloc(repository: AddProductRepository())),
-        BlocProvider(
-          create: (context) => GetProductBloc(repository: ProductsRepository())
-            ..add(const GetProductEvent.getProduct()),
+          create: (context) => AddProductBloc(
+            repository: AddProductRepository(),
+          ),
         ),
         BlocProvider(
-            create: (context) =>
-                EditProductBloc(productsRepo: ProductsRepository())),
-        // BlocProvider(
-        //   create: (context) =>
-        //       GetCatalogBloc(repository: GetCatalogsRepository())
-        //         ..add(const GetCatalogEvent.getCatalog()),
-        // ),
+          create: (context) => GetProductBloc(
+            repository: ProductsRepository(),
+          )..add(
+              const GetProductEvent.getProduct(),
+            ),
+        ),
         BlocProvider(
-          create: (context) => CategoryBloc(repository: GetCategoryRepository())
-            ..add(const CategoryEvent.getCategory()),
+          create: (context) => EditProductBloc(
+            productsRepo: ProductsRepository(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => CategoryBloc(
+            repository: GetCategoryRepository(),
+          )..add(
+              const CategoryEvent.getCategory(),
+            ),
         ),
       ],
       child: const App(),
@@ -84,6 +92,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //  context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
     return MaterialApp(
       theme: ThemeData(
           useMaterial3: true,
@@ -91,7 +100,9 @@ class App extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.tab,
           )),
       debugShowCheckedModeBanner: false,
-      initialRoute: LoginScreen.routeName,
+      initialRoute: CacheHelper.get('access_token') != null
+          ? LayoutScreen.routeName
+          : LoginScreen.routeName,
       routes: {
         LayoutScreen.routeName: (_) => const LayoutScreen(),
         AddOrder.routName: (_) => const AddOrder(),
@@ -100,5 +111,31 @@ class App extends StatelessWidget {
         ProfileSceen.routeName: (_) => const ProfileSceen(),
       },
     );
+  }
+}
+
+class MyBlocObserver extends BlocObserver {
+  @override
+  void onCreate(BlocBase bloc) {
+    super.onCreate(bloc);
+    print('onCreate -- ${bloc.runtimeType}');
+  }
+
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    super.onChange(bloc, change);
+    print('onChange -- ${bloc.runtimeType}, $change');
+  }
+
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    print('onError -- ${bloc.runtimeType}, $error');
+    super.onError(bloc, error, stackTrace);
+  }
+
+  @override
+  void onClose(BlocBase bloc) {
+    super.onClose(bloc);
+    print('onClose -- ${bloc.runtimeType}');
   }
 }

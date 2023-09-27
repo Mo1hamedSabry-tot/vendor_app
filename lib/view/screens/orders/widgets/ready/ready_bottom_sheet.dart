@@ -1,56 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/data/models/response/product_model.dart';
+import 'package:vendor_foody/data/models/response/customer_order_models.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/ready/ready_select_btm_sheet_item.dart';
 
-import 'ready_btm_sheet_item.dart';
-import 'ready_select_btm_sheet_item.dart';
-
-class ReadyBottomSheet extends StatelessWidget {
-  final ProductModel model;
+class ReadyOrderBottomSheet extends StatefulWidget {
   final VoidCallback onTap;
-  const ReadyBottomSheet({
-    super.key,
-    required this.model,
-    required this.onTap,
-  });
+  final List<LineItem> listOfItems;
+  const ReadyOrderBottomSheet(
+      {super.key, required this.onTap, required this.listOfItems});
 
   @override
+  State<ReadyOrderBottomSheet> createState() => _ReadyOrderBottomSheetState();
+}
+
+class _ReadyOrderBottomSheetState extends State<ReadyOrderBottomSheet> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-          color: const Color(0xFFf4f5f8),
-          borderRadius: BorderRadius.circular(20)),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ReadytedBtmSheetItem(
-            productModel: model,
+    return Column(
+      children: [
+        Center(
+            child: Container(
+          margin: const EdgeInsets.all(10),
+          width: 50,
+          height: 3,
+          color: Colors.grey,
+        )),
+        Expanded(
+          child: ListView.builder(
+            itemBuilder: (_, index) {
+              if (widget.listOfItems[index].status! == 'Accepted') {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ReadySelectBottomSheetItem(
+                    itemModel: widget.listOfItems[index],
+                  ),
+                );
+              } else {
+                return const SizedBox();
+              }
+            },
+            itemCount: widget.listOfItems.length,
           ),
-          const SizedBox(height: 16),
-          ReadySelectedBtmSheetItem(
-            productModel: model,
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.4,
+          height: 50,
+          child: TOTButtonAtom.filledButton(
+            text: 'close',
+            textColor: AppColors.white,
+            onPressed: widget.onTap,
+            backgroundColor: AppColors.redColor,
           ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: 50,
-                child: TOTButtonAtom.filledButton(
-                  text: 'Swip To Way',
-                  textColor: AppColors.blackColor,
-                  onPressed: onTap,
-                  backgroundColor: AppColors.greenColor,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

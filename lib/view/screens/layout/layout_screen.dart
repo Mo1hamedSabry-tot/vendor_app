@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +10,7 @@ import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/food/food_screen.dart';
 import 'package:vendor_foody/view/screens/layout/widget/blur_wrap.dart';
@@ -30,12 +33,18 @@ int curIndex = 0;
 
 class _LayoutScreenState extends State<LayoutScreen> {
   @override
-  Widget build(BuildContext context) {
-    changeNavi(int index) {
-      curIndex = index;
-    }
+  void initState() {
+    context.read<OrderBloc>().add(const OrderEvent.getNewOrderEvent());
+    super.initState();
+  }
 
-    List<Widget?> screens = [const OrdersScreen(), const FoodScreen()];
+  List<Widget?> screens = [const OrdersScreen(), const FoodScreen()];
+  changeNavi(int index) {
+    curIndex = index;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.dark,
       statusBarColor: AppColors.white,
@@ -83,9 +92,14 @@ class _LayoutScreenState extends State<LayoutScreen> {
                         selectItem: () {
                           changeNavi(1);
                           setState(() {});
-                          // context
-                          //     .read<GetProductBloc>()
-                          //     .add(const GetProductEvent.getProduct());
+                          context.read<GetProductBloc>().add(
+                                const GetProductEvent.getProduct(),
+                              );
+                          context.read<OrderBloc>().add(
+                                const OrderEvent.getNewOrderEvent(),
+                              );
+
+                          log("Checking Button pressed ");
                         }, // () => event.selectIndex(1),
                         index: 1,
                         currentIndex: curIndex, // state.selectedIndex,
@@ -356,8 +370,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                             code: codeController.text,
                                             categoryId: read.categoreyId ?? "",
                                             catalogId: read.catalogId ??
-                                              
-                                                    "f5790b39-4fc8-4aad-8318-259d28595f05"));
+                                                "f5790b39-4fc8-4aad-8318-259d28595f05"));
                                       }
                                     },
                                     backgroundColor: AppColors.greenColor);

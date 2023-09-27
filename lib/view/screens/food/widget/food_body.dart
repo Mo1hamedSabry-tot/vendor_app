@@ -30,6 +30,7 @@ class FoodBody extends StatelessWidget {
         return state.maybeWhen(orElse: () {
           return const SizedBox();
         }, loadInProgress: () {
+          log("Check loadInProgress ");
           return ListView.separated(
             separatorBuilder: (context, index) {
               return SizedBox(
@@ -58,6 +59,8 @@ class FoodBody extends StatelessWidget {
             itemCount: 10,
           );
         }, loadSuccess: (product) {
+          log("Check loadSuccess ");
+          log("Check ${product.results!.first.id} ");
           return Align(
             alignment: Alignment.center,
             child: ListView.builder(
@@ -79,7 +82,7 @@ class FoodBody extends StatelessWidget {
                             builder: (_) {
                               return _FoodBottomSheet(
                                 categoryId:
-                                    '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
+                                    context.read<AddProductBloc>().categoreyId!,
                                 model: product.results![index],
                                 title: product.results![index].name!,
                                 code: product.results![index].code!,
@@ -277,14 +280,14 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                             );
                           },
                           builder: (context, state) {
-                            state.maybeWhen(
-                              orElse: () {},
-                              loadInProgress: () {
-                                return const Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              },
-                            );
+                            // state.maybeWhen(
+                            //   orElse: () {},
+                            //   loadInProgress: () {
+                            //     return const Center(
+                            //       child: CircularProgressIndicator(),
+                            //     );
+                            //   },
+                            // );
 
                             return SizedBox(
                                 width: double.infinity,
@@ -296,20 +299,19 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                         log("categoreyId in id****::::: ${context.read<AddProductBloc>().categoreyId!}");
                                         log("catalogId in id****::::: ${context.read<AddProductBloc>().catalogId!}");
                                         log("product id in id****::::: ${widget.model.id.toString()}");
-                                        context.read<EditProductBloc>().add(
-                                            EditProductEvent.editProduct(
-                                                categoryId: context
-                                                    .read<AddProductBloc>()
-                                                    .categoreyId!, 
-                                                catalogId: context
-                                                    .read<AddProductBloc>()
-                                                    .catalogId!,
-                                                name: titleController.text,
-                                                code: codeController.text,
-                                                productId:
-                                                    widget.model.id!,
-                                                    
-                                                    ));
+                                        context
+                                            .read<EditProductBloc>()
+                                            .add(EditProductEvent.editProduct(
+                                              categoryId: context
+                                                  .read<AddProductBloc>()
+                                                  .categoreyId!,
+                                              catalogId: context
+                                                  .read<AddProductBloc>()
+                                                  .catalogId!,
+                                              name: titleController.text,
+                                              code: codeController.text,
+                                              productId: widget.model.id!,
+                                            ));
                                       }
                                     },
                                     backgroundColor: AppColors.greenColor));

@@ -6,13 +6,14 @@ import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';
 
 class OrderRepository {
-  Future<CustomerOrderResponse> getNewOrder() async {
+  Future<CustomerOrderResponse> getNewOrder(String token) async {
     CustomerOrderResponse? orders;
+    log("TOKEN: $token ++++++++++++++++++++");
     try {
       await DioHelper.postData(
         url: Endpoint.getOrderEndPoint,
         data: {"status": "New", "skip": 0, "take": 200},
-        token: CacheHelper.get('token'),
+        token: token,
       ).then((value) {
         orders = CustomerOrderResponse.fromJson(value.data);
       });
@@ -26,7 +27,7 @@ class OrderRepository {
   Future<CustomerOrderResponse> getAcceptedOrder() async {
     CustomerOrderResponse? orders;
     try {
-      final String token = CacheHelper.get('token') ?? "";
+      final String token = CacheHelper.get('access_token') ?? "";
       await DioHelper.postData(
         url: Endpoint.getOrderEndPoint,
         data: {"status": "Accepted", "skip": 0, "take": 200},
@@ -41,10 +42,11 @@ class OrderRepository {
     }
     return orders!;
   }
+
   Future<CustomerOrderResponse> getReadyOrder() async {
     CustomerOrderResponse? orders;
     try {
-      final String token = CacheHelper.get('token') ?? "";
+      final String token = CacheHelper.get('access_token') ?? "";
       await DioHelper.postData(
         url: Endpoint.getOrderEndPoint,
         data: {"status": "Ready", "skip": 0, "take": 200},
@@ -68,7 +70,7 @@ class OrderRepository {
     try {
       await DioHelper.putData(
         url: Endpoint.updateOrderEndPoint,
-        token: CacheHelper.get('token'),
+        token: CacheHelper.get('access_token'),
         data: {
           "status": 'Accepted',
           "customerName": order.customerName,
@@ -89,6 +91,7 @@ class OrderRepository {
     log("********** updateOrder $statusCode **********");
     return statusCode;
   }
+
   Future updateOrderToReady(
     List<OrderItemRequest> selectedItems,
     CustomerOrderResult order,
@@ -97,7 +100,7 @@ class OrderRepository {
     try {
       await DioHelper.putData(
         url: Endpoint.updateOrderEndPoint,
-        token: CacheHelper.get('token'),
+        token: CacheHelper.get('access_token'),
         data: {
           "status": 'Ready',
           "customerName": order.customerName,
@@ -118,5 +121,4 @@ class OrderRepository {
     log("********** updateOrder $statusCode **********");
     return statusCode;
   }
-
 }

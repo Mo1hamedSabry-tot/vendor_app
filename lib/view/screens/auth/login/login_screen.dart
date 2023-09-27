@@ -6,7 +6,6 @@ import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
 import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
-import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -137,7 +136,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                 loginSuccess: (model) async {
                   Navigator.pushNamed(context, LayoutScreen.routeName);
                   ShowSnackbar.showCheckTopSnackBar(context,
-                      text: 'you are welcome', type: SnackBarType.success);
+                      text: 'You are welcome', type: SnackBarType.success);
                 },
                 loginError: () async {
                   ShowSnackbar.showCheckTopSnackBar(context,
@@ -281,7 +280,6 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                 username: userNameController.text,
                 password: passController.text),
           );
-      context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
     }
   }
 }

@@ -82,7 +82,7 @@ class FoodBody extends StatelessWidget {
                             builder: (_) {
                               return _FoodBottomSheet(
                                 categoryId:
-                                    context.read<AddProductBloc>().categoreyId!,
+                                    context.read<AddProductBloc>().categoreyId??'5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
                                 model: product.results![index],
                                 title: product.results![index].name!,
                                 code: product.results![index].code!,

@@ -5,7 +5,7 @@ import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
-import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
+import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -130,7 +130,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
           decoration: BoxDecoration(
               color: const Color(0xFFefefee),
               borderRadius: BorderRadius.circular(20)),
-          child: BlocConsumer<LoginBloc, LoginState>(
+          child: BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
               state.maybeWhen(
                 loginSuccess: (model) async {
@@ -281,8 +281,8 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
 
   void _onPressedMethod() {
     if (formKey.currentState!.validate()) {
-      context.read<LoginBloc>().add(
-            LoginEvent.clicklogin(
+      context.read<AuthBloc>().add(
+            AuthEvent.clicklogin(
                 username: userNameController.text,
                 password: passController.text),
           );

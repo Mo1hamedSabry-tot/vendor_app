@@ -41,7 +41,7 @@ class TOTProduct with _$TOTProduct {
     String? weightUnit,
     double? weight,
     String? measureUnit,
-    int? height,
+    double? height,
     int? length,
     double? width,
     bool? enableReview,

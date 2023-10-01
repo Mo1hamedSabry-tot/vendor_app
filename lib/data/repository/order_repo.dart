@@ -19,7 +19,6 @@ class OrderRepository {
       });
     } catch (e) {
       rethrow;
-      // log('getNewOrder cccccccathhhh ${e.message}  type ${e.toString()}');
     }
 
     return orders!;

@@ -1151,6 +1151,7 @@ mixin _$OrderState {
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1167,6 +1168,7 @@ mixin _$OrderState {
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1183,6 +1185,7 @@ mixin _$OrderState {
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1207,6 +1210,7 @@ mixin _$OrderState {
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1226,6 +1230,7 @@ mixin _$OrderState {
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1245,6 +1250,7 @@ mixin _$OrderState {
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1325,6 +1331,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return initial();
   }
@@ -1344,6 +1351,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return initial?.call();
   }
@@ -1363,6 +1371,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1393,6 +1402,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return initial(this);
   }
@@ -1415,6 +1425,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return initial?.call(this);
   }
@@ -1437,6 +1448,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1510,6 +1522,7 @@ class _$_LoadInProgress
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return loadInProgress();
   }
@@ -1529,6 +1542,7 @@ class _$_LoadInProgress
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return loadInProgress?.call();
   }
@@ -1548,6 +1562,7 @@ class _$_LoadInProgress
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -1578,6 +1593,7 @@ class _$_LoadInProgress
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return loadInProgress(this);
   }
@@ -1600,6 +1616,7 @@ class _$_LoadInProgress
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return loadInProgress?.call(this);
   }
@@ -1622,6 +1639,7 @@ class _$_LoadInProgress
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -1733,6 +1751,7 @@ class _$_SuuccessGetOrder
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return suuccessGetOrder(orders);
   }
@@ -1752,6 +1771,7 @@ class _$_SuuccessGetOrder
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return suuccessGetOrder?.call(orders);
   }
@@ -1771,6 +1791,7 @@ class _$_SuuccessGetOrder
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessGetOrder != null) {
@@ -1801,6 +1822,7 @@ class _$_SuuccessGetOrder
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return suuccessGetOrder(this);
   }
@@ -1823,6 +1845,7 @@ class _$_SuuccessGetOrder
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return suuccessGetOrder?.call(this);
   }
@@ -1845,6 +1868,7 @@ class _$_SuuccessGetOrder
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessGetOrder != null) {
@@ -1922,6 +1946,7 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return errorGetOrder();
   }
@@ -1941,6 +1966,7 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return errorGetOrder?.call();
   }
@@ -1960,6 +1986,7 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (errorGetOrder != null) {
@@ -1990,6 +2017,7 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return errorGetOrder(this);
   }
@@ -2012,6 +2040,7 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return errorGetOrder?.call(this);
   }
@@ -2034,6 +2063,7 @@ class _$_ErrorGetOrder with DiagnosticableTreeMixin implements _ErrorGetOrder {
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (errorGetOrder != null) {
@@ -2140,6 +2170,7 @@ class _$_SuuccessUpdateOrderToAccepted
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return suuccessUpdateOrderToAccepted(statusCode);
   }
@@ -2159,6 +2190,7 @@ class _$_SuuccessUpdateOrderToAccepted
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return suuccessUpdateOrderToAccepted?.call(statusCode);
   }
@@ -2178,6 +2210,7 @@ class _$_SuuccessUpdateOrderToAccepted
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessUpdateOrderToAccepted != null) {
@@ -2208,6 +2241,7 @@ class _$_SuuccessUpdateOrderToAccepted
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return suuccessUpdateOrderToAccepted(this);
   }
@@ -2230,6 +2264,7 @@ class _$_SuuccessUpdateOrderToAccepted
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return suuccessUpdateOrderToAccepted?.call(this);
   }
@@ -2252,6 +2287,7 @@ class _$_SuuccessUpdateOrderToAccepted
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessUpdateOrderToAccepted != null) {
@@ -2335,6 +2371,7 @@ class _$_ErrorUpdateOrderToAccepted
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return errorUpdateOrderToAccepted();
   }
@@ -2354,6 +2391,7 @@ class _$_ErrorUpdateOrderToAccepted
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return errorUpdateOrderToAccepted?.call();
   }
@@ -2373,6 +2411,7 @@ class _$_ErrorUpdateOrderToAccepted
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (errorUpdateOrderToAccepted != null) {
@@ -2403,6 +2442,7 @@ class _$_ErrorUpdateOrderToAccepted
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return errorUpdateOrderToAccepted(this);
   }
@@ -2425,6 +2465,7 @@ class _$_ErrorUpdateOrderToAccepted
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return errorUpdateOrderToAccepted?.call(this);
   }
@@ -2447,6 +2488,7 @@ class _$_ErrorUpdateOrderToAccepted
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (errorUpdateOrderToAccepted != null) {
@@ -2553,6 +2595,7 @@ class _$_SuuccessUpdateOrderToReady
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return suuccessUpdateOrderToReady(statusCode);
   }
@@ -2572,6 +2615,7 @@ class _$_SuuccessUpdateOrderToReady
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return suuccessUpdateOrderToReady?.call(statusCode);
   }
@@ -2591,6 +2635,7 @@ class _$_SuuccessUpdateOrderToReady
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessUpdateOrderToReady != null) {
@@ -2621,6 +2666,7 @@ class _$_SuuccessUpdateOrderToReady
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return suuccessUpdateOrderToReady(this);
   }
@@ -2643,6 +2689,7 @@ class _$_SuuccessUpdateOrderToReady
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return suuccessUpdateOrderToReady?.call(this);
   }
@@ -2665,6 +2712,7 @@ class _$_SuuccessUpdateOrderToReady
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessUpdateOrderToReady != null) {
@@ -2746,6 +2794,7 @@ class _$_ErrorUpdateOrderToReady
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return errorUpdateOrderToReady();
   }
@@ -2765,6 +2814,7 @@ class _$_ErrorUpdateOrderToReady
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return errorUpdateOrderToReady?.call();
   }
@@ -2784,6 +2834,7 @@ class _$_ErrorUpdateOrderToReady
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (errorUpdateOrderToReady != null) {
@@ -2814,6 +2865,7 @@ class _$_ErrorUpdateOrderToReady
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return errorUpdateOrderToReady(this);
   }
@@ -2836,6 +2888,7 @@ class _$_ErrorUpdateOrderToReady
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return errorUpdateOrderToReady?.call(this);
   }
@@ -2858,6 +2911,7 @@ class _$_ErrorUpdateOrderToReady
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (errorUpdateOrderToReady != null) {
@@ -2971,6 +3025,7 @@ class _$_SuuccessGetAceptedOrder
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return suuccessGetAcceptedOrder(orders);
   }
@@ -2990,6 +3045,7 @@ class _$_SuuccessGetAceptedOrder
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return suuccessGetAcceptedOrder?.call(orders);
   }
@@ -3009,6 +3065,7 @@ class _$_SuuccessGetAceptedOrder
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessGetAcceptedOrder != null) {
@@ -3039,6 +3096,7 @@ class _$_SuuccessGetAceptedOrder
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return suuccessGetAcceptedOrder(this);
   }
@@ -3061,6 +3119,7 @@ class _$_SuuccessGetAceptedOrder
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return suuccessGetAcceptedOrder?.call(this);
   }
@@ -3083,6 +3142,7 @@ class _$_SuuccessGetAceptedOrder
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessGetAcceptedOrder != null) {
@@ -3164,6 +3224,7 @@ class _$_ErrorGetAcceptedOrder
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return errorGetAcceptedOrder();
   }
@@ -3183,6 +3244,7 @@ class _$_ErrorGetAcceptedOrder
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return errorGetAcceptedOrder?.call();
   }
@@ -3202,6 +3264,7 @@ class _$_ErrorGetAcceptedOrder
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (errorGetAcceptedOrder != null) {
@@ -3232,6 +3295,7 @@ class _$_ErrorGetAcceptedOrder
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return errorGetAcceptedOrder(this);
   }
@@ -3254,6 +3318,7 @@ class _$_ErrorGetAcceptedOrder
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return errorGetAcceptedOrder?.call(this);
   }
@@ -3276,6 +3341,7 @@ class _$_ErrorGetAcceptedOrder
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (errorGetAcceptedOrder != null) {
@@ -3388,6 +3454,7 @@ class _$_SuuccessGetReadyOrder
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return suuccessGetreadyOrder(orders);
   }
@@ -3407,6 +3474,7 @@ class _$_SuuccessGetReadyOrder
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return suuccessGetreadyOrder?.call(orders);
   }
@@ -3426,6 +3494,7 @@ class _$_SuuccessGetReadyOrder
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessGetreadyOrder != null) {
@@ -3456,6 +3525,7 @@ class _$_SuuccessGetReadyOrder
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return suuccessGetreadyOrder(this);
   }
@@ -3478,6 +3548,7 @@ class _$_SuuccessGetReadyOrder
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return suuccessGetreadyOrder?.call(this);
   }
@@ -3500,6 +3571,7 @@ class _$_SuuccessGetReadyOrder
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (suuccessGetreadyOrder != null) {
@@ -3580,6 +3652,7 @@ class _$_ErrorGetReadyOrder
     required TResult Function(CustomerOrderResponse orders)
         suuccessGetreadyOrder,
     required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
   }) {
     return errorGetReadyOrder();
   }
@@ -3599,6 +3672,7 @@ class _$_ErrorGetReadyOrder
     TResult? Function()? errorGetAcceptedOrder,
     TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
   }) {
     return errorGetReadyOrder?.call();
   }
@@ -3618,6 +3692,7 @@ class _$_ErrorGetReadyOrder
     TResult Function()? errorGetAcceptedOrder,
     TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
     TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (errorGetReadyOrder != null) {
@@ -3648,6 +3723,7 @@ class _$_ErrorGetReadyOrder
     required TResult Function(_SuuccessGetReadyOrder value)
         suuccessGetreadyOrder,
     required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
   }) {
     return errorGetReadyOrder(this);
   }
@@ -3670,6 +3746,7 @@ class _$_ErrorGetReadyOrder
     TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
   }) {
     return errorGetReadyOrder?.call(this);
   }
@@ -3692,6 +3769,7 @@ class _$_ErrorGetReadyOrder
     TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
     TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
     TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
     required TResult orElse(),
   }) {
     if (errorGetReadyOrder != null) {
@@ -3703,4 +3781,193 @@ class _$_ErrorGetReadyOrder
 
 abstract class _ErrorGetReadyOrder implements OrderState {
   const factory _ErrorGetReadyOrder() = _$_ErrorGetReadyOrder;
+}
+
+/// @nodoc
+abstract class _$$_unauthorizedCopyWith<$Res> {
+  factory _$$_unauthorizedCopyWith(
+          _$_unauthorized value, $Res Function(_$_unauthorized) then) =
+      __$$_unauthorizedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_unauthorizedCopyWithImpl<$Res>
+    extends _$OrderStateCopyWithImpl<$Res, _$_unauthorized>
+    implements _$$_unauthorizedCopyWith<$Res> {
+  __$$_unauthorizedCopyWithImpl(
+      _$_unauthorized _value, $Res Function(_$_unauthorized) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_unauthorized with DiagnosticableTreeMixin implements _unauthorized {
+  const _$_unauthorized();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OrderState.unauthorized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'OrderState.unauthorized'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_unauthorized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(CustomerOrderResponse orders) suuccessGetOrder,
+    required TResult Function() errorGetOrder,
+    required TResult Function(int statusCode) suuccessUpdateOrderToAccepted,
+    required TResult Function() errorUpdateOrderToAccepted,
+    required TResult Function(int statusCode) suuccessUpdateOrderToReady,
+    required TResult Function() errorUpdateOrderToReady,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetAcceptedOrder,
+    required TResult Function() errorGetAcceptedOrder,
+    required TResult Function(CustomerOrderResponse orders)
+        suuccessGetreadyOrder,
+    required TResult Function() errorGetReadyOrder,
+    required TResult Function() unauthorized,
+  }) {
+    return unauthorized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult? Function()? errorGetOrder,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult? Function()? errorUpdateOrderToAccepted,
+    TResult? Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult? Function()? errorUpdateOrderToReady,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult? Function()? errorGetAcceptedOrder,
+    TResult? Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
+    TResult? Function()? errorGetReadyOrder,
+    TResult? Function()? unauthorized,
+  }) {
+    return unauthorized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetOrder,
+    TResult Function()? errorGetOrder,
+    TResult Function(int statusCode)? suuccessUpdateOrderToAccepted,
+    TResult Function()? errorUpdateOrderToAccepted,
+    TResult Function(int statusCode)? suuccessUpdateOrderToReady,
+    TResult Function()? errorUpdateOrderToReady,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetAcceptedOrder,
+    TResult Function()? errorGetAcceptedOrder,
+    TResult Function(CustomerOrderResponse orders)? suuccessGetreadyOrder,
+    TResult Function()? errorGetReadyOrder,
+    TResult Function()? unauthorized,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_SuuccessGetOrder value) suuccessGetOrder,
+    required TResult Function(_ErrorGetOrder value) errorGetOrder,
+    required TResult Function(_SuuccessUpdateOrderToAccepted value)
+        suuccessUpdateOrderToAccepted,
+    required TResult Function(_ErrorUpdateOrderToAccepted value)
+        errorUpdateOrderToAccepted,
+    required TResult Function(_SuuccessUpdateOrderToReady value)
+        suuccessUpdateOrderToReady,
+    required TResult Function(_ErrorUpdateOrderToReady value)
+        errorUpdateOrderToReady,
+    required TResult Function(_SuuccessGetAceptedOrder value)
+        suuccessGetAcceptedOrder,
+    required TResult Function(_ErrorGetAcceptedOrder value)
+        errorGetAcceptedOrder,
+    required TResult Function(_SuuccessGetReadyOrder value)
+        suuccessGetreadyOrder,
+    required TResult Function(_ErrorGetReadyOrder value) errorGetReadyOrder,
+    required TResult Function(_unauthorized value) unauthorized,
+  }) {
+    return unauthorized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult? Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult? Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult? Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult? Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult? Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
+    TResult? Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult? Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    TResult? Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
+    TResult? Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult? Function(_unauthorized value)? unauthorized,
+  }) {
+    return unauthorized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_SuuccessGetOrder value)? suuccessGetOrder,
+    TResult Function(_ErrorGetOrder value)? errorGetOrder,
+    TResult Function(_SuuccessUpdateOrderToAccepted value)?
+        suuccessUpdateOrderToAccepted,
+    TResult Function(_ErrorUpdateOrderToAccepted value)?
+        errorUpdateOrderToAccepted,
+    TResult Function(_SuuccessUpdateOrderToReady value)?
+        suuccessUpdateOrderToReady,
+    TResult Function(_ErrorUpdateOrderToReady value)? errorUpdateOrderToReady,
+    TResult Function(_SuuccessGetAceptedOrder value)? suuccessGetAcceptedOrder,
+    TResult Function(_ErrorGetAcceptedOrder value)? errorGetAcceptedOrder,
+    TResult Function(_SuuccessGetReadyOrder value)? suuccessGetreadyOrder,
+    TResult Function(_ErrorGetReadyOrder value)? errorGetReadyOrder,
+    TResult Function(_unauthorized value)? unauthorized,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _unauthorized implements OrderState {
+  const factory _unauthorized() = _$_unauthorized;
 }

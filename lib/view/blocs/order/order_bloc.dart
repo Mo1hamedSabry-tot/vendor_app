@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vendor_foody/core/utils/cache_helper.dart';
@@ -13,23 +14,22 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final OrderRepository orderRep;
   OrderBloc({required this.orderRep}) : super(const OrderState.initial()) {
     List<OrderItemRequest> selectedItems = [];
+
     on<OrderEvent>((event, emit) async {
       await event.map(
         getNewOrderEvent: (event) async {
-          emit(const _LoadInProgress());
-          final String? accessToken = CacheHelper.get('access_token');
-          final CustomerOrderResponse data =
-              await orderRep.getNewOrder(accessToken ?? "");
-
-          // List<CustomerOrderResult> filteredItems = [];
-          // for (final CustomerOrderResult model in data.results ?? []) {
-          //   final cond = model.items?
-          //           .any((element) => element.status?.toLowerCase() == "new") ??
-          //       false;
-
-          // cond ? filteredItems.add(model) : null;
-          // data.results = filteredItems;
-          emit(_SuuccessGetOrder(orders: data)); //data
+          try {
+            emit(const _LoadInProgress());
+            final String? accessToken = CacheHelper.get('access_token');
+            final CustomerOrderResponse data =
+                await orderRep.getNewOrder(accessToken ?? "");
+            emit(_SuuccessGetOrder(orders: data));
+          } catch (ex) {
+            final error = ex as DioException;
+            if (error.response!.statusCode == 401) {
+              emit(const _unauthorized());
+            }
+          }
         },
         updateSelectedItem: (event) {
           selectedItems.add(event.item);

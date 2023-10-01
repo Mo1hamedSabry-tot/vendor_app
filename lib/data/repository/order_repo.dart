@@ -8,7 +8,7 @@ import 'package:vendor_foody/data/network/end_points.dart';
 class OrderRepository {
   Future<CustomerOrderResponse> getNewOrder(String token) async {
     CustomerOrderResponse? orders;
-    log("TOKEN: $token ++++++++++++++++++++");
+
     try {
       await DioHelper.postData(
         url: Endpoint.getOrderEndPoint,
@@ -18,7 +18,8 @@ class OrderRepository {
         orders = CustomerOrderResponse.fromJson(value.data);
       });
     } catch (e) {
-      log('getNewOrder cccccccathhhh ${e.toString()}');
+      rethrow;
+      // log('getNewOrder cccccccathhhh ${e.message}  type ${e.toString()}');
     }
 
     return orders!;

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -153,7 +152,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                       child: IconButton(
                         icon: const Icon(
                           Icons.logout_outlined,
-                          color: AppColors.redColor,
+                          color: AppColors.blackColor,
                         ),
                         onPressed: () {
                           showDialog(
@@ -215,6 +214,9 @@ class _OrdersScreenState extends State<OrdersScreen>
                       listener: (context, state) {
                     state.maybeWhen(
                       orElse: () {},
+                      unauthorized: () {
+                        Navigator.pushNamed(context, LoginScreen.routeName);
+                      },
                       suuccessUpdateOrderToAccepted: (v) {
                         context.read<OrderBloc>().add(
                               const OrderEvent.getNewOrderEvent(),

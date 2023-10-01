@@ -216,6 +216,8 @@ class _OrdersScreenState extends State<OrdersScreen>
                       orElse: () {},
                       unauthorized: () {
                         Navigator.pushNamed(context, LoginScreen.routeName);
+                         ShowSnackbar.showCheckTopSnackBar(context,
+                            text: 'please Login', type: SnackBarType.info);
                       },
                       suuccessUpdateOrderToAccepted: (v) {
                         context.read<OrderBloc>().add(

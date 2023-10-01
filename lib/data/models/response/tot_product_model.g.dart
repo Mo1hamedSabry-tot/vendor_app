@@ -49,7 +49,7 @@ _$_TOTProduct _$$_TOTProductFromJson(Map<String, dynamic> json) =>
       weightUnit: json['weightUnit'] as String?,
       weight: (json['weight'] as num?)?.toDouble(),
       measureUnit: json['measureUnit'] as String?,
-      height: json['height'] as int?,
+      height: (json['height'] as num?)?.toDouble(),
       length: json['length'] as int?,
       width: (json['width'] as num?)?.toDouble(),
       enableReview: json['enableReview'] as bool?,

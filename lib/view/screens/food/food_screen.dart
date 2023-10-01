@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
+import 'package:vendor_foody/view/screens/auth/login/login_screen.dart';
 
 import '../../../custom/custom_app_bar.dart';
 import 'widget/addons_body.dart';
@@ -114,6 +118,50 @@ class _FoodScreenState extends State<FoodScreen>
                         ),
                       ),
                     ),
+                    BlocListener<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        state.maybeWhen(
+                          orElse: () {},
+                          logoutSuccess: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout success',
+                                type: SnackBarType.success);
+                            Navigator.pushNamed(context, LoginScreen.routeName);
+                          },
+                          logoutError: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout unsuccessful',
+                                type: SnackBarType.error);
+                          },
+                        );
+                      },
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.logout_outlined,
+                          color: AppColors.redColor,
+                        ),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) {
+                                return TOTAlertDialogAtom(
+                                  title: 'Logout',
+                                  content: 'are you sure you want to logout',
+                                  cancelText: 'Cancel',
+                                  confirmText: 'yes',
+                                  onCancel: () {
+                                    Navigator.pop(context);
+                                  },
+                                  onConfirm: () {
+                                    context
+                                        .read<AuthBloc>()
+                                        .add(const AuthEvent.logout());
+                                  },
+                                );
+                              });
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -216,15 +264,16 @@ class _FoodScreenState extends State<FoodScreen>
                                                               .id));
                                               log(' ****** catalog id :: ${event.items[index].catalogId}');
                                               log(' ****** category id :: ${event.items[index].id}');
-                                              if(context.mounted) {
+                                              if (context.mounted) {
                                                 context
-                                                      .read<AddProductBloc>()
-                                                      .catalogId =
-                                                  event.items[index].catalogId;
-                                              context
-                                                      .read<AddProductBloc>()
-                                                      .categoreyId =
-                                                  event.items[index].id;
+                                                        .read<AddProductBloc>()
+                                                        .catalogId =
+                                                    event
+                                                        .items[index].catalogId;
+                                                context
+                                                        .read<AddProductBloc>()
+                                                        .categoreyId =
+                                                    event.items[index].id;
                                               }
                                               setState(
                                                 () {

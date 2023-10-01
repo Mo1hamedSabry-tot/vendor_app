@@ -1,11 +1,15 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/core/utils/cache_helper.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
+import 'package:vendor_foody/view/screens/auth/login/login_screen.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/accepted/accept_bottom_sheet.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/list_item/accepted_order_item.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/list_item/new_order_item.dart';
@@ -125,7 +129,54 @@ class _OrdersScreenState extends State<OrdersScreen>
                           ],
                         ),
                       ],
-                    )
+                    ),
+                    const Spacer(),
+                    BlocListener<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        state.maybeWhen(
+                          orElse: () {},
+                          logoutSuccess: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout success',
+                                type: SnackBarType.success);
+                            Navigator.pushNamed(context, LoginScreen.routeName);
+                            CacheHelper.remove('access_token');
+                          },
+                          logoutError: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout unsuccessful',
+                                type: SnackBarType.error);
+                            Navigator.pop(context);
+                          },
+                        );
+                      },
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.logout_outlined,
+                          color: AppColors.redColor,
+                        ),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) {
+                                return TOTAlertDialogAtom(
+                                  title: 'Logout',
+                                  content: 'are you sure you want to logout',
+                                  cancelText: 'Cancel',
+                                  confirmText: 'yes',
+                                  onCancel: () {
+                                    Navigator.pop(context);
+                                  },
+                                  onConfirm: () {
+                                    context
+                                        .read<AuthBloc>()
+                                        .add(const AuthEvent.logout());
+                                  },
+                                );
+                              });
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),

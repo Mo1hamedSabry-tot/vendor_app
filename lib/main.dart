@@ -9,11 +9,11 @@ import 'package:vendor_foody/data/repository/order_repo.dart';
 import 'package:vendor_foody/data/repository/product_repo.dart';
 import 'package:vendor_foody/data/repository/token_repository.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
-import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
@@ -43,8 +43,8 @@ class MyApp extends StatelessWidget {
           create: (context) => HomeCubit(repo: ProductRepo())..getProducts(),
         ),
         BlocProvider(
-            create: (context) => LoginBloc(
-                repository: LoginRepository(),
+            create: (context) => AuthBloc(
+                repository: AuthRepository(),
                 tokenRepository: TokenRepository())),
         BlocProvider(create: (context) => OrderBloc(orderRep: OrderRepository())
 

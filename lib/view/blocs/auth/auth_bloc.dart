@@ -7,21 +7,21 @@ import 'package:vendor_foody/data/models/response/login_model.dart';
 import 'package:vendor_foody/data/repository/login_repo.dart';
 import 'package:vendor_foody/data/repository/token_repository.dart';
 
-part 'login_bloc.freezed.dart';
-part 'login_event.dart';
-part 'login_state.dart';
+part 'auth_bloc.freezed.dart';
+part 'auth_event.dart';
+part 'auth_state.dart';
 
-class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final LoginRepository repository;
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
+  final AuthRepository repository;
   final TokenRepository tokenRepository;
-  LoginBloc({required this.repository, required this.tokenRepository})
-      : super(const LoginState.initial()) {
-    on<LoginEvent>(
+  AuthBloc({required this.repository, required this.tokenRepository})
+      : super(const AuthState.initial()) {
+    on<AuthEvent>(
       (event, emit) async {
         await event.map(
           clicklogin: (v) async {
             emit(const _LoadInProgress());
-            final LoginModel data = await repository.postLoginData(
+            final LoginModel data = await repository.logIn(
               password: v.password,
               username: v.username,
               rememberMe: false,
@@ -35,8 +35,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               log("Access token::: $accessToken ***********");
             }
             data.succeeded
-                ? {emit(LoginState.loginSuccess(data))}
-                : emit(const LoginState.loginError());
+                ? {emit(AuthState.loginSuccess(data))}
+                : emit(const AuthState.loginError());
+          },
+          logout: (value) async {
+            emit(const _LoadInProgress());
+            final stateCode = await repository.logOut();
+            stateCode.fold(
+              (l) {
+                emit(const _LogoutError());
+              },
+              (r) {
+                emit(const _LogoutSuccess());
+              },
+            );
           },
         );
       },

@@ -138,7 +138,7 @@ class _FoodScreenState extends State<FoodScreen>
                       child: IconButton(
                         icon: const Icon(
                           Icons.logout_outlined,
-                          color: AppColors.redColor,
+                          color: AppColors.blackColor,
                         ),
                         onPressed: () {
                           showDialog(

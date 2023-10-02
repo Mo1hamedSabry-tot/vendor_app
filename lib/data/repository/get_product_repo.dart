@@ -55,7 +55,6 @@ class ProductsRepository {
             "imgSrc": image,
           }).then((value) {
         productModel = TOTProduct.fromJson(value.data);
-        // productModel = TOTProduct.fromJson(value.data);
         if (value.statusCode == 200) {
           EditProductBloc.isSuccess = true;
         } else {
@@ -65,8 +64,6 @@ class ProductsRepository {
     } catch (e) {
       log('catch in editProduct  ${e.toString()}');
     }
-
-    log(productModel.toString());
     return productModel;
   }
 }

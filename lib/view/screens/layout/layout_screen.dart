@@ -149,6 +149,12 @@ class _LayoutScreenState extends State<LayoutScreen> {
                   if (curIndex == 0) {
                     Navigator.pushNamed(context, AddOrder.routName);
                   } else {
+                    if (context
+                            .read<GetProductBloc>()
+                            .selectedParenteTabIndex ==
+                        1) {
+                      return;
+                    }
                     showModalBottomSheet(
                         context: context,
                         isDismissible: true,

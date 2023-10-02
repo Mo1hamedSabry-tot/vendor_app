@@ -23,7 +23,6 @@ class GetCategoryRepository {
     } catch (e) {
       log('catchhhhhhhhhhhhhh ${e.toString()}');
     }
-    log(data.toString());
     return data!;
   }
 }

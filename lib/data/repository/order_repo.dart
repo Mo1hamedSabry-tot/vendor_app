@@ -34,8 +34,7 @@ class OrderRepository {
         token: token,
       ).then((value) {
         orders = CustomerOrderResponse.fromJson(value.data);
-        log('getAcceptedOrder 777777777777777${value.statusCode.toString()}');
-        log('token : $token');
+       
       });
     } catch (e) {
       log('getAcceptedOrder cccccccathhhh ${e.toString()}');
@@ -53,8 +52,7 @@ class OrderRepository {
         token: token,
       ).then((value) {
         orders = CustomerOrderResponse.fromJson(value.data);
-        log('getAcceptedOrder 777777777777777${value.statusCode.toString()}');
-        log('token : $token');
+        
       });
     } catch (e) {
       log('getReadyOrder cccccccathhhh ${e.toString()}');

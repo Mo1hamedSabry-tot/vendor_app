@@ -37,7 +37,6 @@ class _FoodScreenState extends State<FoodScreen>
   late ScrollController _scrollController;
   TextEditingController controller = TextEditingController();
 
-  int selectedTabIndex = 0;
   bool isSelcetedCategory = false;
   bool loading = false;
 
@@ -65,7 +64,8 @@ class _FoodScreenState extends State<FoodScreen>
     _tabController.addListener(() {
       setState(() {
         loading = true;
-        selectedTabIndex = _tabController.index;
+        context.read<GetProductBloc>().selectedParenteTabIndex =
+            _tabController.index;
         loading = false;
       });
     });
@@ -180,13 +180,19 @@ class _FoodScreenState extends State<FoodScreen>
                           onTap: (value) {
                             setState(() {
                               loading = true;
-                              selectedTabIndex = value;
+                              context
+                                  .read<GetProductBloc>()
+                                  .selectedParenteTabIndex = value;
                               loading = false;
                             });
                           },
                         ),
                       ),
-                      if (!loading && selectedTabIndex == 0)
+                      if (!loading &&
+                          context
+                                  .read<GetProductBloc>()
+                                  .selectedParenteTabIndex ==
+                              0)
                         SliverAppBar(
                           collapsedHeight: 0,
                           expandedHeight: 0,

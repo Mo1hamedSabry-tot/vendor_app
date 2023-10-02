@@ -11,6 +11,8 @@ part 'get_product_state.dart';
 
 class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
   final ProductsRepository repository;
+    int selectedParenteTabIndex = 0;
+
   GetProductBloc({required this.repository})
       : super(const GetProductState.initial()) {
     on<GetProductEvent>((event, emit) async {

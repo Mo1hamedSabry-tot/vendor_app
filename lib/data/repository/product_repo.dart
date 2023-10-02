@@ -43,10 +43,10 @@ class ProductRepo {
           "rememberMe": false
         }),
       );
-      log(response.body);
+    
       final json = jsonDecode(response.body);
       var loginResponse = LoginModel.fromJson(json);
-      log(loginResponse.toString());
+     
       return loginResponse;
     } catch (e) {
       log(e.toString());

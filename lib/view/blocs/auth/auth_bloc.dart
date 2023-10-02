@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -29,11 +28,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             );
             final String? token = await tokenRepository.getToken(
                 username: v.username, password: v.password);
-            log("token from Get New Order event $token **********");
             if (token != null) {
               CacheHelper.set('access_token', token);
-              final accessToken = CacheHelper.get('access_token');
-              log("Access token::: $accessToken ***********");
             }
             data.succeeded
                 ? {emit(AuthState.loginSuccess(data))}

@@ -31,7 +31,6 @@ class FoodBody extends StatelessWidget {
         return state.maybeWhen(orElse: () {
           return const SizedBox();
         }, loadInProgress: () {
-          log("Check loadInProgress ");
           return ListView.separated(
             separatorBuilder: (context, index) {
               return SizedBox(
@@ -74,7 +73,6 @@ class FoodBody extends StatelessWidget {
                     alignment: Alignment.center,
                     child: InkWell(
                       onTap: () {
-                        log("name of index: ${product.results![index].name.toString()}");
                         showModalBottomSheet(
                             context: context,
                             isDismissible: true,

@@ -18,7 +18,6 @@ class TokenRepository {
           "grant_type": "password"
         },
       );
-      log(':::::::::::::: respose ""** ${response.data['access_token']}');
       final token = response.data['access_token'];
       return token;
     } catch (e) {

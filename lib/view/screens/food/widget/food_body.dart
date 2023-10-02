@@ -12,6 +12,7 @@ import 'package:vendor_foody/data/models/response/list_entires_product_model.dar
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
+import 'package:vendor_foody/view/screens/orders/widgets/no_orders.dart';
 
 import '../../../../custom/custom_toggle.dart';
 import 'popular_food_item.dart';
@@ -58,9 +59,11 @@ class FoodBody extends StatelessWidget {
             },
             itemCount: 10,
           );
+        }, notdata: (product) {
+          return const NoOrders(
+            text: 'No Product',
+          );
         }, loadSuccess: (product) {
-          log("Check loadSuccess ");
-          log("Check ${product.results!.first.id} ");
           return Align(
             alignment: Alignment.center,
             child: ListView.builder(
@@ -81,8 +84,10 @@ class FoodBody extends StatelessWidget {
                                     top: Radius.circular(22))),
                             builder: (_) {
                               return _FoodBottomSheet(
-                                categoryId:
-                                    context.read<AddProductBloc>().categoreyId??'5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
+                                categoryId: context
+                                        .read<AddProductBloc>()
+                                        .categoreyId ??
+                                    '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
                                 model: product.results![index],
                                 title: product.results![index].name!,
                                 code: product.results![index].code!,
@@ -280,15 +285,6 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                             );
                           },
                           builder: (context, state) {
-                            // state.maybeWhen(
-                            //   orElse: () {},
-                            //   loadInProgress: () {
-                            //     return const Center(
-                            //       child: CircularProgressIndicator(),
-                            //     );
-                            //   },
-                            // );
-
                             return SizedBox(
                                 width: double.infinity,
                                 child: TOTButtonAtom.filledButton(

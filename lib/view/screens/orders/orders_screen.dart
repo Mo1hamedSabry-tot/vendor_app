@@ -216,7 +216,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                       orElse: () {},
                       unauthorized: () {
                         Navigator.pushNamed(context, LoginScreen.routeName);
-                         ShowSnackbar.showCheckTopSnackBar(context,
+                        ShowSnackbar.showCheckTopSnackBar(context,
                             text: 'please Login', type: SnackBarType.info);
                       },
                       suuccessUpdateOrderToAccepted: (v) {
@@ -270,7 +270,9 @@ class _OrdersScreenState extends State<OrdersScreen>
                       },
                       suuccessGetOrder: (orders) {
                         if (orders.results!.isEmpty) {
-                          return const NoOrders();
+                          return const NoOrders(
+                            text: 'No Order',
+                          );
                         }
                         return ListView.builder(
                           itemCount: orders.results!.length,
@@ -358,7 +360,9 @@ class _OrdersScreenState extends State<OrdersScreen>
                       },
                       suuccessGetAcceptedOrder: (orders) {
                         if (orders.results!.isEmpty) {
-                          return const NoOrders();
+                          return const NoOrders(
+                            text: 'No Order',
+                          );
                         }
                         return ListView.builder(
                           itemCount: orders.results!.length,
@@ -432,7 +436,9 @@ class _OrdersScreenState extends State<OrdersScreen>
                           },
                           suuccessGetreadyOrder: (orders) {
                             if (orders.results!.isEmpty) {
-                              return const NoOrders();
+                              return const NoOrders(
+                                text: 'No Order',
+                              );
                             }
                             return ListView.builder(
                               itemCount: orders.results!.length,
@@ -461,7 +467,9 @@ class _OrdersScreenState extends State<OrdersScreen>
                           },
                         );
                       }),
-                  const NoOrders()
+                  const NoOrders(
+                    text: 'No Order',
+                  )
                 ],
               ),
             ),

@@ -26,7 +26,6 @@ class MyMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //  context.read<OrderBloc>().add(const OrderEvent.getNewOrder());
     return MaterialApp(
       theme: ThemeData(
           useMaterial3: true,

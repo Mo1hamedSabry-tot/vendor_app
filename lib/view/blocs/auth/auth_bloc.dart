@@ -19,6 +19,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEvent>(
       (event, emit) async {
         await event.map(
+         
           clicklogin: (v) async {
             emit(const _LoadInProgress());
             final LoginModel data = await repository.logIn(

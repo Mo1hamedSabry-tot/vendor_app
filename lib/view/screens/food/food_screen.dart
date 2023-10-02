@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
@@ -208,7 +206,17 @@ class _FoodScreenState extends State<FoodScreen>
                               margin: const EdgeInsets.only(bottom: 5),
                               padding: EdgeInsets.zero,
                               height: 40,
-                              child: BlocBuilder<CategoryBloc, CategoryState>(
+                              child: BlocConsumer<CategoryBloc, CategoryState>(
+                                listener: (context, state) {
+                                  state.maybeWhen(
+                                    orElse: () {},
+                                    loadSuccess: (catalog) {
+                                      context.read<GetProductBloc>().add(
+                                            const GetProductEvent.getProduct(),
+                                          );
+                                    },
+                                  );
+                                },
                                 builder: (context, state) {
                                   return state.maybeWhen(orElse: () {
                                     return const SizedBox();
@@ -268,8 +276,7 @@ class _FoodScreenState extends State<FoodScreen>
                                                           categoryId: event
                                                               .items[index]
                                                               .id));
-                                              log(' ****** catalog id :: ${event.items[index].catalogId}');
-                                              log(' ****** category id :: ${event.items[index].id}');
+
                                               if (context.mounted) {
                                                 context
                                                         .read<AddProductBloc>()

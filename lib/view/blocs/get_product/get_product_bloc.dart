@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:vendor_foody/data/models/response/list_entires_product_model.dart';
@@ -11,7 +9,7 @@ part 'get_product_state.dart';
 
 class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
   final ProductsRepository repository;
-    int selectedParenteTabIndex = 0;
+  int selectedParenteTabIndex = 0;
 
   GetProductBloc({required this.repository})
       : super(const GetProductState.initial()) {
@@ -19,11 +17,14 @@ class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
       await event.map(
         getProduct: (v) async {
           emit(const _LoadInProgress());
+
           final ListEntriesProducts data = await repository
               .getProductsFromDatabsae(categoryId: v.categoryId);
-
-          log("check firs item of data: ${data.results!.first.id}");
-          emit(_LoadSuccess(data));
+          if (data.totalCount == 0) {
+            emit(_Notdata(data));
+          } else {
+            emit(_LoadSuccess(data));
+          }
         },
       );
     });

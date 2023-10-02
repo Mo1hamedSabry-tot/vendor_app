@@ -7,4 +7,5 @@ class AuthEvent with _$AuthEvent {
     required String password,
   }) = _Clicklogin;
   const factory AuthEvent.logout() = _Logout;
+ 
 }

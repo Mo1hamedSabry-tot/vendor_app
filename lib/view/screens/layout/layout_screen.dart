@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +7,7 @@ import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/app/app_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
@@ -29,8 +28,6 @@ class LayoutScreen extends StatefulWidget {
   State<LayoutScreen> createState() => _LayoutScreenState();
 }
 
-int curIndex = 0;
-
 class _LayoutScreenState extends State<LayoutScreen> {
   @override
   void initState() {
@@ -39,9 +36,6 @@ class _LayoutScreenState extends State<LayoutScreen> {
   }
 
   List<Widget?> screens = [const OrdersScreen(), const FoodScreen()];
-  changeNavi(int index) {
-    curIndex = index;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,134 +43,134 @@ class _LayoutScreenState extends State<LayoutScreen> {
       statusBarIconBrightness: Brightness.dark,
       statusBarColor: AppColors.white,
     ));
-    return Scaffold(
-      backgroundColor: const Color(0xFFf4f5f8),
-      body: screens[curIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: GestureDetector(
-        onTap: () {},
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            BlurWrap(
-              radius: BorderRadius.circular(100),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 500),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF757575),
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                height: 60,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    right: 10,
-                    left: 10,
+    return BlocBuilder<AppBloc, AppState>(builder: (context, state) {
+      final myIndex = state.when(
+        initial: (index) => index,
+        changenavigatorBar: (index) => index,
+      );
+      return Scaffold(
+        backgroundColor: const Color(0xFFf4f5f8),
+        body: screens[myIndex],
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: GestureDetector(
+          onTap: () {},
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              BlurWrap(
+                radius: BorderRadius.circular(100),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF757575),
+                    borderRadius: BorderRadius.circular(100),
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BottomNavigatorItem(
-                        isScrolling: false,
-                        selectItem: () {
-                          changeNavi(0);
-                          setState(() {});
-                        }, //() => event.selectIndex(0),
-                        currentIndex: curIndex,
-                        index: 0,
-                        selectIcon: FlutterRemix.file_list_2_fill,
-                        unSelectIcon: FlutterRemix.file_list_2_line,
-                      ),
-                      BottomNavigatorItem(
-                        isScrolling: true,
-                        selectItem: () {
-                          changeNavi(1);
-                          setState(() {});
-                          context.read<GetProductBloc>().add(
-                                const GetProductEvent.getProduct(),
-                              );
-                          context.read<OrderBloc>().add(
-                                const OrderEvent.getNewOrderEvent(),
-                              );
-
-                          log("Checking Button pressed ");
-                        }, // () => event.selectIndex(1),
-                        index: 1,
-                        currentIndex: curIndex, // state.selectedIndex,
-                        selectIcon: FlutterRemix.restaurant_fill,
-                        unSelectIcon: FlutterRemix.restaurant_line,
-                      ),
-                      Container(
-                          width: 40,
-                          height: 40,
-                          margin: const EdgeInsets.only(left: 12),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors
-                                  .transparent, // index == 2 ? Style.primaryColor : Style.transparent,
-                              width: 2,
+                  height: 60,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      right: 10,
+                      left: 10,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BottomNavigatorItem(
+                          isScrolling: false,
+                          onTap: () {
+                            context
+                                .read<AppBloc>()
+                                .add(const AppEvent.updateIndex(index: 0));
+                          }, //() => event.selectIndex(0),
+                          currentIndex: myIndex,
+                          index: 0,
+                          selectIcon: FlutterRemix.file_list_2_fill,
+                          unSelectIcon: FlutterRemix.file_list_2_line,
+                        ),
+                        BottomNavigatorItem(
+                          isScrolling: true,
+                          onTap: () async {
+                            context
+                                .read<AppBloc>()
+                                .add(const AppEvent.updateIndex(index: 1));
+                          }, // () => event.selectIndex(1),
+                          index: 1,
+                          currentIndex: myIndex, // state.selectedIndex,
+                          selectIcon: FlutterRemix.restaurant_fill,
+                          unSelectIcon: FlutterRemix.restaurant_line,
+                        ),
+                        Container(
+                            width: 40,
+                            height: 40,
+                            margin: const EdgeInsets.only(left: 12),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors
+                                    .transparent, // index == 2 ? Style.primaryColor : Style.transparent,
+                                width: 2,
+                              ),
+                              shape: BoxShape.circle,
                             ),
-                            shape: BoxShape.circle,
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                  context, ProfileSceen.routeName);
-                            },
-                            child: const TOTImageAtom.asset(
-                              'assets/image/logo.png',
-                              width: 40,
-                              height: 40,
-                            ),
-                          ))
-                    ],
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, ProfileSceen.routeName);
+                              },
+                              child: const TOTImageAtom.asset(
+                                'assets/image/logo.png',
+                                width: 40,
+                                height: 40,
+                              ),
+                            ))
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsetsDirectional.only(start: 8),
-              width: 56,
-              height: 56,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.greenColor,
-              ),
-              child: TOTIconButtonAtom.displayMedium(
-                codePoint: 0xe047,
-                iconColor: AppColors.blackColor,
-                onPressed: () {
-                  if (curIndex == 0) {
-                    Navigator.pushNamed(context, AddOrder.routName);
-                  } else {
-                    if (context
-                            .read<GetProductBloc>()
-                            .selectedParenteTabIndex ==
-                        1) {
-                      return;
+              Container(
+                margin: const EdgeInsetsDirectional.only(start: 8),
+                width: 56,
+                height: 56,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.greenColor,
+                ),
+                child: TOTIconButtonAtom.displayMedium(
+                  codePoint: 0xe047,
+                  iconColor: AppColors.blackColor,
+                  onPressed: () {
+                    if (myIndex == 0) {
+                      Navigator.pushNamed(context, AddOrder.routName);
+                    } else {
+                      if (context
+                              .read<GetProductBloc>()
+                              .selectedParenteTabIndex ==
+                          1) {
+                        return;
+                      }
+                      showModalBottomSheet(
+                          context: context,
+                          isDismissible: true,
+                          isScrollControlled: true,
+                          shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(22))),
+                          builder: (_) {
+                            return const _FoodBottomSheet(
+                              title: '',
+                              code: '',
+                              selectedUnitId: 2,
+                            );
+                          });
                     }
-                    showModalBottomSheet(
-                        context: context,
-                        isDismissible: true,
-                        isScrollControlled: true,
-                        shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(22))),
-                        builder: (_) {
-                          return const _FoodBottomSheet(
-                            title: '',
-                            code: '',
-                            selectedUnitId: 2,
-                          );
-                        });
-                  }
-                },
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
 

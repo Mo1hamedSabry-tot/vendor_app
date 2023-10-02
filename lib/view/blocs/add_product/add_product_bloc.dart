@@ -9,7 +9,7 @@ part 'add_product_state.dart';
 
 class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
   static bool issucceeded = false;
-   String? catalogId;//static
+   String? catalogId;
    String? categoreyId;
   final AddProductRepository repository;
 

@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/view/blocs/get_catalog/get_catalog_bloc.dart';
+import 'package:vendor_foody/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
+import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
+import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
+import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
+import 'package:vendor_foody/view/screens/auth/login/login_screen.dart';
 
 import '../../../custom/custom_app_bar.dart';
 import 'widget/addons_body.dart';
@@ -29,7 +35,6 @@ class _FoodScreenState extends State<FoodScreen>
   late ScrollController _scrollController;
   TextEditingController controller = TextEditingController();
 
-  int selectedTabIndex = 0;
   bool isSelcetedCategory = false;
   bool loading = false;
 
@@ -57,7 +62,8 @@ class _FoodScreenState extends State<FoodScreen>
     _tabController.addListener(() {
       setState(() {
         loading = true;
-        selectedTabIndex = _tabController.index;
+        context.read<GetProductBloc>().selectedParenteTabIndex =
+            _tabController.index;
         loading = false;
       });
     });
@@ -110,6 +116,50 @@ class _FoodScreenState extends State<FoodScreen>
                         ),
                       ),
                     ),
+                    BlocListener<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        state.maybeWhen(
+                          orElse: () {},
+                          logoutSuccess: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout success',
+                                type: SnackBarType.success);
+                            Navigator.pushNamed(context, LoginScreen.routeName);
+                          },
+                          logoutError: () {
+                            ShowSnackbar.showCheckTopSnackBar(context,
+                                text: 'Logout unsuccessful',
+                                type: SnackBarType.error);
+                          },
+                        );
+                      },
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.logout_outlined,
+                          color: AppColors.blackColor,
+                        ),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) {
+                                return TOTAlertDialogAtom(
+                                  title: 'Logout',
+                                  content: 'are you sure you want to logout',
+                                  cancelText: 'Cancel',
+                                  confirmText: 'yes',
+                                  onCancel: () {
+                                    Navigator.pop(context);
+                                  },
+                                  onConfirm: () {
+                                    context
+                                        .read<AuthBloc>()
+                                        .add(const AuthEvent.logout());
+                                  },
+                                );
+                              });
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -128,13 +178,19 @@ class _FoodScreenState extends State<FoodScreen>
                           onTap: (value) {
                             setState(() {
                               loading = true;
-                              selectedTabIndex = value;
+                              context
+                                  .read<GetProductBloc>()
+                                  .selectedParenteTabIndex = value;
                               loading = false;
                             });
                           },
                         ),
                       ),
-                      if (!loading && selectedTabIndex == 0)
+                      if (!loading &&
+                          context
+                                  .read<GetProductBloc>()
+                                  .selectedParenteTabIndex ==
+                              0)
                         SliverAppBar(
                           collapsedHeight: 0,
                           expandedHeight: 0,
@@ -150,68 +206,96 @@ class _FoodScreenState extends State<FoodScreen>
                               margin: const EdgeInsets.only(bottom: 5),
                               padding: EdgeInsets.zero,
                               height: 40,
-                              child:
-                                  BlocBuilder<GetCatalogBloc, GetCatalogState>(
+                              child: BlocConsumer<CategoryBloc, CategoryState>(
+                                listener: (context, state) {
+                                  state.maybeWhen(
+                                    orElse: () {},
+                                    loadSuccess: (catalog) {
+                                      context.read<GetProductBloc>().add(
+                                            const GetProductEvent.getProduct(),
+                                          );
+                                    },
+                                  );
+                                },
                                 builder: (context, state) {
                                   return state.maybeWhen(orElse: () {
                                     return const SizedBox();
                                   }, loadInProgress: () {
                                     return ListView.separated(
-                                        separatorBuilder: (context, index) {
-                                          return SizedBox(
+                                      separatorBuilder: (context, index) {
+                                        return SizedBox(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.05,
+                                        );
+                                      },
+                                      itemCount: 10,
+                                      scrollDirection: Axis.horizontal,
+                                      padding: EdgeInsets.zero,
+                                      itemBuilder: (context, index) {
+                                        return Center(
+                                          child: SizedBox(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
-                                                0.05,
-                                          );
-                                        },
-                                        itemCount: 10,
-                                        scrollDirection: Axis.horizontal,
-                                        padding: EdgeInsets.zero,
-                                        itemBuilder: (context, index) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.25,
-                                              height: 50.0,
-                                              child: Shimmer.fromColors(
-                                                baseColor: Colors.grey.shade100,
-                                                highlightColor:
-                                                    Colors.grey.shade200,
-                                                child: Container(
-                                                  margin: const EdgeInsets
-                                                      .symmetric(horizontal: 5),
-                                                  decoration: BoxDecoration(
-                                                    color: AppColors.greyColor,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
+                                                0.25,
+                                            height: 50.0,
+                                            child: Shimmer.fromColors(
+                                              baseColor: Colors.grey.shade100,
+                                              highlightColor:
+                                                  Colors.grey.shade200,
+                                              child: Container(
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 5),
+                                                decoration: BoxDecoration(
+                                                  color: AppColors.greyColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
                                                 ),
                                               ),
                                             ),
-                                          );
-                                        },
+                                          ),
                                         );
-                                  }, loadSuccess: (v) {
+                                      },
+                                    );
+                                  }, loadSuccess: (event) {
                                     return ListView.builder(
-                                        itemCount: v.results?.length,
+                                        itemCount: event.items.length,
                                         scrollDirection: Axis.horizontal,
                                         padding: EdgeInsets.zero,
                                         itemBuilder: (context, index) {
                                           return CategoryItem(
-                                            title: v.results![index].name ?? "",
+                                            title: event.items[index].name,
                                             isSelect:
-                                                v.results![index].isSelected,
+                                                event.items[index].isSelected,
                                             onTab: () {
+                                              context
+                                                  .read<GetProductBloc>()
+                                                  .add(GetProductEvent
+                                                      .getProduct(
+                                                          categoryId: event
+                                                              .items[index]
+                                                              .id));
+
+                                              if (context.mounted) {
+                                                context
+                                                        .read<AddProductBloc>()
+                                                        .catalogId =
+                                                    event
+                                                        .items[index].catalogId;
+                                                context
+                                                        .read<AddProductBloc>()
+                                                        .categoreyId =
+                                                    event.items[index].id;
+                                              }
                                               setState(
                                                 () {
                                                   selectedItemIndex = index;
-                                                  for (var tab in v.results!) {
+                                                  for (var tab in event.items) {
                                                     tab.isSelected = false;
                                                   }
-                                                  v.results![index].isSelected =
-                                                      true;
+                                                  event.items[index]
+                                                      .isSelected = true;
                                                 },
                                               );
                                             },

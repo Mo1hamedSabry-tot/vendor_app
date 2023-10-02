@@ -13,7 +13,7 @@ class DioHelper {
     dio = Dio(
       BaseOptions(
         //Here the URL of API.
-        baseUrl: baseUrl,
+        baseUrl: Endpoint.baseUrl,
 
         //   receiveDataWhenStatusError: true,
         //Here we Put The Headers Needed in The API.
@@ -58,15 +58,17 @@ class DioHelper {
     String? token,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    bool? headerOption = false,
+    bool headerOption = false,
   }) async {
     try {
-      dio.options.headers = {
-        'Authorization': 'Bearer ${token ?? ''}',
-      };
+      if (token != null) {
+        dio.options.headers = {
+          "Authorization": "Bearer $token",
+        };
+      }
       final Response response = await dio.post(
         options: Options(
-          contentType: headerOption!
+          contentType: headerOption
               ? Headers.formUrlEncodedContentType
               : Headers.jsonContentType,
         ),

@@ -9,14 +9,18 @@ part 'add_product_state.dart';
 
 class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
   static bool issucceeded = false;
+   String? catalogId;
+   String? categoreyId;
   final AddProductRepository repository;
+
+
   AddProductBloc({required this.repository})
       : super(const AddProductState.initial()) {
     on<AddProductEvent>((event, emit) async {
       await event.map(addProduct: (v) async {
         emit(const _LoadInProgress());
         final AddProductResponseModel data = await repository.addProduct(
-            name: v.name, code: v.code, catalogId: v.catalogId);
+            name: v.name, code: v.code, catalogId: v.catalogId,categoryId: v.categoryId);
         issucceeded
             ? emit(_AddProductSuccess(data))
             : emit(const _AddProductError());

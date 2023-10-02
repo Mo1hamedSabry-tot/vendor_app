@@ -5,7 +5,7 @@ import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 import 'package:vendor_foody/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/custom/custom_text_form.dart';
-import 'package:vendor_foody/view/blocs/login/login_bloc.dart';
+import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -130,17 +130,18 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
           decoration: BoxDecoration(
               color: const Color(0xFFefefee),
               borderRadius: BorderRadius.circular(20)),
-          child: BlocConsumer<LoginBloc, LoginState>(
+          child: BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
               state.maybeWhen(
                 loginSuccess: (model) async {
                   Navigator.pushNamed(context, LayoutScreen.routeName);
                   ShowSnackbar.showCheckTopSnackBar(context,
-                      text: 'you are welcome', type: SnackBarType.success);
+                      text: 'You are welcome', type: SnackBarType.success);
                 },
                 loginError: () async {
                   ShowSnackbar.showCheckTopSnackBar(context,
-                      text: 'not Found', type: SnackBarType.error);
+                      text: 'Please, enter valid user data!',
+                      type: SnackBarType.error);
                 },
                 orElse: () {},
               );
@@ -251,8 +252,13 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                             );
                           },
                           loadInProgress: () {
-                            return const CircularProgressIndicator(
-                              color: AppColors.blackColor,
+                            return const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                color: AppColors.white,
+                                strokeWidth: 3,
+                              ),
                             );
                           },
                         ),
@@ -275,30 +281,11 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
 
   void _onPressedMethod() {
     if (formKey.currentState!.validate()) {
-      context.read<LoginBloc>().add(
-            LoginEvent.clicklogin(
+      context.read<AuthBloc>().add(
+            AuthEvent.clicklogin(
                 username: userNameController.text,
                 password: passController.text),
           );
-      // LoginRepository()
-      //     .getData(
-      //         username: userNameController.text,
-      //         password: passController.text,
-      //         rememberMe: false)
-      //     .then((value) async {
-      //   if (value.succeeded == true) {
-      //     TokenRepository().getToken(
-      //         username: userNameController.text, password: passController.text);
-      //     Navigator.pushReplacementNamed(context, LayoutScreen.routeName);
-      //     await showToast(
-      //       message: 'successful',
-      //     );
-      //   } else {
-      //     await showToast(
-      //       message: 'Login failed',
-      //     );
-      //   }
-      // });
     }
   }
 }

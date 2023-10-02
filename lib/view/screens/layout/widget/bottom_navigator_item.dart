@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
 
 class BottomNavigatorItem extends StatelessWidget {
-  final VoidCallback selectItem;
+  final VoidCallback onTap;
   final int index;
   final int currentIndex;
   final IconData selectIcon;
@@ -11,7 +11,7 @@ class BottomNavigatorItem extends StatelessWidget {
 
   const BottomNavigatorItem({
     Key? key,
-    required this.selectItem,
+    required this.onTap,
     required this.index,
     required this.selectIcon,
     required this.unSelectIcon,
@@ -22,7 +22,7 @@ class BottomNavigatorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: selectItem,
+      onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 700),
         color: AppColors.transparent,

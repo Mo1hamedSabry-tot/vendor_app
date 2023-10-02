@@ -6,6 +6,7 @@ class AddProductEvent with _$AddProductEvent {
     required String name,
     required String code,
     required String catalogId,
+    required String categoryId,
   }) =
       _AddProduct;
 }

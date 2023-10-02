@@ -11,18 +11,20 @@ class AddProductRepository {
     required String name,
     required String code,
     required String catalogId,
+    required String categoryId,
     String image =
         "http://20.163.148.155:8080/assets/catalog/f5790/PJV-27970586/Images/1.png",
   }) async {
     late AddProductResponseModel model;
     try {
       await DioHelper.postData(
-          token: CacheHelper.get('token'),
-          url: addProductEndPoint,
+          token: CacheHelper.get('access_token'),
+          url:Endpoint.addProductEndPoint ,
           data: {
             "code": code,
             "name": name,
             "catalogId": catalogId,
+            "categoryId":categoryId,
             "imgSrc": image,
           }).then((value) {
         model = AddProductResponseModel.fromJson(value.data);

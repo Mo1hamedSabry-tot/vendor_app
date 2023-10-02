@@ -10,8 +10,8 @@ class GetCatalogsRepository {
     CatalogResponseModel? data;
     try {
       await DioHelper.postData(
-          url: getCatologsEndPoint,
-          token: CacheHelper.get('token'),
+          url: Endpoint.getCatologsEndPoint,
+          token: CacheHelper.get('access_token'),
           data: {
             "searchInVariations": true,
             "responseGroup": "none",
@@ -27,7 +27,7 @@ class GetCatalogsRepository {
       log('catchhhhhhhhhhhhhh ${e.toString()}');
     }
 
-    log(data.toString());
     return data!;
   }
 }
+

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/data/models/response/tot_product_model.dart';
+import 'package:vendor_foody/data/models/response/list_entires_product_model.dart';
 
 class PopularFoodItem extends StatelessWidget {
-  final TOTProduct model;
+  final Result? model;
   const PopularFoodItem({super.key, required this.model});
 
   @override
@@ -26,18 +26,18 @@ class PopularFoodItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TOTTextAtom.bodyLarge(
-                      model.name,
+                      model?.name ?? "Not found",
                       color: AppColors.blackColor,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.bodyMedium(
-                        model.seoObjectType!.substring(0, 10)),
+                    TOTTextAtom.bodyMedium(model?.code ?? "No code found"),
                     const SizedBox(
                       height: 20,
                     ),
-                    TOTTextAtom.titleLarge('\$ ${model.priority.toString()}'),
+                    TOTTextAtom.titleLarge(
+                        '\$ ${model?.productType ?? "No type found"}'),
                     const SizedBox(
                       height: 20,
                     ),
@@ -48,29 +48,30 @@ class PopularFoodItem extends StatelessWidget {
                     fit: BoxFit.cover,
                     width: 100,
                     height: 100,
-                    placeholder: (context, url) =>  Center(
+                    placeholder: (context, url) => Center(
                           child: Center(
-                child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width * 0.25,
-                  height: MediaQuery.sizeOf(context).height * 0.15,
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.grey.shade100,
-                    highlightColor: Colors.grey.shade300,
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        color: AppColors.greyColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+                            child: SizedBox(
+                              width: MediaQuery.sizeOf(context).width * 0.25,
+                              height: MediaQuery.sizeOf(context).height * 0.15,
+                              child: Shimmer.fromColors(
+                                baseColor: Colors.grey.shade100,
+                                highlightColor: Colors.grey.shade300,
+                                child: Container(
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 5),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.greyColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                     errorWidget: (context, url, error) {
                       return const SizedBox();
                     },
-                    imageUrl: model.imgSrc ??
+                    imageUrl: model?.imageUrl ??
                         'https://as2.ftcdn.net/v2/jpg/01/89/76/29/1000_F_189762980_jJCtXX3tM0rMEsGAB0MU0nMBYM5dZU89.jpg'),
               ],
             ),

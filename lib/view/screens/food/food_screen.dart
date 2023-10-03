@@ -34,6 +34,7 @@ class _FoodScreenState extends State<FoodScreen>
   late TabController _tabController;
   late ScrollController _scrollController;
   TextEditingController controller = TextEditingController();
+  late TextEditingController searchController;
 
   bool isSelcetedCategory = false;
   bool loading = false;
@@ -58,7 +59,7 @@ class _FoodScreenState extends State<FoodScreen>
     _scrollController = ScrollController();
     _tabController =
         _tabController = TabController(length: tabs.length, vsync: this);
-
+    searchController = TextEditingController();
     _tabController.addListener(() {
       setState(() {
         loading = true;
@@ -91,16 +92,26 @@ class _FoodScreenState extends State<FoodScreen>
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: Container(
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color(0xFFf4f5f8),
                         ),
-                        padding: const EdgeInsets.all(12),
-                        child: const Icon(
-                          FlutterRemix.search_2_line,
-                          size: 20,
+                        child: IconButton(
+                          onPressed: () {
+                            context.read<GetProductBloc>().add(
+                                  GetProductEvent.searchProduct(
+                                      categoryId: context
+                                          .read<AddProductBloc>()
+                                          .categoreyId,
+                                      word: searchController.text),
+                                );
+                          },
+                          icon: const Icon(
+                            FlutterRemix.search_2_line,
+                            size: 20,
+                          ),
                           color: AppColors.blackColor,
                         ),
                       ),
@@ -109,6 +120,16 @@ class _FoodScreenState extends State<FoodScreen>
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextFormField(
+                          controller: searchController,
+                          onChanged: (value) {
+                            context.read<GetProductBloc>().add(
+                                  GetProductEvent.searchProduct(
+                                      categoryId: context
+                                          .read<AddProductBloc>()
+                                          .categoreyId,
+                                      word: value),
+                                );
+                          },
                           decoration: const InputDecoration(
                             hintText: 'Search',
                             border: InputBorder.none,

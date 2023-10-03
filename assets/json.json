@@ -1,142 +1,145 @@
 {
-  "totalCount": 6,
+  "listEntries": [
+      {
+          "productType": "Physical",
+          "outlines": [
+              {
+                  "items": [
+                      {
+                          "id": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+                          "seoObjectType": "Catalog",
+                          "seoInfos": null,
+                          "name": "eslam Nas1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                          "seoObjectType": "Category",
+                          "seoInfos": [
+                              {
+                                  "name": null,
+                                  "semanticUrl": "es-cat1",
+                                  "pageTitle": null,
+                                  "metaDescription": null,
+                                  "imageAltDescription": null,
+                                  "metaKeywords": null,
+                                  "storeId": null,
+                                  "objectId": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                                  "objectType": "Category",
+                                  "isActive": true,
+                                  "languageCode": "ar-EG",
+                                  "id": "10548d35-41dc-4b24-b26d-e57de013648c"
+                              }
+                          ],
+                          "name": "es-cat1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067",
+                          "seoObjectType": "CatalogProduct",
+                          "seoInfos": [],
+                          "name": "es-cat1-prod1",
+                          "hasVirtualParent": false
+                      }
+                  ]
+              }
+          ],
+          "type": "product",
+          "isActive": true,
+          "imageUrl": "http://20.163.148.155:8080/assets/catalog/742e4/LRO-63864286/SNB.png",
+          "code": "LRO-63864286",
+          "name": "es-cat1-prod1",
+          "links": null,
+          "outline": [
+              "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+              "52251942-98a5-44eb-af21-a91e992c3b3e",
+              "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+          ],
+          "path": [
+              "eslam Nas1",
+              "es-cat1",
+              "es-cat1-prod1"
+          ],
+          "catalogId": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+          "seoObjectType": "CatalogProduct",
+          "seoInfos": null,
+          "createdDate": "2023-09-17T14:10:50.2356406Z",
+          "modifiedDate": "2023-09-17T14:10:50.2356406Z",
+          "createdBy": "al_khbaz",
+          "modifiedBy": "al_khbaz",
+          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+      }
+  ],
+  "totalCount": 1,
   "results": [
-    {
-      "rowVersion": "AAAAAAAAjOM=",
-      "customerId": "ebb6f3b3-e493-419a-ad63-d04baa20010a",
-      "customerName": "",
-      "channelId": "",
-      "storeId": "alkhbaz",
-      "storeName": "alkhbaz",
-      "organizationId": "",
-      "organizationName": "",
-      "employeeId": "0326c5f9-8aa1-4318-a3f7-4959e4daad2e",
-      "employeeName": "ahmed b",
-      "shoppingCartId": "",
-      "isPrototype": false,
-      "purchaseOrderNumber": "",
-      "subscriptionNumber": "",
-      "subscriptionId": "",
-      "objectType": "TotPlatform.OrdersModule.Core.Model.CustomerOrder",
-      "addresses": [],
-      "inPayments": [],
-      "items": [
-        {
-          "priceId": "",
-          "currency": "EGP",
-          "price": 100,
-          "priceWithTax": 100,
-          "placedPrice": 100,
-          "placedPriceWithTax": 100,
-          "extendedPrice": 0,
-          "extendedPriceWithTax": 0,
-          "discountAmount": 0,
-          "discountAmountWithTax": 0,
-          "discountTotal": 0,
-          "discountTotalWithTax": 0,
-          "fee": 0,
-          "feeWithTax": 0,
-          "taxType": "",
-          "taxTotal": 0,
-          "taxPercentRate": 0,
-          "reserveQuantity": 0,
-          "quantity": 0,
-          "productId": "c6b166dd-e03a-4ba1-8f3b-2a1881103f13",
-          "sku": "223",
-          "productType": "",
-          "catalogId": "f5790b39-4fc8-4aad-8318-259d28595f05",
-          "categoryId": "",
-          "name": "test mahmoud addd",
-          "comment": "",
-          "status": "",
-          "imageUrl": "",
-          "isGift": false,
-          "shippingMethodCode": "",
-          "fulfillmentLocationCode": "",
-          "fulfillmentCenterId": "",
-          "fulfillmentCenterName": "",
-          "outerId": "",
-          "feeDetails": [],
-          "vendorId": "",
-          "weightUnit": "",
-          "weight": "",
-          "measureUnit": "",
-          "height": "",
-          "length": "",
-          "width": "",
-          "isCancelled": false,
-          "cancelledDate": "",
-          "cancelReason": "",
-          "objectType": "TotPlatform.OrdersModule.Core.Model.LineItem",
-          "dynamicProperties": [],
-          "discounts": [],
-          "taxDetails": [],
-          "createdDate": "2023-09-20T06:17:27.1861829Z",
-          "modifiedDate": "2023-09-20T06:17:27.1861829Z",
-          "createdBy": "admin",
-          "modifiedBy": "admin",
-          "id": "747a1986-0dcc-4881-8b63-3dc485b99244"
-        }
-      ],
-      "shipments": [],
-      "feeDetails": [],
-      "discounts": [],
-      "discountAmount": 0,
-      "taxDetails": [],
-      "scopes": "",
-      "total": 0,
-      "subTotal": 0,
-      "subTotalWithTax": 0,
-      "subTotalDiscount": 0,
-      "subTotalDiscountWithTax": 0,
-      "subTotalTaxTotal": 0,
-      "shippingTotal": 0,
-      "shippingTotalWithTax": 0,
-      "shippingSubTotal": 0,
-      "shippingSubTotalWithTax": 0,
-      "shippingDiscountTotal": 0,
-      "shippingDiscountTotalWithTax": 0,
-      "shippingTaxTotal": 0,
-      "paymentTotal": 0,
-      "paymentTotalWithTax": 0,
-      "paymentSubTotal": 0,
-      "paymentSubTotalWithTax": 0,
-      "paymentDiscountTotal": 0,
-      "paymentDiscountTotalWithTax": 0,
-      "paymentTaxTotal": 0,
-      "discountTotal": 0,
-      "discountTotalWithTax": 0,
-      "fee": 0,
-      "feeWithTax": 0,
-      "feeTotal": 0,
-      "feeTotalWithTax": 0,
-      "handlingTotal": 0,
-      "handlingTotalWithTax": 0,
-      "taxType": "",
-      "taxTotal": 0,
-      "taxPercentRate": 0,
-      "languageCode": "",
-      "operationType": "CustomerOrder",
-      "parentOperationId": "",
-      "number": "CO230920-00002",
-      "isApproved": true,
-      "status": "Created",
-      "comment": "",
-      "currency": "EGP",
-      "sum": 0,
-      "outerId": "",
-      "childrenOperations": [],
-      "cancelledState": "Undefined",
-      "isCancelled": false,
-      "cancelledDate": "",
-      "cancelReason": "",
-      "dynamicProperties": [],
-      "operationsLog": "",
-      "createdDate": "2023-09-20T06:17:27.1860856Z",
-      "modifiedDate": "2023-09-20T06:32:25.6635417Z",
-      "createdBy": "admin",
-      "modifiedBy": "admin",
-      "id": "03196d77-c237-479a-8d6b-6c34994da51a"
-    }
+      {
+          "productType": "Physical",
+          "outlines": [
+              {
+                  "items": [
+                      {
+                          "id": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+                          "seoObjectType": "Catalog",
+                          "seoInfos": null,
+                          "name": "eslam Nas1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                          "seoObjectType": "Category",
+                          "seoInfos": [
+                              {
+                                  "name": null,
+                                  "semanticUrl": "es-cat1",
+                                  "pageTitle": null,
+                                  "metaDescription": null,
+                                  "imageAltDescription": null,
+                                  "metaKeywords": null,
+                                  "storeId": null,
+                                  "objectId": "52251942-98a5-44eb-af21-a91e992c3b3e",
+                                  "objectType": "Category",
+                                  "isActive": true,
+                                  "languageCode": "ar-EG",
+                                  "id": "10548d35-41dc-4b24-b26d-e57de013648c"
+                              }
+                          ],
+                          "name": "es-cat1",
+                          "hasVirtualParent": false
+                      },
+                      {
+                          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067",
+                          "seoObjectType": "CatalogProduct",
+                          "seoInfos": [],
+                          "name": "es-cat1-prod1",
+                          "hasVirtualParent": false
+                      }
+                  ]
+              }
+          ],
+          "type": "product",
+          "isActive": true,
+          "imageUrl": "http://20.163.148.155:8080/assets/catalog/742e4/LRO-63864286/SNB.png",
+          "code": "LRO-63864286",
+          "name": "es-cat1-prod1",
+          "links": null,
+          "outline": [
+              "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+              "52251942-98a5-44eb-af21-a91e992c3b3e",
+              "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+          ],
+          "path": [
+              "eslam Nas1",
+              "es-cat1",
+              "es-cat1-prod1"
+          ],
+          "catalogId": "742e4c13-d6e4-4237-a08d-ea42b0f64363",
+          "seoObjectType": "CatalogProduct",
+          "seoInfos": null,
+          "createdDate": "2023-09-17T14:10:50.2356406Z",
+          "modifiedDate": "2023-09-17T14:10:50.2356406Z",
+          "createdBy": "al_khbaz",
+          "modifiedBy": "al_khbaz",
+          "id": "9cd5fdaf-a5b9-4281-805b-9e7725898067"
+      }
   ]
 }

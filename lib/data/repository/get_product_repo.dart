@@ -21,8 +21,29 @@ class ProductsRepository {
             "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
             "categoryId": categoryId ?? "5bd41b52-d041-4f82-95e3-f29cf1dfe2d1",
             "take": 300,
+            // "productType": "Physical",
           }).then((value) {
-        log("categoryId: $categoryId ---------- ${value.data}");
+        dataModel = ListEntriesProducts.fromJson(value.data);
+      });
+    } catch (e) {
+      log('***cccccccathhhh in ProductsRepository*** ${e.toString()}');
+    }
+    return dataModel!;
+  }
+
+  Future<ListEntriesProducts> searchInPrducts(
+      {String? categoryId, String? searchPhrase}) async {
+    ListEntriesProducts? dataModel;
+    try {
+      await DioHelper.postData(
+          url: Endpoint.listEntriesEndPoint,
+          token: CacheHelper.get('access_token'),
+          data: {
+            "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
+            "categoryId": categoryId ?? "5bd41b52-d041-4f82-95e3-f29cf1dfe2d1",
+            "searchPhrase": searchPhrase,
+            // "productType": "Physical",
+          }).then((value) {
         dataModel = ListEntriesProducts.fromJson(value.data);
       });
     } catch (e) {

@@ -20,32 +20,38 @@ mixin _$GetProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? categoryId) getProduct,
+    required TResult Function(String? categoryId, String word) searchProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? categoryId)? getProduct,
+    TResult? Function(String? categoryId, String word)? searchProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? categoryId)? getProduct,
+    TResult Function(String? categoryId, String word)? searchProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetProduct value) getProduct,
+    required TResult Function(_SearchProduct value) searchProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetProduct value)? getProduct,
+    TResult? Function(_SearchProduct value)? searchProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetProduct value)? getProduct,
+    TResult Function(_SearchProduct value)? searchProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +162,7 @@ class _$_GetProduct implements _GetProduct {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? categoryId) getProduct,
+    required TResult Function(String? categoryId, String word) searchProduct,
   }) {
     return getProduct(categoryId);
   }
@@ -164,6 +171,7 @@ class _$_GetProduct implements _GetProduct {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? categoryId)? getProduct,
+    TResult? Function(String? categoryId, String word)? searchProduct,
   }) {
     return getProduct?.call(categoryId);
   }
@@ -172,6 +180,7 @@ class _$_GetProduct implements _GetProduct {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? categoryId)? getProduct,
+    TResult Function(String? categoryId, String word)? searchProduct,
     required TResult orElse(),
   }) {
     if (getProduct != null) {
@@ -184,6 +193,7 @@ class _$_GetProduct implements _GetProduct {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetProduct value) getProduct,
+    required TResult Function(_SearchProduct value) searchProduct,
   }) {
     return getProduct(this);
   }
@@ -192,6 +202,7 @@ class _$_GetProduct implements _GetProduct {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetProduct value)? getProduct,
+    TResult? Function(_SearchProduct value)? searchProduct,
   }) {
     return getProduct?.call(this);
   }
@@ -200,6 +211,7 @@ class _$_GetProduct implements _GetProduct {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetProduct value)? getProduct,
+    TResult Function(_SearchProduct value)? searchProduct,
     required TResult orElse(),
   }) {
     if (getProduct != null) {
@@ -221,12 +233,162 @@ abstract class _GetProduct implements GetProductEvent {
 }
 
 /// @nodoc
+abstract class _$$_SearchProductCopyWith<$Res>
+    implements $GetProductEventCopyWith<$Res> {
+  factory _$$_SearchProductCopyWith(
+          _$_SearchProduct value, $Res Function(_$_SearchProduct) then) =
+      __$$_SearchProductCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? categoryId, String word});
+}
+
+/// @nodoc
+class __$$_SearchProductCopyWithImpl<$Res>
+    extends _$GetProductEventCopyWithImpl<$Res, _$_SearchProduct>
+    implements _$$_SearchProductCopyWith<$Res> {
+  __$$_SearchProductCopyWithImpl(
+      _$_SearchProduct _value, $Res Function(_$_SearchProduct) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categoryId = freezed,
+    Object? word = null,
+  }) {
+    return _then(_$_SearchProduct(
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      word: null == word
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchProduct implements _SearchProduct {
+  const _$_SearchProduct({this.categoryId, required this.word});
+
+  @override
+  final String? categoryId;
+  @override
+  final String word;
+
+  @override
+  String toString() {
+    return 'GetProductEvent.searchProduct(categoryId: $categoryId, word: $word)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SearchProduct &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
+            (identical(other.word, word) || other.word == word));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, categoryId, word);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SearchProductCopyWith<_$_SearchProduct> get copyWith =>
+      __$$_SearchProductCopyWithImpl<_$_SearchProduct>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? categoryId) getProduct,
+    required TResult Function(String? categoryId, String word) searchProduct,
+  }) {
+    return searchProduct(categoryId, word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? categoryId)? getProduct,
+    TResult? Function(String? categoryId, String word)? searchProduct,
+  }) {
+    return searchProduct?.call(categoryId, word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? categoryId)? getProduct,
+    TResult Function(String? categoryId, String word)? searchProduct,
+    required TResult orElse(),
+  }) {
+    if (searchProduct != null) {
+      return searchProduct(categoryId, word);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetProduct value) getProduct,
+    required TResult Function(_SearchProduct value) searchProduct,
+  }) {
+    return searchProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetProduct value)? getProduct,
+    TResult? Function(_SearchProduct value)? searchProduct,
+  }) {
+    return searchProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetProduct value)? getProduct,
+    TResult Function(_SearchProduct value)? searchProduct,
+    required TResult orElse(),
+  }) {
+    if (searchProduct != null) {
+      return searchProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchProduct implements GetProductEvent {
+  const factory _SearchProduct(
+      {final String? categoryId,
+      required final String word}) = _$_SearchProduct;
+
+  @override
+  String? get categoryId;
+  String get word;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SearchProductCopyWith<_$_SearchProduct> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$GetProductState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function(ListEntriesProducts product) loadSuccess,
+    required TResult Function(ListEntriesProducts product) loadSuccessSearch,
     required TResult Function(ListEntriesProducts product) notdata,
   }) =>
       throw _privateConstructorUsedError;
@@ -235,6 +397,7 @@ mixin _$GetProductState {
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function(ListEntriesProducts product)? loadSuccess,
+    TResult? Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult? Function(ListEntriesProducts product)? notdata,
   }) =>
       throw _privateConstructorUsedError;
@@ -243,6 +406,7 @@ mixin _$GetProductState {
     TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function(ListEntriesProducts product)? loadSuccess,
+    TResult Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult Function(ListEntriesProducts product)? notdata,
     required TResult orElse(),
   }) =>
@@ -252,6 +416,7 @@ mixin _$GetProductState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessSearch value) loadSuccessSearch,
     required TResult Function(_Notdata value) notdata,
   }) =>
       throw _privateConstructorUsedError;
@@ -260,6 +425,7 @@ mixin _$GetProductState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult? Function(_Notdata value)? notdata,
   }) =>
       throw _privateConstructorUsedError;
@@ -268,6 +434,7 @@ mixin _$GetProductState {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult Function(_Notdata value)? notdata,
     required TResult orElse(),
   }) =>
@@ -332,6 +499,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function(ListEntriesProducts product) loadSuccess,
+    required TResult Function(ListEntriesProducts product) loadSuccessSearch,
     required TResult Function(ListEntriesProducts product) notdata,
   }) {
     return initial();
@@ -343,6 +511,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function(ListEntriesProducts product)? loadSuccess,
+    TResult? Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult? Function(ListEntriesProducts product)? notdata,
   }) {
     return initial?.call();
@@ -354,6 +523,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function(ListEntriesProducts product)? loadSuccess,
+    TResult Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult Function(ListEntriesProducts product)? notdata,
     required TResult orElse(),
   }) {
@@ -369,6 +539,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessSearch value) loadSuccessSearch,
     required TResult Function(_Notdata value) notdata,
   }) {
     return initial(this);
@@ -380,6 +551,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult? Function(_Notdata value)? notdata,
   }) {
     return initial?.call(this);
@@ -391,6 +563,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult Function(_Notdata value)? notdata,
     required TResult orElse(),
   }) {
@@ -446,6 +619,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function(ListEntriesProducts product) loadSuccess,
+    required TResult Function(ListEntriesProducts product) loadSuccessSearch,
     required TResult Function(ListEntriesProducts product) notdata,
   }) {
     return loadInProgress();
@@ -457,6 +631,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function(ListEntriesProducts product)? loadSuccess,
+    TResult? Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult? Function(ListEntriesProducts product)? notdata,
   }) {
     return loadInProgress?.call();
@@ -468,6 +643,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function(ListEntriesProducts product)? loadSuccess,
+    TResult Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult Function(ListEntriesProducts product)? notdata,
     required TResult orElse(),
   }) {
@@ -483,6 +659,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessSearch value) loadSuccessSearch,
     required TResult Function(_Notdata value) notdata,
   }) {
     return loadInProgress(this);
@@ -494,6 +671,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult? Function(_Notdata value)? notdata,
   }) {
     return loadInProgress?.call(this);
@@ -505,6 +683,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult Function(_Notdata value)? notdata,
     required TResult orElse(),
   }) {
@@ -596,6 +775,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function(ListEntriesProducts product) loadSuccess,
+    required TResult Function(ListEntriesProducts product) loadSuccessSearch,
     required TResult Function(ListEntriesProducts product) notdata,
   }) {
     return loadSuccess(product);
@@ -607,6 +787,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function(ListEntriesProducts product)? loadSuccess,
+    TResult? Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult? Function(ListEntriesProducts product)? notdata,
   }) {
     return loadSuccess?.call(product);
@@ -618,6 +799,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function(ListEntriesProducts product)? loadSuccess,
+    TResult Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult Function(ListEntriesProducts product)? notdata,
     required TResult orElse(),
   }) {
@@ -633,6 +815,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessSearch value) loadSuccessSearch,
     required TResult Function(_Notdata value) notdata,
   }) {
     return loadSuccess(this);
@@ -644,6 +827,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult? Function(_Notdata value)? notdata,
   }) {
     return loadSuccess?.call(this);
@@ -655,6 +839,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult Function(_Notdata value)? notdata,
     required TResult orElse(),
   }) {
@@ -672,6 +857,169 @@ abstract class _LoadSuccess implements GetProductState {
   ListEntriesProducts get product;
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_LoadSuccessSearchCopyWith<$Res> {
+  factory _$$_LoadSuccessSearchCopyWith(_$_LoadSuccessSearch value,
+          $Res Function(_$_LoadSuccessSearch) then) =
+      __$$_LoadSuccessSearchCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ListEntriesProducts product});
+
+  $ListEntriesProductsCopyWith<$Res> get product;
+}
+
+/// @nodoc
+class __$$_LoadSuccessSearchCopyWithImpl<$Res>
+    extends _$GetProductStateCopyWithImpl<$Res, _$_LoadSuccessSearch>
+    implements _$$_LoadSuccessSearchCopyWith<$Res> {
+  __$$_LoadSuccessSearchCopyWithImpl(
+      _$_LoadSuccessSearch _value, $Res Function(_$_LoadSuccessSearch) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$_LoadSuccessSearch(
+      null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ListEntriesProducts,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ListEntriesProductsCopyWith<$Res> get product {
+    return $ListEntriesProductsCopyWith<$Res>(_value.product, (value) {
+      return _then(_value.copyWith(product: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_LoadSuccessSearch implements _LoadSuccessSearch {
+  const _$_LoadSuccessSearch(this.product);
+
+  @override
+  final ListEntriesProducts product;
+
+  @override
+  String toString() {
+    return 'GetProductState.loadSuccessSearch(product: $product)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_LoadSuccessSearch &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadSuccessSearchCopyWith<_$_LoadSuccessSearch> get copyWith =>
+      __$$_LoadSuccessSearchCopyWithImpl<_$_LoadSuccessSearch>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(ListEntriesProducts product) loadSuccess,
+    required TResult Function(ListEntriesProducts product) loadSuccessSearch,
+    required TResult Function(ListEntriesProducts product) notdata,
+  }) {
+    return loadSuccessSearch(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(ListEntriesProducts product)? loadSuccess,
+    TResult? Function(ListEntriesProducts product)? loadSuccessSearch,
+    TResult? Function(ListEntriesProducts product)? notdata,
+  }) {
+    return loadSuccessSearch?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(ListEntriesProducts product)? loadSuccess,
+    TResult Function(ListEntriesProducts product)? loadSuccessSearch,
+    TResult Function(ListEntriesProducts product)? notdata,
+    required TResult orElse(),
+  }) {
+    if (loadSuccessSearch != null) {
+      return loadSuccessSearch(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessSearch value) loadSuccessSearch,
+    required TResult Function(_Notdata value) notdata,
+  }) {
+    return loadSuccessSearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadSuccessSearch value)? loadSuccessSearch,
+    TResult? Function(_Notdata value)? notdata,
+  }) {
+    return loadSuccessSearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessSearch value)? loadSuccessSearch,
+    TResult Function(_Notdata value)? notdata,
+    required TResult orElse(),
+  }) {
+    if (loadSuccessSearch != null) {
+      return loadSuccessSearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadSuccessSearch implements GetProductState {
+  const factory _LoadSuccessSearch(final ListEntriesProducts product) =
+      _$_LoadSuccessSearch;
+
+  ListEntriesProducts get product;
+  @JsonKey(ignore: true)
+  _$$_LoadSuccessSearchCopyWith<_$_LoadSuccessSearch> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -751,6 +1099,7 @@ class _$_Notdata implements _Notdata {
     required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function(ListEntriesProducts product) loadSuccess,
+    required TResult Function(ListEntriesProducts product) loadSuccessSearch,
     required TResult Function(ListEntriesProducts product) notdata,
   }) {
     return notdata(product);
@@ -762,6 +1111,7 @@ class _$_Notdata implements _Notdata {
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function(ListEntriesProducts product)? loadSuccess,
+    TResult? Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult? Function(ListEntriesProducts product)? notdata,
   }) {
     return notdata?.call(product);
@@ -773,6 +1123,7 @@ class _$_Notdata implements _Notdata {
     TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function(ListEntriesProducts product)? loadSuccess,
+    TResult Function(ListEntriesProducts product)? loadSuccessSearch,
     TResult Function(ListEntriesProducts product)? notdata,
     required TResult orElse(),
   }) {
@@ -788,6 +1139,7 @@ class _$_Notdata implements _Notdata {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadSuccessSearch value) loadSuccessSearch,
     required TResult Function(_Notdata value) notdata,
   }) {
     return notdata(this);
@@ -799,6 +1151,7 @@ class _$_Notdata implements _Notdata {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
     TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult? Function(_Notdata value)? notdata,
   }) {
     return notdata?.call(this);
@@ -810,6 +1163,7 @@ class _$_Notdata implements _Notdata {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadSuccessSearch value)? loadSuccessSearch,
     TResult Function(_Notdata value)? notdata,
     required TResult orElse(),
   }) {

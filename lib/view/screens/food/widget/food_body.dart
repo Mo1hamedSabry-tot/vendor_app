@@ -28,81 +28,126 @@ class FoodBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GetProductBloc, GetProductState>(
       builder: (context, state) {
-        return state.maybeWhen(orElse: () {
-          return const SizedBox();
-        }, loadInProgress: () {
-          log("Check loadInProgress ");
-          return ListView.separated(
-            separatorBuilder: (context, index) {
-              return SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.05,
-              );
-            },
-            itemBuilder: (context, index) {
-              return Center(
-                child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width * 0.9,
-                  height: MediaQuery.sizeOf(context).height * 0.25,
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.grey.shade100,
-                    highlightColor: Colors.grey.shade300,
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        color: AppColors.greyColor,
-                        borderRadius: BorderRadius.circular(10),
+        return state.maybeWhen(
+          orElse: () {
+            return const SizedBox();
+          },
+          loadSuccessSearch: (product) {
+              return Align(
+              alignment: Alignment.center,
+              child: ListView.builder(
+                  itemCount: product.results!.length,
+                  padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                    return Align(
+                      alignment: Alignment.center,
+                      child: InkWell(
+                        onTap: () {
+                          log("name of index: ${product.results![index].name.toString()}");
+                          showModalBottomSheet(
+                              context: context,
+                              isDismissible: true,
+                              isScrollControlled: true,
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(22))),
+                              builder: (_) {
+                                return _FoodBottomSheet(
+                                  categoryId: context
+                                          .read<AddProductBloc>()
+                                          .categoreyId ??
+                                      '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
+                                  model: product.results![index],
+                                  title: product.results![index].name!,
+                                  code: product.results![index].code!,
+                                  selectedUnitId: 2,
+                                );
+                              });
+                        },
+                        child: PopularFoodItem(
+                          model: product.results![index],
+                        ),
+                      ),
+                    );
+                  }),
+            );
+         
+          },
+          loadInProgress: () {
+            return ListView.separated(
+              separatorBuilder: (context, index) {
+                return SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.05,
+                );
+              },
+              itemBuilder: (context, index) {
+                return Center(
+                  child: SizedBox(
+                    width: MediaQuery.sizeOf(context).width * 0.9,
+                    height: MediaQuery.sizeOf(context).height * 0.25,
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey.shade100,
+                      highlightColor: Colors.grey.shade300,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          color: AppColors.greyColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            },
-            itemCount: 10,
-          );
-        }, notdata: (product) {
-          return const NoOrders(
-            text: 'No Product',
-          );
-        }, loadSuccess: (product) {
-          return Align(
-            alignment: Alignment.center,
-            child: ListView.builder(
-                itemCount: product.results!.length,
-                padding: EdgeInsets.zero,
-                itemBuilder: (context, index) {
-                  return Align(
-                    alignment: Alignment.center,
-                    child: InkWell(
-                      onTap: () {
-                        log("name of index: ${product.results![index].name.toString()}");
-                        showModalBottomSheet(
-                            context: context,
-                            isDismissible: true,
-                            isScrollControlled: true,
-                            shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(22))),
-                            builder: (_) {
-                              return _FoodBottomSheet(
-                                categoryId: context
-                                        .read<AddProductBloc>()
-                                        .categoreyId ??
-                                    '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
-                                model: product.results![index],
-                                title: product.results![index].name!,
-                                code: product.results![index].code!,
-                                selectedUnitId: 2,
-                              );
-                            });
-                      },
-                      child: PopularFoodItem(
-                        model: product.results![index],
+                );
+              },
+              itemCount: 10,
+            );
+          },
+          notdata: (product) {
+            return const NoOrders(
+              text: 'No Product',
+            );
+          },
+          loadSuccess: (product) {
+            return Align(
+              alignment: Alignment.center,
+              child: ListView.builder(
+                  itemCount: product.results!.length,
+                  padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                    return Align(
+                      alignment: Alignment.center,
+                      child: InkWell(
+                        onTap: () {
+                          log("name of index: ${product.results![index].name.toString()}");
+                          showModalBottomSheet(
+                              context: context,
+                              isDismissible: true,
+                              isScrollControlled: true,
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(22))),
+                              builder: (_) {
+                                return _FoodBottomSheet(
+                                  categoryId: context
+                                          .read<AddProductBloc>()
+                                          .categoreyId ??
+                                      '5bd41b52-d041-4f82-95e3-f29cf1dfe2d1',
+                                  model: product.results![index],
+                                  title: product.results![index].name!,
+                                  code: product.results![index].code!,
+                                  selectedUnitId: 2,
+                                );
+                              });
+                        },
+                        child: PopularFoodItem(
+                          model: product.results![index],
+                        ),
                       ),
-                    ),
-                  );
-                }),
-          );
-        });
+                    );
+                  }),
+            );
+          },
+        );
       },
     );
   }

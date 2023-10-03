@@ -17,13 +17,22 @@ class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
       await event.map(
         getProduct: (v) async {
           emit(const _LoadInProgress());
-
           final ListEntriesProducts data = await repository
               .getProductsFromDatabsae(categoryId: v.categoryId);
           if (data.totalCount == 0) {
             emit(_Notdata(data));
           } else {
             emit(_LoadSuccess(data));
+          }
+        },
+        searchProduct: (value) async {
+          emit(const _LoadInProgress());
+          final ListEntriesProducts data =
+              await repository.searchInPrducts(categoryId: value.categoryId,searchPhrase: value.word);
+          if (data.totalCount == 0) {
+            emit(_Notdata(data));
+          } else {
+            emit(_LoadSuccessSearch(data));
           }
         },
       );

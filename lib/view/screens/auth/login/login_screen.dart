@@ -22,30 +22,24 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            'assets/image/splash.png',
+            'assets/image/139.jpg',
             width: MediaQuery.sizeOf(context).width,
             height: MediaQuery.sizeOf(context).height,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
-          const Positioned(
+          Positioned(
             top: 50,
-            left: 30,
-            child: Row(
-              children: [
-                TOTAvatarAtom.asset(
-                  'assets/image/logo.png',
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'Foodyman',
-                  style: TextStyle(
-                      color: AppColors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
+            left: 25,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 252, 206, 3),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: Image.asset('assets/image/too_logo.png')),
             ),
           ),
           Positioned(
@@ -65,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                     }).then((value) {});
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.greenColor,
+                backgroundColor: const Color(0xFF1476d2),
                 fixedSize: Size(
                   MediaQuery.sizeOf(context).width * 0.9,
                   50,
@@ -75,7 +69,7 @@ class LoginScreen extends StatelessWidget {
               child: const Text(
                 'Login',
                 style: TextStyle(
-                  color: AppColors.blackColor,
+                  color: AppColors.white,
                 ),
               ),
             ),
@@ -235,7 +229,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                       ElevatedButton(
                         onPressed: _onPressedMethod,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.greenColor,
+                          backgroundColor: const Color(0xFF1476d2),
                           fixedSize: Size(
                             MediaQuery.sizeOf(context).width * 0.9,
                             50,
@@ -247,7 +241,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                             return const Text(
                               'Login',
                               style: TextStyle(
-                                color: AppColors.blackColor,
+                                color: AppColors.white,
                               ),
                             );
                           },

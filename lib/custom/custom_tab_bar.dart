@@ -28,13 +28,12 @@ class CustomTabBar extends StatelessWidget {
         controller: tabController,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.blackColor,
+          color: Color(0xFFff8900),
         ),
         labelColor: AppColors.white,
         unselectedLabelColor: const Color(0xFF232B2F),
         unselectedLabelStyle: const TextStyle(fontSize: 14),
         labelStyle: const TextStyle(fontSize: 14),
-        
         tabs: tabs,
       ),
     );

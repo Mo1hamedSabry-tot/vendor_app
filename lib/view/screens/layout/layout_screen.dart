@@ -15,7 +15,6 @@ import 'package:vendor_foody/view/screens/food/food_screen.dart';
 import 'package:vendor_foody/view/screens/layout/widget/blur_wrap.dart';
 import 'package:vendor_foody/view/screens/layout/widget/bottom_navigator_item.dart';
 import 'package:vendor_foody/view/screens/orders/orders_screen.dart';
-import 'package:vendor_foody/view/screens/profile/profile_screen.dart';
 
 import '../../../custom/custom_text_form.dart';
 import '../../../custom/custom_toggle.dart';
@@ -99,29 +98,29 @@ class _LayoutScreenState extends State<LayoutScreen> {
                           selectIcon: FlutterRemix.restaurant_fill,
                           unSelectIcon: FlutterRemix.restaurant_line,
                         ),
-                        Container(
-                            width: 40,
-                            height: 40,
-                            margin: const EdgeInsets.only(left: 12),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors
-                                    .transparent, // index == 2 ? Style.primaryColor : Style.transparent,
-                                width: 2,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, ProfileSceen.routeName);
-                              },
-                              child: const TOTImageAtom.asset(
-                                'assets/image/logo.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                            ))
+                        // Container(
+                        //     width: 40,
+                        //     height: 40,
+                        //     margin: const EdgeInsets.only(left: 12),
+                        //     decoration: BoxDecoration(
+                        //       border: Border.all(
+                        //         color: Colors
+                        //             .transparent, // index == 2 ? Style.primaryColor : Style.transparent,
+                        //         width: 2,
+                        //       ),
+                        //       shape: BoxShape.circle,
+                        //     ),
+                        //     child: InkWell(
+                        //       onTap: () {
+                        //         Navigator.pushNamed(
+                        //             context, ProfileSceen.routeName);
+                        //       },
+                        //       child: const TOTImageAtom.asset(
+                        //         'assets/image/logo.png',
+                        //         width: 40,
+                        //         height: 40,
+                        //       ),
+                        //     ))
                       ],
                     ),
                   ),
@@ -133,11 +132,11 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 height: 56,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.greenColor,
+                  color: Color(0xFFff8900),
                 ),
                 child: TOTIconButtonAtom.displayMedium(
                   codePoint: 0xe047,
-                  iconColor: AppColors.blackColor,
+                  iconColor: AppColors.white,
                   onPressed: () {
                     if (myIndex == 0) {
                       Navigator.pushNamed(context, AddOrder.routName);
@@ -373,7 +372,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                                 "f5790b39-4fc8-4aad-8318-259d28595f05"));
                                       }
                                     },
-                                    backgroundColor: AppColors.greenColor);
+                                    backgroundColor: const Color(0xFFff8900));
                               },
                             )),
                       ],

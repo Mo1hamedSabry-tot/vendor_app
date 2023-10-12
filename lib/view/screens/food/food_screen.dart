@@ -87,6 +87,7 @@ class _FoodScreenState extends State<FoodScreen>
             children: [
               CustomAppBar(
                 bottomPadding: 16,
+                height: MediaQuery.sizeOf(context).height * 0.1296,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -385,7 +386,7 @@ class _Header extends SliverPersistentHeaderDelegate {
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.blackColor,
+          color: const Color(0xFFff8900),
         ),
         labelColor: AppColors.white,
         unselectedLabelColor: const Color(0xFF898989),

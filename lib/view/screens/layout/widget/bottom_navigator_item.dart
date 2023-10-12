@@ -49,7 +49,7 @@ class BottomNavigatorItem extends StatelessWidget {
               width: 20,
               decoration: BoxDecoration(
                 color: index == currentIndex
-                    ? Colors.green
+                    ? const Color(0xFFff8900)
                     : AppColors.transparent,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(70),

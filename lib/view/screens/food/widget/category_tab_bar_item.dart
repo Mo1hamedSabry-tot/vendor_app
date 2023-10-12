@@ -20,7 +20,7 @@ class CategoryItem extends StatelessWidget {
       onTap: onTab,
       child: Container(
         decoration: BoxDecoration(
-          color: isSelect ? AppColors.greenColor : AppColors.white,
+          color: isSelect ? const Color(0xFFff8900) : AppColors.white,
           borderRadius: BorderRadius.circular(10),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
@@ -31,6 +31,7 @@ class CategoryItem extends StatelessWidget {
           child: Text(
             title,
             maxLines: 1,
+            style: TextStyle(color: isSelect ? Colors.white : Colors.black),
             overflow: TextOverflow.ellipsis,
           ),
         ),

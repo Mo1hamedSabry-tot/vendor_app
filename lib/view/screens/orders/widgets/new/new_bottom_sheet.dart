@@ -47,7 +47,7 @@ class _NewOrderBottomSheetState extends State<NewOrderBottomSheet> {
             text: 'Swip To Accept',
             textColor: AppColors.blackColor,
             onPressed: widget.onTap,
-            backgroundColor: AppColors.greenColor,
+            backgroundColor: Color(0xFFff8900),
           ),
         ),
       ],

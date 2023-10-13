@@ -51,7 +51,7 @@ class _AcceptedOrderBottomSheetState extends State<AcceptedOrderBottomSheet> {
             text: 'Swip To Ready',
             textColor: AppColors.blackColor,
             onPressed: widget.onTap,
-            backgroundColor: AppColors.greenColor,
+            backgroundColor: Color(0xFFff8900),
           ),
         ),
       ],

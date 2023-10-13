@@ -69,7 +69,7 @@ class _NewSelectBottomSheetItemState extends State<NewSelectBottomSheetItem> {
                     child: TOTIconButtonAtom.displaySmall(
                       codePoint: isSelected ? 0xf635 : 0xf2e6,
                       iconColor: isSelected
-                          ? AppColors.greenColor
+                          ? Color(0xFFff8900)
                           : AppColors.blackColor,
                       onPressed: _updateSelected,
                     ),

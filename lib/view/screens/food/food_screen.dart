@@ -146,7 +146,7 @@ class _FoodScreenState extends State<FoodScreen>
                             ShowSnackbar.showCheckTopSnackBar(context,
                                 text: 'Logout success',
                                 type: SnackBarType.success);
-                            Navigator.pushNamed(context, LoginScreen.routeName);
+                            Navigator.pushReplacementNamed(context, LoginScreen.routeName);
                           },
                           logoutError: () {
                             ShowSnackbar.showCheckTopSnackBar(context,

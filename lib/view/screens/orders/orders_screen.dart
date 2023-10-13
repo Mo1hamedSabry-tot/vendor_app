@@ -138,7 +138,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                             ShowSnackbar.showCheckTopSnackBar(context,
                                 text: 'Logout success',
                                 type: SnackBarType.success);
-                            Navigator.pushNamed(context, LoginScreen.routeName);
+                            Navigator.pushReplacementNamed(context, LoginScreen.routeName);
                             CacheHelper.remove('access_token');
                           },
                           logoutError: () {

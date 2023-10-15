@@ -32,7 +32,7 @@ class ProfileItem extends StatelessWidget {
               color: AppColors.blackColor,
             ),
             const SizedBox(
-              width: 15, 
+              width: 15,
             ),
             TOTTextAtom.titleLarge(text),
             const SizedBox(
@@ -43,7 +43,7 @@ class ProfileItem extends StatelessWidget {
                     width: 50,
                     height: 50,
                     child: Card(
-                      color: Color(0xFFff8900),
+                      color: const Color(0xFFff8900),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
                             16.0), // Set your desired border radius

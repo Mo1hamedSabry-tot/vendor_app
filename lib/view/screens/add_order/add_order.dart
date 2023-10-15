@@ -277,7 +277,7 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                             ),
                             onChange: (v) {},
                           ),
-                        ], 
+                        ],
                       ),
                       const SizedBox(
                         height: 20,
@@ -288,7 +288,7 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                               text: 'Save',
                               textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor: Color(0xFFff8900)))
+                              backgroundColor: const Color(0xFFff8900)))
                     ],
                   ),
                 ),

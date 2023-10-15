@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vendor_foody/core/theme/app_colors.dart';
- 
+
 class CustomToggle extends StatefulWidget {
   final ValueNotifier<bool>? controller;
   final bool isText;
@@ -20,8 +20,8 @@ class _CustomToggleState extends State<CustomToggle> {
   @override
   void initState() {
     widget.controller?.addListener(
-      (){
-        if (widget.onChange != null){
+      () {
+        if (widget.onChange != null) {
           widget.onChange!(widget.controller?.value);
         }
       },
@@ -39,7 +39,7 @@ class _CustomToggleState extends State<CustomToggle> {
   Widget build(BuildContext context) {
     return AdvancedSwitch(
       controller: widget.controller,
-      activeColor: Color(0xFFff8900),
+      activeColor: const Color(0xFFff8900),
       inactiveColor: Colors.red,
       borderRadius: BorderRadius.circular(10),
       width: 70,
@@ -75,7 +75,7 @@ class _CustomToggleState extends State<CustomToggle> {
               color: Color(0xFF6B6B6B),
               spreadRadius: 0,
               blurRadius: 2,
-              offset: Offset(0,2),
+              offset: Offset(0, 2),
             ),
           ],
         ),

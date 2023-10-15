@@ -17,7 +17,8 @@ class ReadySelectBottomSheetItem extends StatefulWidget {
       _ReadySelectBottomSheetItemState();
 }
 
-class _ReadySelectBottomSheetItemState extends State<ReadySelectBottomSheetItem> {
+class _ReadySelectBottomSheetItemState
+    extends State<ReadySelectBottomSheetItem> {
   bool isSelected = false;
 
   _updateSelected() {
@@ -69,7 +70,7 @@ class _ReadySelectBottomSheetItemState extends State<ReadySelectBottomSheetItem>
                     child: TOTIconButtonAtom.displaySmall(
                       codePoint: isSelected ? 0xf635 : 0xf2e6,
                       iconColor: isSelected
-                          ? Color(0xFFff8900)
+                          ? const Color(0xFFff8900)
                           : AppColors.blackColor,
                       onPressed: _updateSelected,
                     ),

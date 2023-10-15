@@ -49,9 +49,10 @@ class _AcceptedOrderBottomSheetState extends State<AcceptedOrderBottomSheet> {
           height: 50,
           child: TOTButtonAtom.filledButton(
             text: 'Swip To Ready',
-            textColor: AppColors.blackColor,
+            textColor: AppColors.white,
+            
             onPressed: widget.onTap,
-            backgroundColor: Color(0xFFff8900),
+            backgroundColor: const Color(0xFFff8900),
           ),
         ),
       ],

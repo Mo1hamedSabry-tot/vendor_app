@@ -33,7 +33,7 @@ class FoodBody extends StatelessWidget {
             return const SizedBox();
           },
           loadSuccessSearch: (product) {
-              return Align(
+            return Align(
               alignment: Alignment.center,
               child: ListView.builder(
                   itemCount: product.results!.length,
@@ -71,7 +71,6 @@ class FoodBody extends StatelessWidget {
                     );
                   }),
             );
-         
           },
           loadInProgress: () {
             return ListView.separated(
@@ -151,7 +150,6 @@ class FoodBody extends StatelessWidget {
       },
     );
   }
-
 }
 
 class _FoodBottomSheet extends StatefulWidget {
@@ -335,7 +333,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                 width: double.infinity,
                                 child: TOTButtonAtom.filledButton(
                                     text: 'Save Edit',
-                                    textColor: AppColors.blackColor,
+                                    textColor: AppColors.white,
                                     onPressed: () {
                                       if (globalKey.currentState!.validate()) {
                                         log("categoreyId in id****::::: ${context.read<AddProductBloc>().categoreyId!}");
@@ -356,7 +354,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                             ));
                                       }
                                     },
-                                    backgroundColor: Color(0xFFff8900)));
+                                    backgroundColor: const Color(0xFFff8900)));
                           },
                         )
                       ],

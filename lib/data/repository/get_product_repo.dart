@@ -20,6 +20,7 @@ class ProductsRepository {
             "skip": 0,
             "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
             "categoryId": categoryId ?? "5bd41b52-d041-4f82-95e3-f29cf1dfe2d1",
+            "objectType": "CatalogProduct",
             "take": 300,
             // "productType": "Physical",
           }).then((value) {
@@ -41,6 +42,7 @@ class ProductsRepository {
           data: {
             "catalogID": "f5790b39-4fc8-4aad-8318-259d28595f05",
             "categoryId": categoryId ?? "5bd41b52-d041-4f82-95e3-f29cf1dfe2d1",
+            "objectType": "CatalogProduct",
             "searchPhrase": searchPhrase,
             // "productType": "Physical",
           }).then((value) {

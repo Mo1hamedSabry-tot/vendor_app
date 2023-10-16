@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class WaySelectedBtmSheetItem extends StatefulWidget {
@@ -41,7 +41,7 @@ class _WaySelectedBtmSheetItemState extends State<WaySelectedBtmSheetItem> {
                     child: isSelcted
                         ? TOTIconButtonAtom.displaySmall(
                             codePoint: 0xf635,
-                            iconColor:  AppColors.greenColor,
+                            iconColor: AppColors.pharmacyColor,
                             onPressed: () {
                               changeSelect();
                               setState(() {});

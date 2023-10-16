@@ -1,13 +1,13 @@
- import 'dart:async';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:top_snackbar_flutter/safe_area_values.dart';
 import 'package:top_snackbar_flutter/tap_bounce_container.dart';
-import 'package:vendor_foody/custom/custom_snack_bar.dart';
+import 'package:vendor_foody/app/custom/custom_snack_bar.dart';
 
 enum SnackBarType { success, info, error }
- class ShowSnackbar{
 
+class ShowSnackbar {
   static showCheckTopSnackBar(
     BuildContext context, {
     String? text,
@@ -18,24 +18,17 @@ enum SnackBarType { success, info, error }
       type == SnackBarType.error
           ? CustomSnackBar.error(
               message: text ?? "empty",
-                  
             )
           : (type == SnackBarType.success
               ? CustomSnackBar.success(
-                  message:
-                     
-                  text?? "empty",
+                  message: text ?? "empty",
                 )
               : CustomSnackBar.info(
-                message: text ?? "empty",
+                  message: text ?? "empty",
                 )),
     );
   }
-
-
- }
-
-
+}
 
 typedef ControllerCallback = void Function(AnimationController);
 

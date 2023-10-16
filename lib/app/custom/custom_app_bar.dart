@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget {
   final Widget child;

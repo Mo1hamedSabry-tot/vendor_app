@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vendor_foody/core/utils/cache_helper.dart';
+import 'package:vendor_foody/app/core/utils/cache_helper.dart';
 import 'package:vendor_foody/data/models/response/customer_order_models.dart';
 import 'package:vendor_foody/data/repository/order_repo.dart';
 part 'order_bloc.freezed.dart';

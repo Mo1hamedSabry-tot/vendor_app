@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:vendor_foody/core/utils/cache_helper.dart';
+import 'package:vendor_foody/app/core/utils/cache_helper.dart';
 import 'package:vendor_foody/data/models/response/add_product_model.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';
@@ -19,12 +19,12 @@ class AddProductRepository {
     try {
       await DioHelper.postData(
           token: CacheHelper.get('access_token'),
-          url:Endpoint.addProductEndPoint ,
+          url: Endpoint.addProductEndPoint,
           data: {
             "code": code,
             "name": name,
             "catalogId": catalogId,
-            "categoryId":categoryId,
+            "categoryId": categoryId,
             "imgSrc": image,
           }).then((value) {
         model = AddProductResponseModel.fromJson(value.data);

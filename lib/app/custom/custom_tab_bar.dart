@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 
 class CustomTabBar extends StatelessWidget {
   final TabController? tabController;
@@ -34,7 +34,6 @@ class CustomTabBar extends StatelessWidget {
         unselectedLabelColor: const Color(0xFF232B2F),
         unselectedLabelStyle: const TextStyle(fontSize: 14),
         labelStyle: const TextStyle(fontSize: 14),
-        
         tabs: tabs,
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 
 class ProfileItem extends StatelessWidget {
   final String text;
@@ -32,7 +32,7 @@ class ProfileItem extends StatelessWidget {
               color: AppColors.blackColor,
             ),
             const SizedBox(
-              width: 15, 
+              width: 15,
             ),
             TOTTextAtom.titleLarge(text),
             const SizedBox(
@@ -43,7 +43,7 @@ class ProfileItem extends StatelessWidget {
                     width: 50,
                     height: 50,
                     child: Card(
-                      color: AppColors.greenColor,
+                      color: AppColors.pharmacyColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
                             16.0), // Set your desired border radius
@@ -51,6 +51,10 @@ class ProfileItem extends StatelessWidget {
                       child: const Center(
                         child: Text(
                           '0',
+                          style: TextStyle(
+                            color: AppColors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

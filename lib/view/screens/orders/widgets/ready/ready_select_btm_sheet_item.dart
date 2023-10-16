@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/customer_order_models.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 
@@ -17,7 +17,8 @@ class ReadySelectBottomSheetItem extends StatefulWidget {
       _ReadySelectBottomSheetItemState();
 }
 
-class _ReadySelectBottomSheetItemState extends State<ReadySelectBottomSheetItem> {
+class _ReadySelectBottomSheetItemState
+    extends State<ReadySelectBottomSheetItem> {
   bool isSelected = false;
 
   _updateSelected() {
@@ -69,7 +70,7 @@ class _ReadySelectBottomSheetItemState extends State<ReadySelectBottomSheetItem>
                     child: TOTIconButtonAtom.displaySmall(
                       codePoint: isSelected ? 0xf635 : 0xf2e6,
                       iconColor: isSelected
-                          ? AppColors.greenColor
+                          ? AppColors.pharmacyColor
                           : AppColors.blackColor,
                       onPressed: _updateSelected,
                     ),

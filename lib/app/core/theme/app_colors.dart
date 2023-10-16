@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'hex_color.dart';
 
 abstract class AppColors {
   static const white = Colors.white;
@@ -7,9 +8,9 @@ abstract class AppColors {
 
   static const blueColor = Color(0xff03758E);
 
-  static const primaryColor = Colors.greenAccent; //AppColors.greenColor;
+  // static const primaryColor = Colors.greenAccent; //AppColors.greenColor;
 
-  static const greenColor = Color(0xFF83ea00);
+  static final pharmacyColor = HexColor("#59A29E"); //Color(0xFF83ea00);
 
   static const redColor = Color(0xffFF3D00);
 

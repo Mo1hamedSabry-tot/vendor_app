@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/customer_order_models.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/ready/ready_select_btm_sheet_item.dart';
 
@@ -31,7 +31,8 @@ class _ReadyOrderBottomSheetState extends State<ReadyOrderBottomSheet> {
             itemBuilder: (_, index) {
               if (widget.listOfItems[index].status! == 'Accepted') {
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
                   child: ReadySelectBottomSheetItem(
                     itemModel: widget.listOfItems[index],
                   ),
@@ -53,6 +54,7 @@ class _ReadyOrderBottomSheetState extends State<ReadyOrderBottomSheet> {
             backgroundColor: AppColors.redColor,
           ),
         ),
+        const SizedBox(height: 16),
       ],
     );
   }

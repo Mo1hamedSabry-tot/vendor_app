@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/core/utils/show_snack_bar.dart';
-import 'package:vendor_foody/custom/custom_text_form.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/app/core/utils/value_manager.dart/asset_manager.dart';
+import 'package:vendor_foody/app/custom/custom_text_form.dart';
 import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
+
+import '../../../../app/components/tot_logo.dart';
+import '../../../../app/config/routing_helper.dart';
+import '../../../../app/core/utils/value_manager.dart/app_strings.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = 'login';
@@ -22,28 +28,30 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            'assets/image/splash.png',
+            ImgsManager.splash,
             width: MediaQuery.sizeOf(context).width,
             height: MediaQuery.sizeOf(context).height,
             fit: BoxFit.fill,
           ),
-          const Positioned(
+          Positioned(
             top: 50,
             left: 30,
             child: Row(
               children: [
-                TOTAvatarAtom.asset(
-                  'assets/image/logo.png',
-                ),
+                // TOTAvatarAtom.asset(
+                //   ImgsManager.totLogo,
+                // ),
+                TOTLogo(),
                 SizedBox(
                   width: 5,
                 ),
                 Text(
-                  'Foodyman',
+                  AppStrings.appName,
                   style: TextStyle(
-                      color: AppColors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
+                    color: AppColors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
@@ -65,17 +73,17 @@ class LoginScreen extends StatelessWidget {
                     }).then((value) {});
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.greenColor,
+                backgroundColor: AppColors.pharmacyColor,
                 fixedSize: Size(
                   MediaQuery.sizeOf(context).width * 0.9,
                   50,
                 ),
-                // Set the background color here
               ),
               child: const Text(
-                'Login',
+                AppStrings.login,
                 style: TextStyle(
-                  color: AppColors.blackColor,
+                  fontSize: 20,
+                  color: AppColors.white,
                 ),
               ),
             ),
@@ -134,7 +142,10 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
             listener: (context, state) {
               state.maybeWhen(
                 loginSuccess: (model) async {
-                  Navigator.pushNamed(context, LayoutScreen.routeName);
+                  // Navigator.pushReplacementNamed(
+                  //     context, LayoutScreen.routeName);
+                  RoutingHelper.removeAllAndPushNamed(context,
+                      route: LayoutScreen.routeName);
                   ShowSnackbar.showCheckTopSnackBar(context,
                       text: 'You are welcome', type: SnackBarType.success);
                 },
@@ -235,7 +246,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                       ElevatedButton(
                         onPressed: _onPressedMethod,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.greenColor,
+                          backgroundColor: AppColors.pharmacyColor,
                           fixedSize: Size(
                             MediaQuery.sizeOf(context).width * 0.9,
                             50,
@@ -247,8 +258,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                             return const Text(
                               'Login',
                               style: TextStyle(
-                                color: AppColors.blackColor,
-                              ),
+                                  color: AppColors.white, fontSize: 16),
                             );
                           },
                           loadInProgress: () {
@@ -263,13 +273,13 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                           },
                         ),
                       ),
-                      SizedBox(
-                        height: MediaQuery.sizeOf(context).height * 0.03,
-                      ),
-                      const Text(
-                        'demo_login_passoerd',
-                        style: TextStyle(color: Colors.grey),
-                      )
+                      // SizedBox(
+                      //   height: MediaQuery.sizeOf(context).height * 0.03,
+                      // ),
+                      // const Text(
+                      //   'demo_login_passoerd',
+                      //   style: TextStyle(color: Colors.grey),
+                      // )
                     ]),
                   ));
             },

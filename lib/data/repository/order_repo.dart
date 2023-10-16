@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:vendor_foody/core/utils/cache_helper.dart';
+import 'package:vendor_foody/app/core/utils/cache_helper.dart';
 import 'package:vendor_foody/data/models/response/customer_order_models.dart';
 import 'package:vendor_foody/data/network/dio_helper.dart';
 import 'package:vendor_foody/data/network/end_points.dart';
@@ -34,7 +34,6 @@ class OrderRepository {
         token: token,
       ).then((value) {
         orders = CustomerOrderResponse.fromJson(value.data);
-       
       });
     } catch (e) {
       log('getAcceptedOrder cccccccathhhh ${e.toString()}');
@@ -52,7 +51,6 @@ class OrderRepository {
         token: token,
       ).then((value) {
         orders = CustomerOrderResponse.fromJson(value.data);
-        
       });
     } catch (e) {
       log('getReadyOrder cccccccathhhh ${e.toString()}');

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vendor_foody/core/utils/cache_helper.dart';
-import 'package:vendor_foody/providers.dart';
+import 'package:vendor_foody/app/core/utils/cache_helper.dart';
+import 'package:vendor_foody/app/providers.dart';
 import 'package:vendor_foody/view/screens/add_order/add_order.dart';
 import 'package:vendor_foody/view/screens/auth/login/login_screen.dart';
 import 'package:vendor_foody/view/screens/layout/layout_screen.dart';
 import 'package:vendor_foody/view/screens/profile/profile_screen.dart';
 import 'package:vendor_foody/view/screens/test.dart';
+
+import 'core/utils/value_manager.dart/app_strings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,11 +29,13 @@ class MyMaterialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: AppStrings.appName,
       theme: ThemeData(
-          useMaterial3: true,
-          tabBarTheme: const TabBarTheme(
-            indicatorSize: TabBarIndicatorSize.tab,
-          )),
+        useMaterial3: true,
+        tabBarTheme: const TabBarTheme(
+          indicatorSize: TabBarIndicatorSize.tab,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       initialRoute: CacheHelper.get('access_token') != null
           ? LayoutScreen.routeName

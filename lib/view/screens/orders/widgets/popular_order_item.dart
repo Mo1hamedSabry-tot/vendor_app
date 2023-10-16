@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 
 class PopularOrderItem extends StatelessWidget {
@@ -76,7 +76,7 @@ class PopularOrderItem extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color:  AppColors.orangeColor),
+                      color: AppColors.orangeColor),
                   child: const TOTIconWithTextMolecule(
                       codePoint: 0xe03a,
                       text: 'pending',

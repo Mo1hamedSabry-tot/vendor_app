@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/core/utils/cache_helper.dart';
-import 'package:vendor_foody/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/utils/cache_helper.dart';
+import 'package:vendor_foody/app/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/blocs/order/order_bloc.dart';
 import 'package:vendor_foody/view/screens/auth/login/login_screen.dart';
@@ -16,8 +16,9 @@ import 'package:vendor_foody/view/screens/orders/widgets/new/new_bottom_sheet.da
 import 'package:vendor_foody/view/screens/orders/widgets/no_orders.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/ready/ready_bottom_sheet.dart';
 
-import '../../../custom/custom_app_bar.dart';
-import '../../../custom/custom_tab_bar.dart';
+import '../../../app/core/utils/value_manager.dart/app_strings.dart';
+import '../../../app/custom/custom_app_bar.dart';
+import '../../../app/custom/custom_tab_bar.dart';
 
 class OrdersScreen extends StatefulWidget {
   static const String routeName = 'OrdersScreen';
@@ -271,7 +272,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                       suuccessGetOrder: (orders) {
                         if (orders.results!.isEmpty) {
                           return const NoOrders(
-                            text: 'No Order',
+                            text: AppStrings.noOrders,
                           );
                         }
                         return ListView.builder(
@@ -361,7 +362,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                       suuccessGetAcceptedOrder: (orders) {
                         if (orders.results!.isEmpty) {
                           return const NoOrders(
-                            text: 'No Order',
+                            text: AppStrings.noOrders,
                           );
                         }
                         return ListView.builder(
@@ -437,7 +438,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                           suuccessGetreadyOrder: (orders) {
                             if (orders.results!.isEmpty) {
                               return const NoOrders(
-                                text: 'No Order',
+                                text: AppStrings.noOrders,
                               );
                             }
                             return ListView.builder(
@@ -468,7 +469,7 @@ class _OrdersScreenState extends State<OrdersScreen>
                         );
                       }),
                   const NoOrders(
-                    text: 'No Order',
+                    text: AppStrings.noOrders,
                   )
                 ],
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
 
 class BottomNavigatorItem extends StatelessWidget {
   final VoidCallback onTap;
@@ -49,7 +49,7 @@ class BottomNavigatorItem extends StatelessWidget {
               width: 20,
               decoration: BoxDecoration(
                 color: index == currentIndex
-                    ? Colors.green
+                    ? AppColors.pharmacyColor //Colors.green
                     : AppColors.transparent,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(70),

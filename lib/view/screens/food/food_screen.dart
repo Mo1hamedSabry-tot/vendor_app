@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/utils/show_snack_bar.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/auth/auth_bloc.dart';
 import 'package:vendor_foody/view/blocs/category/category_bloc.dart';
@@ -13,7 +13,7 @@ import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
 import 'package:vendor_foody/view/screens/auth/login/login_screen.dart';
 
-import '../../../custom/custom_app_bar.dart';
+import '../../../app/custom/custom_app_bar.dart';
 import 'widget/addons_body.dart';
 import 'widget/category_tab_bar_item.dart';
 import 'widget/food_body.dart';
@@ -71,9 +71,9 @@ class _FoodScreenState extends State<FoodScreen>
 
   @override
   void dispose() {
-    super.dispose();
     _tabController.dispose();
     _scrollController.dispose();
+    super.dispose();
   }
 
   @override

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_remix/flutter_remix.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/custom/custom_drop_down_button.dart';
-import 'package:vendor_foody/custom/custom_text_form.dart';
-import 'package:vendor_foody/custom/custom_toggle.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/custom/custom_drop_down_button.dart';
+import 'package:vendor_foody/app/custom/custom_text_form.dart';
+import 'package:vendor_foody/app/custom/custom_toggle.dart';
 import 'package:vendor_foody/data/models/response/product_model.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_cubit.dart';
 import 'package:vendor_foody/view/blocs/home_cubit/home_product_state.dart';
@@ -80,9 +80,9 @@ class _AddOrderState extends State<AddOrder>
                     padding: const EdgeInsets.all(8.0),
                     child: TabBar(
                       labelColor: AppColors.blackColor,
-                      indicator: const BoxDecoration(
-                        color: AppColors.greenColor,
-                        borderRadius: BorderRadius.all(
+                      indicator: BoxDecoration(
+                        color: AppColors.pharmacyColor,
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(12),
                         ),
                       ),
@@ -277,7 +277,7 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                             ),
                             onChange: (v) {},
                           ),
-                        ], 
+                        ],
                       ),
                       const SizedBox(
                         height: 20,
@@ -288,7 +288,7 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                               text: 'Save',
                               textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor: AppColors.greenColor))
+                              backgroundColor: AppColors.pharmacyColor))
                     ],
                   ),
                 ),

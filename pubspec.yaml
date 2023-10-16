@@ -103,7 +103,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/svg/
-    - assets/image/
+    - assets/images/
     - assets/lottie/
 
 
@@ -111,7 +111,7 @@ flutter_icons:
   android: true
   ios: true
   remove_alpha_ios: true
-  image_path: 'assets/image/manager.png'
+  image_path: 'assets/images/manager.png'
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

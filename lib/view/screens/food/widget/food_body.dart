@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
-import 'package:vendor_foody/core/theme/app_colors.dart';
-import 'package:vendor_foody/core/utils/show_snack_bar.dart';
-import 'package:vendor_foody/custom/custom_text_form.dart';
+import 'package:vendor_foody/app/core/theme/app_colors.dart';
+import 'package:vendor_foody/app/core/utils/show_snack_bar.dart';
+import 'package:vendor_foody/app/custom/custom_text_form.dart';
 import 'package:vendor_foody/data/models/response/list_entires_product_model.dart';
 import 'package:vendor_foody/view/blocs/add_product/add_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/edit_product/edit_product_bloc.dart';
 import 'package:vendor_foody/view/blocs/get_product/get_product_bloc.dart';
 import 'package:vendor_foody/view/screens/orders/widgets/no_orders.dart';
 
-import '../../../../custom/custom_toggle.dart';
+import '../../../../app/custom/custom_toggle.dart';
 import 'popular_food_item.dart';
 
 class FoodBody extends StatelessWidget {
@@ -159,7 +159,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const TOTTextAtom.bodyMedium(
-                    'edit_product',
+                    'edit product',
                     color: AppColors.white,
                   ),
                 ),
@@ -287,7 +287,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                 width: double.infinity,
                                 child: TOTButtonAtom.filledButton(
                                     text: 'Save Edit',
-                                    textColor: AppColors.blackColor,
+                                    textColor: AppColors.white,
                                     onPressed: () {
                                       if (globalKey.currentState!.validate()) {
                                         log("categoreyId in id****::::: ${context.read<AddProductBloc>().categoreyId!}");
@@ -308,7 +308,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                             ));
                                       }
                                     },
-                                    backgroundColor: AppColors.greenColor));
+                                    backgroundColor: AppColors.pharmacyColor));
                           },
                         )
                       ],

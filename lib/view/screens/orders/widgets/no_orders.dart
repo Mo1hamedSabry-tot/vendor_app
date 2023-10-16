@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tot_atomic_design/tot_atomic_design.dart';
 
+import '../../../../app/core/utils/value_manager.dart/asset_manager.dart';
+
 class NoOrders extends StatelessWidget {
   final String text;
   const NoOrders({Key? key, required this.text}) : super(key: key);
@@ -13,7 +15,7 @@ class NoOrders extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const TOTImageAtom.asset(
-            'assets/image/no_orders.png',
+            ImgsManager.noOrders,
             width: 205,
             height: 206,
           ),

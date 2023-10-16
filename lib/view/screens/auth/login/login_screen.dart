@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                     }).then((value) {});
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1476d2),
+                backgroundColor:  AppColors.totColor,
                 fixedSize: Size(
                   MediaQuery.sizeOf(context).width * 0.9,
                   50,
@@ -229,7 +229,7 @@ class _LogInBtmSheetState extends State<_LogInBtmSheet> {
                       ElevatedButton(
                         onPressed: _onPressedMethod,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF1476d2),
+                          backgroundColor:  AppColors.totColor,
                           fixedSize: Size(
                             MediaQuery.sizeOf(context).width * 0.9,
                             50,

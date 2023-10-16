@@ -20,7 +20,7 @@ class CategoryItem extends StatelessWidget {
       onTap: onTab,
       child: Container(
         decoration: BoxDecoration(
-          color: isSelect ? const Color(0xFFff8900) : AppColors.white,
+          color: isSelect ?  AppColors.primaryColor : AppColors.white,
           borderRadius: BorderRadius.circular(10),
         ),
         margin: const EdgeInsets.symmetric(horizontal: 5),

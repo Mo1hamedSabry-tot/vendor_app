@@ -39,7 +39,7 @@ class _CustomToggleState extends State<CustomToggle> {
   Widget build(BuildContext context) {
     return AdvancedSwitch(
       controller: widget.controller,
-      activeColor: const Color(0xFFff8900),
+      activeColor:  AppColors.primaryColor,
       inactiveColor: Colors.red,
       borderRadius: BorderRadius.circular(10),
       width: 70,

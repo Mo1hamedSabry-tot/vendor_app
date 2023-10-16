@@ -386,7 +386,7 @@ class _Header extends SliverPersistentHeaderDelegate {
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: const Color(0xFFff8900),
+          color:  AppColors.primaryColor,
         ),
         labelColor: AppColors.white,
         unselectedLabelColor: const Color(0xFF898989),

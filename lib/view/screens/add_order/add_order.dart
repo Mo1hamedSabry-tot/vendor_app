@@ -81,7 +81,7 @@ class _AddOrderState extends State<AddOrder>
                     child: TabBar(
                       labelColor: AppColors.blackColor,
                       indicator: const BoxDecoration(
-                        color: Color(0xFFff8900),
+                        color: AppColors.primaryColor,
                         borderRadius: BorderRadius.all(
                           Radius.circular(12),
                         ),
@@ -288,7 +288,7 @@ class _OrderPopularBottomSheetState extends State<_OrderPopularBottomSheet> {
                               text: 'Save',
                               textColor: AppColors.blackColor,
                               onPressed: () {},
-                              backgroundColor: const Color(0xFFff8900)))
+                              backgroundColor:  AppColors.primaryColor))
                     ],
                   ),
                 ),

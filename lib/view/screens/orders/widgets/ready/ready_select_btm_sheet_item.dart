@@ -70,7 +70,7 @@ class _ReadySelectBottomSheetItemState
                     child: TOTIconButtonAtom.displaySmall(
                       codePoint: isSelected ? 0xf635 : 0xf2e6,
                       iconColor: isSelected
-                          ? const Color(0xFFff8900)
+                          ?  AppColors.primaryColor
                           : AppColors.blackColor,
                       onPressed: _updateSelected,
                     ),

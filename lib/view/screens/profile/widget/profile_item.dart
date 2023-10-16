@@ -43,7 +43,7 @@ class ProfileItem extends StatelessWidget {
                     width: 50,
                     height: 50,
                     child: Card(
-                      color: const Color(0xFFff8900),
+                      color: AppColors.primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
                             16.0), // Set your desired border radius

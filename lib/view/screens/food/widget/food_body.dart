@@ -354,7 +354,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                             ));
                                       }
                                     },
-                                    backgroundColor: const Color(0xFFff8900)));
+                                    backgroundColor:  AppColors.primaryColor));
                           },
                         )
                       ],

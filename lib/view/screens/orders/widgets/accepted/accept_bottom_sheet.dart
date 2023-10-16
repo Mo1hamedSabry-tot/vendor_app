@@ -52,7 +52,7 @@ class _AcceptedOrderBottomSheetState extends State<AcceptedOrderBottomSheet> {
             textColor: AppColors.white,
             
             onPressed: widget.onTap,
-            backgroundColor: const Color(0xFFff8900),
+            backgroundColor:  AppColors.primaryColor,
           ),
         ),
       ],

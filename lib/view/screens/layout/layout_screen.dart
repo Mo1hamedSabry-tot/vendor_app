@@ -132,7 +132,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 height: 56,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0xFFff8900),
+                  color: AppColors.primaryColor,
                 ),
                 child: TOTIconButtonAtom.displayMedium(
                   codePoint: 0xe047,
@@ -372,7 +372,7 @@ class _FoodBottomSheetState extends State<_FoodBottomSheet> {
                                                 "f5790b39-4fc8-4aad-8318-259d28595f05"));
                                       }
                                     },
-                                    backgroundColor: const Color(0xFFff8900));
+                                    backgroundColor:  AppColors.primaryColor);
                               },
                             )),
                       ],
